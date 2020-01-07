@@ -1,0 +1,27 @@
+sudo: false
+language: node_js
+node_js:
+- stable
+env:
+  global:
+  - BUILD_TIMEOUT=10000
+branches:
+  only:
+  - master
+cache:
+  directories:
+  - node_modules
+install: npm install
+script: npm run export
+deploy:
+  provider: s3
+  access_key_id:
+    secure: X7He7ehIFerU7/niPqqPvOy+7TsgCF9LDa18C8AErrzCUyTfafvCgj0Gp1ntMTrUecbPQj3rynqqhJFryAAVPfpF/s0xiq2MTG3hL/GQxQRVHZvTkJoGg7Gjh70hvJWZBfBcILxVTJK1L/t1DIBWjinTvJiTToXp8tZObAUL+VoBOxlNTS6HUoqzEDLxQ8MqtdtEd3b83s08OnmJPDiE6wijxUSbep+iQJtuy++3iPqBAhS2nre3HaZmlW5sZ4rQiZzXulk1QPUYgjN+YeNhCiv8tQ88erGB0VwVsvGocHLMvzFeI2GIyB5wjrfoQ0XYRYZxknaeCjoSSUBjTGtPTNJAXY5CfpbsCDMVkeBv+FR1uumBJ34WXF4+qF4Dy7rH0vTC8OE9lcsDo9NF+c6KAKa8BiDTITADwRlibGY6nCYcIkaqu6p6zZ3JcVJnj53f4yMXEo4La+ayChcmBgvo8w12XgnHcPuWuW+4WZucStW2FwtP8ariHpf+jJF2/8L41kFENui49UNHeZV4syzsYUvJj1ABP+zgbZHxrf+5bhg+h2PbhTZGI4F/KMrlAqujX+KZHC8zoiWf8sD6vjKasf+czfZ211UQ5njZoqSY+98KxbVkLgealstIlv3a7ccfBIjsEptDPlogsLofM445Gu+CvbPICD30hZIjwY5vLSU=
+  secret_access_key:
+    secure: kvpReGGyBnSWRRkcdTi6uL/EISiCBFDcbWF9fSYifYpr4DYcgPxgk4E++h90fMdUAV/6OOweBZzaDia9NONM1yhgo9dt2Zgjy4TG0qD1OBEFuPkr2RhwJg4Q7jDml1d8MK9jjXHql8cIKtS7q2AGWKBcVfMvUvbyElp/kB1VSwJbjd8OqibWF1jGcoWyQjfOkJmMyhoDtEYbYob++U4pEvzBG/bhnoD98Z3a8xjkL3/tBDjDVFRAs/hm639dgvYprlKbgRj8Nb24UgeAS1hFl3ZBL2xjXSNSqohL/H3gCHGEjrLbx3RfwmLo/ysBlq+a9QIrAjNsOK6uPsDWT0MtP/M1nvDDr8XygO056GwcQUD6P8bH70NU/M3X47ArQlX6SkaWWkCQgBzMfxb8FswZRS6nCmjSmR+9ngnvr/vIaZl2j+Tg8JEvqO9cRG2elMdP2HPPz93FuP1K/5xEI11D3ClGV5dtODeiQ1uGIKw8UpeXFfftVfe4UapaZniXNRY/96cCMGGAFr1bf2umUzOazXxJo3Pn9cyTk0kFfzXqaH9HUIjVQi8QPrjN8G6bduSBqG/Y2rNlRGRD+fWVHMplUw+nhWcQwVks8b/ymW8r4+e/9wrF3/FTSQU3l4FcyoP3TIov0c62/YeodTYiL3phtWUhUdb2zzp8l5iOlVOdgow=
+  bucket: andrew.molyuk.com
+  local-dir: __sapper__/export
+  acl: public_read
+  skip_cleanup: true
+  on:
+    repo: andrewmolyuk/andrew.molyuk.com
