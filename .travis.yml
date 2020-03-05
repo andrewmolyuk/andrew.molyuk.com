@@ -1,16 +1,16 @@
 sudo: false
 language: node_js
 node_js:
-- stable
+  - stable
 env:
   global:
-  - BUILD_TIMEOUT=10000
+    - BUILD_TIMEOUT=10000
 branches:
   only:
-  - master
+    - master
 cache:
   directories:
-  - node_modules
+    - node_modules
 install: npm install
 script: npm run export
 deploy:
