@@ -3,7 +3,7 @@ const OFF = 0,
   ERROR = 2;
 
 module.exports = exports = {
-  extends: ["eslint:recommended", "plugin:import/recommended", "prettier"],
+  extends: ["eslint:recommended", "plugin:import/recommended"],
   parserOptions: {
     ecmaVersion: 2019,
     sourceType: "module"
