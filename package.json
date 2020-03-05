@@ -6,7 +6,8 @@
     "dev": "sapper dev",
     "build": "sapper build --legacy",
     "export": "sapper export --legacy",
-    "start": "node __sapper__/build"
+    "start": "node __sapper__/build",
+    "eslint": "eslint . --ext .js --ext .svelte"
   },
   "dependencies": {
     "compression": "^1.7.4",

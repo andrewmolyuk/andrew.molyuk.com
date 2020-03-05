@@ -12,7 +12,9 @@ cache:
   directories:
     - node_modules
 install: npm install
-script: npm run export
+script:
+  - npm run eslint
+  - npm run export
 deploy:
   provider: s3
   access_key_id:
