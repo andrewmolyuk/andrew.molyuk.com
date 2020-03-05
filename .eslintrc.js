@@ -1,7 +1,3 @@
-const OFF = 0,
-  WARN = 1,
-  ERROR = 2;
-
 module.exports = exports = {
   extends: ["eslint:recommended", "plugin:import/recommended"],
   parserOptions: {
@@ -13,16 +9,7 @@ module.exports = exports = {
     browser: true,
     node: true
   },
-  plugins: ["import", "svelte3"],
-  overrides: [
-    {
-      files: ["**/*.svelte"],
-      processor: "svelte3/svelte3",
-      settings: {
-        "svelte3/ignore-styles": () => true
-      }
-    }
-  ],
+  plugins: ["import"],
   ignorePatterns: ["__sapper__", "node_modules/"],
   rules: {},
   settings: {}
