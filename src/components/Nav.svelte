@@ -55,18 +55,5 @@
     <li>
       <a class:selected="{segment === 'eltrut'}" href="eltrut">eltrut</a>
     </li>
-
-    <!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
-		     the blog data when we hover over the link or tap it on a touchscreen -->
-    <li>
-      <a rel="prefetch" class:selected="{segment === 'blog'}" href="blog">
-        blog
-      </a>
-    </li>
-    <li>
-      <a rel="prefetch" class:selected="{segment === 'blog'}" href="blog">
-        blog
-      </a>
-    </li>
   </ul>
 </nav>
