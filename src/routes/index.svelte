@@ -38,9 +38,7 @@
 
 <svelte:head>
   <title>Andrew Molyuk</title>
-  <script
-    src="https://kit.fontawesome.com/76b83863e9.js"
-    crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/76b83863e9.js" crossorigin="anonymous">
 
   </script>
 </svelte:head>
@@ -50,8 +48,7 @@
 <figure>
   <img alt="Andrew Molyuk" src="avatar-128.png" />
   <p>
-    I'm father of four, happy husband, hands-on development manager, experienced
-    software architect, principal coder, skilled devops and technology guru. I’m
-    not only used to wearing many hats, I sincerely enjoy it.
+    I'm father of four, happy husband, hands-on development manager, experienced software architect, principal coder,
+    skilled devops and technology guru. I’m not only used to wearing many hats, I sincerely enjoy it.
   </p>
 </figure>
