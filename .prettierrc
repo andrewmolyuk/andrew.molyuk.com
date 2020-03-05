@@ -1,8 +1,15 @@
 {
   "printWidth": 120,
-  "svelteSortOrder": "scripts-styles-markup",
   "plugins": ["prettier-plugin-svelte"],
-  "svelteStrictMode": true,
-  "svelteBracketNewLine": true,
-  "svelteAllowShorthand": false
+  "overrides": [
+    {
+      "files": "*.svelte",
+      "options": {
+        "parser": "svelte",
+        "svelteSortOrder": "scripts-styles-markup",
+        "svelteStrictMode": true,
+        "svelteBracketNewLine": true
+      }
+    }
+  ]
 }
