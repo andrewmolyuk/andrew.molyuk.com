@@ -8,7 +8,12 @@
     "export": "sapper export --legacy",
     "start": "node __sapper__/build",
     "eslint": "eslint . --ext .js,.json,.svelte",
-    "prettier": "prettier --write \"{,!(node_modules|__sapper__)/**/}*.{js,json,svelte}\""
+    "prettier": "prettier --write \"{,!(node_modules|__sapper__)/**/}*.{js,json,svelte}\"",
+    "tf:init": "docker run -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION -it --rm -v `pwd`:/workpace -w /workpace hashicorp/terraform:light init .terraform",
+    "tf:fmt": "docker run -it --rm -v `pwd`:/workpace -w /workpace hashicorp/terraform:light fmt .terraform",
+    "tf:validate": "docker run -it --rm -v `pwd`:/workpace -w /workpace hashicorp/terraform:light validate .terraform",
+    "tf:plan": "docker run -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION -it --rm -v `pwd`:/workpace -w /workpace hashicorp/terraform:light plan .terraform",
+    "tf:apply": "docker run -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION -it --rm -v `pwd`:/workpace -w /workpace hashicorp/terraform:light apply -auto-approve .terraform"
   },
   "dependencies": {
     "compression": "^1.7.4",
