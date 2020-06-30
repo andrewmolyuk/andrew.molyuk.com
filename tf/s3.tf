@@ -3,7 +3,5 @@ resource "aws_s3_bucket" "website" {
   acl    = "private"
 
   tags = {
-    Name        = "andrew.molyuk.com"
-    Environment = "production"
-  }
+  Name = "andrew.molyuk.com" }
 }

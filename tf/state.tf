@@ -19,8 +19,7 @@ resource "aws_s3_bucket" "terraform" {
   }
 
   tags = {
-    Name        = "terraform-state-bucket"
-    Environment = "production"
+    Name = "terraform-state-bucket"
   }
 }
 

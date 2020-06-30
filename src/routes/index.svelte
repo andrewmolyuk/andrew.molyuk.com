@@ -1,54 +1,81 @@
-<style lang="scss">
-  @import "../global.scss";
-
-  h1,
-  figure,
-  p {
-    text-align: center;
-    margin: 0 auto;
-  }
-
-  h1 {
-    font-size: 1.8em;
-    font-weight: 400;
-    margin: 0 0 0.5em 0;
-    color: $color;
-  }
-
-  figure {
-    margin: 0 0 1em 0;
-  }
-
-  img {
-    width: 100%;
-    max-width: 128px;
-    margin: 0 0 1em 0;
-  }
-
-  p {
-    margin: 1em auto;
-  }
-
-  @media (min-width: 480px) {
-    h1 {
-      font-size: 3em;
-    }
+<style lang="scss" scoped>
+  #cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 3em;
   }
 </style>
 
 <svelte:head>
-  <title>Andrew Molyuk</title>
-  <script src="https://kit.fontawesome.com/76b83863e9.js" crossorigin="anonymous">
-
-  </script>
+  <title>#info</title>
 </svelte:head>
 
-<h1>Andrew Molyuk</h1>
+<h1>Hi, nice to meet you</h1>
 
-<figure>
-  <img alt="Andrew Molyuk" src="avatar-128.png" />
-  <p>
-    I'm father of four, happy husband, hands-on development manager, experienced software architect, principal coder,
-    skilled devops and technology guru. I’m not only used to wearing many hats, I sincerely enjoy it.
-  </p>
-</figure>
+<div id="cards">
+  <div class="card">
+    <h2>I'm Andrew Molyuk</h2>
+    <p>
+      I am the father of a gang of four, a happy husband, a hands-on development manager, an experienced software
+      architect, a principal coder, a skilled devops and technology guru. I’m not only used to wearing those many hats,
+      I sincerely enjoy it.
+    </p>
+    <p>I have many years of experience leading teams and companies to success.</p>
+  </div>
+  <div class="card">
+    <h2>1997</h2>
+    <p>
+      I joined a mid level Israeli company as developer in database management team to help shape the data and
+      replication processes.
+    </p>
+    <p>
+      It was a very challenging time to work immediatelly after emigrating to sunny Israel, but it was offset by
+      acquaintance with so many professionals who accompany me to this day.
+    </p>
+  </div>
+  <div class="card">
+    <h2>2003</h2>
+    <p>
+      First steps in complex financial systems, telecom solutions and involvement in design and development of huge web
+      platform using data science to improve oncology care in children's departments.
+    </p>
+    <p>
+      I got a very humane experience, we participated in the system deployment and configuration in hospitals and
+      closely communicated with both doctors and children.
+    </p>
+  </div>
+  <div class="card">
+    <h2>2008</h2>
+    <p>
+      I've been working as an architect in a small company that was engaged in managing video assets in the web and had
+      huge ambitions. For a few years we became partners with all Israeli media moguls such as the Ynet, Maariv, Walla,
+      TheMarker, Yellow pages and so on.
+    </p>
+    <p>
+      It was a very interesting and challenging time, especially since the whole system was designed and developed from
+      scratch and I got my first C-level managerial expirience.
+    </p>
+  </div>
+  <div class="card">
+    <h2>2016</h2>
+    <p>
+      It was a time of American TV shows and very hard work. Distributed development teams and local units took all the
+      time. In very short time we created a sophisticated voting system for an ultra-large-scale application that can
+      handle 30 million simultaneous connections at a speed of up to 3 million requests per second. The system performed
+      in US, Brazil, Argentina, Portugal, Indonesia, Israel and Russia.
+    </p>
+    <p>I was also excited to have collaborated with ABC, Disney, Univision and Fusion.</p>
+  </div>
+  <div class="card">
+    <h2>Now</h2>
+    <p>
+      I deeply entered the world of video ads and arbitration. Fully remote development team, about 23 billion
+      aggregated events daily, complicated hiring process, 300 million database entries updated daily, complex
+      decision-making algorithms, more than 250 automatically scalable computing units at peak load and effective
+      business processes automation.
+    </p>
+    <p>Coronola time, quarantine, working from home, new challenges and a lot of fun everyday.</p>
+
+  </div>
+
+</div>
