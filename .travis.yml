@@ -14,7 +14,9 @@ branches:
 cache:
   directories:
     - node_modules
-install: npm install
+install:
+  - npm install -g travis-ci-cloudfront-invalidation
+  - npm install
 script:
   - npm run tf:init
   - npm run tf:apply
@@ -28,3 +30,5 @@ deploy:
   secret_access_key: "$AWS_SECRET_ACCESS_KEY"
   local-dir: __sapper__/export
   skip_cleanup: true
+after_deploy:
+  - travis-ci-cloudfront-invalidation -a $AWS_ACCESS_ID -s $AWS_SECRET_ID -c $CF_ID -i '/*' -b $TRAVIS_BRANCH -p $TRAVIS_PULL_REQUEST -o 'master'
