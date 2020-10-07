@@ -1,6 +1,5 @@
 resource "aws_s3_bucket" "terraform" {
   bucket = "terraform-${data.aws_caller_identity.current.account_id}"
-  region = data.aws_region.current.name
 
   lifecycle {
     prevent_destroy = true

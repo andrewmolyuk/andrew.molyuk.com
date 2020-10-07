@@ -1,48 +1,48 @@
 {
   "name": "andrew.molyuk.com",
-  "description": "Personal website",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "sapper dev",
-    "build": "sapper build --legacy",
-    "export": "sapper export --legacy",
-    "start": "node __sapper__/build",
-    "eslint": "eslint . --ext .js,.json,.svelte",
-    "prettier": "prettier --write \"{,!(node_modules|__sapper__)/**/}*.{js,json,svelte}\"",
-    "tf:init": "docker run -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION -it --rm -v `pwd`:/workpace -w /workpace hashicorp/terraform:light init tf",
-    "tf:fmt": "docker run -it --rm -v `pwd`:/workpace -w /workpace hashicorp/terraform:light fmt tf",
-    "tf:validate": "docker run -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION -it --rm -v `pwd`:/workpace -w /workpace hashicorp/terraform:light validate tf",
-    "tf:plan": "docker run -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION -it --rm -v `pwd`:/workpace -w /workpace hashicorp/terraform:light plan tf",
-    "tf:apply": "docker run -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION -it --rm -v `pwd`:/workpace -w /workpace hashicorp/terraform:light apply -auto-approve tf",
-    "tf:pull": "export && docker pull hashicorp/terraform:light"
-  },
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "compression": "^1.7.4",
-    "polka": "^0.5.2",
-    "sirv": "^1.0.1"
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-helmet": "^6.1.0",
+    "@types/react-router-dom": "^5.1.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-ga": "^3.1.2",
+    "react-helmet": "^6.1.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.3",
+    "styled-components": "^5.2.0",
+    "typescript": "~3.7.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "tf:init": "docker run -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION -it --rm -v `pwd`:/workpace -w /workpace hashicorp/terraform:light init terraform",
+    "tf:fmt": "docker run -it --rm -v `pwd`:/workpace -w /workpace hashicorp/terraform:light fmt terraform",
+    "tf:validate": "docker run -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION -it --rm -v `pwd`:/workpace -w /workpace hashicorp/terraform:light validate terraform",
+    "tf:plan": "docker run -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION -it --rm -v `pwd`:/workpace -w /workpace hashicorp/terraform:light plan terraform",
+    "tf:apply": "docker run -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION -it --rm -v `pwd`:/workpace -w /workpace hashicorp/terraform:light apply -auto-approve terraform",
+    "tf:pull": "docker pull hashicorp/terraform:light"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "devDependencies": {
-    "@babel/core": "^7.10.3",
-    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "@babel/plugin-transform-runtime": "^7.10.3",
-    "@babel/preset-env": "^7.10.3",
-    "@babel/runtime": "^7.10.3",
-    "@rollup/plugin-babel": "^5.0.4",
-    "@rollup/plugin-commonjs": "^13.0.0",
-    "@rollup/plugin-node-resolve": "^8.1.0",
-    "@rollup/plugin-replace": "^2.3.3",
-    "eslint": "^7.3.1",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-json": "^2.1.1",
-    "eslint-plugin-svelte3": "^2.7.3",
-    "node-sass": "^4.14.1",
-    "prettier": "2.0.5",
-    "prettier-plugin-svelte": "^1.1.0",
-    "rollup": "^2.18.1",
-    "rollup-plugin-svelte": "^5.2.3",
-    "rollup-plugin-terser": "^6.1.0",
-    "sapper": "^0.27.16",
-    "svelte": "^3.23.2",
-    "svelte-preprocess": "^3.9.10"
+    "@types/styled-components": "^5.1.3"
   }
 }
