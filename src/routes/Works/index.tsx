@@ -37,20 +37,22 @@ interface ICompany {
 export default function Works() {
   const [companies, setCompanies] = useState<ICompany[]>([]);
   useEffect(() => {
-    fetch("/data/companies.json")
+    fetch("/data/works.json")
       .then((response) => response.json())
       .then((data) => setCompanies(data));
   }, []);
 
   return (
     <div>
-      <h1>I do good things with good people</h1>
-
-      <Title>Hi, nice to meet you</Title>
+      <Title>I do good things with good people</Title>
       <Grid>
         {companies.map((company, i) => (
           <Card key={i}>
-            <CardTitle>{company.title}</CardTitle>
+            <CardTitle>
+              <a href={`/works/${company.title.toLowerCase()}`}>
+                {company.title}
+              </a>
+            </CardTitle>
             {company.text.map((line: string, j) => (
               <p key={j}>{line}</p>
             ))}
