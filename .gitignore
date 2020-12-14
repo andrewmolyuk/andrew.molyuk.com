@@ -26,4 +26,5 @@ yarn-error.log*
 
 # terraform
 .terraform/plugins/
+.terraform/providers/
 .tfstate.backup

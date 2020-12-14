@@ -50,6 +50,17 @@ resource "aws_cloudfront_distribution" "cdn" {
     ssl_support_method       = "sni-only"
   }
 
+  custom_error_response {
+    error_code         = 403
+    response_code      = 200
+    response_page_path = "/index.html"
+  }
+
+  custom_error_response {
+    error_code         = 404
+    response_code      = 200
+    response_page_path = "/index.html"
+  }
 }
 
 resource "aws_cloudfront_origin_access_identity" "origin_access_identity" {
@@ -68,7 +79,7 @@ data "aws_iam_policy_document" "s3_policy" {
 
   statement {
     actions   = ["s3:ListBucket"]
-    resources = ["${aws_s3_bucket.website.arn}"]
+    resources = [aws_s3_bucket.website.arn]
 
     principals {
       type        = "AWS"
