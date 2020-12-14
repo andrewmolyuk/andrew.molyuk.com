@@ -31,11 +31,10 @@ const CardTitle = styled.h2`
 
 interface ICard {
   title: string;
-  p1: string;
-  p2: string;
+  text: [string];
 }
 
-export default function Home() {
+export default function Info() {
   const [cards, setCards] = useState<ICard[]>([]);
   useEffect(() => {
     fetch("/data/info.json")
@@ -47,11 +46,12 @@ export default function Home() {
     <div>
       <Title>Hi, nice to meet you</Title>
       <Grid>
-        {cards.map((card) => (
-          <Card>
+        {cards.map((card, i) => (
+          <Card key={i}>
             <CardTitle>{card.title}</CardTitle>
-            <p>{card.p1}</p>
-            <p>{card.p2}</p>
+            {card.text.map((line: string, j) => (
+              <p key={j}>{line}</p>
+            ))}
           </Card>
         ))}
       </Grid>

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Home() {
+export default function Works() {
   return (
     <div>
       <h1>I do good things with good people</h1>
