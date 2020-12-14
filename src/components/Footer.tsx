@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as HeartIcon } from "../assets/icons/heart.svg";
+import { ReactComponent as HeartIcon } from "../assets/heart.svg";
 import styled from "styled-components";
 
 const FooterGrid = styled.footer`
