@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { loadData } from "../../helpers";
 
 interface ISliderPhoto {
   src: string;
@@ -18,9 +19,7 @@ export default function Novoroll() {
     initState
   );
   useEffect(() => {
-    fetch("/data/works/novoroll.json")
-      .then((response) => response.json())
-      .then((data) => setCompanyDetails(data));
+    loadData("/data/works/novoroll.json", setCompanyDetails);
   }, []);
 
   return (

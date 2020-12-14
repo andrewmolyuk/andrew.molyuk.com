@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { loadData } from "../helpers";
 
 const Grid = styled.div`
   display: grid;
@@ -37,9 +38,7 @@ interface ICard {
 export default function Info() {
   const [cards, setCards] = useState<ICard[]>([]);
   useEffect(() => {
-    fetch("/data/info.json")
-      .then((response) => response.json())
-      .then((data) => setCards(data));
+    loadData("/data/info.json", setCards);
   }, []);
 
   return (

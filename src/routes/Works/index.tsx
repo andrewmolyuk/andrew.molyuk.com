@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { loadData } from "../../helpers";
 
 const Grid = styled.div`
   display: grid;
@@ -37,9 +38,7 @@ interface ICompany {
 export default function Works() {
   const [companies, setCompanies] = useState<ICompany[]>([]);
   useEffect(() => {
-    fetch("/data/works.json")
-      .then((response) => response.json())
-      .then((data) => setCompanies(data));
+    loadData("/data/works.json", setCompanies);
   }, []);
 
   return (
