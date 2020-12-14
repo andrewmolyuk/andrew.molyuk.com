@@ -33,7 +33,7 @@ const Menu = styled.ul`
   }
 `;
 
-export default function App() {
+export default function NavBar() {
   return (
     <Nav>
       <Logo>

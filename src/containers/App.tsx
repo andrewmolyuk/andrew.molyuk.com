@@ -6,7 +6,7 @@ import Novoroll from "../routes/Works/Novoroll";
 import Links from "../routes/Links";
 import NoMatch from "../routes/NoMatch";
 import Footer from "../components/Footer";
-import Nav from "../components/Nav";
+import NavBar from "../components/NavBar";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Route } from "react-router-dom";
 
@@ -14,7 +14,7 @@ export default function App() {
   return (
     <Fragment>
       <Router>
-        <Nav />
+        <NavBar />
         <Switch>
           <Route exact path="/">
             <Info />
