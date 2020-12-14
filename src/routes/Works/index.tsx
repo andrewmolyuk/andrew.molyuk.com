@@ -19,7 +19,7 @@ export default function Home() {
         </div>
         <div className="card">
           <h2>Screenz</h2>
-          <p>...</p>
+          <p>... .</p>
         </div>
         <div className="card">
           <h2>Synerion</h2>
