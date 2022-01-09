@@ -1,0 +1,23 @@
+baseURL = 'http://andrew.molyuk.com/'
+title = '#andrewmolyuk'
+
+[menu]
+    [[menu.main]]
+        name = "Info"
+        url = "/"
+        weight = 1
+    [[menu.main]]
+        name = "Works"
+        url = "/works/"
+        weight = 2
+    [[menu.main]]
+        name = "Links"
+        url = "/links/"
+        weight = 3
+    [[menu.main]]
+        name = "Блог"
+        url = "/blog/"
+        weight = 4
+
+[taxonomies]
+    tag = "tags"

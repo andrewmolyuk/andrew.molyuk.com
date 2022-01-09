@@ -1,0 +1,16 @@
+{{ define "main" }}
+{{ if eq .Section "tags" }}
+<h1 class="title">{{ .Title }}</h1>
+{{else}}
+<h1 class="title">Писанина</h1>
+{{ end }}
+{{ range .Pages.ByPublishDate.Reverse }}
+<p>
+<h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+{{ partial "metadata.html" . }}
+<div class="summary" href="{{ .RelPermalink }}">
+    <p>{{ .Summary }}</p>
+</div>
+</p>
+{{ end }}
+{{ end }}

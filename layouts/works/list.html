@@ -1,0 +1,11 @@
+{{ define "main" }}
+<div>
+    <h1 class="title">Doing good things with good people</h1>
+    {{ range (where .Site.RegularPages "Section" "works").ByParam "weight"}}
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        {{ range .Params.Teaser }}
+        <p>{{ . }}</p>
+        {{ end }}
+    {{ end }}
+</div>
+{{ end }}

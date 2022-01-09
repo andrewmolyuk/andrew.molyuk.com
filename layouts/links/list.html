@@ -1,0 +1,7 @@
+{{ define "main" }}
+<h1 class="title">Useful links</h1>
+{{ range where .Site.RegularPages "Section" "links"}}
+<h3> {{.Params.link}}</h3>
+<p>{{ .Content }}</p>
+{{ end }}
+{{ end }}
