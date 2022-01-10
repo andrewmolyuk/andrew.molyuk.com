@@ -1,11 +1,12 @@
-<noscript>You need to enable JavaScript to run this app.</noscript>
 <header>
     <div class="header-logo"><a href="/">#andrewmolyuk</a></div>
     <div class="header-nav">
         <ul>
             {{ $currentPage := . }}
             {{ range .Site.Menus.main }}
-            {{ $IsMenuActive := or (and (eq .URL "/") ($currentPage.IsHome)) (and (not (eq .URL "/")) (hasPrefix $currentPage.RelPermalink .URL)) }}
+            {{ $IsMenuActive := or (and (eq .URL "/blog/") (hasPrefix $currentPage.RelPermalink "/tags/"))
+                (or (and (eq .URL "/") ($currentPage.IsHome))
+                    (and (not (eq .URL "/")) (hasPrefix $currentPage.RelPermalink .URL))) }}
             <li><a href="{{ .URL }}" class="{{ if $IsMenuActive }} active {{end}}">
                 {{ $text := print .Name | safeHTML }}
                 {{ $text }}

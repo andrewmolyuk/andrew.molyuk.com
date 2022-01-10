@@ -1,5 +1,10 @@
 baseURL = 'http://andrew.molyuk.com/'
 title = '#andrewmolyuk'
+enableRobotsTXT = true
+copyright = 'This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.'
+
+[author]
+    name = 'Andrew Molyuk'
 
 [menu]
     [[menu.main]]
@@ -21,3 +26,15 @@ title = '#andrewmolyuk'
 
 [taxonomies]
     tag = "tags"
+
+[outputs]
+    page = ["HTML"]
+    home = ["HTML", "RSS"]
+    section = ["HTML"]
+    taxonomyTerm = ["HTML"]
+    taxonomy = ["HTML"]
+
+[outputFormats]
+  [outputFormats.RSS]
+    mediatype = "application/rss"
+    baseName = "rss"

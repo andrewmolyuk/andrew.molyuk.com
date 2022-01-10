@@ -1,6 +1,6 @@
 body {
     color: #333333;
-    margin: 0;
+    margin: 0 auto;
     padding: 3em;
     display: grid;
     grid-template-areas:
@@ -11,6 +11,7 @@ body {
     grid-gap: 10px;
     height: 100vh;
     font-family: sans-serif;
+    max-width: 1280px;
 }
 
 ::selection {
@@ -70,4 +71,53 @@ footer {
     padding: 0 0;
     font-size: 3.5em;
     font-weight: 500;
+}
+
+h3 {
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.highlight {
+    padding: 5px 10px;
+    border-radius: 5px;
+    max-width:800px;
+    background-color: #333333;
+}
+
+.highlight pre, .highlight pre span  {
+    background-color: #333333 !important;
+    overflow:auto;
+    max-width:100%;
+}
+
+#content p {
+    line-height: 1.7em;
+}
+
+#content a {
+  color: #337ab7;
+  text-decoration: none;
+}
+
+#content a:hover {
+    text-decoration: underline;
+}
+
+.feather {
+    width: 1em;
+    height: 1em;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+}
+
+p code {
+    color: #c7254e;
+    background-color: #f9f2f4;
+    border-radius: 4px;
+    padding: 2px 4px;
+    font-size:1.2em;
 }
