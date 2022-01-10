@@ -1,4 +1,4 @@
-baseURL = 'http://andrew.molyuk.com/'
+baseURL = 'https://andrew.molyuk.com/'
 title = '#andrewmolyuk'
 enableRobotsTXT = true
 copyright = 'This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.'
