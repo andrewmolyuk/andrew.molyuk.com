@@ -1,7 +1,6 @@
 ---
 title: "Useful links"
 date: 2022-01-10T15:07:07+02:00
-draft: true
 ---
 
 ### AWS

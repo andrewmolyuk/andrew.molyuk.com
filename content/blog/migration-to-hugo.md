@@ -1,7 +1,6 @@
 ---
 title: "Миграция на Hugo"
 date: 2022-01-09T13:50:10+02:00 
-draft: false 
 tags: ["Hugo"]
 ---
 
