@@ -63,6 +63,7 @@ header{
 }
 
 footer {
+    padding: 2em 0;
     display: grid;
     grid-template-columns: 1fr auto;
 }
@@ -174,4 +175,10 @@ p code {
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     grid-gap: 35px;
     align-items: stretch;
+}
+
+.grid > article {
+    padding: 2em;
+    background-color: #fcfcfc;
+    border-radius: 20px;
 }
