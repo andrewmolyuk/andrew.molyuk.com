@@ -178,7 +178,7 @@ p code {
 }
 
 .grid > article {
-    padding: 2em;
+    padding: 0.5em 2em;
     background-color: #fcfcfc;
     border-radius: 20px;
 }
