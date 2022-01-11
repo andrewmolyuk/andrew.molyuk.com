@@ -9,7 +9,7 @@ I am the father of a gang of four, a happy husband, a hands-on development manag
 
 I have many years of experience leading teams and companies to success.
 
-{{< center >}}
-<a href="https://www.linkedin.com/in/andrewmolyuk/"><img src="/img/linkedin.svg" width="32" style="padding:0.5em"></a>
+{{< html >}}
+<a href="https://www.linkedin.com/in/andrewmolyuk/"><img src="/img/linkedin.svg" width="32" style="padding:0.5em 0"></a>
 <a href="https://github.com/andrewmolyuk"><img src="/img/github.svg" width="32" style="padding:0.5em"></a>
-{{< /center >}}
+{{< /html >}}
