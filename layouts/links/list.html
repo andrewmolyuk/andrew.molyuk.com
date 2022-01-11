@@ -1,4 +1,9 @@
 {{ define "main" }}
-<h1 class="title">{{ .Title }}</h1>
-{{ .Content }}
+<div>
+    <h1 class="title">Useful Links</h1>
+    {{ range (where (where .Site.Pages "Section" "links") "Kind" "page").ByTitle }}
+    <h3> {{.Title}}</h3>
+    <p>{{ .Content }}</p>
+    {{ end }}
+</div>
 {{ end }}
