@@ -1,6 +1,7 @@
 ---
 title: "Клава приехала"
 date: 2022-01-11T16:53:24+02:00
+images: ['/img/blog/keychron-k1-se-arrived/6.png']
 
 tags: ["Клавиатура"]
 ---
