@@ -1,7 +1,10 @@
 baseURL = 'https://andrew.molyuk.com/'
 title = '#andrewmolyuk'
+description = 'Andrew and his scribbles'
+images = ['/img/jumbo.jpeg']
 enableRobotsTXT = true
 copyright = 'This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.'
+googleAnalytics = 'UA-2324643-1'
 
 [author]
     name = 'Andrew Molyuk'
