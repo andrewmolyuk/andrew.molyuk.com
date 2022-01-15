@@ -5,3 +5,4 @@ headless: true
 ---
 
 [Standard Go Project Layout](https://github.com/golang-standards/project-layout)
+[Golang Advanced Tutorial](https://golangbyexample.com/golang-comprehensive-tutorial/)
