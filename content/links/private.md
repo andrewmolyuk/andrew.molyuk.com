@@ -5,4 +5,5 @@ headless: true
 ---
 
 [Центр комунального сервісу](https://cks.com.ua/cabinet/objects/) \
-[ГЕРЦ](https://www.gerc.ua/ua/infocenter/)
+[ГЕРЦ](https://www.gerc.ua/ua/infocenter/) \
+[SUREN](https://www.youtube.com/channel/UC47ivpd0OXVq_JOILFW4Ezg)
