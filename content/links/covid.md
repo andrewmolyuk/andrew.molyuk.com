@@ -1,6 +1,7 @@
 ---
 title: "Covid"
 date: 2022-01-11T11:49:22+02:00
+
 headless: true
 ---
 
@@ -8,4 +9,6 @@ headless: true
 [Lists of Countries by Color](https://corona.health.gov.il/en/country-status/) \
 [Worldometers.info : Israel](https://www.worldometers.info/coronavirus/country/israel/) \
 [Пересечение границы Республики Беларусь в условиях COVID](https://gpk.gov.by/covid-19/) \
-[Перечень Минздрава РБ стран «красной зоны»](http://minzdrav.gov.by/ru/dlya-belorusskikh-grazhdan/strany-krasnoy-zony.php)
+[Перечень Минздрава РБ стран «красной зоны»](http://minzdrav.gov.by/ru/dlya-belorusskikh-grazhdan/strany-krasnoy-zony.php) \
+[Possibilities and obligations of foreigners when entering the CZ](https://covid.gov.cz/en/situations/foreigners/possibilities-and-obligations-foreigners-when-entering-cz) \
+[Coronavirus - Information of MoI of the Czech Republic](https://www.mvcr.cz/mvcren/article/coronavirus-information-of-moi.aspx)
