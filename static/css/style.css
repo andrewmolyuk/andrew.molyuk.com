@@ -94,13 +94,8 @@ h3 {
 }
 
 .feather {
-    width: 1em;
-    height: 1em;
-    stroke: currentColor;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    fill: none;
+    width: 0.8em;
+    height: 0.8em;
 }
 
 p code {
@@ -194,3 +189,4 @@ p code {
     padding: 2px 4px;
     font-size: 1em;
 }
+
