@@ -190,3 +190,11 @@ p code {
     font-size: 1em;
 }
 
+.rss {
+    text-decoration: none;
+    color: white;
+    background-color: #f26522;
+    border-radius: 6px;
+    padding: 4px 6px 2px 6px;
+    font-size: 0.75em;
+}
