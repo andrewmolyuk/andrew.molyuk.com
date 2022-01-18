@@ -34,23 +34,22 @@ date: 2022-01-18T14:59:46+02:00
 ```go
 now := time.Now()
 
-// части даты можно тоже вытаскивать как и прежде 
-fmt.Printf("%d-%02d-%02dT%02d:%02d:%02d-00:00\n", now.Year(), now.Month(),
-now.Day(), now.Hour(), now.Minute(), now.Second())
-
-// Форматирование собственно
 fmt.Println(now.Format("2006-01-02 15:04:05"))
-fmt.Println(now.Format("2006-January-02"))
-fmt.Println(now.Format("2006-01-02 3:4:5 pm"))
+fmt.Println(now.Format("January 02, 2006"))
+fmt.Println(now.Format("2006/01/02 3:4:5 PM"))
+
+// части даты можно вытаскивать и строить свой формат
+fmt.Printf("%d-%02d-%02d %02d:%02d:%02d\n", now.Year(), now.Month(),
+now.Day(), now.Hour(), now.Minute(), now.Second())
 ```
 
 Ну и результат на лице:
 
 ```shell
-2022-01-18T17:20:27-00:00
 2022-01-18 17:20:27
-2022-January-18
-2022-01-18 5:20:27 pm
+January 18, 2022
+2022/01/18 5:20:27 PM
+2022-01-18 17:20:27
 ```
 
 Подводя итоги можно сказать, что для человека пришедшего в Go из многих других языков я нашел данный подход очень
