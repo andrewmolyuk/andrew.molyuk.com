@@ -45,7 +45,7 @@ now.Day(), now.Hour(), now.Minute(), now.Second())
 
 Ну и результат на лице:
 
-```
+```shell
 2022-01-18 17:20:27
 January 18, 2022
 2022/01/18 5:20:27 PM
