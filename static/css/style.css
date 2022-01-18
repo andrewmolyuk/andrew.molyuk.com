@@ -198,3 +198,7 @@ p code {
     padding: 4px 6px 2px 6px;
     font-size: 0.75em;
 }
+
+.summary {
+    padding-bottom: 0.1em;
+}
