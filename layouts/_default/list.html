@@ -8,9 +8,10 @@
 <p>
 <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
 {{ partial "metadata.html" . }}
-<div class="summary" href="{{ .RelPermalink }}">
+<div class="summary">
     <p>{{ .Summary }}</p>
 </div>
+<div class="readmore"><a href="{{ .RelPermalink }}">Читать дальше...</a></div>
 </p>
 {{ end }}
 {{ end }}

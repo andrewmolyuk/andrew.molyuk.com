@@ -202,3 +202,7 @@ p code {
 .summary {
     padding-bottom: 0.1em;
 }
+
+.readmore {
+    text-align: right;
+}
