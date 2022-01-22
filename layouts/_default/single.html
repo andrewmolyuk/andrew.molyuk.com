@@ -9,4 +9,23 @@
         crossorigin="anonymous"
         async>
 </script>
+
+
+{{ $currPermalink := .Page.RelPermalink }}
+{{ range (.GetTerms "tags") }}
+{{ $currTag := .LinkTitle }}
+{{ $taggedPages := (index .Site.Taxonomies.tags (lower $currTag)).Pages }}
+{{ if gt (len $taggedPages) 1 }}
+<h3>Похожие заметки</h3>
+<ul>
+    {{ range first 5 ($taggedPages | shuffle) }}
+    {{ if not (eq .RelPermalink $currPermalink) }}
+    <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+    {{ end }}
+    {{ end }}
+</ul>
+{{ end }}
+{{ end }}
+
+
 {{ end }}
