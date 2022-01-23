@@ -10,22 +10,24 @@
         async>
 </script>
 
-
 {{ $currPermalink := .Page.RelPermalink }}
+{{ $similarPages := slice }}
 {{ range (.GetTerms "tags") }}
 {{ $currTag := .LinkTitle }}
-{{ $taggedPages := (index .Site.Taxonomies.tags (lower $currTag)).Pages }}
-{{ if gt (len $taggedPages) 1 }}
+{{ $taggedPages := (index .Site.Taxonomies.tags (replace (lower $currTag) " " "-")).Pages }}
+{{ range $taggedPages }}
+{{ if not (eq .RelPermalink $currPermalink) }}
+{{ $similarPages = $similarPages | append (slice .) }}
+{{ end }}
+{{ end }}
+{{ end }}
+
+{{ if gt (len $similarPages) 0 }}
 <h3>Похожие заметки</h3>
 <ul>
-    {{ range first 5 ($taggedPages | shuffle) }}
-    {{ if not (eq .RelPermalink $currPermalink) }}
+    {{ range first 5 $similarPages | shuffle }}
     <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
-    {{ end }}
     {{ end }}
 </ul>
 {{ end }}
-{{ end }}
-
-
 {{ end }}
