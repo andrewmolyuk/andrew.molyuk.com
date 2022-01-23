@@ -1,6 +1,7 @@
 ---
 title: "Soft Skills"
 date: 2022-01-11T11:46:14+02:00
+
 headless: true
 ---
 
