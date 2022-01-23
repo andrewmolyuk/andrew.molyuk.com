@@ -1,7 +1,7 @@
 ---
 title: "Восстановление помойных стульев"
 images: ['/img/blog/diy-recovery-chair/4.png']
-tags: ["DIY"]
+tags: ["Очумелые ручки"]
 date: 2022-01-23T18:47:48+02:00
 ---
 
