@@ -13,4 +13,5 @@ headless: true
 [Курс по изучению Golang для начинающих](https://golangify.com/go/kurs-izucheniya-golang-dlya-nachinayuschih) \
 [Автоматизация оптимизаций в Go](https://habr.com/ru/company/deliveryclub/blog/646081/) \
 [Делаем асинхронность асинхронной](https://habr.com/ru/post/646073/) \
-[Эффективный Go](https://golang-blog.blogspot.com/p/blog-page_2.html)
+[Эффективный Go](https://golang-blog.blogspot.com/p/blog-page_2.html) \
+[Go в примерах](https://gobyexample.com.ru/)
