@@ -14,4 +14,5 @@ headless: true
 [Автоматизация оптимизаций в Go](https://habr.com/ru/company/deliveryclub/blog/646081/) \
 [Делаем асинхронность асинхронной](https://habr.com/ru/post/646073/) \
 [Эффективный Go](https://golang-blog.blogspot.com/p/blog-page_2.html) \
-[Go в примерах](https://gobyexample.com.ru/)
+[Go в примерах](https://gobyexample.com.ru/) \
+[Awesome Go](https://github.com/avelino/awesome-go)
