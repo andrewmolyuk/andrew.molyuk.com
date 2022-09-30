@@ -18,22 +18,13 @@ googleAnalytics = 'UA-2324643-1'
         name = "Links"
         url = "/links/"
         weight = 2
-    [[menu.main]]
-        name = "Блог"
-        url = "/blog/"
-        weight = 3
 
 [taxonomies]
     tag = "tags"
 
 [outputs]
     page = ["HTML"]
-    home = ["HTML", "RSS"]
+    home = ["HTML"]
     section = ["HTML"]
     taxonomyTerm = ["HTML"]
     taxonomy = ["HTML"]
-
-[outputFormats]
-  [outputFormats.RSS]
-    mediatype = "application/rss"
-    baseName = "rss"

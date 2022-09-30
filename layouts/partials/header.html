@@ -4,8 +4,7 @@
         <ul>
             {{ $currentPage := . }}
             {{ range .Site.Menus.main }}
-            {{ $IsMenuActive := or (and (eq .URL "/blog/") (hasPrefix $currentPage.RelPermalink "/tags/"))
-                (or (and (eq .URL "/") ($currentPage.IsHome))
+            {{ $IsMenuActive := or (or (and (eq .URL "/") ($currentPage.IsHome))
                     (and (not (eq .URL "/")) (hasPrefix $currentPage.RelPermalink .URL))) }}
             <li><a href="{{ .URL }}" class="{{ if $IsMenuActive }} active {{end}}">
                 {{ $text := print .Name | safeHTML }}
