@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+  pre {
+    @apply p-4 shadow-md bg-gray-100 my-6 rounded-md;
+  }
+}

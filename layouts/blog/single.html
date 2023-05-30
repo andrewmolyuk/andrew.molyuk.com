@@ -1,0 +1,20 @@
+{{ define "main" }}
+
+<article class="post">
+  <a href="{{ .Params.Cover.Link }}" target="_blank">
+  <img width="1000" src="{{ .Params.Cover.Image }}" alt="{{ .Params.Cover.Title }}" title="{{ .Params.Cover.Title }}">
+  </a>
+  <h2 class="post-title">
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+  </h2>
+  <p class="post-meta">
+    <time>{{ .Date.Format "January 2, 2006" }}</time>
+    {{ range .Params.tags }}
+    <a href="{{ .Permalink }}">{{ . }}</a>
+    {{ end }}
+  </p>
+  <div>
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}

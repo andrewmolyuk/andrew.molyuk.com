@@ -1,8 +1,10 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
-images:[]
-tags: []
 date: {{ .Date }}
+blog/tags: ["", ""]
+cover: 
+  image: ""
+  title: ""
+  link: ""
+draft: true
 ---
-
-<!--more-->

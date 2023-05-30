@@ -1,30 +1,31 @@
 baseURL = 'https://andrew.molyuk.com/'
+canonicalURL = 'https://andrew.molyuk.com/'
+languageCode = 'ru'
 title = '#andrewmolyuk'
-description = 'Andrew and his scribbles'
-images = ['/img/jumbo.jpeg']
+license = 'CC BY-SA 4.0'
+
 enableRobotsTXT = true
-copyright = 'This work is licensed under a MIT License.'
-googleAnalytics = 'UA-2324643-1'
+enableSitemapXML = true
 
 [author]
-    name = 'Andrew Molyuk'
+	name = 'Andrew Molyuk'
+	email = 'andrew@molyuk.com'
 
-[menu]
-    [[menu.main]]
-        name = "Info"
-        url = "/"
-        weight = 1
-    [[menu.main]]
-        name = "Links"
-        url = "/links/"
-        weight = 2
+[params]
+	description = 'Мой персональный сайт с блогом, где я пишу о технических и не только темах, open-source проектах, а также делюсь советами и новостями.'
+	keywords = 'Технологии,Программирование,Электроника,Личное развитие,Продуктивность,Блог,Статьи,Руководства,Советы'
 
 [taxonomies]
-    tag = "tags"
+	tag = 'blog/tags'
 
 [outputs]
-    page = ["HTML"]
-    home = ["HTML"]
-    section = ["HTML"]
-    taxonomyTerm = ["HTML"]
-    taxonomy = ["HTML"]
+	page = ['HTML']
+	home = ['HTML']
+	section = ['HTML', 'RSS']
+	taxonomy = ['HTML']
+	term = ['HTML']
+
+[outputFormats]
+	[outputFormats.RSS]
+		mediatype = "application/rss"
+		baseName = "rss"

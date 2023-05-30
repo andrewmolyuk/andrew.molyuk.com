@@ -1,33 +1,6 @@
 {{ define "main" }}
-<h1 class="title">{{ .Title }}</h1>
-{{ partial "metadata.html" . }}
+
+<h1 class="title">{{.Title}}</h1>
 {{ .Content }}
-<script src="https://utteranc.es/client.js"
-        repo="andrewmolyuk/andrew.molyuk.com"
-        issue-term="pathname"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
 
-{{ $currPermalink := .Page.RelPermalink }}
-{{ $similarPages := slice }}
-{{ range (.GetTerms "tags") }}
-{{ $currTag := .LinkTitle }}
-{{ $taggedPages := (index .Site.Taxonomies.tags (replace (lower $currTag) " " "-")).Pages }}
-{{ range $taggedPages }}
-{{ if not (eq .RelPermalink $currPermalink) }}
-{{ $similarPages = $similarPages | append (slice .) }}
-{{ end }}
-{{ end }}
-{{ end }}
-
-{{ if gt (len $similarPages) 0 }}
-<h3>Похожие заметки</h3>
-<ul>
-    {{ range first 5 $similarPages | shuffle }}
-    <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
-    {{ end }}
-</ul>
-{{ end }}
 {{ end }}

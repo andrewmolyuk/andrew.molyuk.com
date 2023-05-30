@@ -1,0 +1,14 @@
+{{ define "main" }}
+<h1 class="title">{{ .Title }}</h1>
+{{ range .Pages.ByPublishDate.Reverse }}
+<p>
+    {{ if .Params.Image }}
+    <img src="{{ .RelPermalink }}{{ .Params.Image }}" alt="{{ .Title }}" class="featured-image" style="max-width: 160px">
+    {{ end }}<h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+<div class="summary">
+    <p>{{ .Summary }}</p>
+</div>
+<div class="readmore"><a href="{{ .RelPermalink }}">Read more...</a></div>
+</p>
+{{ end }}
+{{ end }}

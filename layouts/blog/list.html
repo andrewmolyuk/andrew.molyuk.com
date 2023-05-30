@@ -1,0 +1,24 @@
+{{ define "main" }}
+
+<main>
+  <h1 class="title">
+    {{ if eq .Section "tags" }}{{ .Title }}{{else}}Блог{{ end }}</h1>
+  </h1>
+  {{ range .Pages.ByPublishDate.Reverse }}
+  <article class="post">
+    <h2 class="post-title">
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </h2>
+    <p class="post-meta">
+      <time>{{ .Date.Format "January 2, 2006" }}</time>
+      {{ range .Params.tags }}
+      <a href="{{ .Permalink }}">{{ . }}</a>
+      {{ end }}
+    </p>
+    <div class="post-summary">
+      {{ .Summary }}
+    </div>
+  </article>
+  {{ end }}
+</main>
+{{ end }}
