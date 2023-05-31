@@ -1,11 +1,11 @@
 {
   "*.md": [
-    "npx remark --frail ."
+    "npx remark --frail --quiet ."
   ],
   "*.{css,scss}": [
-    "npx stylelint"
+    "npx stylelint --quiet"
   ],
-  "*.{js}": [
-    "npx eslint"
+  "*.js": [
+    "npx eslint --quiet"
   ]
 }

@@ -153,14 +153,12 @@ npm install husky --save-dev
 npm install lint-staged --save-dev
 ```
 
-Затем я добавил `.huskyrc` файл в корень проекта:
+Теперь мы можем установить hook, который будет запускать линтеры при каждом коммите в репозиторий:
 
-```json
-{
-  "hooks": {
-    "pre-commit": "lint-staged"
-  }
-}
+```shell
+npm pkg set scripts.prepare="husky install"
+npm run prepare
+npx husky add .husky/pre-commit "npx lint-staged"
 ```
 
 Нам также нужно добавить конфигурационный файл `.lintstagedrc` в корень проекта:
@@ -168,13 +166,13 @@ npm install lint-staged --save-dev
 ```json
 {
   "*.md": [
-    "npx remark --frail ."
+    "npx remark --quiet --frail"
   ],
   "*.{css,scss}": [
-    "npx stylelint"
+    "npx stylelint --quiet"
   ],
-  "*.{js}": [
-    "npx eslint"
+  "*.js}": [
+    "npx eslint --quiet"
   ]
 }
 ```
