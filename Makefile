@@ -8,5 +8,6 @@ dev:
 
 .PHONY: lint
 lint:
-	remark . --quiet --frail
-	eslint .
+	npx remark . --quiet --frail
+	npx eslint . --quiet
+	npx stylelint "**/*.{css,scss}" --quiet
