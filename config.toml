@@ -6,6 +6,7 @@ license = 'MIT'
 
 enableRobotsTXT = true
 enableSitemapXML = true
+googleAnalytics = 'G-J9DSCZ2KKH'
 
 [author]
 	name = 'Andrew Molyuk'
