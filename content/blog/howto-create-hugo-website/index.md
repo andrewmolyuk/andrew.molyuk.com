@@ -6,7 +6,7 @@ cover:
   image: "18696821654_7a2a7e8928_o.jpg"
   title: "Chantier construction d'Etat : cite des abattoirs"
   link: "https://nos.twnsnd.co/post/167378783999/chantier-construction-detat-cite-des-abattoirs"
-draft: true
+draft: false
 ---
 
 Для написания своих статей я использую [Hugo](https://gohugo.io/), который является одним из самых популярных

@@ -6,7 +6,7 @@ cover:
   image: "26544178978_681bbd390c_o.jpg"
   title: "Movietone news field staff Sydney, 1938"
   link: "https://nos.twnsnd.co/post/184320358303/movietone-news-field-staff-sydney-1938"
-draft: true
+draft: false
 ---
 
 В [предыдущей статье](/blog/howto-create-hugo-website/) я рассказал, как я создал свой сайт на Hugo и оптимизировал его
