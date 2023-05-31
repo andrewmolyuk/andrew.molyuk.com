@@ -9,5 +9,5 @@ dev:
 .PHONY: lint
 lint:
 	npx remark . --quiet --frail
-	npx eslint . --quiet
+	npx eslint "**/*.js" --quiet
 	npx stylelint "**/*.{css,scss}" --quiet
