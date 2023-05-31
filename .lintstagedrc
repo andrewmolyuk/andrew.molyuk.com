@@ -1,0 +1,11 @@
+{
+  "*.md": [
+    "npx remark --frail ."
+  ],
+  "*.{css,scss}": [
+    "npx stylelint"
+  ],
+  "*.{js}": [
+    "npx eslint"
+  ]
+}
