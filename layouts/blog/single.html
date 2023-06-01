@@ -4,10 +4,9 @@
 
     {{ $image := (.Resources.Get .Params.Cover.Image).Crop "1600x400 webp" }}
     <img src="{{ $image.RelPermalink }}" class="hidden w-full shadow-lg rounded-lg md:block" alt="{{ .Params.Cover.Title }}" loading="lazy"/>
-    <a class="hidden text-right md:block text-sm text-red-700 mb-6" target="_blank" href="{{ .Params.Cover.Link }}">{{ .Params.Cover.Title }}</a>
+    <a class="hidden text-right md:block text-sm text-red-700 mt-1 mb-6" target="_blank" href="{{ .Params.Cover.Link }}">{{ .Params.Cover.Title }}</a>
 
-
-    <h1 class="font-bold text-3xl mb-4">{{ .Title }}</h1>
+    <h1>{{ .Title }}</h1>
 
     {{- partial "tags.html" . -}}
 
@@ -26,14 +25,15 @@
     {{ end }}
 
     {{ if gt (len $similarPages) 0 }}
-    <h3 class="text-cyan-800">Similar articles</h3>
-    <ul>
+    <h3 class="mt-12">Similar articles</h3>
+    <ul class="list-disc list-inside">
       {{ range first 5 ($similarPages | uniq) | shuffle }}
-      <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+      <li><a class="text-red-800 hover:text-red-700 underline" href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
       {{ end }}
     </ul>
     {{ end }}
 
+    <h3>Comments</h3>
     <div id="cusdis_thread"
          data-host="https://cusdis.com"
          data-app-id="1bc4d68d-135f-4576-b476-ca6bc6f42586"
