@@ -1,0 +1,82 @@
+{{- $page := . }}
+
+{{- if gt $page.Paginator.TotalPages 1 }}
+<div class="flex justify-center">
+    <ul class="list-style-none flex">
+        {{- partial "partials/inline/pagination/default" $page }}
+    </ul>
+</div>
+{{- end }}
+
+{{/* Format: default
+{{/* --------------------------------------------------------------------- */}}
+{{- define "partials/inline/pagination/default" }}
+{{- with .Paginator }}
+{{- $currentPageNumber := .PageNumber }}
+
+{{- with .First }}
+{{- if ne $currentPageNumber .PageNumber }}
+<li>
+    <a href="{{ .URL }}" aria-label="First" class="relative block rounded-full bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100">First</a>
+</li>
+{{- else }}
+<li class="page-item">
+    <a aria-disabled="true" aria-label="First" class="pointer-events-none relative block rounded-full bg-transparent px-3 py-1.5 text-sm text-neutral-400 transition-all duration-300">First</a>
+</li>
+{{- end }}
+{{- end }}
+
+{{- with .Prev }}
+<li>
+    <a href="{{ .URL }}" aria-label="Previous" class="relative block rounded-full bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100">Previous</a>
+</li>
+{{- else }}
+<li class="page-item">
+    <a aria-disabled="true" aria-label="Previous" class="pointer-events-none relative block rounded-full bg-transparent px-3 py-1.5 text-sm text-neutral-400 transition-all duration-300">Previous</a>
+</li>
+{{- end }}
+
+{{- $slots := 5 }}
+{{- $start := math.Max 1 (sub .PageNumber (math.Floor (div $slots 2))) }}
+{{- $end := math.Min .TotalPages (sub (add $start $slots) 1) }}
+{{- if lt (add (sub $end $start) 1) $slots }}
+{{- $start = math.Max 1 (add (sub $end $slots) 1) }}
+{{- end }}
+
+{{- range $k := seq $start $end }}
+{{- if eq $.Paginator.PageNumber $k }}
+<li aria-current="page">
+    <a href="#!" aria-current="page" aria-label="Page {{ $k }}" class="relative block rounded-full bg-red-50 px-3 py-1.5 text-sm font-medium text-red-700 transition-all duration-300">{{ $k }}
+        <span class="absolute -m-px h-px w-px overflow-hidden whitespace-nowrap border-0 p-0 [clip:rect(0,0,0,0)]">(current)</span>
+    </a>
+</li>
+{{- else }}
+<li>
+    <a href="{{ (index $.Paginator.Pagers (sub $k 1)).URL }}" aria-label="Page {{ $k }}" class="relative block rounded-full bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100">{{ $k }}</a>
+</li>
+{{- end }}
+{{- end }}
+
+{{- with .Next }}
+<li>
+    <a href="{{ .URL }}" aria-label="Next" class="relative block rounded-full bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100">Next</a>
+</li>
+{{- else }}
+<li>
+    <a aria-disabled="true" aria-label="Next" class="pointer-events-none relative block rounded-full bg-transparent px-3 py-1.5 text-sm text-neutral-400 transition-all duration-300">Next</a>
+</li>
+{{- end }}
+
+{{- with .Last }}
+{{- if ne $currentPageNumber .PageNumber }}
+<li class="page-item px-3">
+    <a href="{{ .URL }}" aria-label="Last" class="relative block rounded-full bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100">Last</a>
+</li>
+{{- else }}
+<li class="page-item px-3 disabled text-gray-800">
+    <a aria-disabled="true" aria-label="Last" class="pointer-events-none relative block rounded-full bg-transparent px-3 py-1.5 text-sm text-neutral-400 transition-all duration-300">Last</a>
+</li>
+{{- end }}
+{{- end }}
+{{- end }}
+{{- end -}}

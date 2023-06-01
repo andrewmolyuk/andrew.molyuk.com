@@ -1,0 +1,9 @@
+<svg width="250px" height="216px" viewBox="0 0 250 216" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Slice</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2" transform="translate(-0.199444, 0.000000)">
+            <polygon id="Path" fill="#A50202" points="125 -2.27251833e-14 250.294501 215.995136 207.081675 215.995136 125 73.9284411 116.998579 87.8120124 89.5089535 61.2945391"></polygon>
+            <polygon id="Path" fill="#000000" transform="translate(73.874236, 147.595234) scale(1, -1) translate(-73.874236, -147.595234) " points="125 119.800144 147.748472 141.430826 128.238709 174.863663 125 171.744129 79.1674571 215.995054 -1.2656721e-14 79.1953319 43.2128266 79.1953319 87.4298731 156.000691"></polygon>
+        </g>
+    </g>
+</svg>

@@ -1,7 +1,7 @@
 ---
 title: "Публикуем Hugo сайт с Guthub Actions"
 date: 2023-05-31T15:25:58+03:00
-blog/tags: [ "", "" ]
+blog/tags: [ "hugo", "деплой", "github", "ci/cd" ]
 cover:
   image: "14192638753_bc64226378_o.jpg"
   title: "BRAKEMAN, FREIGHT CAR T&NO 47429, SOUTHERN PACIFIC RAILROAD COMPANY"

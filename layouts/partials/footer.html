@@ -1,3 +1,8 @@
-<footer>
-    <div>&copy; {{ now.Format "2006"}} Андрей Молюк</div>
+<footer class="bg-neutral-200 text-center dark:bg-neutral-700 lg:text-left">
+    <div class="p-4 text-center text-neutral-700 dark:text-neutral-200">
+        © {{ now.Format "2006"}} Andrew Molyuk &middot; Some rights reserved
+    </div>
 </footer>
+<!-- ../../node_modules/tw-elements/dist/js/tw-elements.umd.min.js -->
+{{ $js := resources.Get "js/tw-elements.umd.min.js" | minify | fingerprint | resources.PostProcess }}
+<script type="text/javascript" src="{{ $js.Permalink }}"></script>

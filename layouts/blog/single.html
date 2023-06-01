@@ -1,20 +1,46 @@
 {{ define "main" }}
+<main class="container my-24 px-6 mx-auto">
+  <section class="mb-32 text-gray-800">
 
-<article class="post">
-  <a href="{{ .Params.Cover.Link }}" target="_blank">
-  <img width="1000" src="{{ .Params.Cover.Image }}" alt="{{ .Params.Cover.Title }}" title="{{ .Params.Cover.Title }}">
-  </a>
-  <h2 class="post-title">
-    <a href="{{ .Permalink }}">{{ .Title }}</a>
-  </h2>
-  <p class="post-meta">
-    <time>{{ .Date.Format "January 2, 2006" }}</time>
-    {{ range .Params.tags }}
-    <a href="{{ .Permalink }}">{{ . }}</a>
-    {{ end }}
-  </p>
-  <div>
+    {{ $image := ((.Resources.Get .Params.Cover.Image).Crop "1600x1000 q90 jpg").Resize "1000x webp" }}
+    <img src="{{ $image.RelPermalink }}" class="w-full shadow-lg rounded-lg mb-6" alt="{{ .Params.Cover.Title }}" loading="lazy"/>
+
+    <h1 class="font-bold text-3xl mb-4">{{ .Title }}</h1>
+
+    {{- partial "tags.html" . -}}
+
     {{ .Content }}
-  </div>
-</article>
+
+    {{ $currPermalink := .Page.RelPermalink }}
+    {{ $similarPages := slice }}
+    {{ range (.GetTerms "blog/tags") }}
+    {{ $currTag := .LinkTitle }}
+    {{ $taggedPages := (index .Site.Taxonomies "blog/tags" (replace (lower $currTag) " " "-")).Pages }}
+    {{ range $taggedPages }}
+    {{ if not (eq .RelPermalink $currPermalink) }}
+    {{ $similarPages = $similarPages | append (slice .) }}
+    {{ end }}
+    {{ end }}
+    {{ end }}
+
+    {{ if gt (len $similarPages) 0 }}
+    <h3 class="text-cyan-800">Similar articles</h3>
+    <ul>
+      {{ range first 5 ($similarPages | uniq) | shuffle }}
+      <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+      {{ end }}
+    </ul>
+    {{ end }}
+
+    <div id="cusdis_thread"
+         data-host="https://cusdis.com"
+         data-app-id="074a5f19-8026-49b4-b721-300385445e62"
+         data-page-id="{{ .File.UniqueID }}"
+         data-page-url="{{ .Permalink }}"
+         data-page-title="{{ .Title }}"
+    ></div>
+    <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
+  </section>
+</main>
 {{ end }}

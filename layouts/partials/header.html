@@ -1,8 +1,103 @@
-<header>
-  <nav>
-    <ul>
-      <li><a href="/">Главная</a></li>
-      <li><a href="/blog">Блог</a></li>
-    </ul>
-  </nav>
-</header>
+<!-- Main navigation container -->
+<nav
+        class="flex-no-wrap relative flex w-full items-center justify-between bg-neutral-100 py-2 shadow-md shadow-black/5 dark:bg-neutral-600 dark:shadow-black/10 lg:flex-wrap lg:justify-start lg:py-4"
+        data-te-navbar-ref>
+    <div class="flex w-full flex-wrap items-center justify-between px-3">
+        <!-- Hamburger button for mobile view -->
+        <button
+                class="block border-0 bg-transparent px-2 text-neutral-500 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden"
+                type="button"
+                data-te-collapse-init
+                data-te-target="#navbarSupportedContent1"
+                aria-controls="navbarSupportedContent1"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <!-- Hamburger icon -->
+            <span class="[&>svg]:w-7">
+        <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="h-7 w-7">
+          <path
+                  fill-rule="evenodd"
+                  d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
+                  clip-rule="evenodd"/>
+        </svg>
+      </span>
+        </button>
+
+        <!-- Collapsible navigation container -->
+        <div class="!visible hidden flex-grow basis-[100%] items-center lg:!flex lg:basis-auto"
+             id="navbarSupportedContent1" data-te-collapse-item>
+            <!-- Logo -->
+            <a class="mb-4 mr-2 mt-3 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mb-0 lg:mt-0"
+               href="/">
+                <svg height="24px" viewBox="0 0 250 216" xmlns="http://www.w3.org/2000/svg">
+                    <title>#andrewmolyuk</title>
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="Group-2" transform="translate(-0.199444, 0.000000)">
+                            <polygon id="Path" fill="#A50202"
+                                     points="125 -2.27251833e-14 250.294501 215.995136 207.081675 215.995136 125 73.9284411 116.998579 87.8120124 89.5089535 61.2945391"></polygon>
+                            <polygon id="Path" fill="#000000"
+                                     transform="translate(73.874236, 147.595234) scale(1, -1) translate(-73.874236, -147.595234) "
+                                     points="125 119.800144 147.748472 141.430826 128.238709 174.863663 125 171.744129 79.1674571 215.995054 -1.2656721e-14 79.1953319 43.2128266 79.1953319 87.4298731 156.000691"></polygon>
+                        </g>
+                    </g>
+                </svg>
+            </a>
+            <!-- Left navigation links -->
+            <ul
+                    class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row"
+                    data-te-navbar-nav-ref>
+
+                <!-- Projects link -->
+                <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+                    <a
+                            class="text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                            href="/projects"
+                            data-te-nav-link-ref
+                    >Projects</a
+                    >
+                </li>
+                <!-- Blog link -->
+                <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+                    <a
+                            class="text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                            href="/blog"
+                            data-te-nav-link-ref
+                    >Блог</a
+                    >
+                </li>
+                <!-- About link -->
+                <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+                    <a
+                            class="text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                            href="/projects"
+                            data-te-nav-link-ref
+                    >About</a
+                    >
+                </li>
+            </ul>
+        </div>
+
+        <!-- Right elements -->
+        <div class="relative flex items-center">
+            <!-- GitHub Icon -->
+            <a
+                    class="mr-4 text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                    href="https://github.com/andrewmolyuk/andrew.molyuk.com">
+
+                <svg height="24px" viewBox="0 0 98 96" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                     xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="github-mark" fill="#24292F">
+                            <path d="M48.854,0 C21.839,0 0,22 0,49.217 C0,70.973 13.993,89.389 33.405,95.907 C35.832,96.397 36.721,94.848 36.721,93.545 C36.721,92.404 36.641,88.493 36.641,84.418 C23.051,87.352 20.221,78.551 20.221,78.551 C18.037,72.847 14.801,71.381 14.801,71.381 C10.353,68.366 15.125,68.366 15.125,68.366 C20.059,68.692 22.648,73.418 22.648,73.418 C27.015,80.914 34.052,78.796 36.883,77.492 C37.287,74.314 38.582,72.114 39.957,70.892 C29.118,69.751 17.714,65.514 17.714,46.609 C17.714,41.231 19.654,36.831 22.728,33.409 C22.243,32.187 20.544,27.134 23.214,20.371 C23.214,20.371 27.339,19.067 36.64,25.423 C40.6220889,24.3456626 44.7287526,23.7976143 48.854,23.793 C52.979,23.793 57.184,24.364 61.067,25.423 C70.369,19.067 74.494,20.371 74.494,20.371 C77.164,27.134 75.464,32.187 74.979,33.409 C78.134,36.831 79.994,41.231 79.994,46.609 C79.994,65.514 68.59,69.669 57.67,70.892 C59.45,72.44 60.986,75.373 60.986,80.018 C60.986,86.618 60.906,91.915 60.906,93.544 C60.906,94.848 61.796,96.397 64.222,95.908 C83.634,89.388 97.6272183,70.973 97.6272183,49.217 C97.707,22 75.788,0 48.854,0 Z"
+                                  id="Path"></path>
+                        </g>
+                    </g>
+                </svg>
+            </a>
+        </div>
+    </div>
+</nav>

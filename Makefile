@@ -1,6 +1,8 @@
 .PHONY: build
 build:
 	hugo --gc --minify --cleanDestinationDir
+	find public/blog -type f -name '*.jpg' -delete
+	find public/blog -type f -name '*.png' -delete
 
 .PHONY: dev
 dev:

@@ -1,7 +1,7 @@
 ---
 title: "Добавляем линтеры к Hugo"
 date: 2023-05-31T09:07:20+03:00
-blog/tags: [ "hugo", "сайт", "линтеры", "валидация", "исходный код", "stylelint", "eslint", "конфигурация", "ошибки", "remark-lint" ]
+blog/tags: [ "hugo", "stylelint", "eslint", "remark-lint" ]
 cover:
   image: "26544178978_681bbd390c_o.jpg"
   title: "Movietone news field staff Sydney, 1938"
