@@ -4,7 +4,7 @@ date: 2023-05-31T15:25:58+03:00
 blog/tags: [ "hugo", "деплой", "github", "ci/cd" ]
 cover:
   image: "14192638753_bc64226378_o.jpg"
-  title: "BRAKEMAN, FREIGHT CAR T&NO 47429, SOUTHERN PACIFIC RAILROAD COMPANY"
+  title: "Brakeman, Freight car T&NO 47429, Southern Pacific railroad company"
   link: "https://nos.twnsnd.co/post/107017055000/brakeman-freight-car-tno-47429-southern"
 draft: false
 ---
