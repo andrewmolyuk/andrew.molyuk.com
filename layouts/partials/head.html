@@ -1,24 +1,28 @@
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  {{ $title := print .Site.Title " | " .Title }}
-  {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
-  <title>{{ $title }}</title>
-  {{ with .OutputFormats.Get "rss" -}}
-  {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
-  {{ end -}}
-  <link rel="icon" href="/favicon.svg">
-
-  {{ $styles := resources.Get "css/styles.scss" | toCSS | postCSS }}
-  {{ if .Site.IsServer }}
-  <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
-  {{ else }}
-  {{ $styles := $styles | minify | fingerprint | resources.PostProcess }}
-  <link rel="preload" href="{{ $styles.RelPermalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}"></noscript>
-  {{ end }}
-  {{ if not .Site.IsServer }}
-  {{ template "_internal/google_analytics.html" . }}
-  {{ end }}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    {{ $title := print .Site.Title " | " .Title }}
+    {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
+    <title>{{ $title }}</title>
+    {{ with .OutputFormats.Get "rss" -}}
+    {{ printf `
+    <link rel="%s" type="%s" href="%s" title="%s"/>
+    ` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+    {{ end -}}
+    <link rel="icon" type="image/svg+xml"
+          href="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg viewBox='0 0 250 216' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3ESlice%3C/title%3E%3Cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='Group-2' transform='translate(-0.199444, 0.000000)'%3E%3Cpolygon id='Path' fill='%23A50202' points='125 -2.27251833e-14 250.294501 215.995136 207.081675 215.995136 125 73.9284411 116.998579 87.8120124 89.5089535 61.2945391'%3E%3C/polygon%3E%3Cpolygon id='Path' fill='%23878787' transform='translate(73.874236, 147.595234) scale(1, -1) translate(-73.874236, -147.595234) ' points='125 119.800144 147.748472 141.430826 128.238709 174.863663 125 171.744129 79.1674571 215.995054 -1.2656721e-14 79.1953319 43.2128266 79.1953319 87.4298731 156.000691'%3E%3C/polygon%3E%3C/g%3E%3C/g%3E%3C/svg%3E"/>
+    {{ $styles := resources.Get "css/styles.scss" | toCSS | postCSS }}
+    {{ if .Site.IsServer }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+    {{ else }}
+    {{ $styles := $styles | minify | fingerprint | resources.PostProcess }}
+    <link rel="preload" href="{{ $styles.RelPermalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+    </noscript>
+    {{ end }}
+    {{ if not .Site.IsServer }}
+    {{ template "_internal/google_analytics.html" . }}
+    {{ end }}
 </head>
