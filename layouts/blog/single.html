@@ -2,8 +2,10 @@
 <main class="container my-24 px-6 mx-auto">
   <section class="mb-32 text-gray-800">
 
-    {{ $image := ((.Resources.Get .Params.Cover.Image).Crop "1600x1000 q90 jpg").Resize "1000x webp" }}
-    <img src="{{ $image.RelPermalink }}" class="w-full shadow-lg rounded-lg mb-6" alt="{{ .Params.Cover.Title }}" loading="lazy"/>
+    {{ $image := (.Resources.Get .Params.Cover.Image).Crop "1600x400 webp" }}
+    <img src="{{ $image.RelPermalink }}" class="hidden w-full shadow-lg rounded-lg md:block" alt="{{ .Params.Cover.Title }}" loading="lazy"/>
+    <a class="hidden text-right md:block text-sm text-red-700 mb-6" target="_blank" href="{{ .Params.Cover.Link }}">{{ .Params.Cover.Title }}</a>
+
 
     <h1 class="font-bold text-3xl mb-4">{{ .Title }}</h1>
 
@@ -34,7 +36,7 @@
 
     <div id="cusdis_thread"
          data-host="https://cusdis.com"
-         data-app-id="074a5f19-8026-49b4-b721-300385445e62"
+         data-app-id="1bc4d68d-135f-4576-b476-ca6bc6f42586"
          data-page-id="{{ .File.UniqueID }}"
          data-page-url="{{ .Permalink }}"
          data-page-title="{{ .Title }}"
