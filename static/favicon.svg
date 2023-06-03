@@ -5,16 +5,12 @@
                 fill: #A5AEBD;
                 stroke: #A5AEBD;
             }
-            #right-leg {
-                fill: #BD4040;
-                stroke: #BD4040;
-            }
         }
     </style>
     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g transform="translate(8.800556, 11.000000)" stroke-width="10">
             <polygon id="left-leg" stroke="#374151" fill="#374151" transform="translate(73.874236, 147.595234) scale(1, -1) translate(-73.874236, -147.595234) " points="125 119.800144 147.748472 141.430826 128.238709 174.863663 125 171.744129 79.1674571 215.995054 -1.2656721e-14 79.1953319 43.2128266 79.1953319 87.4298731 156.000691"></polygon>
-            <polygon id="right-leg" stroke="#B91C1C" fill="#B91C1C" points="125 -2.27251833e-14 250.294501 215.995136 207.081675 215.995136 125 73.9284411 116.998579 87.8120124 89.5089535 61.2945391"></polygon>
+            <polygon stroke="#B91C1C" fill="#B91C1C" points="125 -2.27251833e-14 250.294501 215.995136 207.081675 215.995136 125 73.9284411 116.998579 87.8120124 89.5089535 61.2945391"></polygon>
         </g>
     </g>
 </svg>
