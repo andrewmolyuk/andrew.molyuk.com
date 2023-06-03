@@ -5,9 +5,10 @@
                 fill: #A5AEBD;
                 stroke: #A5AEBD;
             }
-        #right-leg {
-            fill: #DB9494;
-            stroke: #DB9494;
+            #right-leg {
+                fill: #BD4040;
+                stroke: #BD4040;
+            }
         }
     </style>
     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
