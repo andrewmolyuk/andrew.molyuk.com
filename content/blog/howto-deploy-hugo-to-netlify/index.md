@@ -40,6 +40,12 @@ site" и продолжите согласно инструкциям. В при
 
 ![netlify-hugo.png](netlify-hugo.png)
 
+Кроме всего прочего, Netlify предоставляет бейдж о состоянии сборки, который можно поместить в файл README.md. 
+
+```markdown
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9162f57e-4db3-4360-b350-e31ad5e85cb6/deploy-status)](https://app.netlify.com/sites/molyuk/deploys)
+```
+
 ## Заключение
 
 Я надеюсь, что этот пост поможет вам развернуть ваш сайт на Netlify. Если у вас есть какие-либо вопросы, пожалуйста, не
