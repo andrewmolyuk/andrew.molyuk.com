@@ -2,7 +2,7 @@
 <main class="container my-24 px-6 mx-auto">
   <section class="mb-32 text-gray-800">
 
-    {{ $image := (.Resources.Get .Params.Cover.Image).Crop "1600x400 webp" }}
+    {{ $image := ((.Resources.Get .Params.Cover.Image).Resize "1600x q90 jpg").Crop "1600x400 webp" }}
     <img src="{{ $image.RelPermalink }}" class="hidden w-full shadow-lg rounded-lg md:block" alt="{{ .Params.Cover.Title }}" loading="lazy"/>
     <a class="hidden text-right md:block text-sm text-red-700 mt-1 mb-6" target="_blank" href="{{ .Params.Cover.Link }}">{{ .Params.Cover.Title }}</a>
 

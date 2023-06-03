@@ -8,7 +8,7 @@
             <div
                     class="relative overflow-hidden bg-no-repeat bg-cover relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg mb-6"
                     data-mdb-ripple="true" data-mdb-ripple-color="light">
-                {{ $image := ((.Resources.Get .Params.Cover.Image ).Crop "1600x1000 q90 jpg").Resize "568x355 webp" }}
+                {{ $image := (((.Resources.Get .Params.Cover.Image ).Resize "1600x q90 jpg").Crop "1600x1000 q90 jpg").Resize "568x355 webp" }}
                 <img class="object-cover object-center w-full lg:h-48 md:h-36" src="{{ $image.RelPermalink }}"
                      alt="{{ .Params.Cover.Title }}" loading="lazy"/>
 
