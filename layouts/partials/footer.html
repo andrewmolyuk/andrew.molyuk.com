@@ -3,6 +3,3 @@
         © {{ now.Format "2006"}} Andrew Molyuk &middot; Some rights reserved
     </div>
 </footer>
-<!-- ../../node_modules/tw-elements/dist/js/tw-elements.umd.min.js -->
-{{ $js := resources.Get "js/tw-elements.umd.min.js" | minify | fingerprint | resources.PostProcess }}
-<script type="text/javascript" src="{{ $js.Permalink }}"></script>
