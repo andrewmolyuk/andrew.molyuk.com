@@ -1,7 +1,7 @@
 ---
 title: "Поехали!"
 date: 2023-05-30T20:29:26+03:00
-blog/tags: [ "блог", "технологии", "программирование", "советы", "инструменты" ]
+blog/tags: [ "блог", "технологии", "программирование", "советы" ]
 cover:
   image: "14496414080_a70fdf85bc_o.jpg"
   title: "The cargo ship 'Eastern Glory' after launch"
