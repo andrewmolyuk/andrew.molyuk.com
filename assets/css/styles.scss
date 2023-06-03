@@ -3,43 +3,43 @@
 @tailwind utilities;
 
 @layer components {
-  pre {
+  #content pre {
     @apply p-4 shadow-md bg-gray-100 my-6 rounded-md;
   }
 
-  h1 {
+  #content h1 {
     @apply text-5xl my-5 font-medium leading-tight pb-2;
   }
 
-  h2 {
+  #content h2 {
     @apply text-4xl my-4 font-medium leading-tight pb-2;
   }
 
-  h3 {
+  #content h3 {
     @apply text-3xl my-3 font-medium leading-tight;
   }
 
-  h4 {
+  #content h4 {
     @apply text-2xl my-2 font-medium leading-tight;
   }
 
-  h5 {
+  #content h5 {
     @apply text-xl my-1 font-medium leading-tight;
   }
 
-  p {
-    @apply text-xl font-light leading-relaxed my-3;
+  #content p {
+    @apply text-xl font-light my-3;
   }
 
-  p ul {
+  #content ul {
     @apply ml-6 list-disc text-xl font-light leading-relaxed;
   }
 
-  p code {
+  #content code {
     @apply bg-gray-200 text-red-800 rounded-md py-0.5 px-1;
   }
 
-  p a {
+  #content p a {
     @apply text-red-800 hover:text-red-700 underline;
   }
 
