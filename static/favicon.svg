@@ -2,9 +2,12 @@
     <style>
         @media (prefers-color-scheme: dark) {
             #left-leg {
-                fill: white;
-                stroke: white;
+                fill: #A5AEBD;
+                stroke: #A5AEBD;
             }
+        #right-leg {
+            fill: #DB9494;
+            stroke: #DB9494;
         }
     </style>
     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
