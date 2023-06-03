@@ -35,7 +35,7 @@
     @apply ml-6 list-disc text-xl font-light leading-relaxed;
   }
 
-  #content code {
+  #content p code {
     @apply bg-gray-200 text-red-800 rounded-md py-0.5 px-1;
   }
 
