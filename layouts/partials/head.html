@@ -12,14 +12,11 @@
     {{ end -}}
     <!-- Styles -->
     {{ $styles := resources.Get "css/styles.scss" | toCSS | postCSS }}
-    {{ if .Site.IsServer }}
+    {{ if not .Site.IsServer }}
     <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
     {{ else }}
     {{ $styles := $styles | minify | fingerprint | resources.PostProcess }}
-    <link rel="preload" href="{{ $styles.RelPermalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
-    </noscript>
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
     {{ end }}
     <!-- Google Analytics -->
     {{ if not .Site.IsServer }}
