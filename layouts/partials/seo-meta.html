@@ -1,0 +1,24 @@
+{{ $title := print .Site.Title " | " .Title }}
+{{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
+<title>{{ $title }}</title>
+<!-- Primary Meta Tags -->
+<meta name="title" content="{{ $title }}">
+<meta name="description" content="{{ .Summary }}">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ .Permalink | absURL | safeURL }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ .Summary }}">
+{{ with .Params.Cover }}
+<meta property="og:image" content="{{ .Link }}">
+{{ end }}
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="{{ .Permalink | absURL | safeURL }}">
+<meta property="twitter:title" content="{{ $title }}">
+<meta property="twitter:description" content="{{ .Summary }}">
+{{ with .Params.Cover }}
+<meta property="twitter:image" content="{{ .Link }}">
+{{ end }}
