@@ -3,6 +3,7 @@
   "author": "Andrew Molyuk",
   "license": "CC BY-SA 4.0",
   "dependencies": {
+    "@netlify/plugin-lighthouse": "^4.1.1",
     "autoprefixer": "^10.4.14",
     "eslint": "^8.42.0",
     "eslint-plugin-tailwindcss": "^3.12.1",
