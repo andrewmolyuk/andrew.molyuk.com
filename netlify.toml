@@ -1,14 +1,25 @@
 [[plugins]]
   package = "@netlify/plugin-lighthouse"
 
-[plugins.inputs.settings]
-  locale = "ru"
+  [plugins.inputs.settings]
+    locale = "ru"
 
-[[plugins.inputs.audits]]
-  url = "http://andrew.molyuk.com/"
-  output_path = "lighthouse/index.html"
-  [plugins.inputs.thresholds]
-    performance = 0.9
-    accessibility = 0.9
-    best-practices = 0.9
-    seo = 0.9
+  [[plugins.inputs.audits]]
+    url = "http://andrew.molyuk.com/"
+    output_path = "lighthouse/index.html"
+    [plugins.inputs.thresholds]
+      performance = 0.9
+      accessibility = 0.9
+      best-practices = 0.9
+      seo = 0.9
+      pwa = 0.9
+
+  [[plugins.inputs.audits]]
+    url = "http://andrew.molyuk.com/blog/"
+    output_path = "lighthouse/blog.html"
+    [plugins.inputs.thresholds]
+      performance = 0.9
+      accessibility = 0.9
+      best-practices = 0.9
+      seo = 0.9
+      pwa = 0.9
