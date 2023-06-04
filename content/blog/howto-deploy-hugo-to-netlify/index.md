@@ -1,5 +1,5 @@
 ---
-title: "Deploy Hugo to Netlify"
+title: "Переезжаем на Netlify"
 date: 2023-06-03T15:14:30+03:00
 blog/tags: [ "hugo", "netlify", "деплой", "godaddy" ]
 cover:
