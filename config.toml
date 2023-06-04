@@ -13,8 +13,8 @@ googleAnalytics = 'G-J9DSCZ2KKH'
 	email = 'andrew@molyuk.com'
 
 [params]
-	description = 'Мой персональный сайт с блогом, где я пишу о технических и не только темах, open-source проектах, а также делюсь советами и новостями.'
-	keywords = 'технологии,программирование,проекты,продуктивность,блог,советы'
+	description = 'Personal website of Andrew Molyuk where I write about programming, web development, and other stuff.'
+	keywords = 'andrew molyuk, personal website, blog, open-source projects'
 
 [taxonomies]
 	tag = 'blog/tags'

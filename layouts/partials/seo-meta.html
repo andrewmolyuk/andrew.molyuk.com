@@ -1,5 +1,16 @@
 {{ $title := print .Site.Title " | " .Title }}
 {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
+
+{{ $image := "https://andrew.molyuk.com/favicon.svg" }}
+{{ with .Params.Cover }}
+{{ $image = ((((page.Resources.Get page.Params.Cover.Image).Resize "1600x q90 jpg").Crop "1600x1000 q90 jpg").Resize "568x355 webp").Permalink }}
+{{ end }}
+
+{{ $description := .Site.Params.Description }}
+{{ with .Summary }}
+{{ $description = . }}
+{{ end }}
+
 <title>{{ $title }}</title>
 <!-- Primary Meta Tags -->
 <meta name="title" content="{{ $title }}">
@@ -9,16 +20,12 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ .Permalink | absURL | safeURL }}">
 <meta property="og:title" content="{{ $title }}">
-<meta property="og:description" content="{{ .Summary }}">
-{{ with .Params.Cover }}
-<meta property="og:image" content="{{ .Link }}">
-{{ end }}
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:image" content="{{ $image }}">
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:url" content="{{ .Permalink | absURL | safeURL }}">
 <meta property="twitter:title" content="{{ $title }}">
-<meta property="twitter:description" content="{{ .Summary }}">
-{{ with .Params.Cover }}
-<meta property="twitter:image" content="{{ .Link }}">
-{{ end }}
+<meta property="twitter:description" content="{{ $description }}">
+<meta property="twitter:image" content="{{ $image }}">
