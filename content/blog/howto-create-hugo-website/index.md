@@ -1,7 +1,7 @@
 ---
 title: "Как создать сайт на Hugo"
 date: 2023-05-30T21:41:49+03:00
-blog/tags: [ "hugo", "github", "установка", "советы" ]
+blog/tags: [ "hugo", "github"]
 cover:
   image: "18696821654_7a2a7e8928_o.jpg"
   title: "Chantier construction d'Etat : cite des abattoirs"
