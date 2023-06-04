@@ -17,6 +17,8 @@ CloudCannon, Neocities, GitBook, Heroku, Rackspace, OpenShift, CloudFront, Fastl
 для хранения и управления исходным кодом моего сайта, то это будет логичным решением. В этой статье я расскажу что нужно
 сделать, чтобы опубликовать сайт на GitHub Pages с помощью GitHub Actions.
 
+<!--more-->
+
 ## Создание workflow
 
 В GitHub Actions есть такое понятие как workflow. Workflow это набор задач, которые выполняются при определенных
