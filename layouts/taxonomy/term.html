@@ -3,7 +3,7 @@
 
     <h1 class="text-3xl font-bold mb-12 text-center">{{ .Title | humanize }}</h1>
     {{ range (.Paginate .Pages.ByPublishDate.Reverse).Pages }}
-    {{ partial "partials/list.html" . }}
+    {{ partial "partials/blog-list.html" . }}
     {{ end }}
 
     {{- partial "pagination.html" . -}}
