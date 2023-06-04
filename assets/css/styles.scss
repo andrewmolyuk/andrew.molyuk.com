@@ -4,7 +4,7 @@
 
 @layer components {
   #content pre {
-    @apply p-4 shadow-md bg-gray-100 my-6 rounded-md;
+    @apply p-4 shadow-md bg-gray-100 my-6 rounded-md leading-5 overflow-auto;
   }
 
   #content h1 {
