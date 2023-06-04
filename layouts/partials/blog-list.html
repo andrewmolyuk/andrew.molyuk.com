@@ -1,5 +1,5 @@
 <div class="flex flex-wrap mb-6">
-    <div class="grow-0 shrink-0 basis-auto w-full md:w-3/12 px-3 mb-6 md:mb-0 ml-auto">
+    <div class="grow-0 shrink-0 basis-auto w-full md:w-3/12 xl:w-4/12 px-3 mb-6 md:mb-0 ml-auto">
         <div
                 class="relative overflow-hidden bg-no-repeat bg-cover relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg mb-6"
                 data-mdb-ripple="true" data-mdb-ripple-color="light">
@@ -14,14 +14,13 @@
         </div>
     </div>
 
-    <div class="grow-0 shrink-0 basis-auto w-full md:w-9/12 xl:w-7/12 px-3 mb-6 md:mb-0 mr-auto">
+    <div class="grow-0 shrink-0 basis-auto w-full md:w-9/12 xl:w-8/12 px-3 mb-6 md:mb-0 mr-auto">
         <h3 class="text-lg font-bold mb-3">{{ .Title }}</h3>
         {{- partial "tags.html" . -}}
         <p class="text-gray-500">
             {{ .Summary }}
-        <div>
-            <a class="text-red-700 mt-1 text-red-700 font-medium text-sm flex items-center justify-end md:justify-end"
-               href="{{ .RelPermalink }}">Читаем дальше</a></div>
+            <div><a class="text-red-700 mt-1 font-medium text-sm flex items-center justify-end md:justify-end"
+                href="{{ .RelPermalink }}">Читаем дальше</a></div>
         </p>
     </div>
 </div>
