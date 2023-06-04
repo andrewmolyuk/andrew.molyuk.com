@@ -1,0 +1,19 @@
+{{ define "main" }}
+<section class="mb-12 text-gray-800 text-center md:text-left">
+
+    <h1 class="text-3xl font-bold mb-12 text-center">Open-source Projects</h1>
+    <p class="text-red-700">The site is under reconstruction, so sorry for the balagan over here.</p>
+    <p>
+        Various range of programs, libraries, and other systems are accessible to everyone at absolutely no cost. Some
+        of them are used in production, some are just for fun. Feel free to use them in your projects. All of them are
+        open-source and available on GitHub.
+    <ul>
+        {{ range (.Paginate .Pages.ByTitle).Pages }}
+        <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </li>
+        {{ end }}
+    </ul>
+    {{- partial "pagination.html" . -}}
+</section>
+{{ end }}
