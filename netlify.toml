@@ -9,7 +9,7 @@
     accessibility = 0.9
     best-practices = 0.9
     seo = 0.9
-    pwa = 0.9
+    pwa = 0.7
 
   [[plugins.inputs.audits]]
     url = "http://andrew.molyuk.com/"
@@ -18,3 +18,15 @@
   [[plugins.inputs.audits]]
     url = "http://andrew.molyuk.com/blog/"
     output_path = "lighthouse/blog.html"
+
+  [[plugins.inputs.audits]]
+    url = "https://andrew.molyuk.com/projects/"
+    output_path = "lighthouse/projects.html"
+
+  [[plugins.inputs.audits]]
+    url = "https://andrew.molyuk.com/blog/tags/hugo/"
+    output_path = "lighthouse/tags.html"
+
+  [[plugins.inputs.audits]]
+    url = "https://andrew.molyuk.com/blog/howto-deploy-hugo-to-netlify/"
+    output_path = "lighthouse/page.html"
