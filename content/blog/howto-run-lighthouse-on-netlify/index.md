@@ -6,7 +6,7 @@ cover:
   image: "42725036290_4f98e57526_o.jpg"
   title: "Relógios de bolso. Portugal"
   link: "https://nos.twnsnd.co/post/177871577846/rel%C3%B3gios-de-bolso-portugal"
-draft: true
+draft: false
 ---
 
 В Netlify есть возможность запускать Lighthouse для каждого деплоя. Это очень удобно, так как позволяет отслеживать
