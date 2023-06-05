@@ -1,5 +1,5 @@
 {{ define "main" }}
-<h1 class="title">Tag Cloud</h1>
+<h1 class="title">Облако тегов</h1>
 
 {{ if not (eq (len (index .Site.Taxonomies "blog/tags")) 0) }}
 {{ $fontUnit := "rem" }}

@@ -1,5 +1,6 @@
 {{ $title := print .Site.Title " | " (.Title | humanize) }}
 {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
+{{ if eq $title "#andrewmolyuk | Blog tags" }}{{ $title = "Облако тегов" }}{{ end }}
 
 {{ $image := "https://andrew.molyuk.com/favicon.svg" }}
 {{ with .Params.Cover }}
