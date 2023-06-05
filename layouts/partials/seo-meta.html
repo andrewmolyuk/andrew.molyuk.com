@@ -1,4 +1,4 @@
-{{ $title := print .Site.Title " | " .Title }}
+{{ $title := print .Site.Title " | " (.Title | humanize) }}
 {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
 
 {{ $image := "https://andrew.molyuk.com/favicon.svg" }}
