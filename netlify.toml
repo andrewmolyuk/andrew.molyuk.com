@@ -12,21 +12,16 @@
     pwa = 0.7
 
   [[plugins.inputs.audits]]
-    path = "/index.html"
-    output_path = "lighthouse/index.html"
+    path = "index.html"
 
   [[plugins.inputs.audits]]
-    path = "/blog/index.html"
-    output_path = "lighthouse/blog.html"
+    path = "blog/index.html"
 
   [[plugins.inputs.audits]]
-    path = "/projects/index.html"
-    output_path = "lighthouse/projects.html"
+    path = "projects/index.html"
 
   [[plugins.inputs.audits]]
-    path = "/blog/tags/hugo/index.html"
-    output_path = "lighthouse/tags.html"
+    path = "blog/tags/hugo/index.html"
 
   [[plugins.inputs.audits]]
-    path = "/blog/howto-deploy-hugo-to-netlify/index.html"
-    output_path = "lighthouse/page.html"
+    path = "blog/howto-deploy-hugo-to-netlify/index.html"
