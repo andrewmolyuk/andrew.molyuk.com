@@ -7,7 +7,7 @@
   {{ with index .Params "blog/tags" }}
   {{ range . }}
   {{ $href := print (absURL "blog/tags/") (urlize .) }}
-  <a class="mr-2" href="{{ $href }}">{{ . }}</a>
+  <a class="mr-2" href="{{ $href }}" aria-label="{{ . }}">{{ . }}</a>
   {{ end }}
   {{ end }}
 </div>
