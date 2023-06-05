@@ -45,14 +45,14 @@ hugo v0.111.3+extended darwin/arm64 BuildDate=unknown
 репозитория я склонировал его на свой компьютер с помощью команды:
 
 ```shell
-git clone git@github.com:andrewmolyuk/andrew.molyuk.com.git
+git clone git@github.com:andrewmolyuk/andrew-molyuk-com.git
 ```
 
 Эта команда склонировала репозиторий в локальный каталог с именем "andrew.molyuk.com". После успешного клонирования
 репозитория я был готов сгенерировать новый сайт Hugo внутри него. Для этого я запустил следующие команды в терминале:
 
 ```shell
-cd andrew.molyuk.com
+cd andrew-molyuk-com
 hugo new site . --force
 ```
 
