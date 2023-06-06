@@ -17,11 +17,3 @@
   [[plugins.inputs.audits]]
     path = "blog/index.html"
 
-  [[plugins.inputs.audits]]
-    path = "projects/index.html"
-
-  [[plugins.inputs.audits]]
-    path = "blog/tags/hugo/index.html"
-
-  [[plugins.inputs.audits]]
-    path = "blog/howto-deploy-hugo-to-netlify/index.html"
