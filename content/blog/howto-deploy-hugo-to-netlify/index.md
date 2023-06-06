@@ -1,6 +1,6 @@
 ---
 title: "Переезжаем на Netlify"
-date: 2023-06-03T15:14:30+03:00
+date: 2023-05-27T15:14:30+03:00
 blog/tags: [ "hugo", "netlify", "деплой", "godaddy" ]
 cover:
   image: "3230025782_64cf426910_o.jpg"

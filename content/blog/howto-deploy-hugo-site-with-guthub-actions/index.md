@@ -1,6 +1,6 @@
 ---
 title: "Публикуем Hugo сайт с Guthub Actions"
-date: 2023-05-31T15:25:58+03:00
+date: 2023-05-06T15:25:58+03:00
 blog/tags: [ "hugo", "деплой", "github", "godaddy" ]
 cover:
   image: "14192638753_bc64226378_o.jpg"

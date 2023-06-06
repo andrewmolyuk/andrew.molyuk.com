@@ -1,6 +1,6 @@
 ---
 title: "Как запустить Lighthouse в Netlify"
-date: 2023-06-04T21:48:45+03:00
+date: 2023-06-03T21:48:45+03:00
 blog/tags: [ "lighthouse", "netlify", "производительность" ]
 cover:
   image: "42725036290_4f98e57526_o.jpg"
