@@ -6,7 +6,7 @@ cover:
   image: "7638504332_d6a0c9b07f_o.jpg"
   title: "H. P. Labelle & Cie. office interior, Montreal, QC, 1920"
   link: "https://nos.twnsnd.co/post/177520861808/h-p-labelle-cie-office-interior-montreal"
-draft: true
+draft: false
 ---
 
 Одним из важных навыков, которым должен обладать программист, является умение оценивать сроки выполнения задач. Оценка
