@@ -16,7 +16,7 @@
     </div>
 
     <div class="grow-0 shrink-0 basis-auto w-full md:w-9/12 xl:w-8/12 px-3 mb-6 md:mb-0 mr-auto">
-        <h2 class="text-lg font-bold mb-3">{{ .Title }}</h2>
+        <h2 class="text-lg font-bold mb-3 hover:text-red-800 hover:underline"><a href="{{ .RelPermalink }}" aria-label="{{ .Title }}">{{ .Title }}</a></h2>
         {{- partial "tags.html" . -}}
         <p class="text-gray-500">
             {{ .Summary }}

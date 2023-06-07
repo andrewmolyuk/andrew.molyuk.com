@@ -1,17 +1,20 @@
 {{ define "main" }}
-<main class="container my-12 md:my-24 px-6 mx-auto">
+<main class="container my-6 md:my-12 px-6 mx-auto">
   <section class="md:mb-32 text-gray-800">
 
-    {{ $image := ((.Resources.Get .Params.Cover.Image).Resize "1600x q90 jpg").Crop "1600x400 webp" }}
-    <img src="{{ $image.RelPermalink }}" class="hidden md:block w-full shadow-lg rounded-lg" alt="{{ .Params.Cover.Title }}" loading="lazy"/>
-    <a class="hidden md:block text-right text-sm text-red-700 md:mt-1 md:mb-6" target="_blank" href="{{ .Params.Cover.Link }}">
-      <div class="flex justify-end align-middle">
+    <div
+            class="relative overflow-hidden bg-no-repeat bg-cover relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg mb-6"
+            data-mdb-ripple="true" data-mdb-ripple-color="light"> {{ $image := ((.Resources.Get .Params.Cover.Image).Resize "1600x q90 jpg").Crop "1600x400 webp" }}
+    <img src="{{ $image.RelPermalink }}" class="hidden md:block w-full shadow-lg rounded-t-lg" alt="{{ .Params.Cover.Title }}" loading="lazy"/>
+    <a class="hidden md:block text-right text-sm text-red-700 md:mt-1" target="_blank" href="{{ .Params.Cover.Link }}">
+      <div class="flex justify-center align-middle hover:underline">
         {{ .Params.Cover.Title }}
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="ml-1 w-4 h-4">
         <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
       </svg>
       </div>
     </a>
+    </div>
 
     <h1>{{ .Title }}</h1>
 
