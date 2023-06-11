@@ -16,6 +16,9 @@ googleAnalytics = 'G-J9DSCZ2KKH'
 	description = 'Personal website of Andrew Molyuk where I write about programming, web development, and other stuff.'
 	keywords = 'andrew molyuk, personal website, blog, open-source projects'
 
+[services.rss]
+  limit = 10
+
 [taxonomies]
 	tag = 'blog/tags'
 
