@@ -138,8 +138,9 @@ Gateway.
 ---
 - name: Create VPC with Subnets and NAT Gateways
   hosts: localhost
-  gather_facts: true
+  gather_facts: false
   vars:
+    name: "my"
     vpc_cidr_block: 10.0.0.0/16
     availability_zones:
       - us-east-1a
@@ -154,10 +155,10 @@ Gateway.
   tasks:
     - name: Create VPC
       amazon.aws.ec2_vpc_net:
-        name: "my-vpc"
+        name: "{{ name }}-vpc"
         cidr_block: "{{ vpc_cidr_block }}"
         tags:
-          Name: my-vpc
+          Name: {{ name }}-vpc
         state: present
       register: vpc
 
@@ -167,7 +168,7 @@ Gateway.
         cidr: "{{ item.1 }}"
         az: "{{ item.0 }}"
         tags:
-          Name: my-public-subnet-{{ item.0 }}
+          Name: {{ name }}-public-subnet-{{ item.0 }}
         state: present
       with_together:
         - "{{ availability_zones }}"
@@ -180,7 +181,7 @@ Gateway.
         cidr: "{{ item.1 }}"
         az: "{{ item.0 }}"
         tags:
-          Name: my-private-subnet-{{ item.0 }}
+          Name: {{ name }}-private-subnet-{{ item.0 }}
         state: present
       with_together:
         - "{{ availability_zones }}"
@@ -191,7 +192,7 @@ Gateway.
       amazon.aws.ec2_vpc_igw:
         vpc_id: "{{ vpc.vpc.id }}"
         tags:
-          Name: my-igw
+          Name: {{ name }}-igw
         state: present
       register: internet_gateway
 
@@ -204,13 +205,13 @@ Gateway.
             gateway_id: "{{ internet_gateway.gateway_id }}"
         state: present
         tags:
-          Name: my-public-rtb
+          Name: {{ name }}-public-rtb
       register: public_route_table
 
     - name: Allocate Elastic IP Addresses
       amazon.aws.ec2_eip:
         tags:
-          Name: my-{{ item }}-eip
+          Name: {{ name }}-{{ item }}-eip
         release_on_disassociation: true
         state: present
       loop: "{{ availability_zones }}"
@@ -222,7 +223,7 @@ Gateway.
         subnet_id: "{{ item.0.subnet.id }}"
         eip_address: "{{ item.1.public_ip }}"
         tags:
-          Name: my-{{ item.0.subnet.availability_zone }}-nat
+          Name: {{ name }}-{{ item.0.subnet.availability_zone }}-nat
         wait: true
       with_together:
         - "{{ private_subnets.results }}"
@@ -239,7 +240,7 @@ Gateway.
             gateway_id: "{{ item.1.nat_gateway_id }}"
         state: present
         tags:
-          Name: "my-private-{{ item.0 }}-rtb"
+          Name: "{{ name }}-private-{{ item.0 }}-rtb"
       with_together:
         - "{{ availability_zones }}"
         - "{{ nat_gateways.results }}"
