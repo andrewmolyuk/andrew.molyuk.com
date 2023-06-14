@@ -1,7 +1,7 @@
 ---
 title: "Прикручиваем GPG подпись к GitHub аккаунту"
 date: 2023-06-14T14:23:39+03:00
-blog/tags: [ "gpg", "github", "security" ]
+blog/tags: [ "gpg", "pgp", "github", "безопасность" ]
 cover:
   image: "8383038402_29b325970b_o.jpg"
   title: "Card players in Centenial Place, Brisbane"
