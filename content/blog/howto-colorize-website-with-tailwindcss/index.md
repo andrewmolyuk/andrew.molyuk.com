@@ -108,7 +108,7 @@ module.exports = {
 Теперь мы можем запустить Hugo и убедиться, что стили загружаются.
 
 Я не буду описывать все классы, которые предоставляет Tailwindcss. Вместо этого вы можете посмотреть, как я использовал
-их в моем[репозитории](https://github.com/andrewmolyuk/andrew.molyuk.com).
+их в моем [репозитории](https://github.com/andrewmolyuk/andrew.molyuk.com).
 
 ## Заключение
 
