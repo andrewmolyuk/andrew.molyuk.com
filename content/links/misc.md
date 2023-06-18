@@ -10,4 +10,5 @@ _build:
 * [SUREN](https://www.youtube.com/channel/UC47ivpd0OXVq_JOILFW4Ezg) 
 * [Центр комунального сервісу](https://cks.com.ua/cabinet/objects/) 
 * [ГЕРЦ](https://www.gerc.ua/ua/infocenter/)
-* [Карта фронта](https://deepstatemap.live/) и еще одна [Карта фронта](https://maphub.net/meduza/map-a-temp-1)
+* [Карта фронта](https://deepstatemap.live/)
+* [Еще одна карта фронта](https://maphub.net/meduza/map-a-temp-1)
