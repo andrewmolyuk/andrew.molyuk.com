@@ -3,8 +3,7 @@
 
 {{ if not (eq (len (index .Site.Taxonomies "blog/tags")) 0) }}
 {{ $fontUnit := "rem" }}
-{{ $largestFontSize := 2.0 }}
-{{ $largestFontSize := 2.5 }}
+{{ $largestFontSize := 5.0 }}
 {{ $smallestFontSize := 1.0 }}
 {{ $fontSpread := sub $largestFontSize $smallestFontSize }}
 {{ $max := add (len (index (index .Site.Taxonomies "blog/tags").ByCount 0).Pages) 1 }}
@@ -12,7 +11,7 @@
 {{ $spread := sub $max $min }}
 {{ $fontStep := div $fontSpread $spread }}
 
-<div id="tag-cloud" style="padding: 5px 15px">
+<div id="tag-cloud" class="px-20 pb-20">
     {{ range $name, $taxonomy := index .Site.Taxonomies "blog/tags" }}
     {{ $currentTagCount := len $taxonomy.Pages }}
     {{ $currentFontSize := (add $smallestFontSize (mul (sub $currentTagCount $min) $fontStep) ) }}
