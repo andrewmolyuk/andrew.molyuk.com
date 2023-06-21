@@ -43,4 +43,15 @@
     @apply text-red-800 hover:text-red-700 hover:underline;
   }
 
+  #content td, #content th {
+    @apply border border-gray-200 px-6 py-2;
+  }
+
+  #content thead {
+    @apply bg-gray-200;
+  }
+  #content table {
+    @apply mx-auto w-8/12 text-center my-5;
+  }
+
 }
