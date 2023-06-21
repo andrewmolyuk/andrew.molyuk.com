@@ -14,3 +14,4 @@ _build:
 * [Tailwind CSS Social Media Icons & Buttons](https://tailwind-elements.com/docs/standard/components/social-buttons/)
 * [Beautiful hand-crafted SVG icons, by the makers of Tailwind CSS](https://heroicons.com/)
 * [A collection of repeatable SVG background patterns for you to use on your web projects.](https://heropatterns.com/)
+* [Бесплатные картинки без авторских прав – 40 онлайн источников](https://seo-aspirant.ru/free-images/)
