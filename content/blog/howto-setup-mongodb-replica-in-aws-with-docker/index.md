@@ -1,7 +1,7 @@
 ---
 title: "Поднимаем реплики MongoDB в AWS на Docker"
 date: 2023-06-20T22:38:35+03:00
-blog/tags: [ "mongodb", "aws", "replica set", "docker" ]
+blog/tags: [ "mongodb", "aws", "replica set", "docker", "отказоустойчивость", "docker-compose" ]
 cover:
   image: "IBM_1011_and_IBM_1418_as_IBM_1460_accessories_(1).jpg"
   title: "IBM 1011 and IBM 1418 as IBM 1460 accessories"
@@ -117,13 +117,34 @@ Linux 2023. После того как мы поднимем машины, ну�
 - Установите Docker, выполнив следующие команды:
 
 ```shell
-sudo amazon-linux-extras install docker
-sudo service docker start
+sudo yum update
+sudo yum install docker
 sudo usermod -a -G docker ec2-user
+newgrp docker
 ```
 
-- Перезапустите сеанс SSH, чтобы изменения вступили в силу.
-- Проверьте, что Docker установлен правильно, выполнив команду: `docker info`.
+- Установите docker-compose:
+
+```shell
+wget https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) 
+sudo mv docker-compose-$(uname -s)-$(uname -m) /usr/local/bin/docker-compose
+sudo chmod -v +x /usr/local/bin/docker-compose
+```
+
+- Запустите Docker, выполнив следующие команды:
+
+```shell
+sudo systemctl enable docker.service
+sudo systemctl start docker.service
+```
+
+- Проверьте, что Docker установлен правильно, выполнив команды:
+
+```shell
+sudo systemctl status docker.service
+docker version
+docker-compose version
+```
 
 ### Установка MongoDB
 
