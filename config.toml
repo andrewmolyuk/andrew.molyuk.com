@@ -8,6 +8,9 @@ enableRobotsTXT = true
 enableSitemapXML = true
 googleAnalytics = 'G-J9DSCZ2KKH'
 
+pygmentsCodefences = true
+pygmentsStyle = "doom-one2"
+
 [author]
 	name = 'Andrew Molyuk'
 	email = 'andrew@molyuk.com'
