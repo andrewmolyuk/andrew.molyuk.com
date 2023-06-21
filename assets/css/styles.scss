@@ -35,11 +35,11 @@
     @apply ml-6 list-disc text-xl font-light leading-relaxed;
   }
 
-  #content p code {
+  #content p code, #content li code {
     @apply bg-gray-200 text-red-800 rounded-md py-0.5 px-1 text-lg font-light font-mono;
   }
 
-  #tags a, #content p a, #content li a{
+  #tags a, #content p a, #content li a {
     @apply text-red-800 hover:text-red-700 hover:underline;
   }
 
