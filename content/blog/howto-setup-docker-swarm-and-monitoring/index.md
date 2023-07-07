@@ -1,6 +1,6 @@
 ---
 title: "Запускаем Docker Swarm с мониторингом"
-date: 2023-06-27T12:57:33+03:00
+date: 2023-07-02T12:57:33+03:00
 blog/tags: [ "docker", "docker swarm", "promehteus", "grafana", "aws", "aws ecr", "slack", "мониторинг", "масштабирование" ]
 cover:
   image: "Femmes_au_travail_a_l_Arsenal_Saint-Malo_entre_1940_et_1945.jpg"
