@@ -84,7 +84,7 @@ docker swarm init
 кластеру. Например, такой:
 
 ```bash
-docker swarm join --token SWMTKN-1-0ormsemzi3mkkflc0gbexkypl0i8bnh3k823sc7xi8mkell2yv-7jv9yij8nrxqm1roolckhpuv0 10.0.128.109:2377
+docker swarm join --token SWMTKN-1-01234567890123456789012345678901234567890123456789-1234567890123456789012345 10.0.128.109:2377
 ```
 
 Эту команду нужно выполнить на всех остальных серверах. После этого мы можем проверить состояние кластера с помощью
