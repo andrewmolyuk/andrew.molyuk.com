@@ -6,7 +6,7 @@ cover:
   image: "14778621801.jpg"
   title: "Our little men and women; modern methods of character building; (1912)"
   link: "https://commons.wikimedia.org/wiki/File:Our_little_men_and_women;_modern_methods_of_character_building;_(1912)_(14778621801).jpg"
-draft: true
+draft: false
 ---
 
 В последние годы микросервисные архитектуры стали чрезвычайно популярными, и не зря. При правильном управлении они
