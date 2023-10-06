@@ -6,7 +6,7 @@ cover:
   image: "Octopi_drying.jpg"
   title: "Octopi drying"
   link: "https://commons.wikimedia.org/wiki/File:Octopi_drying.jpg"
-draft: true
+draft: false
 ---
 
 На кухне сломалась ручка, напечатанная на 3D принтере несколько лет назад и мне понадобилось завести мой старенький
