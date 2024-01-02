@@ -3,7 +3,7 @@ title: "Добавляем GPG в Apple Mail"
 date: 2023-06-14T21:40:49+03:00
 blog/tags: [ "gpg", "pgp", "gpgmail", "mail", "безопасность" ]
 cover:
-  image: "3112472619_64b8575c51_o.jpg"
+  image: "3112472619_64b8575c51_o.webp"
   title: "U.S. Troops Surrounded by Holiday Mail During WWII"
   link: "https://nos.twnsnd.co/post/136048548684/us-troops-surrounded-by-holiday-mail-during-wwii"
 draft: false
@@ -35,7 +35,7 @@ brew install --cask free-gpgmail
 Если появится ошибка с сообщением о доступе к диску, то терминалу нужно дать соответствующие разрешения в настройках
 безопасности системы. Далее рестартуем Mail и идем в настройки в Preferences -> General -> Manage Plug-ins...
 
-![mail-plugins.png](mail-plugins.png)
+![mail-plugins.webp ](mail-plugins.webp)
 
 Необходимо убедиться, что только плагин Free GPG Mail включен, а не его платный собрат.
 
@@ -57,7 +57,7 @@ defaults write com.apple.mail EnableBundles -bool true
 
 Для начала нужно открыть настройки Free GPG Mail. Для этого нужно зайти в Mail -> Preferences -> Free GPG Mail.
 
-![mail-free-gpgmail.png](mail-free-gpgmail.png)
+![mail-free-gpgmail.webp](mail-free-gpgmail.webp)
 
 Здесь не так много настроечных параметров. Как я уже говорил, я использую подпись всегда, а шифрование только при
 необходимости. Поэтому я включаю только подпись, а шифрование включаю только для локальных черновиков.
@@ -72,7 +72,7 @@ defaults write com.apple.mail EnableBundles -bool true
 подписи, а также две синие иконки для шифрования и подписи. Мы установили OpenGPG поддержку и будем использовать ее для
 шифрования и подписи писем.
 
-![mail-compose.png](mail-compose.png)
+![mail-compose.webp](mail-compose.webp)
 
 Подпись я рекомендую включать всегда. В случае обмена письмами с человеком, который не использует GPG, подпись не будет
 им мешать. А в случае обмена письмами с человеком, который использует GPG, подпись будет говорить о том, что письмо не

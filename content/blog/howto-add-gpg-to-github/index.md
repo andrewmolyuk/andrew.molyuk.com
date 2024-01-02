@@ -3,7 +3,7 @@ title: "Прикручиваем GPG подпись к GitHub аккаунту"
 date: 2023-06-14T14:23:39+03:00
 blog/tags: [ "gpg", "pgp", "github", "безопасность" ]
 cover:
-  image: "8383038402_29b325970b_o.jpg"
+  image: "8383038402_29b325970b_o.webp"
   title: "Card players in Centenial Place, Brisbane"
   link: "https://nos.twnsnd.co/post/171833004312/card-players-in-centenial-place-brisbane"
 draft: false
@@ -105,7 +105,7 @@ gpg --export-ownertrust > trustdb.txt
 
 В итоге у вас должно получиться что-то вроде этого:
 
-![github-gpg.png](github-gpg.png)
+![github-gpg.webp](github-gpg.webp)
 
 ## Настройка Git для использования GPG
 
@@ -140,7 +140,7 @@ echo 'export GPG_TTY=$(tty)' >> ~/.zshrc
 При использовании IDE, таких как IntelliJ IDEA, можно настроить автоматическую подпись коммитов. Для этого нужно в
 настройках Git выбрать опцию `Sign commits using GPG`.
 
-![idea-gpg.png](idea-gpg.png)
+![idea-gpg.webp](idea-gpg.webp)
 
 Но при этом коммиты все еще не будут подписываться и мы получим ошибку со следующим сообщением:
 
@@ -179,7 +179,7 @@ echo "test" | gpg --clearsign
 
 Если все работает, то должно появиться диалоговое окно для ввода пароля:
 
-![pinentry.png](pinentry.png) 
+![pinentry.webp](pinentry.webp) 
 
 Теперь можно запустить IDE и сделать коммит. При этом также должно появиться диалоговое окно для ввода пароля. Если мы
 выберем опцию `Save in Keychain`, то пароль будет сохранен в macOS Keychain и больше не нужно будет вводить его. Если мы
@@ -191,7 +191,7 @@ echo "test" | gpg --clearsign
 иметь значок Verified. Это значит, что коммит подписан и его можно проверить. Если вы нажмете на значок, то увидите имя
 и email автора коммита. Это проверенные данные, которые были указаны при создании ключа.
 
-![github-commit.png](github-commit.png)
+![github-commit.webp](github-commit.webp)
 
 ## Заключение
 
