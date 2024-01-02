@@ -3,9 +3,9 @@ title: "Переходим на микросервисы"
 date: 2023-07-18T09:51:45+03:00
 blog/tags: [ "микросервисы", "best practices", "управление", "планирование" ]
 cover:
-  image: "14778621801.jpg"
+  image: "14778621801.webp"
   title: "Our little men and women; modern methods of character building; (1912)"
-  link: "https://commons.wikimedia.org/wiki/File:Our_little_men_and_women;_modern_methods_of_character_building;_(1912)_(14778621801).jpg"
+  link: "https://commons.wikimedia.org/wiki/File:Our_little_men_and_women;_modern_methods_of_character_building;_(1912)_(14778621801).webp"
 draft: false
 ---
 

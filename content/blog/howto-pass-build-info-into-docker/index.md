@@ -3,7 +3,7 @@ title: "Как передать информацию о версии в Docker"
 date: 2023-06-07T13:17:22+03:00
 blog/tags: [ "docker", "сборка", "golang", "nodejs", "github" ]
 cover:
-  image: "9342285070_08b9400839_o.jpg"
+  image: "9342285070_08b9400839_o.webp"
   title: "Alexandra Graving Dock, Belfast"
   link: "https://nos.twnsnd.co/post/151242920543/alexandra-graving-dock-belfast-1"
 draft: false
@@ -183,7 +183,7 @@ console.log(`Date: ${packageJson.buildDate}`);
 
 Теперь мы можем использовать эту информацию в любом месте нашего приложения.
 
-![web-application.png](web-application.png)
+![web-application.webp](web-application.webp)
 
 ## Сборка на GiHub Actions
 

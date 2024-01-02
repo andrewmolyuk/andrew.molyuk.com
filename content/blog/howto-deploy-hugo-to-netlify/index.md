@@ -3,7 +3,7 @@ title: "Переезжаем на Netlify"
 date: 2023-05-27T15:14:30+03:00
 blog/tags: [ "hugo", "netlify", "деплой", "godaddy" ]
 cover:
-  image: "3230025782_64cf426910_o.jpg"
+  image: "3230025782_64cf426910_o.webp"
   title: "Man in basket above Celilo Falls on the Columbia River"
   link: "https://nos.twnsnd.co/post/163216226451/man-in-basket-above-celilo-falls-on-the-columbia"
 draft: false
@@ -21,16 +21,16 @@ site" и продолжите согласно инструкциям. В при
 
 Дополнительно я поправил команду сборки, чтобы Netlify мог собрать мой сайт. Теперь она выглядит следующим образом:
 
-![netlify-repository.png](netlify-repository.png)
+![netlify-repository.webp](netlify-repository.webp)
 
 Чтобы мой сайт был доступен под следующими именами: andrew.molyuk.com и molyuk.com мне нужно было настроить DNS-записи.
 Я зашел в аккаунт GoDaddy и добавил соответствующие DNS-записи. Вот как это выглядело:
 
-![netlify-godaddy.png](netlify-godaddy.png)
+![netlify-godaddy.webp](netlify-godaddy.webp)
 
 Затем я добавил и верифицировал домены на Netlify. В итоге получилось следующее:
 
-![netlify-domains.png](netlify-domains.png)
+![netlify-domains.webp](netlify-domains.webp)
 
 На этом все - теперь мой сайт доступен по адресам: andrew.molyuk.com и molyuk.com и я могу публиковать новые посты, не
 заботясь о том, как их развернуть.
@@ -40,7 +40,7 @@ site" и продолжите согласно инструкциям. В при
 проблему, добавив переменную окружения `HUGO_VERSION` в настройки Netlify и указав в ее значении номер версии Hugo. В
 моем случае это была версия `0.111.3`. Теперь моя сборка работает как на локальной машине, так и на Netlify.
 
-![netlify-hugo.png](netlify-hugo.png)
+![netlify-hugo.webp](netlify-hugo.webp)
 
 Кроме всего прочего, Netlify предоставляет бейдж о состоянии сборки, который можно поместить в файл README.md. 
 

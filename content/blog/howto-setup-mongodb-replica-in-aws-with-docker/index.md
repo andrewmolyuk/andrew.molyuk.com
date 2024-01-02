@@ -3,9 +3,9 @@ title: "Поднимаем реплики MongoDB в AWS на Docker"
 date: 2023-06-20T22:38:35+03:00
 blog/tags: [ "mongodb", "aws", "replica set", "docker", "отказоустойчивость", "docker-compose" ]
 cover:
-  image: "IBM_1011_and_IBM_1418_as_IBM_1460_accessories_(1).jpg"
+  image: "IBM_1011_and_IBM_1418_as_IBM_1460_accessories_(1).webp"
   title: "IBM 1011 and IBM 1418 as IBM 1460 accessories"
-  link: "https://commons.wikimedia.org/wiki/File:IBM_1011_and_IBM_1418_as_IBM_1460_accessories_(1).jpg"
+  link: "https://commons.wikimedia.org/wiki/File:IBM_1011_and_IBM_1418_as_IBM_1460_accessories_(1).webp"
 draft: false
 ---
 
@@ -67,7 +67,7 @@ draft: false
 может быть полезно, если вторичные ноды находятся в разных зонах AWS и нужно минимизировать время ответа. Но в этом
 случае нужно быть готовым к тому, что данные могут быть неактуальными.
 
-![mongo-replica.png](mongo-replica.png)
+![mongo-replica.webp](mongo-replica.webp)
 
 Ноды слушают друг друга, и этот процесс называется `heartbeat`. То есть каждая нода постоянно проверяется другими на
 предмет доступности, для того, чтобы предпринимать какие-то действия, если что-то случилось. В момент когда основная

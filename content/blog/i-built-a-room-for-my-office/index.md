@@ -3,9 +3,9 @@ title: "Я построил комнату себе для офиса"
 date: 2023-10-03T19:36:28+03:00
 blog/tags: [ "личное", "стройка", "офис" ]
 cover:
-  image: "Constructing_old_vintage_photo.jpg"
+  image: "Constructing_old_vintage_photo.webp"
   title: "Constructing old vintage photo"
-  link: "https://commons.wikimedia.org/wiki/File:Constructing_old_vintage_photo.jpg"
+  link: "https://commons.wikimedia.org/wiki/File:Constructing_old_vintage_photo.webp"
 draft: false
 ---
 

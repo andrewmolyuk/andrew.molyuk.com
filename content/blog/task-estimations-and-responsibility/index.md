@@ -3,7 +3,7 @@ title: "Оценка времени на выполнение задачи"
 date: 2023-06-06T23:05:36+03:00
 blog/tags: [ "управление", "оценка", "планирование" ]
 cover:
-  image: "7638504332_d6a0c9b07f_o.jpg"
+  image: "7638504332_d6a0c9b07f_o.webp"
   title: "H. P. Labelle & Cie. office interior, Montreal, QC, 1920"
   link: "https://nos.twnsnd.co/post/177520861808/h-p-labelle-cie-office-interior-montreal"
 draft: false

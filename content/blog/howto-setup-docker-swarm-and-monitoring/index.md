@@ -3,9 +3,9 @@ title: "Запускаем Docker Swarm с мониторингом"
 date: 2023-07-02T12:57:33+03:00
 blog/tags: [ "docker", "docker swarm", "promehteus", "grafana", "aws", "aws ecr", "slack", "мониторинг", "масштабирование" ]
 cover:
-  image: "Femmes_au_travail_a_l_Arsenal_Saint-Malo_entre_1940_et_1945.jpg"
+  image: "Femmes_au_travail_a_l_Arsenal_Saint-Malo_entre_1940_et_1945.webp"
   title: "Femmes au travail a l Arsenal Saint-Malo entre 1940 et 1945"
-  link: "https://commons.wikimedia.org/wiki/File:Femmes_au_travail_a_l_Arsenal_Saint-Malo_entre_1940_et_1945.jpg"
+  link: "https://commons.wikimedia.org/wiki/File:Femmes_au_travail_a_l_Arsenal_Saint-Malo_entre_1940_et_1945.webp"
 draft: false
 ---
 
@@ -134,7 +134,7 @@ aws ssm start-session --target i-0123456789abcdef --document-name AWS-StartPortF
 всего нравится раздел визуализации. В нем мы можем увидеть все ноды кластера, запущенные на них контейнеры и их
 состояние.
 
-![portainer.png](portainer.png)
+![portainer.webp](portainer.webp)
 
 Но пока у нас их там не так много, поэтому мы перейдем к следующему шагу.
 
@@ -432,13 +432,13 @@ docker stack deploy -c monitoring.yml monitoring
 В нашем случае мы будем использовать кастомизированные дашборды для Docker Swarm, которые можно найти в интернете.
 Например, вот так наш выглядит дашборд для Docker Swarm:
 
-![grafana.png](grafana.png)
+![grafana.webp](grafana.webp)
 
 Можете скачать дашборд [здесь](dashboard-swarm.json).
 
 Алерты в Slack будут выглядеть примерно так:
 
-![alerts-slack.png](alerts-slack.png)
+![alerts-slack.webp](alerts-slack.webp)
 
 Вы можете их кастомизировать под себя. Мне краткие уведомления в Slack нравятся больше, чем длинные.
 
