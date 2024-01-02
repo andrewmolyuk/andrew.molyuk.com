@@ -5,7 +5,7 @@ blog/tags: [ "docker", "docker swarm", "promehteus", "grafana", "aws", "aws ecr"
 cover:
   image: "Femmes_au_travail_a_l_Arsenal_Saint-Malo_entre_1940_et_1945.webp"
   title: "Femmes au travail a l Arsenal Saint-Malo entre 1940 et 1945"
-  link: "https://commons.wikimedia.org/wiki/File:Femmes_au_travail_a_l_Arsenal_Saint-Malo_entre_1940_et_1945.webp"
+  link: "https://commons.wikimedia.org/wiki/File:Femmes_au_travail_a_l_Arsenal_Saint-Malo_entre_1940_et_1945.jpg"
 draft: false
 ---
 

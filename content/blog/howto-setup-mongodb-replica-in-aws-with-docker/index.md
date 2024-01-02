@@ -5,7 +5,7 @@ blog/tags: [ "mongodb", "aws", "replica set", "docker", "отказоустой�
 cover:
   image: "IBM_1011_and_IBM_1418_as_IBM_1460_accessories_(1).webp"
   title: "IBM 1011 and IBM 1418 as IBM 1460 accessories"
-  link: "https://commons.wikimedia.org/wiki/File:IBM_1011_and_IBM_1418_as_IBM_1460_accessories_(1).webp"
+  link: "https://commons.wikimedia.org/wiki/File:IBM_1011_and_IBM_1418_as_IBM_1460_accessories_(1).jpg"
 draft: false
 ---
 

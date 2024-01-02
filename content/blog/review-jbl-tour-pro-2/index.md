@@ -5,7 +5,7 @@ blog/tags: [ "наушники", "обзор", "jbl tour pro 2" ]
 cover:
   image: "Hein_Simons_als_diskjockey,_Bestanddeelnr_930-5794.webp"
   title: "Hein Simons als diskjockey, Bestanddeelnr 930-5794"
-  link: "https://commons.wikimedia.org/wiki/File:Hein_Simons_als_diskjockey,_Bestanddeelnr_930-5794.webp"
+  link: "https://commons.wikimedia.org/wiki/File:Hein_Simons_als_diskjockey,_Bestanddeelnr_930-5794.jpg"
 draft: false
 ---
 

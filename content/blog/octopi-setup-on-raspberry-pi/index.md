@@ -5,7 +5,7 @@ blog/tags: [ "octopi", "raspberry", "3D печать" ]
 cover:
   image: "Octopi_drying.webp"
   title: "Octopi drying"
-  link: "https://commons.wikimedia.org/wiki/File:Octopi_drying.webp"
+  link: "https://commons.wikimedia.org/wiki/File:Octopi_drying.jpg"
 draft: false
 ---
 

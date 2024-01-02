@@ -5,7 +5,7 @@ blog/tags: [ "личное", "стройка", "офис" ]
 cover:
   image: "Constructing_old_vintage_photo.webp"
   title: "Constructing old vintage photo"
-  link: "https://commons.wikimedia.org/wiki/File:Constructing_old_vintage_photo.webp"
+  link: "https://commons.wikimedia.org/wiki/File:Constructing_old_vintage_photo.jpg"
 draft: false
 ---
 

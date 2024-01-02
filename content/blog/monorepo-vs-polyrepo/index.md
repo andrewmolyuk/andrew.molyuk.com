@@ -5,7 +5,7 @@ blog/tags: [ "golang", "микросервисы", "структура", "мон
 cover:
   image: "Harry_Wann_paints_pin-up_girl_1944.webp"
   title: "Harry Wann paints pin-up girl 1944"
-  link: "https://commons.wikimedia.org/wiki/File:Harry_Wann_paints_pin-up_girl_1944.webp"
+  link: "https://commons.wikimedia.org/wiki/File:Harry_Wann_paints_pin-up_girl_1944.jpg"
 draft: false
 ---
 
