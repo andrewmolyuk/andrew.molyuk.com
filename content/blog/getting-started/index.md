@@ -3,7 +3,7 @@ title: "Поехали!"
 date: 2023-03-31T20:29:26+03:00
 blog/tags: [ "блог" ]
 cover:
-  image: "14496414080_a70fdf85bc_o.jpg"
+  image: "14496414080_a70fdf85bc_o.webp"
   title: "The cargo ship 'Eastern Glory' after launch"
   link: "https://nos.twnsnd.co/post/96365465880/the-cargo-ship-eastern-glory-after-launch"
 draft: false

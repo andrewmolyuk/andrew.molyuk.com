@@ -3,7 +3,7 @@ title: "Структура микросервисного проекта на Go
 date: 2023-06-02T13:22:51+03:00
 blog/tags: [ "golang", "структура проекта", "микросервисы" ]
 cover:
-  image: "33846657951_18f146596a_o.jpg"
+  image: "33846657951_18f146596a_o.webp"
   title: "Fabrica Portugal. Portugal"
   link: "https://nos.twnsnd.co/post/159493476665/fabrica-portugal-portugal"
 draft: false
