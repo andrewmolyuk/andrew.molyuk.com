@@ -3,7 +3,7 @@ title: "Как создать сайт на Hugo"
 date: 2023-04-14T21:41:49+03:00
 blog/tags: [ "hugo", "github" ]
 cover:
-  image: "18696821654_7a2a7e8928_o.jpg"
+  image: "18696821654_7a2a7e8928_o.webp"
   title: "Chantier construction d'Etat : cite des abattoirs"
   link: "https://nos.twnsnd.co/post/167378783999/chantier-construction-detat-cite-des-abattoirs"
 draft: false
@@ -206,7 +206,7 @@ make dev
 
 После запуска сервера Hugo я мог получить доступ к сайту по адресу http://localhost:1313.
 
-![first-screenshot.png](first-screenshot.png)
+![first-screenshot.webp](first-screenshot.webp)
 
 ## Заключение
 

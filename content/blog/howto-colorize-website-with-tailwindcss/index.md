@@ -3,7 +3,7 @@ title: "Раскрасим сайт с Tailwindcss"
 date: 2023-05-12T16:55:27+03:00
 blog/tags: [ "hugo", "tailwindcss" ]
 cover:
-  image: "29681523075_5b751dfe8c_o.jpg"
+  image: "29681523075_5b751dfe8c_o.webp"
   title: "Ed Mitchell"
   link: "https://nos.twnsnd.co/post/182684842680/ed-mitchell"
 draft: false

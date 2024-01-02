@@ -3,7 +3,7 @@ title: "Публикуем Hugo сайт с Guthub Actions"
 date: 2023-05-06T15:25:58+03:00
 blog/tags: [ "hugo", "деплой", "github", "godaddy" ]
 cover:
-  image: "14192638753_bc64226378_o.jpg"
+  image: "14192638753_bc64226378_o.webp"
   title: "Brakeman, Freight car T&NO 47429, Southern Pacific railroad company"
   link: "https://nos.twnsnd.co/post/107017055000/brakeman-freight-car-tno-47429-southern"
 draft: false
@@ -32,7 +32,7 @@ CloudCannon, Neocities, GitBook, Heroku, Rackspace, OpenShift, CloudFront, Fastl
 выбрать Pages в меню слева. Далее нужно в Source выбрать GithHub Actions и нажать на кнопку Configure для
 шаблона Hugo.
 
-![github-pages-hugo](github-pages-hugo.png)
+![github-pages-hugo.webp](github-pages-hugo.webp)
 
 В общем случае, этот шаблон можно сразу использовать, но в нашем случае нам нужно сделать некоторые изменения. Для того
 чтобы не дублировать команду построения сайта, надо заменить следующие строки:
@@ -54,7 +54,7 @@ run: make build
 локальном компьютере. Далее нажимаем на кнопку `Commit changes...` и затем на кнопку `Commit changes` во всплывающем
 окне.
 
-![github-pages-hugo-commit](github-pages-hugo-commit.png)
+![github-pages-hugo-commit.webp](github-pages-hugo-commit.webp)
 
 После этого GitHub создаст файл `.github/workflows/hugo.yml` в нашем репозитории. Этот файл и есть наш workflow. В
 дальнейшем мы можем изменять этот файл, чтобы добавить новые задачи или изменить условия запуска workflow.
@@ -63,12 +63,12 @@ run: make build
 в GitHub Pages. Мы можем переключиться на вкладку Actions в нашем репозитории и посмотреть на результаты работы
 workflow.
 
-![github-pages-hugo-actions](github-pages-hugo-actions.png)
+![github-pages-hugo-actions.webp](github-pages-hugo-actions.webp)
 
 Как только workflow успешно завершится, мы можем перейти на вкладку Settings и затем выбрать Pages в нашем репозитории и
 увидеть, что сайт опубликован и также увидеть ссылку на него. Нажав на эту ссылку, мы увидим наш сайт.
 
-![github-pages-hugo-published](github-pages-hugo-published.png)
+![github-pages-hugo-published.webp](github-pages-hugo-published.webp)
 
 ## Добавление домена
 
@@ -79,18 +79,18 @@ workflow.
 раздел Settings нашего аккаунта, а не репозитория. Это важный момент. Затем Выбрать в левом меню Pages и нажать на
 кнопку `Add domain`.
 
-![github-pages-hugo-add-domain](github-pages-hugo-add-domain.png)
+![github-pages-hugo-add-domain.webp](github-pages-hugo-add-domain.webp)
 
 Далее идем к регистратору доменов и добавляем DNS запись CNAME для домена `andrew.molyuk.com`, которая будет указывать
 на `andrewmolyuk.github.io` и верификационную DNS запись TXT для домена `_github-challenge-andrew.molyuk.com`.
 
-![godaddy-txt](godaddy-dns.png)
+![godaddy-txt.webp](godaddy-dns.webp)
 
 Теперь нам нужно подождать некоторое время, пока DNS записи обновятся. После этого мы можем вернуться в раздел Settings
 аккаунта и верифицировать домен. Далее возвращаемся в раздел Settings репозитория и добавляем домен. Обязательно
 поставьте галочку `Enforce HTTPS` - это позволит использовать HTTPS протокол для доступа к сайту.
 
-![github-pages-hugo-custom-domain](github-pages-hugo-custom-domain.png)
+![github-pages-hugo-custom-domain.webp](github-pages-hugo-custom-domain.webp)
 
 После этого сайт будет доступен по адресу `https://andrew.molyuk.com/`.
 

@@ -3,7 +3,7 @@ title: "Добавляем линтеры к Hugo"
 date: 2023-04-29T09:07:20+03:00
 blog/tags: [ "hugo", "stylelint", "eslint", "remark-lint" ]
 cover:
-  image: "26544178978_681bbd390c_o.jpg"
+  image: "26544178978_681bbd390c_o.webp"
   title: "Movietone news field staff Sydney, 1938"
   link: "https://nos.twnsnd.co/post/184320358303/movietone-news-field-staff-sydney-1938"
 draft: false
@@ -141,7 +141,7 @@ lint:
 
 Ссылка ведет на страницу Codacy, где можно увидеть, какие ошибки были найдены в коде.
 
-![codacy.png](codacy.png)
+![codacy.webp](codacy.webp)
 
 ## Добавление линтеров в Git Pre-Commit Hook
 
