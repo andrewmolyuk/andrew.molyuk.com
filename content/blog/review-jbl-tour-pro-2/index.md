@@ -6,7 +6,7 @@ cover:
   image: "Hein_Simons_als_diskjockey,_Bestanddeelnr_930-5794.jpg"
   title: "Hein Simons als diskjockey, Bestanddeelnr 930-5794"
   link: "https://commons.wikimedia.org/wiki/File:Hein_Simons_als_diskjockey,_Bestanddeelnr_930-5794.jpg"
-draft: true
+draft: false
 ---
 
 В этом обзоре я расскажу о наушниках Jbl Tour Pro 2. Это беспроводные наушники с активным шумоподавлением. Я их получил
