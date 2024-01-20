@@ -32,3 +32,5 @@ for i in ./**/*.jpg; do
         rm -Rf "$i"
     fi
 done
+
+exit 0
