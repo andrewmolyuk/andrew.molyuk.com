@@ -100,7 +100,7 @@ workflow.
 файл `layouts/partials/head.html`:
 
 ```html
-{{ if hugo.IsServer }}
+{{ if .Site.IsServer }}
 {{ template "_internal/google_analytics.html" . }}
 {{ end }}
 ```

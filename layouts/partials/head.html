@@ -11,14 +11,14 @@
     {{ end -}}
     <!-- Styles -->
     {{ $styles := resources.Get "css/styles.scss" | toCSS | postCSS }}
-    {{ if not hugo.IsServer }}
+    {{ if not .Site.IsServer }}
     <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
     {{ else }}
     {{ $styles := $styles | minify | fingerprint | resources.PostProcess }}
     <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
     {{ end }}
     <!-- Google Analytics -->
-    {{ if not hugo.IsServer }}
+    {{ if not .Site.IsServer }}
     {{ template "_internal/google_analytics.html" . }}
     {{ end }}
     <!-- Favicons -->
