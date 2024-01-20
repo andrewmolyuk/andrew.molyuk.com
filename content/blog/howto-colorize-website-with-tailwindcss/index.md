@@ -90,7 +90,7 @@ module.exports = {
 
 ```html
 {{ $styles := resources.Get "css/styles.scss" | toCSS | postCSS }}
-{{ if .Site.IsServer }}
+{{ if hugo.IsServer }}
 <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
 {{ else }}
 {{ $styles := $styles | minify | fingerprint | resources.PostProcess }}
