@@ -1,3 +1,11 @@
+> My company announced we are closing the business. We didn't survive the crisis
+> in the ads market. If I can be helpful for you, please contact me via andrew@molyuk.com or through [Telegram](https://t.me/andrewmolyuk).
+>
+> My current resume is available as [PDF](<https://andrew.molyuk.com/Andrew Molyuk.pdf>)
+> or as [Word](<https://andrew.molyuk.com/Andrew Molyuk.docx>).
+>
+> Sincerely yours, Andrew Molyuk.
+
 # Hey, nice to meet you!
 
 As you might have guessed, my name is Andrew and I proudly embrace multiple roles in my life. I am a
