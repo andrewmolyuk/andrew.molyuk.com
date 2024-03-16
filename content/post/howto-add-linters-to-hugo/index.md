@@ -1,11 +1,7 @@
 ---
-title: "Добавляем линтеры к Hugo"
+title: 'Добавляем линтеры к Hugo'
 date: 2023-04-29T09:07:20+03:00
-blog/tags: [ "hugo", "stylelint", "eslint", "remark-lint" ]
-cover:
-  image: "26544178978_681bbd390c_o.webp"
-  title: "Movietone news field staff Sydney, 1938"
-  link: "https://nos.twnsnd.co/post/184320358303/movietone-news-field-staff-sydney-1938"
+tags: ['hugo', 'stylelint', 'eslint', 'remark-lint']
 draft: false
 ---
 
@@ -45,10 +41,7 @@ npm install --save-dev remark-cli remark-preset-lint-consistent remark-preset-li
   "plugins": [
     "remark-preset-lint-consistent",
     "remark-preset-lint-recommended",
-    [
-      "remark-lint-list-item-indent",
-      "space"
-    ],
+    ["remark-lint-list-item-indent", "space"],
     "remark-frontmatter"
   ]
 }
@@ -64,10 +57,7 @@ npm install --save-dev remark-cli remark-preset-lint-consistent remark-preset-li
 ```json
 {
   "extends": "stylelint-config-recommended-scss",
-  "plugins": [
-    "stylelint-order",
-    "stylelint-scss"
-  ],
+  "plugins": ["stylelint-order", "stylelint-scss"],
   "rules": {
     "order/properties-alphabetical-order": true,
     "scss/at-rule-no-unknown": null,
@@ -85,10 +75,7 @@ npm install --save-dev remark-cli remark-preset-lint-consistent remark-preset-li
 ```json
 {
   "root": true,
-  "extends": [
-    "eslint:recommended",
-    "plugin:tailwindcss/recommended"
-  ],
+  "extends": ["eslint:recommended", "plugin:tailwindcss/recommended"],
   "env": {
     "browser": true,
     "node": true,
@@ -170,15 +157,9 @@ npx husky add .husky/pre-commit "npx lint-staged"
 
 ```json
 {
-  "*.md": [
-    "npx remark --quiet --frail"
-  ],
-  "*.{css,scss}": [
-    "npx stylelint --quiet"
-  ],
-  "*.js}": [
-    "npx eslint --quiet"
-  ]
+  "*.md": ["npx remark --quiet --frail"],
+  "*.{css,scss}": ["npx stylelint --quiet"],
+  "*.js}": ["npx eslint --quiet"]
 }
 ```
 

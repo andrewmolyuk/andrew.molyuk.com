@@ -1,11 +1,7 @@
 ---
-title: "Создаем AWS VPC с Ansible"
+title: 'Создаем AWS VPC с Ansible'
 date: 2023-06-11T15:14:56+03:00
-blog/tags: [ "aws", "vpc", "ansible", "devops"]
-cover:
-  image: "52294407519_1f447a000e_o.webp"
-  title: "NACA Engineer Examines Wind Tunnel Compressor Blades"
-  link: "https://nos.twnsnd.co/post/697650614526672896/naca-engineer-examines-wind-tunnel-compressor"
+tags: ['aws', 'vpc', 'ansible', 'devops']
 draft: false
 ---
 

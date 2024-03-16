@@ -1,11 +1,7 @@
 ---
-title: "Прикручиваем GPG подпись к GitHub аккаунту"
+title: 'Прикручиваем GPG подпись к GitHub аккаунту'
 date: 2023-06-14T14:23:39+03:00
-blog/tags: [ "gpg", "pgp", "github", "безопасность" ]
-cover:
-  image: "8383038402_29b325970b_o.webp"
-  title: "Card players in Centenial Place, Brisbane"
-  link: "https://nos.twnsnd.co/post/171833004312/card-players-in-centenial-place-brisbane"
+tags: ['gpg', 'pgp', 'github', 'безопасность']
 draft: false
 ---
 
@@ -88,9 +84,9 @@ gpg --armor --export D190D5376FC0D7F459DF06010143CD29108D6A3E
 следующую команду:
 
 ```shell
-gpg --armor --export andrew@molyuk.com > mygpgkey.asc      
+gpg --armor --export andrew@molyuk.com > mygpgkey.asc
 gpg --armor --export-secret-key andrew@molyuk.com > mysecretpgpkey.asc
-gpg --export-ownertrust > trustdb.txt 
+gpg --export-ownertrust > trustdb.txt
 ```
 
 Я также сделал резервную копию trustdb.txt, так как в нем хранится информация о доверии к ключам. Эти файлы необходимо
@@ -156,7 +152,7 @@ fatal: failed to write commit object
 
 ```shell
 brew install pinentry-mac
-``` 
+```
 
 Проверьте где установлен `pinentry-mac` с помощью команды `which pinentry-mac`. В моем случае он установлен в
 `/opt/homebrew/bin/pinentry-mac`. После этого нужно добавить соответствующую строку в файл `~/.gnupg/gpg-agent.conf`:
@@ -179,7 +175,7 @@ echo "test" | gpg --clearsign
 
 Если все работает, то должно появиться диалоговое окно для ввода пароля:
 
-![pinentry.webp](pinentry.webp) 
+![pinentry.webp](pinentry.webp)
 
 Теперь можно запустить IDE и сделать коммит. При этом также должно появиться диалоговое окно для ввода пароля. Если мы
 выберем опцию `Save in Keychain`, то пароль будет сохранен в macOS Keychain и больше не нужно будет вводить его. Если мы

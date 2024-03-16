@@ -1,11 +1,7 @@
 ---
-title: "Как создать сайт на Hugo"
+title: 'Как создать сайт на Hugo'
 date: 2023-04-14T21:41:49+03:00
-blog/tags: [ "hugo", "github" ]
-cover:
-  image: "18696821654_7a2a7e8928_o.webp"
-  title: "Chantier construction d'Etat : cite des abattoirs"
-  link: "https://nos.twnsnd.co/post/167378783999/chantier-construction-detat-cite-des-abattoirs"
+tags: ['hugo', 'github']
 draft: false
 ---
 

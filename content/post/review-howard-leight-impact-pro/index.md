@@ -1,11 +1,7 @@
 ---
-title: "Обзор наушников Howard Leight Impact Pro"
+title: 'Обзор наушников Howard Leight Impact Pro'
 date: 2024-01-20T09:23:01+02:00
-blog/tags: [ "наушники", "обзор", "Howard Leight Impact Pro", "Honeywell" ]
-cover:
-  image: "Ogólnopolskie_Zawody_Strzeleckie_w_Krakowie_(1-S-2946-21).webp"
-  title: "Ogólnopolskie Zawody Strzeleckie w Krakowie (1-S-2946-21)"
-  link: "https://commons.wikimedia.org/wiki/File:Og%C3%B3lnopolskie_Zawody_Strzeleckie_w_Krakowie_(1-S-2946-21).jpg"
+tags: ['наушники', 'обзор', 'Howard Leight Impact Pro', 'Honeywell']
 draft: false
 ---
 
@@ -77,6 +73,3 @@ Impact Pro выделяется значительно более высоким
 
 Надеюсь, что вам понравился этот обзор. Если у вас есть какие-либо вопросы или предложения, пожалуйста, напишите в
 комментариях ниже. Я буду рад услышать Вас и постараюсь ответить на все ваши вопросы.
-
-
-

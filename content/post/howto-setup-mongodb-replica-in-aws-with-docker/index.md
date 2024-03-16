@@ -1,11 +1,7 @@
 ---
-title: "Поднимаем реплики MongoDB в AWS на Docker"
+title: 'Поднимаем реплики MongoDB в AWS на Docker'
 date: 2023-06-20T22:38:35+03:00
-blog/tags: [ "mongodb", "aws", "replica set", "docker", "отказоустойчивость", "docker-compose" ]
-cover:
-  image: "IBM_1011_and_IBM_1418_as_IBM_1460_accessories_(1).webp"
-  title: "IBM 1011 and IBM 1418 as IBM 1460 accessories"
-  link: "https://commons.wikimedia.org/wiki/File:IBM_1011_and_IBM_1418_as_IBM_1460_accessories_(1).jpg"
+tags: ['mongodb', 'aws', 'replica set', 'docker', 'отказоустойчивость', 'docker-compose']
 draft: false
 ---
 
@@ -126,7 +122,7 @@ newgrp docker
 - Установите docker-compose:
 
 ```shell
-wget https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) 
+wget https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)
 sudo mv docker-compose-$(uname -s)-$(uname -m) /usr/local/bin/docker-compose
 sudo chmod -v +x /usr/local/bin/docker-compose
 ```
@@ -177,7 +173,7 @@ services:
       driver: json-file
       options:
         max-size: 10m
-        max-file: "3"
+        max-file: '3'
 
 networks:
   mongo:
@@ -188,7 +184,7 @@ volumes:
   mongo_data:
     name: mongo_data
     driver: local
-``` 
+```
 
 Обратите внимание на параметр `--setParameter disableSplitHorizonIPCheck=true`. Он необходим для того, чтобы MongoDB
 смог работать с IP адресами, а не только с доменными именами. Это удобнее для нас, так как мы будем использовать IP
@@ -206,7 +202,7 @@ MongoDB, используя IP-адрес вашего инстанса и по�
 следующую конфигурацию:
 
 | Нода   | Зона       | IP адрес  |
-|--------|------------|-----------|
+| ------ | ---------- | --------- |
 | mongo1 | us-east-1a | 10.0.11.1 |
 | mongo2 | us-east-1b | 10.0.12.1 |
 | mongo3 | us-east-1a | 10.0.11.2 |

@@ -1,11 +1,7 @@
 ---
-title: "Добавляем GPG в Apple Mail"
+title: 'Добавляем GPG в Apple Mail'
 date: 2023-06-14T21:40:49+03:00
-blog/tags: [ "gpg", "pgp", "gpgmail", "mail", "безопасность" ]
-cover:
-  image: "3112472619_64b8575c51_o.webp"
-  title: "U.S. Troops Surrounded by Holiday Mail During WWII"
-  link: "https://nos.twnsnd.co/post/136048548684/us-troops-surrounded-by-holiday-mail-during-wwii"
+tags: ['gpg', 'pgp', 'gpgmail', 'mail', 'безопасность']
 draft: false
 ---
 

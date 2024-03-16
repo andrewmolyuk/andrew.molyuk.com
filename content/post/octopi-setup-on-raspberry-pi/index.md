@@ -1,11 +1,7 @@
 ---
-title: "Ставим OctoPI на Raspberry PI"
+title: 'Ставим OctoPI на Raspberry PI'
 date: 2023-10-06T13:48:08+03:00
-blog/tags: [ "octopi", "raspberry", "3D печать" ]
-cover:
-  image: "Octopi_drying.webp"
-  title: "Octopi drying"
-  link: "https://commons.wikimedia.org/wiki/File:Octopi_drying.jpg"
+tags: ['octopi', 'raspberry', '3D печать']
 draft: false
 ---
 

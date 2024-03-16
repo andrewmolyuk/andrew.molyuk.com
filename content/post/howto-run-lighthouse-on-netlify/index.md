@@ -1,11 +1,7 @@
 ---
-title: "Как запустить Lighthouse в Netlify"
+title: 'Как запустить Lighthouse в Netlify'
 date: 2023-06-03T21:48:45+03:00
-blog/tags: [ "lighthouse", "netlify", "производительность" ]
-cover:
-  image: "42725036290_4f98e57526_o.webp"
-  title: "Relógios de bolso. Portugal"
-  link: "https://nos.twnsnd.co/post/177871577846/rel%C3%B3gios-de-bolso-portugal"
+tags: ['lighthouse', 'netlify', 'производительность']
 draft: false
 ---
 

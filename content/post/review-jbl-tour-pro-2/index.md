@@ -1,11 +1,7 @@
 ---
-title: "Обзор наушников JBL Tour Pro 2"
+title: 'Обзор наушников JBL Tour Pro 2'
 date: 2024-01-02T10:57:58+02:00
-blog/tags: [ "наушники", "обзор", "jbl tour pro 2" ]
-cover:
-  image: "Hein_Simons_als_diskjockey,_Bestanddeelnr_930-5794.webp"
-  title: "Hein Simons als diskjockey, Bestanddeelnr 930-5794"
-  link: "https://commons.wikimedia.org/wiki/File:Hein_Simons_als_diskjockey,_Bestanddeelnr_930-5794.jpg"
+tags: ['наушники', 'обзор', 'jbl tour pro 2']
 draft: false
 ---
 
@@ -13,8 +9,7 @@ draft: false
 в подарок от Снегурочки на Новый год и решил поделиться своими впечатлениями. Поехали!
 
 Менее года назад Apple
-запатентовала [чехол для AirPods с дисплеем](https://www.patentlyapple.com/2023/03/apple-invents-an-airpods-case-with-a-frontside-touch-display-allowing-users-to-interact-with-apps-for-music-apple-tv-maps.html
-) на передней панели. Это позволит пользователям взаимодействовать с приложениями, не доставая наушники из чехла и не
+запатентовала [чехол для AirPods с дисплеем](https://www.patentlyapple.com/2023/03/apple-invents-an-airpods-case-with-a-frontside-touch-display-allowing-users-to-interact-with-apps-for-music-apple-tv-maps.html) на передней панели. Это позволит пользователям взаимодействовать с приложениями, не доставая наушники из чехла и не
 запуская приложение на телефоне. Это все еще только патент, но вполне возможно, что в будущем мы увидим такой чехол в
 продаже. Пока же Apple занимается патентованием того, что другие производители уже выпустили на рынок и это явный повод
 для будущих судебных разбирательств. Один из ярких представителей - это чехол для наушников Jbl Tour Pro 2.

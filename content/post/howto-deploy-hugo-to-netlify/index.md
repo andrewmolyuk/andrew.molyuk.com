@@ -1,11 +1,7 @@
 ---
-title: "Переезжаем на Netlify"
+title: 'Переезжаем на Netlify'
 date: 2023-05-27T15:14:30+03:00
-blog/tags: [ "hugo", "netlify", "деплой", "godaddy" ]
-cover:
-  image: "3230025782_64cf426910_o.webp"
-  title: "Man in basket above Celilo Falls on the Columbia River"
-  link: "https://nos.twnsnd.co/post/163216226451/man-in-basket-above-celilo-falls-on-the-columbia"
+tags: ['hugo', 'netlify', 'деплой', 'godaddy']
 draft: false
 ---
 
@@ -42,7 +38,7 @@ site" и продолжите согласно инструкциям. В при
 
 ![netlify-hugo.webp](netlify-hugo.webp)
 
-Кроме всего прочего, Netlify предоставляет бейдж о состоянии сборки, который можно поместить в файл README.md. 
+Кроме всего прочего, Netlify предоставляет бейдж о состоянии сборки, который можно поместить в файл README.md.
 
 ```markdown
 [![Netlify Status](https://api.netlify.com/api/v1/badges/9162f57e-4db3-4360-b350-e31ad5e85cb6/deploy-status)](https://app.netlify.com/sites/molyuk/deploys)

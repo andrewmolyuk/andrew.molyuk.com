@@ -1,11 +1,7 @@
 ---
-title: "Как передать информацию о версии в Docker"
+title: 'Как передать информацию о версии в Docker'
 date: 2023-06-07T13:17:22+03:00
-blog/tags: [ "docker", "сборка", "golang", "nodejs", "github" ]
-cover:
-  image: "9342285070_08b9400839_o.webp"
-  title: "Alexandra Graving Dock, Belfast"
-  link: "https://nos.twnsnd.co/post/151242920543/alexandra-graving-dock-belfast-1"
+tags: ['docker', 'сборка', 'golang', 'nodejs', 'github']
 draft: false
 ---
 
@@ -142,24 +138,23 @@ const buildRef = process.argv[2];
 const buildDate = process.argv[3];
 
 if (!buildRef || !buildDate) {
-    console.log('Please provide a build reference and build date');
-    process.exit(1);
+  console.log('Please provide a build reference and build date');
+  process.exit(1);
 }
 
 fs.readFile('./package.json', (err, data) => {
+  if (err) throw err;
+
+  let packageJsonObj = JSON.parse(data.toString());
+  packageJsonObj.buildRef = `${buildRef}`;
+  packageJsonObj.buildDate = `${buildDate}`;
+  packageJsonObj = JSON.stringify(packageJsonObj);
+
+  fs.writeFile('./package.json', packageJsonObj, (err) => {
     if (err) throw err;
-
-    let packageJsonObj = JSON.parse(data.toString());
-    packageJsonObj.buildRef = `${buildRef}`;
-    packageJsonObj.buildDate = `${buildDate}`;
-    packageJsonObj = JSON.stringify(packageJsonObj);
-
-    fs.writeFile('./package.json', packageJsonObj, (err) => {
-        if (err) throw err;
-        console.log('The file has been saved!');
-    });
+    console.log('The file has been saved!');
+  });
 });
-
 ```
 
 Теперь мы можем использовать этот скрипт в нашем `Dockerfile`:

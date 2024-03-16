@@ -1,11 +1,7 @@
 ---
-title: "Раскрасим сайт с Tailwindcss"
+title: 'Раскрасим сайт с Tailwindcss'
 date: 2023-05-12T16:55:27+03:00
-blog/tags: [ "hugo", "tailwindcss" ]
-cover:
-  image: "29681523075_5b751dfe8c_o.webp"
-  title: "Ed Mitchell"
-  link: "https://nos.twnsnd.co/post/182684842680/ed-mitchell"
+tags: ['hugo', 'tailwindcss']
 draft: false
 ---
 
@@ -42,13 +38,13 @@ npx tailwindcss init
 ```js
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: ["./content/**/*.html", "./layouts/**/*.html"],
-    theme: {
-        extend: {},
-    },
-    plugins: [],
-    darkMode: "class"
-}
+  content: ['./content/**/*.html', './layouts/**/*.html'],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+  darkMode: 'class',
+};
 ```
 
 Здесь мы указываем Tailwindcss, где он может найти наши HTML-файлы. Также мы указываем, что мы хотим использовать темную
@@ -58,11 +54,11 @@ module.exports = {
 
 ```js
 module.exports = {
-    plugins: {
-        tailwindcss: {},
-        autoprefixer: {},
-    }
-}
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};
 ```
 
 Этот файл используется для настройки PostCSS, который мы будем использовать для обработки наших файлов со стилями.
@@ -89,14 +85,12 @@ module.exports = {
 Теперь необходимо добавить следующий код в файл `layouts/partials/head.html`:
 
 ```html
-{{ $styles := resources.Get "css/styles.scss" | toCSS | postCSS }}
-{{ if .Site.IsServer }}
-<link rel="stylesheet" href="{{ $styles.RelPermalink }}">
-{{ else }}
-{{ $styles := $styles | minify | fingerprint | resources.PostProcess }}
-<link rel="preload" href="{{ $styles.RelPermalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+{{ $styles := resources.Get "css/styles.scss" | toCSS | postCSS }} {{ if .Site.IsServer }}
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
+{{ else }} {{ $styles := $styles | minify | fingerprint | resources.PostProcess }}
+<link rel="preload" href="{{ $styles.RelPermalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'" />
 <noscript>
-    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" />
 </noscript>
 {{ end }}
 ```

@@ -1,11 +1,7 @@
 ---
-title: "Так монорепа или полирепа"
+title: 'Так монорепа или полирепа'
 date: 2023-09-11T12:49:23+03:00
-blog/tags: [ "golang", "микросервисы", "структура", "монорепа", "полирепа" ]
-cover:
-  image: "Harry_Wann_paints_pin-up_girl_1944.webp"
-  title: "Harry Wann paints pin-up girl 1944"
-  link: "https://commons.wikimedia.org/wiki/File:Harry_Wann_paints_pin-up_girl_1944.jpg"
+tags: ['golang', 'микросервисы', 'структура', 'монорепа', 'полирепа']
 draft: false
 ---
 

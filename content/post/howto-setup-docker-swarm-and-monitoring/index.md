@@ -1,11 +1,7 @@
 ---
-title: "Запускаем Docker Swarm с мониторингом"
+title: 'Запускаем Docker Swarm с мониторингом'
 date: 2023-07-02T12:57:33+03:00
-blog/tags: [ "docker", "docker swarm", "promehteus", "grafana", "aws", "aws ecr", "slack", "мониторинг", "масштабирование" ]
-cover:
-  image: "Femmes_au_travail_a_l_Arsenal_Saint-Malo_entre_1940_et_1945.webp"
-  title: "Femmes au travail a l Arsenal Saint-Malo entre 1940 et 1945"
-  link: "https://commons.wikimedia.org/wiki/File:Femmes_au_travail_a_l_Arsenal_Saint-Malo_entre_1940_et_1945.jpg"
+tags: ['docker', 'docker swarm', 'promehteus', 'grafana', 'aws', 'aws ecr', 'slack', 'мониторинг', 'масштабирование']
 draft: false
 ---
 
@@ -31,21 +27,21 @@ Docker Swarm - это инструмент для оркестрации docker 
 
 Для начала определимся с терминологией. В Docker Swarm есть несколько основных понятий:
 
-* **Node** - это сервер, на котором запущен Docker Engine. В кластере Docker Swarm может быть несколько нод. Ноды могут
+- **Node** - это сервер, на котором запущен Docker Engine. В кластере Docker Swarm может быть несколько нод. Ноды могут
   быть как виртуальными, так и физическими серверами. Нода, на которой инициализируется кластер Docker Swarm, называется
   менеджером. Ноды, которые присоединяются к кластеру, называются рабочими нодами. На менеджере хранится состояние
   кластера и он отвечает за его управление. Рабочие ноды выполняют задачи, которые им назначает менеджер. Рабочие ноды
   не хранят состояние кластера.
 
-* **Stack** - это набор сервисов, которые логически объединены вместе. Например, это может группа сервисов, которые
+- **Stack** - это набор сервисов, которые логически объединены вместе. Например, это может группа сервисов, которые
   отвечают за работу определенной части приложения, например мониторинг. Stack описывается в файле docker-compose.yml и
   запускается с помощью команды `docker stack deploy`. В кластере Docker Swarm может быть несколько Stack'ов.
 
-* **Service** - это описание одного сервиса в Stack'е. Например, это может быть описание веб-сервера или базы данных.
+- **Service** - это описание одного сервиса в Stack'е. Например, это может быть описание веб-сервера или базы данных.
   Service описывается в файле docker-compose.yml и запускается с помощью команды `docker service create`. В Stack'е
   может быть несколько Service'ов. Мы никогда не запускаем Service напрямую, только в Stack'е.
 
-* **Task** - это запущенный контейнер. Каждый Service запускает один или несколько Task'ов. Каждый Task запускается
+- **Task** - это запущенный контейнер. Каждый Service запускает один или несколько Task'ов. Каждый Task запускается
   на одной из рабочих нод, включенных в кластер. Если какая-то нода выходит из строя, то менеджер запускает Task на
   другой ноде. Таким образом, сервис всегда доступен. Этот термин сильно не прижился и мы по прежнему используем слово
   контейнер.
@@ -61,7 +57,7 @@ sudo yum install docker
 sudo usermod -a -G docker ec2-user
 newgrp docker
 
-wget https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) 
+wget https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)
 sudo mv docker-compose-$(uname -s)-$(uname -m) /usr/local/bin/docker-compose
 sudo chmod -v +x /usr/local/bin/docker-compose
 
@@ -71,7 +67,7 @@ sudo systemctl start docker.service
 sudo systemctl status docker.service
 docker version
 docker-compose version
-``` 
+```
 
 После установки Docker Engine на всех серверах, мы можем начать настройку кластера Docker Swarm. Для этого на одном из
 серверов нужно выполнить следующую команду:
@@ -153,13 +149,13 @@ Prometheus можно запустить как обычный контейне�
 менеджерскую ноду и создадим `monitoring.yml` файл со следующим содержимым:
 
 ```yaml
-version: "3.8"
+version: '3.8'
 
 services:
   prometheus:
     image: prom/prometheus:latest
     ports:
-      - "9090:9090"
+      - '9090:9090'
     networks:
       - monitoring
     volumes:
@@ -167,12 +163,12 @@ services:
       - /etc/prometheus:/etc/prometheus
       - prometheus-data:/prometheus
     user: root # only user root can use the docker socket
-    command: "--web.enable-lifecycle --config.file=/etc/prometheus/prometheus.yml"
+    command: '--web.enable-lifecycle --config.file=/etc/prometheus/prometheus.yml'
     deploy:
       mode: replicated
       replicas: 1
       placement:
-        constraints: [ node.role == manager ]
+        constraints: [node.role == manager]
     depends_on:
       - cadvisor
       - node_exporter
@@ -181,7 +177,7 @@ services:
   grafana:
     image: grafana/grafana:latest
     ports:
-      - "3000:3000"
+      - '3000:3000'
     networks:
       - monitoring
     volumes:
@@ -190,7 +186,7 @@ services:
       mode: replicated
       replicas: 1
       placement:
-        constraints: [ node.role == manager ]
+        constraints: [node.role == manager]
     depends_on:
       - prometheus
 
@@ -202,7 +198,7 @@ services:
         protocol: tcp
         mode: host
     command:
-      - "--path.rootfs=/host"
+      - '--path.rootfs=/host'
     networks:
       - monitoring
     volumes:
@@ -233,7 +229,7 @@ services:
       - '--config.file=/etc/alertmanager/alertmanager.yml'
       - '--storage.path=/alertmanager'
     ports:
-      - "9093:9093"
+      - '9093:9093'
     networks:
       - monitoring
     volumes:
@@ -263,7 +259,7 @@ networks:
 
 Этот файл описывает Stack, который состоит из нескольких сервисов: `prometheus`, `grafana`, `node_exporter`, `cadvisor`
 и `alertmanager`. Для каждого сервиса мы указываем образ, порты, сети, команду запуска, количество реплик и т.д. Для
-сервисов `prometheus`, `grafana`  и `alertmanager` мы указываем, что они должен запускаться только на менеджерской ноде.
+сервисов `prometheus`, `grafana` и `alertmanager` мы указываем, что они должен запускаться только на менеджерской ноде.
 Для сервисов `node_exporter` и `cadvisor` мы указываем, что он должен запускаться на всех нодах.
 
 Для экспортеров нет необходимости в особой конфигурации, а вот для `prometheus` и `alertmanager` нужно создать
@@ -278,11 +274,11 @@ global:
 scrape_configs:
   - job_name: 'prometheus'
     static_configs:
-      - targets: [ 'localhost:9090' ]
+      - targets: ['localhost:9090']
 
   - job_name: 'alertmanager'
     static_configs:
-      - targets: [ 'alertmanager:9093' ]
+      - targets: ['alertmanager:9093']
 
   - job_name: 'docker'
     dockerswarm_sd_configs:
@@ -290,13 +286,13 @@ scrape_configs:
         role: nodes
     relabel_configs:
       # Fetch metrics on port 9323.
-      - source_labels: [ __meta_dockerswarm_node_address ]
+      - source_labels: [__meta_dockerswarm_node_address]
         target_label: __address__
         replacement: $1:9323
       # Set labels
-      - source_labels: [ __meta_dockerswarm_node_label_node_name ]
+      - source_labels: [__meta_dockerswarm_node_label_node_name]
         target_label: node_name
-      - source_labels: [ __meta_dockerswarm_node_hostname ]
+      - source_labels: [__meta_dockerswarm_node_hostname]
         target_label: instance
 
   - job_name: 'node'
@@ -305,13 +301,13 @@ scrape_configs:
         role: nodes
     relabel_configs:
       # Fetch metrics on port 8080.
-      - source_labels: [ __meta_dockerswarm_node_address ]
+      - source_labels: [__meta_dockerswarm_node_address]
         target_label: __address__
         replacement: $1:9100
       # Set labels
-      - source_labels: [ __meta_dockerswarm_node_label_node_name ]
+      - source_labels: [__meta_dockerswarm_node_label_node_name]
         target_label: node_name
-      - source_labels: [ __meta_dockerswarm_node_hostname ]
+      - source_labels: [__meta_dockerswarm_node_hostname]
         target_label: instance
 
   - job_name: 'cadvisor'
@@ -320,25 +316,25 @@ scrape_configs:
         role: nodes
     relabel_configs:
       # Fetch metrics on port 8080.
-      - source_labels: [ __meta_dockerswarm_node_address ]
+      - source_labels: [__meta_dockerswarm_node_address]
         target_label: __address__
         replacement: $1:8080
       # Set labels
-      - source_labels: [ __meta_dockerswarm_node_label_node_name ]
+      - source_labels: [__meta_dockerswarm_node_label_node_name]
         target_label: node_name
-      - source_labels: [ __meta_dockerswarm_node_hostname ]
+      - source_labels: [__meta_dockerswarm_node_hostname]
         target_label: instance
 
 # Alertmanager configuration
 rule_files:
-  - "alerts.yml"
+  - 'alerts.yml'
 
 alerting:
   alertmanagers:
     - scheme: http
       static_configs:
         - targets:
-            - "alertmanager:9093"
+            - 'alertmanager:9093'
 ```
 
 Обратите внимание, что мы указываем, что при описании экспортеров мы прописываем метки `node_name` и `instance`. Это
@@ -349,22 +345,21 @@ alerting:
 groups:
   - name: Docker Swarm Alerts
     rules:
-
       # Alert for any instance that is unreachable for >2 minutes.
       - alert: service_down
         expr: sum(up{node_name!=""}) by(node_name) / count(up{node_name!=""}) by(node_name) != 1
         for: 2m
         annotations:
-          title: "Instance {{ $labels.node_name }} down"
-          description: "Instance `{{ $labels.node_name }}` has been down for more than 2 minutes."
+          title: 'Instance {{ $labels.node_name }} down'
+          description: 'Instance `{{ $labels.node_name }}` has been down for more than 2 minutes.'
 
       # Alert for any instance that is over 60% load for >2 minute.
       - alert: node_high_load
         expr: sum(node_load1) by(node_name) / count(node_cpu_seconds_total{mode="idle"}) by (node_name) > 0.6
         for: 2m
         annotations:
-          title: "Instance {{ $labels.node_name }} under high load"
-          description: "Instance `{{ $labels.node_name }}` is over 60% load more than 2 minutes."
+          title: 'Instance {{ $labels.node_name }} under high load'
+          description: 'Instance `{{ $labels.node_name }}` is over 60% load more than 2 minutes.'
 ```
 
 В этом файле мы описываем правила, по которым будут срабатывать алерты. В данном случае мы описываем два правила - если
@@ -382,7 +377,7 @@ global:
 
 route:
   receiver: 'slack'
-  group_by: [ '...' ]
+  group_by: ['...']
   repeat_interval: 1h
 
 receivers:
@@ -408,11 +403,7 @@ Api url для Slack можно получить в настройках инт�
 
 ```json
 {
-  "dns": [
-    "1.1.1.1",
-    "8.8.8.8",
-    "8.8.4.4"
-  ],
+  "dns": ["1.1.1.1", "8.8.8.8", "8.8.4.4"],
   "metrics-addr": "0.0.0.0:9323"
 }
 ```
@@ -456,7 +447,7 @@ name: Deploy
 on:
   push:
     branches:
-      - "main"
+      - 'main'
 
 jobs:
   docker:
@@ -491,7 +482,7 @@ jobs:
         id: file
         uses: jaywcjlove/github-action-read-file@main
         with:
-          path: "docker-compose.prod.yml"
+          path: 'docker-compose.prod.yml'
 
       - name: Update service in Docker Swarm
         uses: debugger24/action-aws-ssm-run-command@v1

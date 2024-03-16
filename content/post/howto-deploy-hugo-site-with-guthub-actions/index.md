@@ -1,11 +1,7 @@
 ---
-title: "Публикуем Hugo сайт с Guthub Actions"
+title: 'Публикуем Hugo сайт с Guthub Actions'
 date: 2023-05-06T15:25:58+03:00
-blog/tags: [ "hugo", "деплой", "github", "godaddy" ]
-cover:
-  image: "14192638753_bc64226378_o.webp"
-  title: "Brakeman, Freight car T&NO 47429, Southern Pacific railroad company"
-  link: "https://nos.twnsnd.co/post/107017055000/brakeman-freight-car-tno-47429-southern"
+tags: ['hugo', 'деплой', 'github', 'godaddy']
 draft: false
 ---
 
@@ -100,9 +96,7 @@ workflow.
 файл `layouts/partials/head.html`:
 
 ```html
-{{ if .Site.IsServer }}
-{{ template "_internal/google_analytics.html" . }}
-{{ end }}
+{{ if .Site.IsServer }} {{ template "_internal/google_analytics.html" . }} {{ end }}
 ```
 
 Далее нужно добавить следующие параметры в файл `config.toml`:
