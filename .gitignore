@@ -1,13 +1,7 @@
-# Idea configuration files
-.idea/
-
 # Hugo output directory and temporary files
 /public/
 /resources/
 .hugo_build.lock
-
-# Node.js modules and dependencies
-/node_modules/
 
 # Misc
 .DS_Store

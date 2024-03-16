@@ -1,0 +1,43 @@
+baseURL = 'https://andrew.molyuk.com/'
+canonicalURL = 'https://andrew.molyuk.com/'
+languageCode = 'ru'
+title = '#andrewmolyuk'
+license = 'MIT'
+theme = "github-style"
+copyright = "2024 &copy; by Andrew Molyuk"
+
+enableRobotsTXT = true
+enableSitemapXML = true
+googleAnalytics = 'G-J9DSCZ2KKH'
+
+pygmentsCodefences = true
+pygmentsUseClasses = true
+
+[author]
+	name = 'Andrew Molyuk'
+	email = 'andrew@molyuk.com'
+
+[params]
+	description = 'Programming, web development, and other stuff.'
+	keywords = 'andrew molyuk, personal website, blog, open-source projects'
+  author = "Andrew Molyuk"
+  github = "andrewmolyuk"
+  facebook = "andrew.molyuk"
+  linkedin = "andrew.molyuk"
+  instagram = "andrewmolyuk"
+  email = "andrew@molyuk.com"
+  url = "https://andrew.molyuk.com"
+  rss = true
+  lastmod = true
+  userStatusEmoji = "😀"
+  favicon = "/images/favicon.svg"
+  avatar = "/images/avatar.png"
+  headerIcon = "/images/GitHub-Mark-Light-32px.png"
+  location = "Israel"
+  enableGitalk = false
+
+[frontmatter]
+  lastmod = ["lastmod", ":fileModTime", ":default"]
+
+[services.rss]
+  limit = 10
