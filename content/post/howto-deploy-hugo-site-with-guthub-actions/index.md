@@ -9,11 +9,11 @@ draft: false
 быть Netlify, GitHub Pages, GitLab Pages, Amazon S3, Google Cloud Storage, Firebase Hosting, Surge.sh, Aerobatic,
 CloudCannon, Neocities, GitBook, Heroku, Rackspace, OpenShift, CloudFront, Fastly, и другие.
 
+<!--more-->
+
 Я решил опубликовать свой сайт на GitHub Pages потому как это бесплатно и удобно. Кроме того раз уж я использую GitHub
 для хранения и управления исходным кодом моего сайта, то это будет логичным решением. В этой статье я расскажу что нужно
 сделать, чтобы опубликовать сайт на GitHub Pages с помощью GitHub Actions.
-
-<!--more-->
 
 ## Создание workflow
 
