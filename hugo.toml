@@ -47,15 +47,15 @@ showReadingTime = true
 showLastmod = true
 taxonomyCloudShuffle = true
 accentColor = "#ffcd00"
-hideMainMenu = false
+hideMainMenu = true
 
 [params.sidebar]
 enable = true
 
 [params.widgets]
-header = ["breadcrumbs"]
+header = []
 homepage = ["recent_posts"]
-sidebar = ["about","search","sidebar_menu","taxonomy_cloud"]
+sidebar = ["about","search","taxonomy_cloud"]
 footer = ["social_menu"]
 
 [params.seo]
