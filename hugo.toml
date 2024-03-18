@@ -16,6 +16,7 @@ enableRobotsTXT = true
 
 # Syntax Highlighting ( https://gohugo.io/content-management/syntax-highlighting/ )
 pygmentsCodefences = true
+pygmentsStyle = "solarized-dark"
 
 enableEmoji = true
 
@@ -42,7 +43,7 @@ dateFormat = "2 Jan 2006"
 listDateFormat = "2 Jan 2006"
 archiveDateFormat = "2 Jan"
 hideEntryNavigation = ["page"] # boolean / array of sections
-hideEntryMeta = ["page"] # boolean / array of sections
+hideEntryMeta = ["page"]       # boolean / array of sections
 showReadingTime = true
 showLastmod = true
 taxonomyCloudShuffle = true
