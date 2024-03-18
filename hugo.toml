@@ -24,90 +24,90 @@ enableEmoji = true
 defaultContentLanguage = "ru"
 
 [params.info]
-description = "All about that programming, web, and other stuff."
-title404 = "Nothing's here!"
+  description = "All about that programming, web, and other stuff."
+  title404 = "Nothing's here!"
 
 [params.assets]
-favicon = "images/favicon.svg"
-gopher = "" # used in 404 template ( Generator: https://gopherize.me )
+  favicon = "images/favicon.svg"
+  gopher = "" # used in 404 template ( Generator: https://gopherize.me )
 
 [params.copyright]
-prefix = ""
-holder = "Andrew Molyuk"
-startYear = "2018"
-suffix = ""
+  prefix = ""
+  holder = "Andrew Molyuk"
+  startYear = "2018"
+  suffix = ""
 
 [params.settings]
-# date & time format: https://golang.org/pkg/time/
-dateFormat = "2 Jan 2006"
-listDateFormat = "2 Jan 2006"
-archiveDateFormat = "2 Jan"
-hideEntryNavigation = ["page"] # boolean / array of sections
-hideEntryMeta = ["page"]       # boolean / array of sections
-showReadingTime = true
-showLastmod = true
-taxonomyCloudShuffle = true
-accentColor = "#ffcd00"
-hideMainMenu = true
+  # date & time format: https://golang.org/pkg/time/
+  dateFormat = "2 Jan 2006"
+  listDateFormat = "2 Jan 2006"
+  archiveDateFormat = "2 Jan"
+  hideEntryNavigation = ["page"] # boolean / array of sections
+  hideEntryMeta = ["page"]       # boolean / array of sections
+  showReadingTime = true
+  showLastmod = true
+  taxonomyCloudShuffle = true
+  accentColor = "#ffcd00"
+  hideMainMenu = true
 
 [params.sidebar]
-enable = true
+  enable = true
 
 [params.widgets]
-header = []
-homepage = ["recent_posts"]
-sidebar = ["about","search","taxonomy_cloud"]
-footer = ["social_menu"]
+  header = []
+  homepage = ["recent_posts"]
+  sidebar = ["about","search","taxonomy_cloud"]
+  footer = ["social_menu"]
 
 [params.seo]
 # Title Separator: - – — · • * ⋆ | ~ « » < >
-titleSeparator = "•"
+  titleSeparator = "•"
 
 [params.social]
-email = "andrew@molyuk.com"
-facebook = "andrew.molyuk"
-github = "andrewmolyuk"
-linkedin = "andrewmolyuk"
-telegram = "andrewmolyuk"
+  email = "andrew@molyuk.com"
+  facebook = "andrew.molyuk"
+  github = "andrewmolyuk"
+  linkedin = "andrewmolyuk"
+  telegram = "andrewmolyuk"
 
 [params.comments]
-enable = true
+  enable = true
 
 # Utterances: https://utteranc.es
 [params.comments.utterances]
-enable = true
-issueTerm = "pathname" # pathname / url / title / og:title / <string>
-label = ""
-theme = "github-light"
+  enable = true
+  issueTerm = "pathname" # pathname / url / title / og:title / <string>
+  label = ""
+  theme = "github-light"
 
 [params.comments.utterances.github]
-username = "andrewmolyuk"
-repository = "andrew.molyuk.com"
+  username = "andrewmolyuk"
+  repository = "andrew.molyuk.com"
 
 [params.search]
-client = "fuse"
+  client = "fuse"
 
 [taxonomies]
-tag = "tags"
+  tag = "tags"
 
 [permalinks]
-page = "/:slug/"
+  page = "/:slug/"
 
 [[menu.main]]
-name = "Repo"
-weight = -10
-identifier = "repository"
-url = "https://github.com/andrewmolyuk/andrew.molyuk.com"
+  name = "Repo"
+  weight = -10
+  identifier = "repository"
+  url = "https://github.com/andrewmolyuk/andrew.molyuk.com"
 
 [blackfriday]
-hrefTargetBlank = true
+  hrefTargetBlank = true
 
 [languages]
 # edit this block for your own language
-[languages.ru]
-lang = "ru"
-languageName = "Russian"
-weight = 1
+  [languages.ru]
+    lang = "ru"
+    languageName = "Russian"
+    weight = 1
 
 [services.rss]
   limit = 10
