@@ -2,6 +2,8 @@ baseURL = 'https://andrew.molyuk.com/'
 languageCode = 'en-us'
 title = '#andrewmolyuk'
 
+googleAnalytics = 'G-J9DSCZ2KKH'
+
 [params]
 favicon = "images/favicon.png"
 
