@@ -22,7 +22,7 @@ text = "Here are some of the companies I have worked for with a lot of challenge
 
 [[company]]
 title = "Vidcrunch"
-years = "2022"
+years = "2024"
 weight = 1
 [[company.description]]
 text = "I immersed myself deeply in the realm of video ads and arbitration, leading a fully remote development team. We handled an impressive volume of approximately in 23 billion aggregated events each day and updated around 300 million entries in our database daily. Operating complex decision-making algorithms, we managed over 250 automatically scalable computing units during peak loads while effectively automating business processes."
@@ -44,7 +44,7 @@ text = "I felt a surge of excitement when I had the opportunity to collaborate w
 
 [[company]]
 title = "BestTV"
-years = "2008"
+years = "2011"
 weight = 3
 [[company.description]]
 text = "For a significant period, I served as an architect in a small yet ambitious company focused on web-based video asset management. During this time, we forged partnerships with prominent Israeli media giants, including Ynet, Maariv, Walla, TheMarker, Yellow pages, and others. We also collaborated with a number of international companies, including the BBC, The New York Times, and The Washington Post."
