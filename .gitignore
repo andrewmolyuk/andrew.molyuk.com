@@ -1,7 +1,7 @@
-# Hugo output directory and temporary files
-/public/
-/resources/
+# Hugo workfiles and public folder
 .hugo_build.lock
+public
+resources/_gen
 
-# Misc
+# Mac OS files
 .DS_Store

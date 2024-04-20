@@ -1,0 +1,51 @@
+[section] # =============================================================================================================
+
+# The unique identifier for the section
+id = 'skills'
+
+# The flag to enable or disable the section
+enabled = true
+
+# Use the following to set the order of the sections on the page
+weight = 2
+
+[params] # =============================================================================================================
+
+[[params.skills]]
+title = "HL / HA Distributed Systems"
+description = "Experienced with writing high load and high availability systems. Ensured 100% uptime, 0% data loss, and no performance degradation. The last project was capable of handling 100K requests per second on idle."
+icon = "move"
+weight = 1
+
+[[params.skills]]
+title = "Cloud Computing"
+description = "Deep qualified with AWS cloud services. Capable of develop serverless, containerized, and traditional services. As well as, experienced with writing infrastructure as code with Terraform."
+icon = "cloud"
+weight = 2
+
+[[params.skills]]
+title = "Docker & Kubernetes"
+description = "Utilizing Docker, Swarm, and Kubernetes for developing and deploying applications. Proficient in multi-stage and multi-architecture builds, inclusive of docker-compose."
+icon = "package"
+weight = 3
+
+
+[[params.skills]]
+title = "Go Development"
+description = "Go is an excellent language for professional development. I am skilled at writing scalable, testable, and maintainable programs. I also have experience in writing microservices and migrating to them."
+icon = "code"
+weight = 4
+
+
+[[params.skills]]
+title = "Node.js & React.js"
+description = "Proficient in using JavaScript and TypeScript for both frontend and backend services, including RESTful and GraphQL APIs. Well-versed in frameworks such as React.js, Express.js, Nest.js, and others."
+icon = "hexagon"
+weight = 5
+
+
+[[params.skills]]
+title = "CI / CD"
+description = "Skilled in creating CI/CD pipelines for various projects, utilizing tools such as Jenkins, GitLab CI, Circle CI, and GitHub Actions to automate development and deployment workflows."
+icon = "disc"
+weight = 6

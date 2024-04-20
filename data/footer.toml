@@ -1,0 +1,31 @@
+[params]
+copyright = "© 2001-2024 Andrew Molyuk"
+
+# Social links. Possible type values are: 
+# github, twitter, linkedin, instagram, telegram, facebook, phone, email, whatsapp, youtube, dribbble, behance, medium
+# Weight is used to sort the links. Lower weight means being closer to the beginning of the list.
+
+[[params.social]]
+type = "linkedin"
+id = "andrewmolyuk"
+weight = 1
+
+[[params.social]]
+type = "github"
+id = "andrewmolyuk"
+weight = 2
+
+[[params.social]]
+type = "facebook"
+id = "andrewmolyuk"
+weight = 3
+
+[[params.social]]
+type = "telegram"
+id = "andrewmolyuk"
+weight = 4
+
+[[params.social]]
+type = "whatsapp"
+id = "+972544767482"
+weight = 5

@@ -1,0 +1,54 @@
+[section] # =============================================================================================================
+
+# The unique identifier for the section
+id = 'testimonials'
+
+# The flag to enable or disable the section
+enabled = true
+
+# Use the following to set the order of the sections on the page
+weight = 7
+
+[params] # =============================================================================================================
+
+# The title for the section
+title = "Testimonials"
+
+# The description for the section
+description = "What people are saying about me and my work. I am proud to have worked with some amazing people and companies."
+
+[[testimonial]]
+name = "Oded Pelled"
+position = "Co-Founder at Vidcrunch"
+text = "Andrew is an endless source of knowledge in management methods, Agile, Kanban, Scrum etc. Andrew will always come with the right way to facilitate and preferably will lead it initially to a conclusion. Always up to date with most recent technologies and methodologies, thoughts and trends, and will always be able to provide the right solution."
+weight = 1
+
+[[testimonial]]
+name = "Yuval Gliks"
+position = "CEO at Vidcrunch"
+text = "I am pleased to write this recommendation for Andrew, who served as the CTO at VidCrunch during my interactions with him. Andrew is a highly skilled and talented technology professional who consistently demonstrated his expertise and leadership qualities. He is a great team player and a pleasure to work with."
+weight = 2
+
+[[testimonial]]
+name = "Ido Zrihan"
+position = "Publisher Development at Vidcrunch"
+text = "I had the opportunity to work with Andrew for over five years, and I can say without hesitation that he is one of the best leaders I have ever worked with. As the CTO of our company, he showed great professionalism, accuracy and efficiency in his work. He always delivered high-quality results and met the deadlines, even under pressure."
+weight = 3
+
+[[testimonial]]
+name = "Arseniy Pavlenko"
+position = "CTO at Screenz"
+text = "When Andrew came to our team, we were under terrible overload, but in just one month, he has helped us to establish a working process and we were able to breathe. Andrew excellent and reliable partner with rich experience, open and nice person to talk to. I am happy to have worked with Andrew, definitely I recommend him for any team."
+weight = 4
+
+[[testimonial]]
+name = "Rachel Falk"
+position = "VP R&D at Synerion"
+text = "There are 2 wonderful aspects of working with Andrew. One is technical. You can always be sure Andrew will find the right solution and go for it. Will always deliver. The other aspect is personal. Andrew is great to work with to have in your team. People's man. I will always want Andrew in my team."
+weight = 5
+
+[[testimonial]]
+name = "Sean Noy"
+position = "Head of IT at BestTV"
+text = "Andrew is a valuable and irreplaceable asset to the company he works for, pays great attention to details, very professional with mature working methods and vast and thorough know-hows in all R&D aspects that reach to perfect results each time."
+weight = 6
