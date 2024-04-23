@@ -1,6 +1,6 @@
 module github.com/hugo-porto/web
 
-go 1.22.2
+go 1.22
 
 // Direct link to the theme module in the local file system to deveopment purposes only
 // Should be removed or commented before deploying to production
