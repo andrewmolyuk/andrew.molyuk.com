@@ -4,8 +4,13 @@ title = '#andrewmolyuk'
 
 googleAnalytics = 'G-J9DSCZ2KKH'
 
+[author]
+name = 'Andrew Molyuk'
+
 [params]
 favicon = "images/favicon.png"
+description = "Andrew Molyuk's personal website"
+keywords = "Andrew Molyuk, personal website, blog, portfolio"
 
 # Add theme using Hugo modules
 [module]
