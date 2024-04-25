@@ -9,4 +9,4 @@ go 1.22
 // Another way to do this is to use the HUGO_MODULE_REPLACEMENTS environment variable
 // export HUGO_MODULE_REPLACEMENTS="github.com/hugo-porto/theme->../../theme"
 
-require github.com/hugo-porto/theme v0.0.12 // indirect
+require github.com/hugo-porto/theme v0.0.13 // indirect
