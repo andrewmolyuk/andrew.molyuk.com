@@ -1,7 +1,8 @@
 ---
 title: 'Howto Add Gpg to Apple Mail'
-date: 2023-06-14T21:40:49+03:00
+date: 2023-06-15T21:40:49+03:00
 draft: false
+tags: ['gpg', 'pgp', 'gpgmail', 'mail', 'security']
 params:
   image: 'index.png'
 ---

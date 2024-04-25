@@ -2,6 +2,7 @@
 title: 'Golang Project Structure'
 date: 2023-06-02T13:22:51+03:00
 draft: false
+tags: ['golang', 'project', 'microservices']
 params:
   image: 'index.png'
 ---

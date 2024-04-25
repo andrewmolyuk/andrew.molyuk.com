@@ -2,6 +2,7 @@
 title: 'Getting Started'
 date: 2023-03-31T20:29:26+03:00
 draft: false
+tags: ['blog']
 params:
   image: 'index.png'
 ---
