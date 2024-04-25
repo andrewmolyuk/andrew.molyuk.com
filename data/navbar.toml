@@ -12,9 +12,9 @@ enabled = true
 text = "#andrewmolyuk"
 
 # Define the menu items
-# [[params.menu]]
-# name = "Posts"
-# link = "/posts"
+[[params.menu]]
+name = "Posts"
+link = "/posts"
 
 [params.getMyCVButton]
 
