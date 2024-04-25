@@ -1,7 +1,7 @@
 ---
 title: 'Hello World'
 date: 2024-04-25T09:43:15+03:00
-draft: true
+draft: false
 params:
   image: 'index.png'
 ---
@@ -52,7 +52,7 @@ console.log('Hello, World!');
 echo "Hello, World!"
 ```
 
-## C#
+## C&sharp;
 
 ```c
 Console.WriteLine("Hello, World!");
