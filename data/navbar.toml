@@ -13,6 +13,10 @@ text = "#andrewmolyuk"
 
 # Define the menu items
 [[params.menu]]
+name = "Home"
+link = "/"
+
+[[params.menu]]
 name = "Posts"
 link = "/posts"
 
