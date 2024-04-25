@@ -3,7 +3,7 @@
 .SILENT:
 
 lint:
-	markdownlint **/*.md
+	markdownlint '**/*.md'
 @PHONY: lint
 
 clean:
