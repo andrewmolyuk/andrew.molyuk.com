@@ -19,8 +19,27 @@ and hopefully provide valuable content for both beginners and experienced develo
 In particular, this post has been instrumental in shaping the blog section of the
 [hugo-porto](https://github.com/hugo-porto/theme) theme for Hugo.
 
-To demonstrate and test the code highlighting feature, here are a few examples of "Hello World" in different programming
-languages:
+## My first experience writing a theme for Hugo
+
+When I first decided to write a theme for Hugo, I was both excited and a bit apprehensive. I had some experience with
+web development, but creating a theme from scratch was a new challenge.
+
+The first step was to understand the structure of a Hugo theme. Hugo's documentation was a great help in this regard,
+providing clear and detailed explanations. I learned a lot about the importance of the `layouts` directory, the role of
+`partials`, and how to use `shortcodes` for reusable components.
+
+The actual coding process was a mix of trial and error, learning, and satisfaction. I faced challenges, like figuring
+out how to make the theme responsive and ensuring it looked good on different screen sizes. But with each problem
+solved, I gained more confidence and knowledge.
+
+One of the most rewarding parts was seeing the theme come to life. After hours of coding, it was thrilling to see my
+design rendered in the browser. It was also gratifying to receive positive feedback from the Hugo community.
+
+In conclusion, writing a theme for Hugo was a rewarding experience that taught me a lot about web development and
+design. It was a journey filled with challenges, learning, and ultimately, satisfaction.
+
+To demonstrate and test the code highlighting feature, I'd like to show here are a few examples of "Hello World" in
+different programming languages:
 
 ## Go
 
