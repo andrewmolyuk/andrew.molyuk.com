@@ -1,7 +1,7 @@
 ---
 title: 'Howto Add Linters to Hugo'
 date: 2023-04-29T09:07:20+03:00
-draft: true
+draft: false
 tags: ['hugo', 'stylelint', 'eslint', 'remark-lint']
 params:
   image: 'index.png'
