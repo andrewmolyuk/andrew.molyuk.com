@@ -1,7 +1,7 @@
 ---
 title: 'Howto Create Hugo Website'
 date: 2023-05-30T20:29:26+03:00
-draft: true
+draft: false
 tags: ['hugo', 'github']
 params:
   image: 'index.png'
