@@ -1,24 +1,19 @@
 [[social]]
-  type   = "linkedin"
-  id     = "andrewmolyuk"
-  weight = 1
+  type = "linkedin"
+  id   = "andrewmolyuk"
 
 [[social]]
-  type   = "github"
-  id     = "andrewmolyuk"
-  weight = 2
+  type = "github"
+  id   = "andrewmolyuk"
 
 [[social]]
-  type   = "facebook"
-  id     = "andrewmolyuk"
-  weight = 3
+  type = "facebook"
+  id   = "andrewmolyuk"
 
 [[social]]
-  type   = "telegram"
-  id     = "andrewmolyuk"
-  weight = 4
+  type = "telegram"
+  id   = "andrewmolyuk"
 
 [[social]]
-  type   = "whatsapp"
-  id     = "+972544767482"
-  weight = 5
+  type = "whatsapp"
+  id   = "+972544767482"
