@@ -1,32 +1,20 @@
-[params]
+title = "#andrewmolyuk"
+logo  = "img/logo.svg"
 
-# Logo to show in the navbar
-logo = "images/logo.svg"
+[[menu]]
+  text        = "Home"
+  description = "Welcome to my personal website"
+  link        = "/"
+  target      = "_self"
 
-[params.title]
+[[menu]]
+  text        = "Posts"
+  description = "Read my latest posts"
+  link        = "/posts"
+  target      = "_self"
 
-# Enable or disable the title
-enabled = true
-
-# Text to display in the navbar
-text = "#andrewmolyuk"
-
-# Define the menu items
-[[params.menu]]
-name = "Home"
-link = "/"
-
-[[params.menu]]
-name = "Posts"
-link = "/posts"
-
-[params.getMyCVButton]
-
-# Enable or disable the button
-enabled = true
-
-# Text to display on the button
-text = "Get my CV"
-
-# URL to redirect to when the button is clicked
-link = "files/Andrew Molyuk.pdf"
+[button]
+  enabled = true
+  text    = "Get my CV"
+  link    = "files/Andrew Molyuk.pdf"
+  target  = "_blank"

@@ -1,12 +1,5 @@
-module github.com/hugo-porto/web
+module github.com/andrewmolyuk/andrew.molyuk.com
 
-go 1.22
+go 1.22.2
 
-// Direct link to the theme module in the local file system to deveopment purposes only
-// Should be removed or commented before deploying to production
-// replace github.com/hugo-porto/theme => ../theme
-
-// Another way to do this is to use the HUGO_MODULE_REPLACEMENTS environment variable
-// export HUGO_MODULE_REPLACEMENTS="github.com/hugo-porto/theme->../../theme"
-
-require github.com/hugo-porto/theme v0.0.15 // indirect
+require github.com/hugo-porto/theme v0.0.1 // indirect

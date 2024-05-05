@@ -1,18 +1,17 @@
-baseURL = 'https://andrew.molyuk.com/'
+baseURL      = 'https://andrew.molyuk.com/'
 languageCode = 'en-us'
-title = '#andrewmolyuk'
+title        = '#andrewmolyuk'
 
 googleAnalytics = 'G-J9DSCZ2KKH'
 
-[author]
-name = 'Andrew Molyuk'
-
 [params]
-favicon = "images/favicon.png"
-description = "Andrew Molyuk's personal website"
-keywords = "Andrew Molyuk, personal website, blog, portfolio"
+  favicon     = "img/favicon.png"
+  description = "Andrew Molyuk's personal website"
+  keywords    = "Andrew Molyuk, personal website, blog, portfolio"
 
-# Add theme using Hugo modules
+  [params.author]
+    name = 'Andrew Molyuk'
+
 [module]
-[[module.imports]]
-path = "github.com/hugo-porto/theme"
+  [[module.imports]]
+    path = "github.com/hugo-porto/theme"

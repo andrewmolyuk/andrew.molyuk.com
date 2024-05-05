@@ -1,37 +1,14 @@
-[section] # =============================================================================================================
-
-# The unique identifier for the section
-id = 'education'
-
-# The flag to enable or disable the section
-enabled = true
-
-# Use the following to set the order of the sections on the page
-weight = 5
-
-[params] # =============================================================================================================
-
-# The title for the section
-title = "Education"
-
-# The description for the section
-description = "Below is a summary of the significant educational milestones in my life. I have always been passionate about learning and have always been eager to learn new things."
-
+[[education]]
+  date  = "2013"
+  title = "Vanderbilt University"
+  text  = "Finished a year studying the course «Pattern-Oriented Software Architectures for Concurrent and Networked Software». The course was taught by Douglas C. Schmidt, a professor of computer science and well known author of several books on patterns and software architecture."
 
 [[education]]
-year = "2013"
-name = "Vanderbilt University"
-description = "Finished a year studying the course «Pattern-Oriented Software Architectures for Concurrent and Networked Software». The course was taught by Douglas C. Schmidt, a professor of computer science and well known author of several books on patterns and software architecture."
-weight = 1
+  date  = "2005 - 2006"
+  title = "John Bryce Training Center"
+  text  = "Successfully completed with very high grade a two-year course on «System Analysis with UML in Web Services Environment», instructed by leading Israeli software development specialists. The course was focused on the design and architecture of modern applications using UML."
 
 [[education]]
-year = "2005 - 2006"
-name = "John Bryce Training Center"
-description = "Successfully completed with very high grade a two-year course on «System Analysis with UML in Web Services Environment», instructed by leading Israeli software development specialists. The course was focused on the design and architecture of modern applications using UML."
-weight = 2
-
-[[education]]
-year = "1990 - 1996"
-name = "Taras Shevchenko National University"
-description = "Graduated with honors from the Faculty of Applied Mathematics and Programming. The faculty is one of the leading faculties in Ukraine in the field of computer science and information technology in the oldest and one of the most prestigious universities in Ukraine."
-weight = 3
+  date  = "1990 - 1996"
+  title = "National University of Kyiv"
+  text  = "Graduated with honors from the Faculty of Applied Mathematics and Programming. The faculty is one of the leading faculties in Ukraine in the field of computer science and information technology in the oldest and one of the most prestigious universities in Ukraine."

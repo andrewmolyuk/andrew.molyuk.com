@@ -10,7 +10,7 @@ params:
 I have been using GPG for a long time, but I never got around to setting it up in Apple Mail. There was always something
 more important. But recently, I finally did it. The main problem was that I couldn't find a suitable solution for iOS.
 I haven't solved this issue yet, but if I need to work with constantly encrypted content, I would rather use
-[ProtonMail](https://protonmail.com/ru/) or [Tutanota](https://tutanota.com/ru/).
+[ProtonMail](https://protonmail.com/) or [Tutanota](https://tutanota.com/).
 
 So, PGP allows you to sign and encrypt a message. The signature ensures that the message has not been altered after it
 was signed by the sender. Encryption ensures that the message will not be read by third parties. Signature and
