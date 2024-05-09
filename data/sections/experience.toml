@@ -1,7 +1,7 @@
 
 [[company]]
   name = "Vidcrunch"
-  role = "CTO"
+  role = "Chief Technology Officer (CTO)"
   date = "2016 - 2024"
   text = [
     "I immersed myself deeply in the realm of video ads and arbitration, leading a fully remote development team. We handled an impressive volume of approximately in 23 billion aggregated events each day and updated around 300 million entries in our database daily. Operating complex decision-making algorithms, we managed over 250 automatically scalable computing units during peak loads while effectively automating business processes.",
