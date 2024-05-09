@@ -38,8 +38,8 @@ hugo v0.111.3+extended darwin/arm64 BuildDate=unknown
 
 ## Creation of a new Hugo website
 
-After installing Hugo, I created a new GitHub repository to store my site's source code. After creation
-repository, I cloned it to my computer using the command:
+After installing Hugo, I created a new GitHub repository to store my site's source code. After creation repository, I
+cloned it to my computer using the command:
 
 ```shell
 git clone git@github.com:andrewmolyuk/andrew-molyuk-com.git
@@ -66,35 +66,35 @@ directory:
 `/layouts/_default/baseof.html`: this file contains the base template for the entire site. It defines the overall
 structure and design elements that apply to all pages.
 
-`/layouts/index.html`: this file is a template for the main page. It defines the layout and content of the main
-pages of my site.
+`/layouts/index.html`: this file is a template for the main page. It defines the layout and content of the main pages of
+my site.
 
-`/layouts/_default/single.html`: this file contains the default template for individual pages on my Hugo site. It
-used when displaying individual pages of content that do not fit a specific content type or layout.
-It is typically used for pages such as the About Us page and Contact page.
+`/layouts/_default/single.html`: this file contains the default template for individual pages on my Hugo site. It used
+when displaying individual pages of content that do not fit a specific content type or layout. It is typically used for
+pages such as the About Us page and Contact page.
 
 `/layouts/blog/list.html`: this file contains the template for the blog list page. It defines how it should be displayed
 list of blog articles.
 
 `/layouts/blog/single.html`: this file defines the layout and structure of an individual blog article.
 
-`/layouts/404.html`: I created this file as a template for a 404 page. It defines the layout and content that should
-be displayed when the user accesses a non-existent page.
+`/layouts/404.html`: I created this file as a template for a 404 page. It defines the layout and content that should be
+displayed when the user accesses a non-existent page.
 
 `/layouts/partials/head.html`: this file contains the template for the \<head> section of each HTML page. It includes
 metadata, CSS style sheets, and any other code that needs to be included inside the \<head> tags.
 
-`/layouts/partials/header.html`: this file is the template for the header section of my site. It usually includes
-logo site, navigation menu and other common elements displayed at the top of each page.
+`/layouts/partials/header.html`: this file is the template for the header section of my site. It usually includes logo
+site, navigation menu and other common elements displayed at the top of each page.
 
-`/layouts/partials/footer.html`: this file contains the template for the footer section of my website. It usually includes
-information, such as copyrights, links or any other content that appears at the bottom of each page.
+`/layouts/partials/footer.html`: this file contains the template for the footer section of my website. It usually
+includes information, such as copyrights, links or any other content that appears at the bottom of each page.
 
-`/layouts/taxonomy/terms.html`: this file is the template for the taxonomy tag cloud page. It defines how
-the labels should be displayed as a cloud form.
+`/layouts/taxonomy/terms.html`: this file is the template for the taxonomy tag cloud page. It defines how the labels
+should be displayed as a cloud form.
 
-`/layouts/taxonomy/term.html`: I created this file as a template for a taxonomy label page. It defines the layout
-and the page structure that displays blog articles associated with a specific tag.
+`/layouts/taxonomy/term.html`: I created this file as a template for a taxonomy label page. It defines the layout and
+the page structure that displays blog articles associated with a specific tag.
 
 ## config.toml
 
@@ -106,9 +106,9 @@ according to my requirements. Here's a summary of the changes I made:
 - Defined title, description and keywords for the site.
 - Enabled enableRobotsTXT to allow search robots access to the site.
 - Enabled enableSitemapXML to generate a sitemap.xml file for better search engine optimization.
-- Set up a taxonomy for blog tags, specifying it as blog/tags. This taxonomy setup allows me to apply tags
-  only to the content in the blog section of my website. This taxonomy configuration ensures that tags are applied
-  only to content related to the blog, separating it from other sections of the site.
+- Set up a taxonomy for blog tags, specifying it as blog/tags. This taxonomy setup allows me to apply tags only to the
+  content in the blog section of my website. This taxonomy configuration ensures that tags are applied only to content
+  related to the blog, separating it from other sections of the site.
 - I enabled RSS feeds, specifying output formats for different sections of the site.
 - Configured the output format for the RSS feed to generate an rss.xml file instead of the standard index.xml.
 
@@ -157,8 +157,8 @@ Markdown for a blog article in the content/blog directory using the following co
 hugo new content/blog/getting-started.md
 ```
 
-I then added taxonomy tags to the frontmatter of the blog article, which allowed me to categorize the article. Here's
-an example, what the frontmatter looked like:
+I then added taxonomy tags to the frontmatter of the blog article, which allowed me to categorize the article. Here's an
+example, what the frontmatter looked like:
 
 ```shell
 ---
@@ -171,8 +171,8 @@ draft: false
 
 ## Launching a local Hugo site
 
-After setting up and adding content, I was ready to launch the Hugo site locally to preview the changes.
-Running the following command in a terminal started the Hugo server and made the site available at
+After setting up and adding content, I was ready to launch the Hugo site locally to preview the changes. Running the
+following command in a terminal started the Hugo server and made the site available at
 [http://localhost:1313](http://localhost:1313):
 
 ```shell
@@ -210,11 +210,11 @@ In this article, I shared my personal experience of creating a new Hugo website 
 step guide through the process, including setting up Hugo, setting up the site, adding content, and running the site
 locally. My goal - provide you with a helpful guide to get started on your own project on Hugo.
 
-I want to emphasize that all source files mentioned in this article are available in
-repositories [GitHub](https://github.com/andrewmolyuk/andrew.molyuk.com) which you can explore and use in
-as a reference for your own Hugo project.
+I want to emphasize that all source files mentioned in this article are available in repositories
+[GitHub](https://github.com/andrewmolyuk/andrew.molyuk.com) which you can explore and use in as a reference for your own
+Hugo project.
 
 Thank you for taking the time to read this article. I hope it was helpful and informative.
 
-If you liked this article, please share it with others so they can benefit from it too.
-If you have any questions or comments, write to me and I will try to answer them.
+If you liked this article, please share it with others so they can benefit from it too. If you have any questions or
+comments, write to me and I will try to answer them.

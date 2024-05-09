@@ -8,8 +8,8 @@ params:
 ---
 
 I have been using GPG for a long time, but I never got around to setting it up in Apple Mail. There was always something
-more important. But recently, I finally did it. The main problem was that I couldn't find a suitable solution for iOS.
-I haven't solved this issue yet, but if I need to work with constantly encrypted content, I would rather use
+more important. But recently, I finally did it. The main problem was that I couldn't find a suitable solution for iOS. I
+haven't solved this issue yet, but if I need to work with constantly encrypted content, I would rather use
 [ProtonMail](https://protonmail.com/) or [Tutanota](https://tutanota.com/).
 
 So, PGP allows you to sign and encrypt a message. The signature ensures that the message has not been altered after it
@@ -21,9 +21,9 @@ encryption can be used together or separately. I always enable the signature, an
 ## GPG Installation
 
 First, we need to install Free GPG Mail. The regular GPG Mail costs money, but its code is open, so there is a free
-version called Free GPG Mail. It can be downloaded
-from the [GitHub repository](https://github.com/Free-GPGMail/Free-GPGMail/releases) or installed
-through [Homebrew](https://brew.sh/).
+version called Free GPG Mail. It can be downloaded from the
+[GitHub repository](https://github.com/Free-GPGMail/Free-GPGMail/releases) or installed through
+[Homebrew](https://brew.sh/).
 
 ```shell
 brew install --cask free-gpgmail
@@ -89,7 +89,8 @@ register the key by uploading it to the [keys.openpgp.org](https://keys.openpgp.
 From this moment on, people will be able to find your public key and make sure that the email they received is indeed
 from you.
 
-You can also check the presence of the key on the server, for this you need to enter the following command in the terminal:
+You can also check the presence of the key on the server, for this you need to enter the following command in the
+terminal:
 
 ```shell
 gpg --search-key andrew@molyuk.com

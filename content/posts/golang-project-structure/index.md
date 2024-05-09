@@ -19,9 +19,9 @@ that Go is a simple language.
 <!--more-->
 
 During this time, I have written several microservice projects in Go. They were all of different sizes and complexities,
-but in each of them, I tried to use similar approaches to the project structure. Gradually, I came to a structure that
-I like. I do not claim that this is the best structure for a microservice project, but it works for me. I hope you
-will like it too.
+but in each of them, I tried to use similar approaches to the project structure. Gradually, I came to a structure that I
+like. I do not claim that this is the best structure for a microservice project, but it works for me. I hope you will
+like it too.
 
 In addition, I want to note that I am not an expert in Go. I'm just sharing my experience. If you notice any mistakes or
 have suggestions for improvement, do not hold back and write to me about it.
@@ -86,8 +86,8 @@ them.
 - grpc - a package for working with gRPC. I use [grpc-go](https://grpc.io/docs/languages/go/quickstart/) and
   [grpc-gateway](https://grpc-ecosystem.github.io/grpc-gateway/). In this package, I store all the necessary files for
   working with gRPC and gRPC-gateway.
-- log - a package for working with logs. As a rule, I use [zap](https://pkg.go.dev/go.uber.org/zap) from Uber. This is
-  a very fast and convenient package for working with logs.
+- log - a package for working with logs. As a rule, I use [zap](https://pkg.go.dev/go.uber.org/zap) from Uber. This is a
+  very fast and convenient package for working with logs.
 - mongodb - a package for working with MongoDB. I use [mongo-go-driver](https://github.com/mongodb/mongo-go-driver).
 - types - a package for storing common types. I use it to store common data types that are used in different parts of
   the project. As a rule, I try to redefine types from external packages in this package. This allows not to create
@@ -185,6 +185,5 @@ the format `prod-<command>`, and all commands from the `dev` group should be in 
 ## Conclusion
 
 In this article, I described my approach to project structure. I do not claim that this is the only correct approach,
-but it suits me until new requirements appear. If you have any ideas for improving this approach, then
-write me a word. I will be happy to listen to your ideas and, perhaps, add them to my approach and use them in
-my projects.
+but it suits me until new requirements appear. If you have any ideas for improving this approach, then write me a word.
+I will be happy to listen to your ideas and, perhaps, add them to my approach and use them in my projects.

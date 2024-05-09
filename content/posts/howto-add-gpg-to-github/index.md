@@ -31,14 +31,15 @@ brew install gnupg
 ## Creating a Key
 
 To create a key, we need to run the command `gpg --full-generate-key`. It will ask us to choose the type of key and
-other parameters. By default, the key type RSA and RSA is selected. I chose it, but you can choose any other type of key,
-if it is more convenient for you. The main thing is that it
-is supported by [GitHub](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key#supported-gpg-key-algorithms).
+other parameters. By default, the key type RSA and RSA is selected. I chose it, but you can choose any other type of
+key, if it is more convenient for you. The main thing is that it is supported by
+[GitHub](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key#supported-gpg-key-algorithms).
 
-Next, we need to choose the key size. I chose 4096, but you can choose any other size within 1024-4096. The
-larger the size, the safer the key, but the longer it will take to generate.
+Next, we need to choose the key size. I chose 4096, but you can choose any other size within 1024-4096. The larger the
+size, the safer the key, but the longer it will take to generate.
 
-Next, we need to choose the key's expiration date. I chose a perpetual key, but you can choose any other expiration date.
+Next, we need to choose the key's expiration date. I chose a perpetual key, but you can choose any other expiration
+date.
 
 Next, we need to enter our data. All this data will be used to create the key. It is important to enter the correct name
 and e-mail, as they will be used to identify the key. All other data can be any.
@@ -69,8 +70,8 @@ ssb   rsa4096/0123456789ABCDEF 2023-06-14 [E]
 It's important to remember the key identifier, which is located in the second line. In my case, it's
 `D190D5376FC0D7F459DF06010143CD29108D6A3E`. This will be used to specify which key we want to use.
 
-To display the public key, you need to run the command `gpg --armor --export <KEY_ID>`. In my case, it will look
-like this:
+To display the public key, you need to run the command `gpg --armor --export <KEY_ID>`. In my case, it will look like
+this:
 
 ```shell
 gpg --armor --export D190D5376FC0D7F459DF06010143CD29108D6A3E
@@ -78,9 +79,9 @@ gpg --armor --export D190D5376FC0D7F459DF06010143CD29108D6A3E
 
 ## Key Backup
 
-I strongly recommend making a backup of the key. If you lose the key, you will not be able to sign data and
-you will not be able to prove that you are the owner of the account. To make a backup of the key, you need to run
-the following command:
+I strongly recommend making a backup of the key. If you lose the key, you will not be able to sign data and you will not
+be able to prove that you are the owner of the account. To make a backup of the key, you need to run the following
+command:
 
 ```shell
 gpg --armor --export andrew@molyuk.com > mygpgkey.asc
@@ -177,14 +178,14 @@ If everything works, a dialog box for password entry should appear:
 ![pinentry.webp](pinentry.webp)
 
 Now you can start the IDE and make a commit. A dialog box for password entry should also appear. If we choose the
-`Save in Keychain` option, the password will be saved in the macOS Keychain and you will no longer need to enter it.
-If we do not choose this option, a dialog box for password entry will appear with each commit.
+`Save in Keychain` option, the password will be saved in the macOS Keychain and you will no longer need to enter it. If
+we do not choose this option, a dialog box for password entry will appear with each commit.
 
 ## Checking the signature on GitHub
 
-From this point on, all commits will be signed with GPG. If you go to GitHub, you will see that commits will
-have a Verified badge. This means that the commit is signed and can be checked. If you click on the badge, you will
-see the name and email of the commit author. These are verified data that were specified when creating the key.
+From this point on, all commits will be signed with GPG. If you go to GitHub, you will see that commits will have a
+Verified badge. This means that the commit is signed and can be checked. If you click on the badge, you will see the
+name and email of the commit author. These are verified data that were specified when creating the key.
 
 ![github-commit.webp](github-commit.webp)
 
@@ -198,5 +199,5 @@ following resources:
 - [The GNU Privacy Handbook](https://www.gnupg.org/gph/en/manual/x110.html)
 - [OpenPGP Best Practices](https://riseup.net/en/security/message-security/openpgp/best-practices)
 
-If you liked the article, share it with your friends. If you have any questions or suggestions, write to me and I
-will be glad to answer them.
+If you liked the article, share it with your friends. If you have any questions or suggestions, write to me and I will
+be glad to answer them.

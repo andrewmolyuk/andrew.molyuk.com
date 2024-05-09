@@ -117,8 +117,8 @@ playbooks, and the `roles` folder will contain the roles that we will use in our
 ### roles
 
 In the `roles` folder we will store all the roles that we will use in our playbooks. For example, I created a role
-called `docker`. Inside this role, I created a folder `tasks`, where all the tasks that we will use in this role will
-be stored. I also created a `templates` folder where all the templates that we will use in this role will be stored.
+called `docker`. Inside this role, I created a folder `tasks`, where all the tasks that we will use in this role will be
+stored. I also created a `templates` folder where all the templates that we will use in this role will be stored.
 
 ## Creating a playbook
 
@@ -261,28 +261,28 @@ Now that we have prepared everything necessary, we can start creating our VPC. F
 You can split the playbook into several files. For example, you can move VPC creation into a separate file, subnet
 creation into a separate file, etc. But I wanted to keep the playbook cohesive to make it easier to read and understand.
 
-If you want to know more about how to split a playbook into multiple files, you can
-read [this article](https://www.digitalocean.com/community/tutorials/how-to-use-ansible-roles-to-abstract-your-infrastructure-environment).
+If you want to know more about how to split a playbook into multiple files, you can read
+[this article](https://www.digitalocean.com/community/tutorials/how-to-use-ansible-roles-to-abstract-your-infrastructure-environment).
 
 I don't think there's any point in explaining every line of the playbook because it's pretty simple. But I want to draw
 your attention to the modules that I use:
 
 `ec2_vpc_net` - This module creates a VPC and returns its ID, CIDR and tags. I store this data in the `vpc` variable.
 
-`ec2_vpc_subnet` - This module creates subnets and returns their ID, CIDR, AZ and tags. I save this data in
-variables `public_subnets` and `private_subnets`.
+`ec2_vpc_subnet` - This module creates subnets and returns their ID, CIDR, AZ and tags. I save this data in variables
+`public_subnets` and `private_subnets`.
 
-`ec2_vpc_igw` - this module creates an Internet Gateway and returns its ID and tags. I save this data in
-variable `internet_gateway`.
+`ec2_vpc_igw` - this module creates an Internet Gateway and returns its ID and tags. I save this data in variable
+`internet_gateway`.
 
-`ec2_vpc_route_table` - this module creates route tables and returns their IDs and tags. I save this data in
-variables `public_route_table` and `private_route_tables`.
+`ec2_vpc_route_table` - this module creates route tables and returns their IDs and tags. I save this data in variables
+`public_route_table` and `private_route_tables`.
 
-`ec2_eip` - This module creates Elastic IP Addresses and returns their IDs and tags. I save this data in
-variable `elastic_ip_addresses`.
+`ec2_eip` - This module creates Elastic IP Addresses and returns their IDs and tags. I save this data in variable
+`elastic_ip_addresses`.
 
-`ec2_vpc_nat_gateway` this module creates a NAT Gateway and returns its ID and tags. I save this data in
-variable `nat_gateways`.
+`ec2_vpc_nat_gateway` this module creates a NAT Gateway and returns its ID and tags. I save this data in variable
+`nat_gateways`.
 
 `debug` - module for displaying information about created resources.
 

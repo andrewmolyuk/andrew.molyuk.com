@@ -7,10 +7,10 @@ params:
   image: 'index.png'
 ---
 
-Always dealing with the server and architectural components of web applications, it was always difficult for me to create
-custom styles. Therefore, when I decided to tackle styles on my own blog, I decided to use Tailwindcss.
-Tailwindcss is a CSS framework that allows you to create custom styles using only HTML classes. It
-provides a set of classes that can be used to create custom styles.
+Always dealing with the server and architectural components of web applications, it was always difficult for me to
+create custom styles. Therefore, when I decided to tackle styles on my own blog, I decided to use Tailwindcss.
+Tailwindcss is a CSS framework that allows you to create custom styles using only HTML classes. It provides a set of
+classes that can be used to create custom styles.
 
 In this post, I will tell you how I used Tailwindcss to style my website and blog.
 
