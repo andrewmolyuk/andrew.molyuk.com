@@ -120,7 +120,8 @@ Since our machine is in a private network, we don't have access to Portainer por
 use the SSM Agent with the command:
 
 ```bash
-aws ssm start-session --target i-0123456789abcdef --document-name AWS-StartPortForwardingSessionToRemoteHost --parameters '{"portNumber":["9443"], "localPortNumber":["9443"]}'
+aws ssm start-session --target i-0123456789abcdef --document-name AWS-StartPortForwardingSessionToRemoteHost \
+  --parameters '{"portNumber":["9443"], "localPortNumber":["9443"]}'
 ```
 
 After that, Portainer will be available at `https://127.0.0.1:9443`. When you first launch Portainer, it will prompt you

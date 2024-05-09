@@ -251,7 +251,8 @@ using its IP address. Otherwise, we will need to connect either via an SSH tunne
 Agent to connect to our instances, so we can use an SSH proxy. To do this, we need to run the following command:
 
 ```shell
-aws ssm start-session --target i-0123456789abcsdef --document-name AWS-StartPortForwardingSessionToRemoteHost --parameters '{"portNumber":["27017"], "localPortNumber":["27017"]}'
+aws ssm start-session --target i-0123456789abcsdef --document-name AWS-StartPortForwardingSessionToRemoteHost \
+  --parameters '{"portNumber":["27017"], "localPortNumber":["27017"]}'
 ```
 
 AWS Session Manager is a separate topic that I may cover in a separate article. For now, just remember that we can
