@@ -44,7 +44,7 @@ tools. For example, you can use these metadata in [Sentry](https://sentry.io/) t
 error reports. Or you can use them in [Prometheus](https://prometheus.io/) to display the application version in
 metrics.
 
-## Сборка Go приложения
+## Building a Go application
 
 To pass version information into a Go application, we can use the `ldflags` compiler flag. For this, we need to specify
 the following parameters in the Dockerfile for building the Go application:

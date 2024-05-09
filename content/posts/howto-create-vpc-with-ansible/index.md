@@ -1,5 +1,5 @@
 ---
-title: 'Howto Create Vpc With Ansible'
+title: 'Howto Create VPC With Ansible'
 date: 2023-06-11T15:14:56+03:00
 draft: false
 tags: ['aws', 'vpc', 'ansible', 'devops']
@@ -20,7 +20,7 @@ will create a VPC using Ansible.
 
 <!--more-->
 
-## Подготовка
+## Setup
 
 To begin with, we need to install Ansible. As a devoted fan of [Homebrew](https://brew.sh/), I installed Ansible using
 it:

@@ -77,8 +77,8 @@ from the left menu and click on the `Add domain` button.
 
 ![github-pages-hugo-add-domain.webp](github-pages-hugo-add-domain.webp)
 
-Далее идем к регистратору доменов и добавляем DNS запись CNAME для домена `andrew.molyuk.com`, которая будет указывать
-на `andrewmolyuk.github.io` и верификационную DNS запись TXT для домена `_github-challenge-andrew.molyuk.com`.
+Next, we proceed to the domain registrar and add a CNAME DNS record for the domain andrew.molyuk.com, pointing to
+andrewmolyuk.github.io, and a verification TXT DNS record for the domain \_github-challenge-andrew.molyuk.com.
 
 ![godaddy-txt.webp](godaddy-dns.webp)
 
