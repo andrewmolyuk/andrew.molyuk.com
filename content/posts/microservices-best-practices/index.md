@@ -1,7 +1,7 @@
 ---
 title: 'Microservices Best Practicies'
 date: 2023-07-18T09:51:45+03:00
-tags: ['microservices', 'best practices', 'management', 'planning']
+tags: ['microservices', 'best practices', 'management']
 draft: false
 params:
   image: 'index.png'

@@ -1,7 +1,7 @@
 ---
 title: 'Review of JBL Tour Pro 2 Headphones'
 date: 2024-01-02T10:57:58+02:00
-tags: ['headphones', 'review', 'jbl tour pro 2']
+tags: ['headphones', 'review', 'jbl']
 draft: false
 params:
   image: 'index.png'

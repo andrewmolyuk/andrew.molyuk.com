@@ -1,7 +1,7 @@
 ---
 title: 'Howto setup Docker Swarm with monitoring'
 date: 2023-07-02T12:57:33+03:00
-tags: ['docker', 'docker swarm', 'promehteus', 'grafana', 'aws', 'aws ecr', 'slack', 'monitoring', 'scale']
+tags: ['docker swarm', 'promehteus', 'grafana', 'aws', 'ecr', 'monitoring']
 draft: false
 params:
   image: 'index.png'

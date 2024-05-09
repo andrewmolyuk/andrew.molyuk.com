@@ -2,7 +2,7 @@
 title: 'Howto setup MongoDb in AWS with Docker'
 date: 2023-06-20T22:38:35+03:00
 draft: false
-tags: ['mongodb', 'aws', 'replica set', 'docker', 'fault tolerance', 'docker-compose']
+tags: ['mongodb', 'aws', 'replica', 'docker'
 params:
   image: 'index.png'
 ---
