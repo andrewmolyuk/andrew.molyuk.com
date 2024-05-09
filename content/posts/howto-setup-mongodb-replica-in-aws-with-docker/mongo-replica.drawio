@@ -1,0 +1,62 @@
+<mxfile host="Electron" modified="2023-06-21T18:04:08.244Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.5.0 Chrome/112.0.5615.204 Electron/24.5.1 Safari/537.36" etag="TSRQWtCcEuQ6FE52YZdQ" version="21.5.0" type="device">
+  <diagram name="Page-1" id="Tq9bygFQ8oSHHMuN9PvG">
+    <mxGraphModel dx="1199" dy="878" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="IZaw3WgY1h6iNoMVz65h-10" value="запись" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=16;" parent="1" source="IZaw3WgY1h6iNoMVz65h-1" target="IZaw3WgY1h6iNoMVz65h-2" edge="1">
+          <mxGeometry x="-0.1429" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IZaw3WgY1h6iNoMVz65h-1" value="Приложение" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#dae8fc;gradientColor=#7ea6e0;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="640" y="130" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IZaw3WgY1h6iNoMVz65h-7" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=16;" parent="1" source="IZaw3WgY1h6iNoMVz65h-2" target="IZaw3WgY1h6iNoMVz65h-4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IZaw3WgY1h6iNoMVz65h-9" value="реплицация" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" parent="IZaw3WgY1h6iNoMVz65h-7" vertex="1" connectable="0">
+          <mxGeometry x="-0.0998" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IZaw3WgY1h6iNoMVz65h-8" value="репликация" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=16;" parent="1" source="IZaw3WgY1h6iNoMVz65h-2" target="IZaw3WgY1h6iNoMVz65h-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IZaw3WgY1h6iNoMVz65h-2" value="Основная нода" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#d5e8d4;gradientColor=#97d077;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="640" y="280" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IZaw3WgY1h6iNoMVz65h-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=16;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="IZaw3WgY1h6iNoMVz65h-3" target="IZaw3WgY1h6iNoMVz65h-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IZaw3WgY1h6iNoMVz65h-12" value="чтение" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;labelBackgroundColor=default;" parent="IZaw3WgY1h6iNoMVz65h-11" vertex="1" connectable="0">
+          <mxGeometry x="-0.1322" relative="1" as="geometry">
+            <mxPoint y="39" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IZaw3WgY1h6iNoMVz65h-3" value="Вторичная нода" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#fff2cc;gradientColor=#ffd966;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="940" y="385" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IZaw3WgY1h6iNoMVz65h-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=classic;startFill=1;fontSize=16;" parent="1" source="IZaw3WgY1h6iNoMVz65h-4" target="IZaw3WgY1h6iNoMVz65h-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IZaw3WgY1h6iNoMVz65h-6" value="heartbeat" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" parent="IZaw3WgY1h6iNoMVz65h-5" vertex="1" connectable="0">
+          <mxGeometry x="0.4" relative="1" as="geometry">
+            <mxPoint x="-87" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IZaw3WgY1h6iNoMVz65h-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=16;" parent="1" source="IZaw3WgY1h6iNoMVz65h-4" target="IZaw3WgY1h6iNoMVz65h-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IZaw3WgY1h6iNoMVz65h-15" value="чтение" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" parent="IZaw3WgY1h6iNoMVz65h-14" vertex="1" connectable="0">
+          <mxGeometry x="-0.1508" y="1" relative="1" as="geometry">
+            <mxPoint x="1" y="31" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IZaw3WgY1h6iNoMVz65h-4" value="Вторичная нода" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#fff2cc;gradientColor=#ffd966;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="350" y="385" width="180" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
