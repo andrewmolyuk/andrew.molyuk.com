@@ -18,9 +18,10 @@ convenient.
 
 ![IMG_9649.webp](IMG_9649.webp)
 
-First, you need to download the software from the original source - https://www.raspberrypi.com/software/. Then, run it
-and select OctoPi from the extensive list of available operating systems. To access WiFi, you'll need to go to advanced
-settings - click the gear icon on the right side of the screen.
+First, you need to download the software from the original source -
+[https://www.raspberrypi.com/software/](https://www.raspberrypi.com/software/). Then, run it and select OctoPi from the
+extensive list of available operating systems. To access WiFi, you'll need to go to advanced settings - click the gear
+icon on the right side of the screen.
 
 ![1.webp](2.webp)
 
@@ -32,8 +33,9 @@ advisable to change the default administrative username and password. If you nee
 After configuring, you can proceed to write the disk image to the SD card.
 
 Once the writing is complete, remove the card and insert it into the Raspberry Pi. Power it on and go to
-http://octopi.local/. If you can't access it through this address, you can try accessing it via the IP address, which
-can be found in the router settings. After a short and transparent setup process, everything should be up and running.
+[http://octopi.local/](http://octopi.local). If you can't access it through this address, you can try accessing it via
+the IP address, which can be found in the router settings. After a short and transparent setup process, everything
+should be up and running.
 
 ![3.webp](3.webp)
 
