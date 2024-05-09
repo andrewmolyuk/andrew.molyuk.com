@@ -5,3 +5,9 @@ resources/_gen
 
 # Mac OS files
 .DS_Store
+
+# Windows files
+Thumbs.db
+
+# Node.js files
+node_modules
