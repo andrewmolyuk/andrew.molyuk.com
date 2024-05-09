@@ -1,7 +1,7 @@
 ---
 title: 'Monorepo vs. Polyrepo'
 date: 2023-09-11T12:49:23+03:00
-tags: ['golang', 'microservices', 'structure', 'monorepo', 'polyrepo']
+tags: ['monorepo', 'polyrepo']
 draft: false
 params:
   image: 'index.png'
