@@ -1,5 +1,5 @@
 ---
-title: 'Mooving to Netlify'
+title: 'Howto Deploy Hugo to Netlify'
 date: 2023-05-27T15:14:30+03:00
 draft: false
 tags: ['hugo', 'netlify', 'deploy', 'godaddy']
