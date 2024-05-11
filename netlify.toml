@@ -1,5 +1,4 @@
 [build]
-  ignore  = "exit 0"
   publish = "public"
   command = "make build"
 
