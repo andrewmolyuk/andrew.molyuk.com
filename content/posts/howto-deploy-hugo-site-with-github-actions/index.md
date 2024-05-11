@@ -3,8 +3,7 @@ title: 'Howto Deploy Hugo Site With Guthub Actions'
 date: 2023-05-06T15:25:58+03:00
 tags: ['hugo', 'deploy', 'github', 'godaddy']
 draft: false
-params:
-  image: 'index.png'
+image: 'index.png'
 ---
 
 In order for the website to be accessible on the internet, it makes sense to publish it on some hosting platform. Such

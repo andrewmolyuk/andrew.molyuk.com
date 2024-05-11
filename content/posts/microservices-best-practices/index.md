@@ -3,8 +3,7 @@ title: 'Microservices Best Practicies'
 date: 2023-07-18T09:51:45+03:00
 tags: ['microservices', 'best practices', 'management']
 draft: false
-params:
-  image: 'index.png'
+image: 'index.png'
 ---
 
 In recent years, microservices architectures have become extremely popular, and for good reason. When managed properly,

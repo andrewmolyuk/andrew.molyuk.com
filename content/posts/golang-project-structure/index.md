@@ -3,8 +3,7 @@ title: 'Golang Project Structure'
 date: 2023-06-02T13:22:51+03:00
 draft: false
 tags: ['golang', 'project', 'microservices']
-params:
-  image: 'index.png'
+image: 'index.png'
 ---
 
 I came to Go about a year ago. I write in it in my spare time and I like it. I think it's a very good language for both

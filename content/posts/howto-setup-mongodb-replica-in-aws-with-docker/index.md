@@ -3,8 +3,7 @@ title: 'Howto setup MongoDb in AWS with Docker'
 date: 2023-06-20T22:38:35+03:00
 draft: false
 tags: ['mongodb', 'aws', 'replica', 'docker']
-params:
-  image: 'index.png'
+image: 'index.png'
 ---
 
 In our company, we have an internal application that utilizes MongoDB. The application consists of multiple

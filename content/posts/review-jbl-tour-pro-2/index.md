@@ -3,8 +3,7 @@ title: 'Review of JBL Tour Pro 2 Headphones'
 date: 2024-01-02T10:57:58+02:00
 tags: ['headphones', 'review', 'jbl']
 draft: false
-params:
-  image: 'index.png'
+image: 'index.png'
 ---
 
 In this review, I'll talk about the JBL Tour Pro 2 headphones. These are wireless headphones with active noise

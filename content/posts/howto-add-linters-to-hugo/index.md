@@ -3,8 +3,7 @@ title: 'Howto Add Linters to Hugo'
 date: 2023-04-29T09:07:20+03:00
 draft: false
 tags: ['hugo', 'stylelint', 'eslint', 'remark-lint']
-params:
-  image: 'index.png'
+image: 'index.png'
 ---
 
 In the [previous article](/blog/howto-create-hugo-website/), I discussed how I created my Hugo website and optimized it

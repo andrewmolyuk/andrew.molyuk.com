@@ -3,8 +3,7 @@ title: 'Howto Add Gpg to Apple Mail'
 date: 2023-06-15T21:40:49+03:00
 draft: false
 tags: ['gpg', 'pgp', 'gpgmail', 'mail', 'security']
-params:
-  image: 'index.png'
+image: 'index.png'
 ---
 
 I have been using GPG for a long time, but I never got around to setting it up in Apple Mail. There was always something

@@ -3,8 +3,7 @@ title: 'Howto Create Hugo Website'
 date: 2023-05-30T20:29:26+03:00
 draft: false
 tags: ['hugo', 'github']
-params:
-  image: 'index.png'
+image: 'index.png'
 ---
 
 To write my articles, I use [Hugo](https://gohugo.io/), which is one of the most popular static site generators. It

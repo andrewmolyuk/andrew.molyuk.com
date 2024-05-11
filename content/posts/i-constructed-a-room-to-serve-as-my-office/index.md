@@ -3,8 +3,7 @@ title: 'I Constructed a Room to Serve as My Office'
 date: 2023-10-03T19:36:28+03:00
 tags: ['private', 'construction', 'office']
 draft: false
-params:
-  image: 'index.png'
+image: 'index.png'
 ---
 
 Good morning! I would like to apologize for the prolonged silence because I was busy building a room for my own office.

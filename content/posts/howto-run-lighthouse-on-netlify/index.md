@@ -3,8 +3,7 @@ title: 'Howto Run a Lighthouse on Netlify'
 date: 2023-06-03T21:48:45+03:00
 draft: false
 tags: ['lighthouse', 'netlify', 'performance']
-params:
-  image: 'index.png'
+image: 'index.png'
 ---
 
 Recently, there's been increasing emphasis on website performance. It's no wonder, as people have become more demanding

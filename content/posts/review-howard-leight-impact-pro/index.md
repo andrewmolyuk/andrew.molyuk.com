@@ -3,8 +3,7 @@ title: 'Howard Leight Impact Pro Electronic Earmuffs Review'
 date: 2024-01-20T09:23:01+02:00
 tags: ['earmuffs', 'review', 'howard leight']
 draft: false
-params:
-  image: 'index.png'
+image: 'index.png'
 ---
 
 A new toy has arrived - the Howard Leight Impact Pro headphones. Purchased on

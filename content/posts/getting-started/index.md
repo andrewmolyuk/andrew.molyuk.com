@@ -3,8 +3,7 @@ title: 'Getting Started'
 date: 2023-03-31T20:29:26+03:00
 draft: false
 tags: ['blog']
-params:
-  image: 'index.png'
+image: 'index.png'
 ---
 
 Welcome to my personal website and blog! Here you will find engaging and informative articles covering a wide range of

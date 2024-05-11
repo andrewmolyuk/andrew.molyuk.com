@@ -3,8 +3,7 @@ title: 'Howto Add Gpg to Github'
 date: 2023-06-14T14:23:39+03:00
 draft: false
 tags: ['gpg', 'pgp', 'github', 'security']
-params:
-  image: 'index.png'
+image: 'index.png'
 ---
 
 The main security issue in the modern world is identification. How can we be sure that the person we are corresponding

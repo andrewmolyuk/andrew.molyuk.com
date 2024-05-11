@@ -3,8 +3,7 @@ title: 'Howto setup Docker Swarm with monitoring'
 date: 2023-07-02T12:57:33+03:00
 tags: ['docker swarm', 'promehteus', 'grafana', 'aws', 'ecr']
 draft: false
-params:
-  image: 'index.png'
+image: 'index.png'
 ---
 
 Scaling applications and ensuring service availability are essential parts of any project, and at some stage of

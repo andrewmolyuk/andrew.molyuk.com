@@ -2,9 +2,8 @@
 title: 'Monorepo vs. Polyrepo'
 date: 2023-09-11T12:49:23+03:00
 tags: ['monorepo', 'polyrepo']
+image: 'index.png'
 draft: false
-params:
-  image: 'index.png'
 ---
 
 With the development of web application architectural design, microservices have become a successful new trend in

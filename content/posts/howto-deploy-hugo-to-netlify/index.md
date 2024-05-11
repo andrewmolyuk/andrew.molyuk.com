@@ -3,8 +3,7 @@ title: 'Howto Deploy Hugo to Netlify'
 date: 2023-05-27T15:14:30+03:00
 draft: false
 tags: ['hugo', 'netlify', 'deploy', 'godaddy']
-params:
-  image: 'index.png'
+image: 'index.png'
 ---
 
 I wanted my site to be available under the following names: andrew.molyuk.com and molyuk.com, and I couldn't achieve

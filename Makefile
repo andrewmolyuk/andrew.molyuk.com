@@ -17,7 +17,6 @@ dev-theme: lint
 clean:
 	rm -rf public
 	rm -rf resources
-	rm -rf .resources
 @PHONY: clean
 
 build: clean
@@ -25,6 +24,8 @@ build: clean
 .PHONY: build
 
 upgrade:
+	npm -g ls npm-check-updates | grep -c npm-check-updates || npm install -g npm-check-updates 
+	ncu -u &&	npm install --no-fund --no-audit
 	hugo mod get -u ./...
 	hugo mod tidy
 @PHONY: upgrade

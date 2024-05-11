@@ -3,8 +3,7 @@ title: 'Time Estimation and Responsibility'
 date: 2023-06-06T23:05:36+03:00
 tags: ['management', 'estimation', 'planning']
 draft: false
-params:
-  image: 'index.png'
+image: 'index.png'
 ---
 
 One of the important skills that a programmer should possess is the ability to estimate task completion times.

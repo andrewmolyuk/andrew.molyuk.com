@@ -3,8 +3,7 @@ title: 'Howto Colorize Website With Tailwindcss'
 date: 2023-05-12T16:55:27+03:00
 draft: false
 tags: ['hugo', 'tailwindcss']
-params:
-  image: 'index.png'
+image: 'index.png'
 ---
 
 Always dealing with the server and architectural components of web applications, it was always difficult for me to

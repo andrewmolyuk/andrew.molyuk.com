@@ -3,8 +3,7 @@ title: 'Howto Pass Build Info into Docker'
 date: 2023-06-07T13:17:22+03:00
 draft: false
 tags: ['docker', 'build', 'golang', 'nodejs', 'github']
-params:
-  image: 'index.png'
+image: 'index.png'
 ---
 
 When we build a Docker image of our application, we already know which version of the application will be in it. But

@@ -3,8 +3,7 @@ title: 'Setup OctoPI on Raspberry PI'
 date: 2023-10-06T13:48:08+03:00
 tags: ['octopi', 'raspberry', '3D print']
 draft: false
-params:
-  image: 'index.png'
+image: 'index.png'
 ---
 
 In the kitchen, the handle of my 3D-printed Geeetech MeCreator 2 broke, which was printed several years ago. I needed to

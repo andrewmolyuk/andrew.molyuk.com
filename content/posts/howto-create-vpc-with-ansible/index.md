@@ -3,8 +3,7 @@ title: 'Howto Create VPC With Ansible'
 date: 2023-06-11T15:14:56+03:00
 draft: false
 tags: ['aws', 'vpc', 'ansible', 'devops']
-params:
-  image: 'index.png'
+image: 'index.png'
 ---
 
 Once again, I come across the situation where our infrastructure becomes a mess, and we migrate everything to Terraform,
