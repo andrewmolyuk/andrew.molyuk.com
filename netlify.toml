@@ -2,10 +2,6 @@
   publish = "public"
   command = "make build"
 
-  [build.environment]
-    # Use Node 18 to keep compatibility with @netlify/plugin-lighthouse (<20 requirement)
-    NODE_VERSION = "18"
-
 [context.production.environment]
   HUGO_VERSION = "0.125.7"
   HUGO_ENV     = "production"
