@@ -7,8 +7,8 @@ lint:
 	npx prettier --write "**/*.md" "**/*.json"
 @PHONY: lint
 
-dev: lint
-	hugo server --buildDrafts --buildFuture --disableFastRender --noHTTPCache  --navigateToChanged --templateMetricsHints --templateMetrics --verbose --watch --port 1313
+dev: clean lint
+	hugo server --buildDrafts --buildFuture --disableFastRender --noHTTPCache  --navigateToChanged --templateMetricsHints --templateMetrics --watch --port 1313
 @PHONY: dev
 
 clean:

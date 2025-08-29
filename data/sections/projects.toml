@@ -25,3 +25,13 @@
     "This website powered by Hugo Porto theme, so you can see it in action right now.",
   ]
   link = "https://github.com/hugo-porto"
+
+[[project]]
+  title = "eslint-plugin-vue-modular"
+  text = [
+  "Eslint-plugin-vue-modular is a custom ESLint plugin for Vue 3 that helps teams keep a modular project structure as the codebase grows.",
+    "It enforces clear boundaries between features and modules (for example, preventing deep imports into other features), keeps business logic out of UI-kit components, and ensures modules expose a public API via index files.",
+  "The plugin supports Single-File Components, automatically detects test files (which are exempt from import-boundary checks), and provides both recommended and strict presets.",
+  "One of my projects required a strict modular architecture; I created this plugin to codify and enforce those boundaries across the codebase so the structure stays consistent as the project scaled.",
+  ]
+  link = "https://github.com/andrewmolyuk/eslint-plugin-vue-modular"
