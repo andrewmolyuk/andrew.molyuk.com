@@ -5,3 +5,10 @@
 
 This is my personal website repository. Here, you can find the source code for my website, which includes my portfolio,
 blog posts, and other personal projects. Feel free to explore and get to know more about my work.
+
+## Netlify build note
+
+Netlify is pinned to Node 18 for production builds (see `netlify.toml`). This is required so the
+`@netlify/plugin-lighthouse` plugin can run during deploys — the plugin currently requires Node < 20.
+If you need to run the site locally with a different Node version, use your preferred Node version manager
+(nvm, fnm) to change versions per your workflow.

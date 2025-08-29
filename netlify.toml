@@ -3,7 +3,8 @@
   command = "make build"
 
   [build.environment]
-    NODE_VERSION = "20"
+    # Use Node 18 to keep compatibility with @netlify/plugin-lighthouse (<20 requirement)
+    NODE_VERSION = "18"
 
 [context.production.environment]
   HUGO_VERSION = "0.125.7"
