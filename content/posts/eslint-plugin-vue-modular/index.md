@@ -1,5 +1,5 @@
 ---
-title: 'eslint-plugin-vue-modular: Enforcing modular architecture in Vue 3'
+title: 'Enforcing modular architecture in Vue 3'
 date: 2025-08-29T12:00:00+03:00
 draft: false
 tags: ['vue', 'eslint', 'architecture', 'opensource']
@@ -9,7 +9,13 @@ image: 'index.png'
 This post explains why I created eslint-plugin-vue-modular, how it helps enforce modular architecture in Vue 3 projects,
 and shows concrete examples of rules, configuration, and typical violations and fixes.
 
-Code repository: [eslint-plugin-vue-modular on GitHub](https://github.com/andrewmolyuk/eslint-plugin-vue-modular)
+I hope this post helps you understand the importance of modular architecture in Vue 3 projects and how
+eslint-plugin-vue-modular can assist you in achieving it.
+
+<!--more-->
+
+The code repository is available on GitHub:
+[eslint-plugin-vue-modular on GitHub](https://github.com/andrewmolyuk/eslint-plugin-vue-modular)
 
 ## Why this plugin
 
