@@ -96,7 +96,7 @@ gpg --search-key andrew@molyuk.com
 ```
 
 You can freely download my public key from the following
-[link](https://keys.openpgp.org/vks/v1/by-fingerprint/5A462993E1691B4510390F6C8B43AD0BAE6616A7).
+[my public key on keys.openpgp.org](https://keys.openpgp.org/vks/v1/by-fingerprint/5A462993E1691B4510390F6C8B43AD0BAE6616A7).
 
 This information is enough to find my key on the server and make sure that the email you received is indeed from me. Or
 to send me an encrypted email.

@@ -423,7 +423,7 @@ Docker Swarm dashboard looks:
 
 ![grafana.webp](grafana.webp)
 
-You can download the dashboard [here](dashboard-swarm.json).
+You can download the dashboard [Docker Swarm dashboard JSON](dashboard-swarm.json).
 
 Alerts in Slack will look something like this:
 
