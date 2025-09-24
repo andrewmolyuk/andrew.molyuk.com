@@ -11,6 +11,8 @@ This article explores the comprehensive toolchain that powers modern development
 
 Across most of my projects, this standardized approach ensures consistency, reduces manual overhead, and maintains high code quality standards. The workflow has been refined through practical experience with various project types, from small utilities to complex monorepos.
 
+<!--more-->
+
 ## Project Setup & Package Management
 
 ### Bun
