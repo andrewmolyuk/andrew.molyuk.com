@@ -4,7 +4,7 @@
   date: 2025-09-24T22:39:10+03:00
   image: 'index.png'
   tags: ['github', 'release', 'tools', 'best practices']
-  draft: true
+  draft: false
 ---
 
 This article explores the comprehensive toolchain that powers modern development workflows, focusing on automation, code quality, and streamlined releases. These tools form an integrated ecosystem that handles everything from initial project setup to production deployment and ongoing maintenance.
