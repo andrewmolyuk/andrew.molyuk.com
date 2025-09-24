@@ -6,13 +6,9 @@ tags: ['hugo', 'stylelint', 'eslint', 'remark-lint']
 image: 'index.png'
 ---
 
-In the [previous article](/blog/howto-create-hugo-website/), I discussed how I created my Hugo website and optimized it
-for my own needs. In this article, I will explain how I added linters to Hugo to ensure that my website adheres to
-widely accepted standards.
+In the [previous article](/blog/howto-create-hugo-website/), I discussed how I created my Hugo website and optimized it for my own needs. In this article, I will explain how I added linters to Hugo to ensure that my website adheres to widely accepted standards.
 
-As a perfectionist developer, I always strive to ensure that my code adheres to widely accepted standards and I demand
-the same from my colleagues. Therefore, I decided to add linters to Hugo to ensure that my website meets standards and
-does not contain errors in the source code.
+As a perfectionist developer, I always strive to ensure that my code adheres to widely accepted standards and I demand the same from my colleagues. Therefore, I decided to add linters to Hugo to ensure that my website meets standards and does not contain errors in the source code.
 
 <!--more-->
 
@@ -35,8 +31,7 @@ remark-lint-list-item-indent remark-frontmatter
 
 ## Linters Configuration
 
-After installing the linters, I created configuration files for each of them. Here's what the configuration file
-`.remarkrc` looks like:
+After installing the linters, I created configuration files for each of them. Here's what the configuration file `.remarkrc` looks like:
 
 ```json
 {
@@ -49,10 +44,7 @@ After installing the linters, I created configuration files for each of them. He
 }
 ```
 
-In this example, I use two presets: `remark-preset-lint-consistent` and `remark-preset-lint-recommended`. These two
-presets include a set of plugins that check for common issues in Markdown files. I also added a plugin named
-`remark-lint-list-item-indent`, which checks if there is a space after a list item. Finally, I added a plugin named
-`remark-frontmatter`, which checks if there is a frontmatter section in the Markdown file.
+In this example, I use two presets: `remark-preset-lint-consistent` and `remark-preset-lint-recommended`. These two presets include a set of plugins that check for common issues in Markdown files. I also added a plugin named `remark-lint-list-item-indent`, which checks if there is a space after a list item. Finally, I added a plugin named `remark-frontmatter`, which checks if there is a frontmatter section in the Markdown file.
 
 Here's what the configuration file `.stylelintrc` looks like:
 
@@ -68,9 +60,7 @@ Here's what the configuration file `.stylelintrc` looks like:
 }
 ```
 
-In this example, I use the `stylelint-config-recommended-scss` configuration. I also added a plugin named
-`stylelint-order`, which checks if there is a correct order of CSS properties. Finally, I added a plugin named
-`stylelint-scss`, which checks if there is a correct order of SCSS properties.
+In this example, I use the `stylelint-config-recommended-scss` configuration. I also added a plugin named `stylelint-order`, which checks if there is a correct order of CSS properties. Finally, I added a plugin named `stylelint-scss`, which checks if there is a correct order of SCSS properties.
 
 And here's what the `.eslintrc` configuration file looks like:
 
@@ -86,11 +76,9 @@ And here's what the `.eslintrc` configuration file looks like:
 }
 ```
 
-In this example, I use the `eslint:recommended` configuration. I also added a plugin `tailwindcss/recommended`, which
-checks the code for compliance with Tailwind CSS rules.
+In this example, I use the `eslint:recommended` configuration. I also added a plugin `tailwindcss/recommended`, which checks the code for compliance with Tailwind CSS rules.
 
-These are the initial settings for each of the linters. In the future, I can add more rules, but for now, this is
-enough. Now, I can run the linters using the following commands:
+These are the initial settings for each of the linters. In the future, I can add more rules, but for now, this is enough. Now, I can run the linters using the following commands:
 
 ```shell
 npx remark --frail .
@@ -114,9 +102,7 @@ Now I can run all the linters with the command `make lint`.
 
 ## Adding Codacy to the project
 
-I added Codacy to my project so that it can check my code for compliance with standards. I created an account on Codacy
-and added my GitHub repository. Now the code is checked for compliance with generally accepted standards with each
-commit to the repository. If the code does not meet the standards, Codacy sends me a notification.
+I added Codacy to my project so that it can check my code for compliance with standards. I created an account on Codacy and added my GitHub repository. Now the code is checked for compliance with generally accepted standards with each commit to the repository. If the code does not meet the standards, Codacy sends me a notification.
 
 In addition, you can add a badge to the `README.md` file:
 
@@ -134,8 +120,7 @@ The link leads to the Codacy page, where you can see what errors were found in t
 
 ## Adding Linters to Git Pre-Commit Hook
 
-I added linters to the Git Pre-Commit Hook so they run with every commit to the repository. To do this, you need to
-install the `husky` package:
+I added linters to the Git Pre-Commit Hook so they run with every commit to the repository. To do this, you need to install the `husky` package:
 
 ```shell
 npm install husky --save-dev
@@ -165,14 +150,10 @@ We also need to add a configuration file `.lintstagedrc` to the root of the proj
 }
 ```
 
-Now, the linters will run with every commit to the repository and will not allow a commit if the code does not meet the
-standards. This will help avoid errors in the code and save time on fixing errors in the future.
+Now, the linters will run with every commit to the repository and will not allow a commit if the code does not meet the standards. This will help avoid errors in the code and save time on fixing errors in the future.
 
 ## Conclusion
 
-In this article, I explained how I added linters to Hugo to ensure that my site meets code standards and does not
-contain errors. I also explained how I added Codacy to my project so it can check my code for compliance with generally
-accepted standards. Additionally, I added linters to the Git Pre-Commit Hook, so they run with every commit to the
-repository.
+In this article, I explained how I added linters to Hugo to ensure that my site meets code standards and does not contain errors. I also explained how I added Codacy to my project so it can check my code for compliance with generally accepted standards. Additionally, I added linters to the Git Pre-Commit Hook, so they run with every commit to the repository.
 
 If you have any questions or comments, please write to me and I will try to answer them. Thank you for reading!
