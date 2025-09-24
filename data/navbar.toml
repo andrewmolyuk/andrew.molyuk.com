@@ -13,6 +13,12 @@ logo  = "img/logo.svg"
   link        = "/posts"
   target      = "_self"
 
+[[menu]]
+  text        = "Tags"
+  description = "Browse tags"
+  link        = "/tags"
+  target      = "_self"
+  
 [button]
   enabled = true
   text    = "Get my CV"
