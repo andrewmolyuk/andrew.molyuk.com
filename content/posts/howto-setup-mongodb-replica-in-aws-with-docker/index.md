@@ -20,7 +20,13 @@ Naturally, databases should be in the stateful category. And naturally, the ques
 
 We decided to use Docker for databases. Firstly, it's aesthetically pleasing. Secondly, it allows us to use the same approach for all services, making development and maintenance simpler. Thirdly, it allows us to use an identical environment for development and for live services in AWS. Naturally, we won't store data in the containers themselves; instead, we'll use volumes attached to the containers.
 
-In case of container issues, restarting it is sufficient without affecting the cluster's functionality and data access. In case of volume or host issues, we can simply remove it from replication and create a new one. In case of AWS zone problems, we can raise additional replicas in working zones and connect them to the cluster. In case of AWS problems, there's nothing we can do, and the issues then affect everyone in the industry, making customer interaction difficult at all levels, which can be ignored within the scope of our application.
+In case of container issues, restarting it is sufficient without affecting the cluster's functionality and data access.
+
+In case of volume or host issues, we can simply remove the node from replication and create a new one.
+
+In case of AWS zone problems, we can raise additional replicas in working zones and connect them to the cluster.
+
+If there are broader AWS problems that affect many customers, there's little we can do; such incidents impact the whole industry and are largely outside the scope of our application.
 
 ## What is MongoDB Replica?
 
@@ -40,7 +46,13 @@ The failure of the primary node can cause a delay in the application until a new
 
 If there's a need for load balancing, you can implement it at the driver level or simply specify "secondaryPreferred" in the read settings. Then reads will occur from secondary nodes if available and from the primary node if secondary nodes are unavailable. Thus, the load will be distributed among all nodes in the cluster using a round-robin algorithm. We'll use reading from the nearest node, as secondary nodes are in different zones.
 
-The main downside of MongoDB replicas is their asynchronicity. Consider a situation where we have one primary node and two secondaries. When data is written to the primary node, it's replicated to the secondaries. Suppose one of the secondary nodes falls behind the primary and lags. In this case, we may get a request to read part of the data from the up-to-date secondary node and part of the data from the secondary node that isn't up-to-date. This can lead to incorrect application behavior. This situation is resolved by setting the "write concern" to "majority." Then a write is considered successful only if it's replicated to the majority of nodes. In our case, a write is considered successful only if it's replicated to the primary node and one of the secondaries. Thus, reads will occur only from the up-to-date node. This resolves the asynchronicity issue but increases the write time because a write is considered successful only after replication to the majority of nodes. This setting is the default behavior in MongoDB, but I would recommend verifying it in your case.
+The main downside of MongoDB replicas is their asynchronicity.
+
+Consider a situation where we have one primary node and two secondaries. When data is written to the primary node, it is replicated to the secondaries. Suppose one of the secondary nodes falls behind the primary and lags; in that case, reads from different secondaries might return inconsistent data.
+
+To mitigate this, set the "write concern" to "majority." With this setting, a write is considered successful only after it is replicated to the majority of nodes. In our setup, that means a write must reach the primary and at least one secondary before being acknowledged.
+
+This approach ensures reads come from up-to-date nodes, resolving most asynchronicity issues, but it increases perceived write latency because writes wait for replication to the majority. This is MongoDB's default behavior, but verify it for your application needs.
 
 ## Setting Up Replicas in AWS
 

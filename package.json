@@ -1,8 +1,8 @@
 {
   "devDependencies": {
-    "markdownlint": "^0.39.0",
-    "markdownlint-cli": "^0.45.0",
-    "prettier": "^3.6.2",
+    "markdownlint": "^0.40.0",
+    "markdownlint-cli": "^0.47.0",
+    "prettier": "^3.8.1",
     "prettier-plugin-go-template": "^0.0.15"
   }
 }
