@@ -1,49 +1,14 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-
-type SkillId = 'ai' | 'hlha' | 'cloud' | 'k8s' | 'go' | 'node' | 'cicd'
-
-const EDGES: [SkillId, SkillId][] = [
-  ['hlha', 'ai'],
-  ['cloud', 'ai'],
-  ['k8s', 'ai'],
-  ['go', 'ai'],
-  ['node', 'ai'],
-  ['cicd', 'ai'],
-]
-
-const SKILL_LIST: { id: Exclude<SkillId, 'ai'>; label: string; desc: string }[] = [
-  {
-    id: 'hlha',
-    label: 'HL/HA Distributed Systems',
-    desc: 'High-load, high-availability systems. 100% uptime, 0% data loss, no performance degradation. Vidcrunch: 100K req/sec at idle.',
-  },
-  {
-    id: 'cloud',
-    label: 'Cloud Computing',
-    desc: 'AWS cloud services: serverless, containerized, and traditional. Infrastructure as code with Terraform.',
-  },
-  {
-    id: 'k8s',
-    label: 'Docker & Kubernetes',
-    desc: 'Docker, Swarm, and Kubernetes for dev and deployment. Multi-stage and multi-architecture builds, docker-compose.',
-  },
-  {
-    id: 'go',
-    label: 'Go Development',
-    desc: 'Scalable, testable, maintainable Go, microservices, service migrations, high-performance backends',
-  },
-  {
-    id: 'node',
-    label: 'Node.js & Bun',
-    desc: 'JS/TS across frontend and backend — Node.js and Bun runtimes, REST and GraphQL APIs. React, Vue, Express, Nest.js.',
-  },
-  {
-    id: 'cicd',
-    label: 'CI/CD',
-    desc: 'Pipelines with Jenkins, GitLab CI, CircleCI, GitHub Actions, Bamboo, automated build and deployment workflows',
-  },
-]
+import {
+  SKILL_LIST,
+  ariaLabel as ariaLabelFor,
+  edgeColor as edgeColorFor,
+  edgeOpacity as edgeOpacityFor,
+  nodeOpacity as nodeOpacityFor,
+  sel as selFor,
+  type SkillId,
+} from '../lib/skillsGraph'
 
 const hovered = ref<SkillId | null>(null)
 
@@ -53,50 +18,18 @@ function onEnter(id: SkillId) {
 function onLeave() {
   hovered.value = null
 }
-
-function edgeFor(id: SkillId) {
-  return EDGES.find(([a]) => a === id)
-}
-function edgeHot(id: SkillId) {
-  const h = hovered.value
-  if (!h) return false
-  const edge = edgeFor(id)
-  if (!edge) return false
-  return edge[0] === h || edge[1] === h
-}
-function nodeOpacity(id: SkillId) {
-  const h = hovered.value
-  if (!h) return 1
-  if (id === h) return 1
-  const connected = EDGES.some(([a, b]) => (a === h && b === id) || (b === h && a === id))
-  return connected ? 1 : 0.2
-}
-function edgeOpacity(id: SkillId) {
-  if (!hovered.value) return 0.3
-  return edgeHot(id) ? 1 : 0.05
-}
-function edgeColor(id: SkillId) {
-  return edgeHot(id) ? 'var(--color-accent)' : '#3a3a46'
-}
-function sel(id: SkillId) {
-  return hovered.value === id || hovered.value === 'ai' ? 1 : 0
-}
-
-const AI_DESC =
-  'Multi-agent systems, LLM orchestration, autonomous agent pipelines, agentic workflows, Claude API integration'
-
-function ariaLabel(id: SkillId) {
-  if (id === 'ai') return `AI Engineering: ${AI_DESC}`
-  const skill = SKILL_LIST.find((s) => s.id === id)
-  return skill ? `${skill.label}: ${skill.desc}` : id
-}
-
 function onKeydown(id: SkillId, event: KeyboardEvent) {
   if (event.key === 'Enter' || event.key === ' ') {
     event.preventDefault()
     hovered.value = hovered.value === id ? null : id
   }
 }
+
+const nodeOpacity = (id: SkillId) => nodeOpacityFor(hovered.value, id)
+const edgeOpacity = (id: SkillId) => edgeOpacityFor(hovered.value, id)
+const edgeColor = (id: SkillId) => edgeColorFor(hovered.value, id)
+const sel = (id: SkillId) => selFor(hovered.value, id)
+const ariaLabel = (id: SkillId) => ariaLabelFor(id)
 </script>
 
 <template>
