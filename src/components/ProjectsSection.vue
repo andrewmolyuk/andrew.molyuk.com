@@ -58,15 +58,17 @@ const OTHER_PROJECTS = [
 
           <div class="border-line mb-5 border-y py-3">
             <div class="text-muted flex flex-wrap gap-x-3.5 gap-y-1.5 font-mono text-[11.5px] tracking-[0.02em]">
-              <span>100 tickets in 34h 52m</span>
+              <span>100 tickets in ~20h 59m</span>
               <span class="text-line-strong">·</span>
               <span>0 failures</span>
               <span class="text-line-strong">·</span>
-              <span>~$7.58 avg cost/ticket</span>
+              <span>~$3.29 avg cost/ticket</span>
               <span class="text-line-strong">·</span>
-              <span>~21min avg per task</span>
+              <span>~12m 35s avg per task</span>
             </div>
-            <div class="text-faint mt-1.5 font-mono text-[11px]">early run, single backlog — still in progress</div>
+            <div class="text-faint mt-1.5 font-mono text-[11px]">
+              early run, single backlog, single agent — still in progress
+            </div>
           </div>
 
           <div class="grid grid-cols-[repeat(auto-fit,minmax(120px,1fr))] gap-2 py-1 pb-2">
