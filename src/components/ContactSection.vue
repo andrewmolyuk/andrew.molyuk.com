@@ -19,12 +19,10 @@ const CONTACTS = [
 </script>
 
 <template>
-  <section id="contact" class="border-t border-line px-8 pt-22 pb-18">
+  <section id="contact" class="border-line border-t px-8 pt-22 pb-18">
     <div class="mx-auto max-w-[1100px]">
-      <span class="mb-2 block font-mono text-[11.5px] tracking-[0.18em] text-muted uppercase">04 / contact</span>
-      <h2 class="mb-11 text-[clamp(26px,3.5vw,40px)] font-semibold tracking-[-0.03em] text-heading">
-        Get in Touch
-      </h2>
+      <span class="text-muted mb-2 block font-mono text-[11.5px] tracking-[0.18em] uppercase">04 / contact</span>
+      <h2 class="text-heading mb-11 text-[clamp(26px,3.5vw,40px)] font-semibold tracking-[-0.03em]">Get in Touch</h2>
       <div class="grid grid-cols-[minmax(0,520px)_1fr] items-start gap-14">
         <div class="flex flex-col">
           <a
@@ -33,13 +31,13 @@ const CONTACTS = [
             :href="c.href"
             :target="c.external ? '_blank' : undefined"
             :rel="c.external ? 'noopener noreferrer' : undefined"
-            class="flex items-center justify-between gap-4 border-b border-line py-3.5 text-muted hover:text-accent"
+            class="border-line text-muted hover:text-accent flex items-center justify-between gap-4 border-b py-3.5"
           >
-            <span class="w-19 shrink-0 font-mono text-[11.5px] tracking-[0.12em] text-faint uppercase">{{
+            <span class="text-faint w-19 shrink-0 font-mono text-[11.5px] tracking-[0.12em] uppercase">{{
               c.label
             }}</span>
             <span class="flex-1 font-mono text-[15px] text-inherit">{{ c.display }}</span>
-            <span class="text-[15px] text-faint">↗</span>
+            <span class="text-faint text-[15px]">↗</span>
           </a>
         </div>
 
@@ -60,7 +58,7 @@ const CONTACTS = [
             style="background: radial-gradient(circle at center, rgba(77, 216, 255, 0.1) 0%, transparent 65%)"
           ></div>
           <span
-            class="relative inline-block h-[26px] w-[3px] bg-accent shadow-[0_0_26px_rgba(77,216,255,0.75)]"
+            class="bg-accent relative inline-block h-[26px] w-[3px] shadow-[0_0_26px_rgba(77,216,255,0.75)]"
             style="animation: blink 1.1s step-end infinite"
           ></span>
         </div>

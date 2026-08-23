@@ -51,19 +51,19 @@ onUnmounted(() => {
 
 <template>
   <div>
-    <div class="mb-2.5 font-mono text-[11.5px] tracking-[0.15em] text-muted uppercase">
+    <div class="text-muted mb-2.5 font-mono text-[11.5px] tracking-[0.15em] uppercase">
       live — instrumenta agent runtime
     </div>
 
-    <div class="overflow-hidden rounded-md border border-line bg-panel font-mono">
-      <div class="flex items-center gap-2 border-b border-line bg-panel-alt px-4 py-2.5">
+    <div class="border-line bg-panel overflow-hidden rounded-md border font-mono">
+      <div class="border-line bg-panel-alt flex items-center gap-2 border-b px-4 py-2.5">
         <span class="h-2.5 w-2.5 rounded-full bg-[#ff5f57]"></span>
         <span class="h-2.5 w-2.5 rounded-full bg-[#febc2e]"></span>
         <span class="h-2.5 w-2.5 rounded-full bg-[#28c840]"></span>
-        <span class="ml-2 text-[12.5px] text-muted">instrumenta — agent runtime</span>
-        <span class="ml-auto flex items-center gap-1.5 text-[11.5px] text-success">
+        <span class="text-muted ml-2 text-[12.5px]">instrumenta — agent runtime</span>
+        <span class="text-success ml-auto flex items-center gap-1.5 text-[11.5px]">
           <span
-            class="h-1.5 w-1.5 rounded-full bg-success shadow-[0_0_6px_#4ade80]"
+            class="bg-success h-1.5 w-1.5 rounded-full shadow-[0_0_6px_#4ade80]"
             style="animation: softpulse 2s ease-in-out infinite"
           ></span
           >running
@@ -77,25 +77,25 @@ onUnmounted(() => {
           class="flex gap-2.5 transition-opacity duration-300 ease-out"
           :style="{ opacity: i < shown ? 1 : 0 }"
         >
-          <span class="shrink-0 text-[12.5px] text-faint">{{ line.time }}</span>
+          <span class="text-faint shrink-0 text-[12.5px]">{{ line.time }}</span>
           <span class="min-w-[52px] shrink-0 text-[12.5px]" :class="line.tagClass">{{ line.tag }}</span>
-          <span class="text-[12.5px] leading-[1.4] text-body">{{ line.text }}</span>
+          <span class="text-body text-[12.5px] leading-[1.4]">{{ line.text }}</span>
         </div>
       </div>
     </div>
 
     <div class="mt-3 flex gap-3.5">
       <div class="flex items-center gap-1.5">
-        <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
-        <span class="font-mono text-[11px] tracking-[0.1em] text-muted uppercase">foreman</span>
+        <span class="bg-accent h-1.5 w-1.5 rounded-full"></span>
+        <span class="text-muted font-mono text-[11px] tracking-[0.1em] uppercase">foreman</span>
       </div>
       <div class="flex items-center gap-1.5">
-        <span class="h-1.5 w-1.5 rounded-full bg-warn"></span>
-        <span class="font-mono text-[11px] tracking-[0.1em] text-muted uppercase">minion</span>
+        <span class="bg-warn h-1.5 w-1.5 rounded-full"></span>
+        <span class="text-muted font-mono text-[11px] tracking-[0.1em] uppercase">minion</span>
       </div>
       <div class="flex items-center gap-1.5">
-        <span class="h-1.5 w-1.5 rounded-full bg-success"></span>
-        <span class="font-mono text-[11px] tracking-[0.1em] text-muted uppercase">success</span>
+        <span class="bg-success h-1.5 w-1.5 rounded-full"></span>
+        <span class="text-muted font-mono text-[11px] tracking-[0.1em] uppercase">success</span>
       </div>
     </div>
   </div>

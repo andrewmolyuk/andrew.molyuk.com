@@ -100,11 +100,11 @@ function onKeydown(id: SkillId, event: KeyboardEvent) {
 </script>
 
 <template>
-  <section id="skills" class="border-t border-line px-8 py-22">
+  <section id="skills" class="border-line border-t px-8 py-22">
     <div class="mx-auto max-w-[1100px]">
       <div class="mb-11">
-        <span class="mb-2 block font-mono text-[11.5px] tracking-[0.18em] text-muted uppercase">01 / skills</span>
-        <h2 class="text-[clamp(26px,3.5vw,40px)] leading-[1.1] font-semibold tracking-[-0.03em] text-heading">
+        <span class="text-muted mb-2 block font-mono text-[11.5px] tracking-[0.18em] uppercase">01 / skills</span>
+        <h2 class="text-heading text-[clamp(26px,3.5vw,40px)] leading-[1.1] font-semibold tracking-[-0.03em]">
           Technical Focus
         </h2>
       </div>
@@ -190,7 +190,12 @@ function onKeydown(id: SkillId, event: KeyboardEvent) {
                 ></animateMotion>
               </circle>
               <circle r="3">
-                <animateMotion path="M300 32 Q270 126 300 220" dur="4.4s" begin="2.1s" repeatCount="indefinite"></animateMotion>
+                <animateMotion
+                  path="M300 32 Q270 126 300 220"
+                  dur="4.4s"
+                  begin="2.1s"
+                  repeatCount="indefinite"
+                ></animateMotion>
               </circle>
               <circle r="3">
                 <animateMotion
@@ -211,17 +216,17 @@ function onKeydown(id: SkillId, event: KeyboardEvent) {
             </g>
 
             <g
-              @mouseenter="onEnter('hlha')"
-              @mouseleave="onLeave"
-              @focus="onEnter('hlha')"
-              @blur="onLeave"
-              @keydown="onKeydown('hlha', $event)"
               :opacity="nodeOpacity('hlha')"
               tabindex="0"
               role="button"
               :aria-label="ariaLabel('hlha')"
               pointer-events="all"
               style="transition: opacity 0.2s; cursor: default"
+              @mouseenter="onEnter('hlha')"
+              @mouseleave="onLeave"
+              @focus="onEnter('hlha')"
+              @blur="onLeave"
+              @keydown="onKeydown('hlha', $event)"
             >
               <circle cx="105" cy="130" r="49" fill="transparent"></circle>
               <circle cx="105" cy="130" r="33" fill="#13131a" stroke="#2e2e3e" stroke-width="1.2"></circle>
@@ -246,24 +251,72 @@ function onKeydown(id: SkillId, event: KeyboardEvent) {
                 pointer-events="none"
                 style="transition: opacity 0.2s"
               ></circle>
-              <text x="54" y="123" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="28" fill="#8b8b99" letter-spacing=".02em">HL/HA Distributed</text>
-              <text x="54" y="155" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="28" fill="#8b8b99" letter-spacing=".02em">Systems</text>
-              <text x="54" y="123" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="28" fill="var(--color-accent)" letter-spacing=".02em" :opacity="sel('hlha')" pointer-events="none" style="transition: opacity 0.2s" aria-hidden="true">HL/HA Distributed</text>
-              <text x="54" y="155" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="28" fill="var(--color-accent)" letter-spacing=".02em" :opacity="sel('hlha')" pointer-events="none" style="transition: opacity 0.2s" aria-hidden="true">Systems</text>
+              <text
+                x="54"
+                y="123"
+                text-anchor="end"
+                font-family="JetBrains Mono, monospace"
+                font-size="28"
+                fill="#8b8b99"
+                letter-spacing=".02em"
+              >
+                HL/HA Distributed
+              </text>
+              <text
+                x="54"
+                y="155"
+                text-anchor="end"
+                font-family="JetBrains Mono, monospace"
+                font-size="28"
+                fill="#8b8b99"
+                letter-spacing=".02em"
+              >
+                Systems
+              </text>
+              <text
+                x="54"
+                y="123"
+                text-anchor="end"
+                font-family="JetBrains Mono, monospace"
+                font-size="28"
+                fill="var(--color-accent)"
+                letter-spacing=".02em"
+                :opacity="sel('hlha')"
+                pointer-events="none"
+                style="transition: opacity 0.2s"
+                aria-hidden="true"
+              >
+                HL/HA Distributed
+              </text>
+              <text
+                x="54"
+                y="155"
+                text-anchor="end"
+                font-family="JetBrains Mono, monospace"
+                font-size="28"
+                fill="var(--color-accent)"
+                letter-spacing=".02em"
+                :opacity="sel('hlha')"
+                pointer-events="none"
+                style="transition: opacity 0.2s"
+                aria-hidden="true"
+              >
+                Systems
+              </text>
             </g>
 
             <g
-              @mouseenter="onEnter('cloud')"
-              @mouseleave="onLeave"
-              @focus="onEnter('cloud')"
-              @blur="onLeave"
-              @keydown="onKeydown('cloud', $event)"
               :opacity="nodeOpacity('cloud')"
               tabindex="0"
               role="button"
               :aria-label="ariaLabel('cloud')"
               pointer-events="all"
               style="transition: opacity 0.2s; cursor: default"
+              @mouseenter="onEnter('cloud')"
+              @mouseleave="onLeave"
+              @focus="onEnter('cloud')"
+              @blur="onLeave"
+              @keydown="onKeydown('cloud', $event)"
             >
               <circle cx="495" cy="310" r="42" fill="transparent"></circle>
               <circle cx="495" cy="310" r="26" fill="#13131a" stroke="#2e2e3e" stroke-width="1.2"></circle>
@@ -288,24 +341,72 @@ function onKeydown(id: SkillId, event: KeyboardEvent) {
                 pointer-events="none"
                 style="transition: opacity 0.2s"
               ></circle>
-              <text x="539" y="303" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="28" fill="#8b8b99" letter-spacing=".02em">Cloud</text>
-              <text x="539" y="335" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="28" fill="#8b8b99" letter-spacing=".02em">Computing</text>
-              <text x="539" y="303" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="28" fill="var(--color-accent)" letter-spacing=".02em" :opacity="sel('cloud')" pointer-events="none" style="transition: opacity 0.2s" aria-hidden="true">Cloud</text>
-              <text x="539" y="335" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="28" fill="var(--color-accent)" letter-spacing=".02em" :opacity="sel('cloud')" pointer-events="none" style="transition: opacity 0.2s" aria-hidden="true">Computing</text>
+              <text
+                x="539"
+                y="303"
+                text-anchor="start"
+                font-family="JetBrains Mono, monospace"
+                font-size="28"
+                fill="#8b8b99"
+                letter-spacing=".02em"
+              >
+                Cloud
+              </text>
+              <text
+                x="539"
+                y="335"
+                text-anchor="start"
+                font-family="JetBrains Mono, monospace"
+                font-size="28"
+                fill="#8b8b99"
+                letter-spacing=".02em"
+              >
+                Computing
+              </text>
+              <text
+                x="539"
+                y="303"
+                text-anchor="start"
+                font-family="JetBrains Mono, monospace"
+                font-size="28"
+                fill="var(--color-accent)"
+                letter-spacing=".02em"
+                :opacity="sel('cloud')"
+                pointer-events="none"
+                style="transition: opacity 0.2s"
+                aria-hidden="true"
+              >
+                Cloud
+              </text>
+              <text
+                x="539"
+                y="335"
+                text-anchor="start"
+                font-family="JetBrains Mono, monospace"
+                font-size="28"
+                fill="var(--color-accent)"
+                letter-spacing=".02em"
+                :opacity="sel('cloud')"
+                pointer-events="none"
+                style="transition: opacity 0.2s"
+                aria-hidden="true"
+              >
+                Computing
+              </text>
             </g>
 
             <g
-              @mouseenter="onEnter('k8s')"
-              @mouseleave="onLeave"
-              @focus="onEnter('k8s')"
-              @blur="onLeave"
-              @keydown="onKeydown('k8s', $event)"
               :opacity="nodeOpacity('k8s')"
               tabindex="0"
               role="button"
               :aria-label="ariaLabel('k8s')"
               pointer-events="all"
               style="transition: opacity 0.2s; cursor: default"
+              @mouseenter="onEnter('k8s')"
+              @mouseleave="onLeave"
+              @focus="onEnter('k8s')"
+              @blur="onLeave"
+              @keydown="onKeydown('k8s', $event)"
             >
               <circle cx="105" cy="310" r="52" fill="transparent"></circle>
               <circle cx="105" cy="310" r="36" fill="#13131a" stroke="#2e2e3e" stroke-width="1.2"></circle>
@@ -330,24 +431,72 @@ function onKeydown(id: SkillId, event: KeyboardEvent) {
                 pointer-events="none"
                 style="transition: opacity 0.2s"
               ></circle>
-              <text x="51" y="303" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="28" fill="#8b8b99" letter-spacing=".02em">Docker &amp;</text>
-              <text x="51" y="335" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="28" fill="#8b8b99" letter-spacing=".02em">Kubernetes</text>
-              <text x="51" y="303" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="28" fill="var(--color-accent)" letter-spacing=".02em" :opacity="sel('k8s')" pointer-events="none" style="transition: opacity 0.2s" aria-hidden="true">Docker &amp;</text>
-              <text x="51" y="335" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="28" fill="var(--color-accent)" letter-spacing=".02em" :opacity="sel('k8s')" pointer-events="none" style="transition: opacity 0.2s" aria-hidden="true">Kubernetes</text>
+              <text
+                x="51"
+                y="303"
+                text-anchor="end"
+                font-family="JetBrains Mono, monospace"
+                font-size="28"
+                fill="#8b8b99"
+                letter-spacing=".02em"
+              >
+                Docker &amp;
+              </text>
+              <text
+                x="51"
+                y="335"
+                text-anchor="end"
+                font-family="JetBrains Mono, monospace"
+                font-size="28"
+                fill="#8b8b99"
+                letter-spacing=".02em"
+              >
+                Kubernetes
+              </text>
+              <text
+                x="51"
+                y="303"
+                text-anchor="end"
+                font-family="JetBrains Mono, monospace"
+                font-size="28"
+                fill="var(--color-accent)"
+                letter-spacing=".02em"
+                :opacity="sel('k8s')"
+                pointer-events="none"
+                style="transition: opacity 0.2s"
+                aria-hidden="true"
+              >
+                Docker &amp;
+              </text>
+              <text
+                x="51"
+                y="335"
+                text-anchor="end"
+                font-family="JetBrains Mono, monospace"
+                font-size="28"
+                fill="var(--color-accent)"
+                letter-spacing=".02em"
+                :opacity="sel('k8s')"
+                pointer-events="none"
+                style="transition: opacity 0.2s"
+                aria-hidden="true"
+              >
+                Kubernetes
+              </text>
             </g>
 
             <g
-              @mouseenter="onEnter('go')"
-              @mouseleave="onLeave"
-              @focus="onEnter('go')"
-              @blur="onLeave"
-              @keydown="onKeydown('go', $event)"
               :opacity="nodeOpacity('go')"
               tabindex="0"
               role="button"
               :aria-label="ariaLabel('go')"
               pointer-events="all"
               style="transition: opacity 0.2s; cursor: default"
+              @mouseenter="onEnter('go')"
+              @mouseleave="onLeave"
+              @focus="onEnter('go')"
+              @blur="onLeave"
+              @keydown="onKeydown('go', $event)"
             >
               <circle cx="300" cy="32" r="55" fill="transparent"></circle>
               <circle cx="300" cy="32" r="39" fill="#13131a" stroke="#2e2e3e" stroke-width="1.2"></circle>
@@ -372,22 +521,46 @@ function onKeydown(id: SkillId, event: KeyboardEvent) {
                 pointer-events="none"
                 style="transition: opacity 0.2s"
               ></circle>
-              <text x="300" y="-27" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="28" fill="#8b8b99" letter-spacing=".02em">Go Development</text>
-              <text x="300" y="-27" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="28" fill="var(--color-accent)" letter-spacing=".02em" :opacity="sel('go')" pointer-events="none" style="transition: opacity 0.2s" aria-hidden="true">Go Development</text>
+              <text
+                x="300"
+                y="-27"
+                text-anchor="middle"
+                font-family="JetBrains Mono, monospace"
+                font-size="28"
+                fill="#8b8b99"
+                letter-spacing=".02em"
+              >
+                Go Development
+              </text>
+              <text
+                x="300"
+                y="-27"
+                text-anchor="middle"
+                font-family="JetBrains Mono, monospace"
+                font-size="28"
+                fill="var(--color-accent)"
+                letter-spacing=".02em"
+                :opacity="sel('go')"
+                pointer-events="none"
+                style="transition: opacity 0.2s"
+                aria-hidden="true"
+              >
+                Go Development
+              </text>
             </g>
 
             <g
-              @mouseenter="onEnter('node')"
-              @mouseleave="onLeave"
-              @focus="onEnter('node')"
-              @blur="onLeave"
-              @keydown="onKeydown('node', $event)"
               :opacity="nodeOpacity('node')"
               tabindex="0"
               role="button"
               :aria-label="ariaLabel('node')"
               pointer-events="all"
               style="transition: opacity 0.2s; cursor: default"
+              @mouseenter="onEnter('node')"
+              @mouseleave="onLeave"
+              @focus="onEnter('node')"
+              @blur="onLeave"
+              @keydown="onKeydown('node', $event)"
             >
               <circle cx="300" cy="408" r="53" fill="transparent"></circle>
               <circle cx="300" cy="408" r="37" fill="#13131a" stroke="#2e2e3e" stroke-width="1.2"></circle>
@@ -412,24 +585,72 @@ function onKeydown(id: SkillId, event: KeyboardEvent) {
                 pointer-events="none"
                 style="transition: opacity 0.2s"
               ></circle>
-              <text x="300" y="483" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="28" fill="#8b8b99" letter-spacing=".02em">Node.js &amp;</text>
-              <text x="300" y="515" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="28" fill="#8b8b99" letter-spacing=".02em">Bun</text>
-              <text x="300" y="483" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="28" fill="var(--color-accent)" letter-spacing=".02em" :opacity="sel('node')" pointer-events="none" style="transition: opacity 0.2s" aria-hidden="true">Node.js &amp;</text>
-              <text x="300" y="515" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="28" fill="var(--color-accent)" letter-spacing=".02em" :opacity="sel('node')" pointer-events="none" style="transition: opacity 0.2s" aria-hidden="true">Bun</text>
+              <text
+                x="300"
+                y="483"
+                text-anchor="middle"
+                font-family="JetBrains Mono, monospace"
+                font-size="28"
+                fill="#8b8b99"
+                letter-spacing=".02em"
+              >
+                Node.js &amp;
+              </text>
+              <text
+                x="300"
+                y="515"
+                text-anchor="middle"
+                font-family="JetBrains Mono, monospace"
+                font-size="28"
+                fill="#8b8b99"
+                letter-spacing=".02em"
+              >
+                Bun
+              </text>
+              <text
+                x="300"
+                y="483"
+                text-anchor="middle"
+                font-family="JetBrains Mono, monospace"
+                font-size="28"
+                fill="var(--color-accent)"
+                letter-spacing=".02em"
+                :opacity="sel('node')"
+                pointer-events="none"
+                style="transition: opacity 0.2s"
+                aria-hidden="true"
+              >
+                Node.js &amp;
+              </text>
+              <text
+                x="300"
+                y="515"
+                text-anchor="middle"
+                font-family="JetBrains Mono, monospace"
+                font-size="28"
+                fill="var(--color-accent)"
+                letter-spacing=".02em"
+                :opacity="sel('node')"
+                pointer-events="none"
+                style="transition: opacity 0.2s"
+                aria-hidden="true"
+              >
+                Bun
+              </text>
             </g>
 
             <g
-              @mouseenter="onEnter('cicd')"
-              @mouseleave="onLeave"
-              @focus="onEnter('cicd')"
-              @blur="onLeave"
-              @keydown="onKeydown('cicd', $event)"
               :opacity="nodeOpacity('cicd')"
               tabindex="0"
               role="button"
               :aria-label="ariaLabel('cicd')"
               pointer-events="all"
               style="transition: opacity 0.2s; cursor: default"
+              @mouseenter="onEnter('cicd')"
+              @mouseleave="onLeave"
+              @focus="onEnter('cicd')"
+              @blur="onLeave"
+              @keydown="onKeydown('cicd', $event)"
             >
               <circle cx="495" cy="130" r="40" fill="transparent"></circle>
               <circle cx="495" cy="130" r="24" fill="#13131a" stroke="#2e2e3e" stroke-width="1.2"></circle>
@@ -454,22 +675,46 @@ function onKeydown(id: SkillId, event: KeyboardEvent) {
                 pointer-events="none"
                 style="transition: opacity 0.2s"
               ></circle>
-              <text x="537" y="139" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="28" fill="#8b8b99" letter-spacing=".02em">CI/CD</text>
-              <text x="537" y="139" text-anchor="start" font-family="JetBrains Mono, monospace" font-size="28" fill="var(--color-accent)" letter-spacing=".02em" :opacity="sel('cicd')" pointer-events="none" style="transition: opacity 0.2s" aria-hidden="true">CI/CD</text>
+              <text
+                x="537"
+                y="139"
+                text-anchor="start"
+                font-family="JetBrains Mono, monospace"
+                font-size="28"
+                fill="#8b8b99"
+                letter-spacing=".02em"
+              >
+                CI/CD
+              </text>
+              <text
+                x="537"
+                y="139"
+                text-anchor="start"
+                font-family="JetBrains Mono, monospace"
+                font-size="28"
+                fill="var(--color-accent)"
+                letter-spacing=".02em"
+                :opacity="sel('cicd')"
+                pointer-events="none"
+                style="transition: opacity 0.2s"
+                aria-hidden="true"
+              >
+                CI/CD
+              </text>
             </g>
 
             <g
-              @mouseenter="onEnter('ai')"
-              @mouseleave="onLeave"
-              @focus="onEnter('ai')"
-              @blur="onLeave"
-              @keydown="onKeydown('ai', $event)"
               :opacity="nodeOpacity('ai')"
               tabindex="0"
               role="button"
               :aria-label="ariaLabel('ai')"
               pointer-events="all"
               style="transition: opacity 0.2s; cursor: default"
+              @mouseenter="onEnter('ai')"
+              @mouseleave="onLeave"
+              @focus="onEnter('ai')"
+              @blur="onLeave"
+              @keydown="onKeydown('ai', $event)"
             >
               <circle cx="300" cy="220" r="76" fill="transparent"></circle>
               <circle cx="300" cy="220" r="104" fill="url(#glow)" opacity=".85" pointer-events="none"></circle>
@@ -484,7 +729,15 @@ function onKeydown(id: SkillId, event: KeyboardEvent) {
                 stroke-dasharray="3 5"
                 style="animation: spin 12s linear infinite; transform-origin: 300px 220px"
               ></circle>
-              <circle cx="300" cy="220" r="66" fill="rgba(77,216,255,0.07)" stroke="#4dd8ff" stroke-width="1.5" stroke-opacity=".7"></circle>
+              <circle
+                cx="300"
+                cy="220"
+                r="66"
+                fill="rgba(77,216,255,0.07)"
+                stroke="#4dd8ff"
+                stroke-width="1.5"
+                stroke-opacity=".7"
+              ></circle>
               <circle
                 cx="300"
                 cy="220"
@@ -497,26 +750,36 @@ function onKeydown(id: SkillId, event: KeyboardEvent) {
                 style="transition: opacity 0.2s"
               ></circle>
               <circle cx="300" cy="220" r="6" fill="#4dd8ff"></circle>
-              <text x="300" y="348" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="28" fill="#4dd8ff" letter-spacing=".02em">AI Engineering</text>
+              <text
+                x="300"
+                y="348"
+                text-anchor="middle"
+                font-family="JetBrains Mono, monospace"
+                font-size="28"
+                fill="#4dd8ff"
+                letter-spacing=".02em"
+              >
+                AI Engineering
+              </text>
             </g>
           </svg>
         </div>
 
         <div>
-          <p class="mb-7 text-[15px] leading-[1.85] text-muted">
+          <p class="text-muted mb-7 text-[15px] leading-[1.85]">
             After 35 years in distributed systems, the focus has shifted to AI-native tooling — building the
             infrastructure layer for agentic engineering workflows. Hover any node.
           </p>
           <div class="flex flex-col gap-2.5">
             <div
+              class="border-line border-l-accent mb-1 flex items-baseline gap-3 border-b border-l-2 py-1.5 pb-2.5 pl-2.5"
               @mouseenter="onEnter('ai')"
               @mouseleave="onLeave"
-              class="mb-1 flex items-baseline gap-3 border-b border-line border-l-2 border-l-accent py-1.5 pb-2.5 pl-2.5"
             >
-              <span class="w-[150px] shrink-0 font-mono text-xs leading-[1.5] font-semibold text-accent"
+              <span class="text-accent w-[150px] shrink-0 font-mono text-xs leading-[1.5] font-semibold"
                 >AI Engineering</span
               >
-              <span class="text-[15px] leading-[1.6] text-body"
+              <span class="text-body text-[15px] leading-[1.6]"
                 >Multi-agent systems, LLM orchestration, autonomous agent pipelines, agentic workflows, Claude API
                 integration</span
               >
@@ -524,13 +787,13 @@ function onKeydown(id: SkillId, event: KeyboardEvent) {
             <div
               v-for="skill in SKILL_LIST"
               :key="skill.id"
-              @mouseenter="onEnter(skill.id)"
-              @mouseleave="onLeave"
               class="flex items-baseline gap-3 py-1 pl-2.5 transition-[border-color] duration-200"
               :style="{ borderLeft: `2px solid rgba(77,216,255,${sel(skill.id)})` }"
+              @mouseenter="onEnter(skill.id)"
+              @mouseleave="onLeave"
             >
-              <span class="w-[150px] shrink-0 font-mono text-xs leading-[1.5] text-accent">{{ skill.label }}</span>
-              <span class="text-[15px] leading-[1.6] text-muted">{{ skill.desc }}</span>
+              <span class="text-accent w-[150px] shrink-0 font-mono text-xs leading-[1.5]">{{ skill.label }}</span>
+              <span class="text-muted text-[15px] leading-[1.6]">{{ skill.desc }}</span>
             </div>
           </div>
         </div>

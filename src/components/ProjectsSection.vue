@@ -26,38 +26,38 @@ const OTHER_PROJECTS = [
 </script>
 
 <template>
-  <section id="projects" class="border-t border-line px-8 py-22">
+  <section id="projects" class="border-line border-t px-8 py-22">
     <div class="mx-auto max-w-[1100px]">
       <div class="mb-11">
-        <span class="mb-2 block font-mono text-[11.5px] tracking-[0.18em] text-muted uppercase">02 / projects</span>
-        <h2 class="text-[clamp(26px,3.5vw,40px)] leading-[1.1] font-semibold tracking-[-0.03em] text-heading">
+        <span class="text-muted mb-2 block font-mono text-[11.5px] tracking-[0.18em] uppercase">02 / projects</span>
+        <h2 class="text-heading text-[clamp(26px,3.5vw,40px)] leading-[1.1] font-semibold tracking-[-0.03em]">
           What I'm Building
         </h2>
       </div>
 
       <div class="flex flex-col gap-4">
-        <div class="rounded-md border border-line bg-panel px-7 pt-7 pb-6 transition-colors hover:border-accent/27">
+        <div class="border-line bg-panel hover:border-accent/27 rounded-md border px-7 pt-7 pb-6 transition-colors">
           <div class="mb-3 flex items-start justify-between gap-3">
             <a
               href="https://github.com/andrewmolyuk/instrumenta"
               target="_blank"
               rel="noopener noreferrer"
-              class="font-mono text-[15px] font-medium text-heading hover:text-accent"
+              class="text-heading hover:text-accent font-mono text-[15px] font-medium"
               >Instrumenta ↗</a
             >
             <span
-              class="shrink-0 rounded border border-accent/27 bg-accent/8 px-2.5 py-0.5 font-mono text-[11px] tracking-[0.1em] text-accent uppercase"
+              class="border-accent/27 bg-accent/8 text-accent shrink-0 rounded border px-2.5 py-0.5 font-mono text-[11px] tracking-[0.1em] uppercase"
               >in dev</span
             >
           </div>
-          <p class="mb-5 text-[15px] leading-[1.78] text-muted">
+          <p class="text-muted mb-5 text-[15px] leading-[1.78]">
             Agent pipeline that autonomously works a Jira backlog — picks a task, implements it, opens a PR.
-            Foreman/Minion architecture: long-running daemon dispatches disposable per-task containers running
-            Claude Code.
+            Foreman/Minion architecture: long-running daemon dispatches disposable per-task containers running Claude
+            Code.
           </p>
 
-          <div class="mb-5 border-y border-line py-3">
-            <div class="flex flex-wrap gap-x-3.5 gap-y-1.5 font-mono text-[11.5px] tracking-[0.02em] text-muted">
+          <div class="border-line mb-5 border-y py-3">
+            <div class="text-muted flex flex-wrap gap-x-3.5 gap-y-1.5 font-mono text-[11.5px] tracking-[0.02em]">
               <span>100 tickets in 34h 52m</span>
               <span class="text-line-strong">·</span>
               <span>0 failures</span>
@@ -66,9 +66,7 @@ const OTHER_PROJECTS = [
               <span class="text-line-strong">·</span>
               <span>~21min avg per task</span>
             </div>
-            <div class="mt-1.5 font-mono text-[11px] text-faint">
-              early run, single backlog — still in progress
-            </div>
+            <div class="text-faint mt-1.5 font-mono text-[11px]">early run, single backlog — still in progress</div>
           </div>
 
           <div class="grid grid-cols-[repeat(auto-fit,minmax(120px,1fr))] gap-2 py-1 pb-2">
@@ -88,21 +86,24 @@ const OTHER_PROJECTS = [
               <div class="font-mono text-[11.5px] leading-[1.4]" :class="step.highlight ? 'text-accent' : 'text-body'">
                 {{ step.title }}
               </div>
-              <div class="mt-[3px] font-mono text-[11px] text-muted">{{ step.sub }}</div>
+              <div class="text-muted mt-[3px] font-mono text-[11px]">{{ step.sub }}</div>
             </div>
           </div>
 
-          <div class="mt-4 flex flex-wrap gap-1.5 font-mono text-[11.5px] text-faint">
-            <span v-for="tag in ['TypeScript', 'Bun', 'Docker', 'Jira API', 'Bitbucket API']" :key="tag" class="rounded border border-line px-2 py-0.5">{{
-              tag
-            }}</span>
+          <div class="text-faint mt-4 flex flex-wrap gap-1.5 font-mono text-[11.5px]">
+            <span
+              v-for="tag in ['TypeScript', 'Bun', 'Docker', 'Jira API', 'Bitbucket API']"
+              :key="tag"
+              class="border-line rounded border px-2 py-0.5"
+              >{{ tag }}</span
+            >
           </div>
         </div>
 
         <div
           v-for="project in OTHER_PROJECTS"
           :key="project.title"
-          class="rounded-md border border-line bg-panel px-7 pt-7 pb-6 transition-colors hover:border-accent/27"
+          class="border-line bg-panel hover:border-accent/27 rounded-md border px-7 pt-7 pb-6 transition-colors"
         >
           <div class="mb-3 flex items-start justify-between gap-3">
             <div class="flex flex-wrap items-baseline gap-x-3.5 gap-y-1.5">
@@ -110,27 +111,25 @@ const OTHER_PROJECTS = [
                 :href="project.href"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="font-mono text-[15px] font-medium text-heading hover:text-accent"
+                class="text-heading hover:text-accent font-mono text-[15px] font-medium"
                 >{{ project.title }} ↗</a
               >
               <a
                 :href="project.site.href"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="font-mono text-[12.5px] text-muted hover:text-accent"
+                class="text-muted hover:text-accent font-mono text-[12.5px]"
                 >{{ project.site.label }}</a
               >
             </div>
             <span
-              class="shrink-0 rounded border border-success/27 bg-success/8 px-2.5 py-0.5 font-mono text-[11px] tracking-[0.1em] text-success uppercase"
+              class="border-success/27 bg-success/8 text-success shrink-0 rounded border px-2.5 py-0.5 font-mono text-[11px] tracking-[0.1em] uppercase"
               >live</span
             >
           </div>
-          <p class="mb-4 text-[15px] leading-[1.78] text-muted">{{ project.desc }}</p>
-          <div class="flex flex-wrap gap-1.5 font-mono text-[11.5px] text-faint">
-            <span v-for="tag in project.tags" :key="tag" class="rounded border border-line px-2 py-0.5">{{
-              tag
-            }}</span>
+          <p class="text-muted mb-4 text-[15px] leading-[1.78]">{{ project.desc }}</p>
+          <div class="text-faint flex flex-wrap gap-1.5 font-mono text-[11.5px]">
+            <span v-for="tag in project.tags" :key="tag" class="border-line rounded border px-2 py-0.5">{{ tag }}</span>
           </div>
         </div>
       </div>

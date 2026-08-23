@@ -20,7 +20,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
     :class="scrolled ? 'border-line bg-ink/[0.94] backdrop-blur-lg' : 'border-transparent bg-transparent'"
   >
     <div class="mx-auto flex h-14 max-w-[1100px] items-center justify-between gap-5 px-8">
-      <span class="font-mono text-[13px] text-accent">andrew@molyuk<span class="text-faint">:~$</span></span>
+      <span class="text-accent font-mono text-[13px]">andrew@molyuk<span class="text-faint">:~$</span></span>
       <nav class="flex items-center gap-7 text-[15px]">
         <a href="#skills" class="text-muted hover:text-body">Skills</a>
         <a href="#projects" class="text-muted hover:text-body">Projects</a>

@@ -45,10 +45,10 @@ onUnmounted(() => clearTimeout(timer))
 </script>
 
 <template>
-  <span class="font-mono text-[12.5px] tracking-[0.12em] text-muted uppercase">
+  <span class="text-muted font-mono text-[12.5px] tracking-[0.12em] uppercase">
     <span class="text-accent">~/</span><span class="transition-opacity duration-350">{{ text }}</span
     ><span
-      class="ml-1 inline-block h-[0.95em] w-[2px] align-[-0.13em] bg-accent"
+      class="bg-accent ml-1 inline-block h-[0.95em] w-[2px] align-[-0.13em]"
       style="animation: blink 1s step-end infinite"
     ></span>
   </span>
