@@ -79,7 +79,7 @@ function edgeColor(id: SkillId) {
   return edgeHot(id) ? 'var(--color-accent)' : '#3a3a46'
 }
 function sel(id: SkillId) {
-  return hovered.value === id ? 1 : 0
+  return hovered.value === id || hovered.value === 'ai' ? 1 : 0
 }
 </script>
 
