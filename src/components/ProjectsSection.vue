@@ -35,6 +35,10 @@ const OTHER_PROJECTS = [
         </h2>
       </div>
 
+      <p class="text-muted mb-6 text-[15px] leading-[1.7]">
+        Instrumenta is the current focus. The rest are self-hosted products I built and still run.
+      </p>
+
       <div class="flex flex-col gap-4">
         <div class="border-line bg-panel hover:border-accent/27 rounded-md border px-7 pt-7 pb-6 transition-colors">
           <div class="mb-3 flex items-start justify-between gap-3">

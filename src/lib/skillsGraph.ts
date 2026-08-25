@@ -33,12 +33,12 @@ export const SKILL_LIST: { id: Exclude<SkillId, 'ai'>; label: string; desc: stri
   {
     id: 'node',
     label: 'Node.js & Bun',
-    desc: 'JS/TS across frontend and backend — Node.js and Bun runtimes, REST and GraphQL APIs. React, Vue, Express, Nest.js.',
+    desc: 'JS/TS across frontend and backend — Node.js and Bun runtimes, REST and GraphQL APIs. React, Vue, Express.',
   },
   {
     id: 'cicd',
     label: 'CI/CD',
-    desc: 'Pipelines with Jenkins, GitLab CI, CircleCI, GitHub Actions, Bamboo, automated build and deployment workflows',
+    desc: 'Pipelines with GitHub Actions, GitLab CI, Jenkins — automated build and deployment workflows',
   },
 ]
 

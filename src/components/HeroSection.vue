@@ -23,11 +23,11 @@ const STATS = [
         </h1>
 
         <div class="text-accent mb-7 min-h-[1.4em] font-mono text-[clamp(13px,1.8vw,18px)]">
-          CTO / Distributed Systems → AI Engineering
+          System Architect / Distributed Systems → AI Engineering
         </div>
 
         <p class="text-muted mb-10 max-w-[460px] text-[15px] leading-[1.8]">
-          35+ years shipping systems at 100K RPS scale.<br />
+          35+ years in tech. Systems at 100K RPS scale.<br />
           Now building AI-native engineering tools.
         </p>
 

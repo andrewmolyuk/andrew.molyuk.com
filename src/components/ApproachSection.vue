@@ -8,12 +8,12 @@ const PRINCIPLES = [
   {
     n: '02',
     title: 'Own your infra',
-    desc: 'Prefers self-hosted, infrastructure-controlled solutions. Managed platforms are a cost centre and a trust problem.',
+    desc: 'Self-hosted infrastructure by default — managed APIs where they earn their place. Managed platforms are a cost centre and a trust problem.',
   },
   {
     n: '03',
     title: 'Depth over breadth',
-    desc: 'Thirty-five years in one problem space — high-load, high-stakes systems — before betting on the next one. Not a generalist collecting frameworks.',
+    desc: "Thirty-five years in one problem space — high-load, high-stakes systems. Tools change; the problems don't.",
   },
 ]
 
@@ -43,8 +43,14 @@ const TIMELINE = ['CGS Tower Networks (2024–now)', 'Vidcrunch (2016–2024)', 
         </div>
       </div>
 
+      <p class="text-muted mt-5.5 text-[15px] leading-[1.75]">
+        Currently System Architect &amp; AI Evangelist at CGS Tower Networks — building centralized management and
+        complex embedded-WebUI configuration systems for hardware devices, leading engineering hands-on, and driving AI
+        adoption end to end. ~20 years hands-on leading R&amp;D teams before that.
+      </p>
+
       <div
-        class="border-line text-faint mt-5.5 flex flex-wrap gap-x-3.5 gap-y-1.5 border-t pt-4 font-mono text-[11.5px] tracking-[0.02em]"
+        class="border-line text-faint mt-4 flex flex-wrap gap-x-3.5 gap-y-1.5 border-t pt-4 font-mono text-[11.5px] tracking-[0.02em]"
       >
         <template v-for="(item, i) in TIMELINE" :key="item">
           <span v-if="i > 0">·</span>

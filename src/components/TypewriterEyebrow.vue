@@ -3,7 +3,7 @@ import { onMounted, onUnmounted, ref } from 'vue'
 
 const EYEBROWS = [
   'building AI-native engineering tools',
-  '~20 years in R&D leadership',
+  '20+ years in R&D leadership',
   '35+ years in tech',
   'self-hosted, infra-first',
 ]

@@ -52,7 +52,7 @@ onUnmounted(() => {
 <template>
   <div>
     <div class="text-muted mb-2.5 font-mono text-[11.5px] tracking-[0.15em] uppercase">
-      live — instrumenta agent runtime
+      sample run — instrumenta agent runtime
     </div>
 
     <div class="border-line bg-panel overflow-hidden rounded-md border font-mono">
@@ -61,13 +61,6 @@ onUnmounted(() => {
         <span class="h-2.5 w-2.5 rounded-full bg-[#febc2e]"></span>
         <span class="h-2.5 w-2.5 rounded-full bg-[#28c840]"></span>
         <span class="text-muted ml-2 text-[12.5px]">instrumenta — agent runtime</span>
-        <span class="text-success ml-auto flex items-center gap-1.5 text-[11.5px]">
-          <span
-            class="bg-success h-1.5 w-1.5 rounded-full shadow-[0_0_6px_#4ade80]"
-            style="animation: softpulse 2s ease-in-out infinite"
-          ></span
-          >running
-        </span>
       </div>
 
       <div class="flex h-[248px] flex-col gap-1.5 overflow-hidden px-4 py-3.5">
