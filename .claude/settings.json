@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bun run check *)",
+      "Bash(pnpm --filter api test *)",
+      "Bash(pnpm lint *)",
+      "mcp__claude-in-chrome__tabs_context_mcp",
+      "Bash(bun run typecheck *)",
+      "Bash(bun run test *)",
+      "Bash(pnpm cspell *)",
+      "mcp__mcp-registry__search_mcp_registry",
+      "mcp__mcp-registry__list_connectors"
+    ]
+  }
+}
