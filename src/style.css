@@ -1,5 +1,21 @@
 @import 'tailwindcss';
 
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300 600;
+  font-display: swap;
+  src: url('/fonts/inter-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url('/fonts/jetbrains-mono-latin.woff2') format('woff2');
+}
+
 @theme {
   --font-sans: Inter, system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
