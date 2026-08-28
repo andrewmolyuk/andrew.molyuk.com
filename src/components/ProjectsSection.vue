@@ -9,6 +9,13 @@ const PIPELINE_STEPS = [
 
 const OTHER_PROJECTS = [
   {
+    title: 'clockcover',
+    href: 'https://github.com/clockcover/clockcover',
+    site: { label: 'clockcover.com', href: 'https://clockcover.com' },
+    desc: 'Detects missed time-clock entries and routes them to the right manager before they pile up at month-end. Compares scheduled shifts against actual clock-ins/outs, sends daily digests, and escalates unresolved gaps to payroll after the SLA expires.',
+    tags: ['Hono', 'Cloudflare Workers', 'Drizzle', 'D1', 'Vue 3', 'Tailwind CSS'],
+  },
+  {
     title: 'checkmeup',
     href: 'https://github.com/checkmeup/checkmeup',
     site: { label: 'checkmeup.net', href: 'https://checkmeup.net' },
