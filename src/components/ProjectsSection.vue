@@ -9,13 +9,6 @@ const PIPELINE_STEPS = [
 
 const OTHER_PROJECTS = [
   {
-    title: 'bunderlog',
-    href: 'https://github.com/bunderlog/bunderlog',
-    site: { label: 'bunderlog.com', href: 'https://bunderlog.com' },
-    desc: 'Centralized plain-text log system for aggregating, storing and querying logs across distributed applications, with a web UI for developers and sysadmins. Split into ingest and query Workers behind a shared schema.',
-    tags: ['Cloudflare Workers', 'Bun', 'TypeScript', 'Vue 3', 'Tailwind CSS'],
-  },
-  {
     title: 'clockcover',
     href: 'https://github.com/clockcover/clockcover',
     site: { label: 'clockcover.com', href: 'https://clockcover.com' },
@@ -28,6 +21,13 @@ const OTHER_PROJECTS = [
     site: { label: 'checkmeup.net', href: 'https://checkmeup.net' },
     desc: 'Cron, uptime, SSL, domain expiry and port (TCP) monitors with Telegram, Slack and SMS alerts, plus white-label status pages. Self-hosted product — Hetzner, Kamal, Traefik, no managed platform in the path.',
     tags: ['Go', 'Chi', 'sqlc', 'PostgreSQL', 'Vue 3', 'Kamal'],
+  },
+  {
+    title: 'bunderlog',
+    href: 'https://github.com/bunderlog/bunderlog',
+    site: { label: 'bunderlog.com', href: 'https://bunderlog.com' },
+    desc: 'Centralized plain-text log system for aggregating, storing and querying logs across distributed applications, with a web UI for developers and sysadmins. Split into ingest and query Workers behind a shared schema.',
+    tags: ['Cloudflare Workers', 'Bun', 'TypeScript', 'Vue 3', 'Tailwind CSS'],
   },
   {
     title: 'staffcomplete',
