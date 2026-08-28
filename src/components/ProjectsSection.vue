@@ -61,7 +61,7 @@ const OTHER_PROJECTS = [
               target="_blank"
               rel="noopener noreferrer"
               class="text-heading hover:text-accent font-mono text-[15px] font-medium"
-              >Instrumenta ↗</a
+              >instrumenta ↗</a
             >
             <span
               class="border-accent/27 bg-accent/8 text-accent shrink-0 rounded border px-2.5 py-0.5 font-mono text-[11px] tracking-[0.1em] uppercase"
