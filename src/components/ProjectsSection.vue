@@ -9,6 +9,13 @@ const PIPELINE_STEPS = [
 
 const OTHER_PROJECTS = [
   {
+    title: 'servienta',
+    href: 'https://github.com/servienta/servienta',
+    site: { label: 'servienta.com', href: 'https://servienta.com' },
+    desc: 'Testing services for network integrations — a controlled instance of every endpoint an application talks to (syslog, SNMP, RADIUS, TACACS+, DNS, NTP, Kafka, IPFIX) plus a five-transport file server. One container, started in one command, readable from automated tests and resettable between runs.',
+    tags: ['Go', 'Docker', 'Vue 3', 'Hono', 'Cloudflare Workers', 'Cloudflare D1'],
+  },
+  {
     title: 'clockcover',
     href: 'https://github.com/clockcover/clockcover',
     site: { label: 'clockcover.com', href: 'https://clockcover.com' },
