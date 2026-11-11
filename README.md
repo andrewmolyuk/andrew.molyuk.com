@@ -14,6 +14,8 @@ pnpm build     # typecheck + production build to dist/
 pnpm preview   # serve the production build locally
 ```
 
+Turn the Git hooks in `.githooks/` on once in each clone: `git config core.hooksPath .githooks`.
+
 ## Deployment
 
 Deploys via [Cloudflare Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/) —
