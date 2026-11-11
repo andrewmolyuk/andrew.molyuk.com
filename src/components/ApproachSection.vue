@@ -7,8 +7,8 @@ const PRINCIPLES = [
   },
   {
     n: '02',
-    title: 'Own your infra',
-    desc: 'Self-hosted infrastructure by default — managed APIs where they earn their place. Managed platforms are a cost centre and a trust problem.',
+    title: 'Infra follows requirements',
+    desc: 'Self-hosted or managed is a call per project: load, cost, compliance, and who will run it at 3 a.m. Neither is right by default.',
   },
   {
     n: '03',

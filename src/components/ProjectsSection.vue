@@ -124,23 +124,22 @@ const OTHER_PROJECTS = [
             >
           </div>
           <p class="text-muted mb-5 text-[15px] leading-[1.78]">
-            Four free Claude Code plugins that work as one. Every AI coding session starts from nothing; bunderlog gives
-            it what a team gives a new colleague — one written record of what the project decided, kept as plain files
-            in the repository, and four tools that keep every session, change and commit true to it.
+            Four free tools for Claude Code that work as one. Every AI coding session starts from nothing; bunderlog
+            gives it what a team gives a new colleague — one written record of what the project decided, kept as plain
+            files in the repository, and the tools that keep every session, change and commit true to it.
           </p>
 
           <div class="border-line mb-5 border-y py-3">
             <div class="text-muted flex flex-wrap gap-x-3.5 gap-y-1.5 font-mono text-[11.5px] tracking-[0.02em]">
-              <span>6% → 68% coding rules followed</span>
-              <span class="text-line-strong">·</span>
-              <span>4 plugins</span>
+              <span>3 plugins + 1 CLI</span>
               <span class="text-line-strong">·</span>
               <span>1 shared record</span>
               <span class="text-line-strong">·</span>
               <span>MIT licensed</span>
             </div>
             <div class="text-faint mt-1.5 font-mono text-[11px]">
-              rules left to memory vs. handed to Claude as it opens the file — 5 of 79 vs. 15 of 22 times
+              Claude checks the project’s rules before writing code 6% of the time on its own, 68% with louie (5 of 79
+              vs. 15 of 22, three weeks of real sessions)
             </div>
           </div>
 
