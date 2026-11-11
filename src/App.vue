@@ -10,15 +10,6 @@ import SkillsSection from './components/SkillsSection.vue'
 
 <template>
   <div class="bg-ink relative min-h-screen">
-    <div
-      class="pointer-events-none fixed inset-0 z-0 opacity-15"
-      style="
-        background-image:
-          linear-gradient(#1e1e28 1px, transparent 1px), linear-gradient(90deg, #1e1e28 1px, transparent 1px);
-        background-size: 48px 48px;
-      "
-    ></div>
-
     <div class="relative z-1">
       <AppHeader />
 

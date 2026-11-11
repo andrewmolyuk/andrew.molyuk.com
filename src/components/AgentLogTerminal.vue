@@ -1,48 +1,80 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue'
 
-const LOG_DELAYS = [0, 900, 1800, 2600, 3300, 4100, 5200, 6000, 6700, 7400, 8400]
+type Sticker = { name: string; role: string; rotate: string }
 
-const LOG_LINES = [
-  { time: '00:000', tag: '[foreman]', tagClass: 'text-accent', text: 'scanning jira backlog...' },
+type Row = {
+  dot: 'say' | 'ok' | 'err'
+  head: { text: string; dim?: boolean; bold?: boolean }[]
+  result?: string
+  sticker?: Sticker
+}
+
+// Steps: welcome box, prompt, each row, then the input line.
+const STEP_DELAYS = [0, 700, 1500, 2300, 3000, 3800, 4600, 5400, 6200, 7200]
+
+const ROWS: Row[] = [
   {
-    time: '00:900',
-    tag: '[foreman]',
-    tagClass: 'text-accent',
-    text: 'picked PROJ-142 — rate limiting on API gateway',
+    dot: 'say',
+    head: [
+      { text: 'The project keeps money in whole cents ' },
+      { text: '(.about/adr/money.md)', dim: true },
+      { text: ', so the fix rounds in cents and leaves the type alone.' },
+    ],
+    sticker: { name: 'Baloo', role: 'Remembers', rotate: '-6deg' },
   },
-  { time: '01:800', tag: '[minion]', tagClass: 'text-warn', text: 'spawning container f3a9b2...' },
-  { time: '02:600', tag: '[minion]', tagClass: 'text-warn', text: 'analyzing codebase structure' },
-  { time: '03:300', tag: '[minion]', tagClass: 'text-warn', text: 'entry point: src/api/middleware.ts' },
-  { time: '04:100', tag: '[minion]', tagClass: 'text-warn', text: 'implementing changes with claude code...' },
-  { time: '05:200', tag: '[minion]', tagClass: 'text-warn', text: 'running test suite...' },
-  { time: '06:000', tag: '[minion]', tagClass: 'text-success', text: '✓ tests passing (18/18)' },
-  { time: '06:700', tag: '[minion]', tagClass: 'text-success', text: '✓ PR #847 opened → review queue' },
-  { time: '07:400', tag: '[foreman]', tagClass: 'text-accent', text: 'PROJ-142 done. scanning next task...' },
+  { dot: 'ok', head: [{ text: 'Read', bold: true }, { text: '(apps/api/cart.go)' }], result: 'Read 84 lines' },
   {
-    time: '08:400',
-    tag: '[foreman]',
-    tagClass: 'text-accent',
-    text: 'picked PROJ-143 — add pagination to /users',
+    dot: 'err',
+    head: [{ text: 'Bash', bold: true }, { text: '(cat .env)' }],
+    result: 'Blocked by bagheera: .env is an env file, and showing it would put a secret into this session',
+    sticker: { name: 'Bagheera', role: 'Guards', rotate: '7deg' },
+  },
+  {
+    dot: 'ok',
+    head: [{ text: 'Update', bold: true }, { text: '(apps/api/cart.go)' }],
+    result: 'Updated with 2 additions and 1 removal',
+  },
+  {
+    dot: 'ok',
+    head: [{ text: 'Bash', bold: true }, { text: '(git commit -m "fix(cart): round the total to cents")' }],
+    result: 'hathi: 7 checks pass, the same as CI will run',
+    sticker: { name: 'Hathi', role: 'Checks', rotate: '-5deg' },
+  },
+  {
+    dot: 'ok',
+    head: [{ text: 'louie:verifier', bold: true }, { text: '(cart total)' }],
+    result: 'Matches the money decision and the cart’s acceptance criteria',
+  },
+  {
+    dot: 'say',
+    head: [
+      {
+        text: 'Pull request #42 is open for review. This session settled that totals round half up; bagheera proposed it for .about/, so the next session starts knowing it.',
+      },
+    ],
+    sticker: { name: 'Louie', role: 'Builds', rotate: '6deg' },
   },
 ]
+
+const DOT_CLASS = { say: 'text-heading', ok: 'text-success', err: 'text-danger' }
 
 const shown = ref(0)
 let timers: ReturnType<typeof setTimeout>[] = []
 let loop: ReturnType<typeof setTimeout>
 
-function runLog() {
-  timers = LOG_DELAYS.map((d, i) => setTimeout(() => (shown.value = i + 1), d + 400))
+function run() {
+  timers = STEP_DELAYS.map((d, i) => setTimeout(() => (shown.value = i + 1), d + 400))
   loop = setTimeout(
     () => {
       shown.value = 0
-      runLog()
+      run()
     },
-    LOG_DELAYS[LOG_DELAYS.length - 1] + 3000,
+    STEP_DELAYS[STEP_DELAYS.length - 1] + 6000,
   )
 }
 
-onMounted(runLog)
+onMounted(run)
 onUnmounted(() => {
   clearTimeout(loop)
   timers.forEach(clearTimeout)
@@ -50,45 +82,76 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div>
+  <div class="sm:mr-10">
     <div class="text-muted mb-2.5 font-mono text-[11.5px] tracking-[0.15em] uppercase">
-      sample run — instrumenta agent runtime
+      sample session — claude code + bunderlog
     </div>
 
-    <div class="border-line bg-panel overflow-hidden rounded-md border font-mono">
-      <div class="border-line bg-panel-alt flex items-center gap-2 border-b px-4 py-2.5">
-        <span class="h-2.5 w-2.5 rounded-full bg-[#ff5f57]"></span>
-        <span class="h-2.5 w-2.5 rounded-full bg-[#febc2e]"></span>
-        <span class="h-2.5 w-2.5 rounded-full bg-[#28c840]"></span>
-        <span class="text-muted ml-2 text-[12.5px]">instrumenta — agent runtime</span>
+    <div
+      class="border-line bg-panel flex flex-col gap-3.5 rounded-md border p-4 font-mono text-[12.5px] leading-[1.55]"
+    >
+      <div
+        class="border-accent/50 rounded border px-3 py-2 transition-opacity duration-300"
+        :style="{ opacity: shown > 0 ? 1 : 0 }"
+      >
+        <div class="text-heading"><span class="text-accent">✻</span> Welcome to Claude Code</div>
+        <div class="text-muted">cwd: ~/shop</div>
+        <div class="text-muted">baloo: 22 decisions · 26 terms · 9 features in .about/</div>
       </div>
 
-      <div class="flex h-[248px] flex-col gap-1.5 overflow-hidden px-4 py-3.5">
+      <div
+        class="bg-panel-alt text-body rounded px-2.5 py-1 transition-opacity duration-300"
+        :style="{ opacity: shown > 1 ? 1 : 0 }"
+      >
+        <span class="text-muted">&gt;</span> The cart total is off by a cent. Fix it
+      </div>
+
+      <div
+        v-for="(row, i) in ROWS"
+        :key="i"
+        class="relative transition-opacity duration-300 sm:pr-9"
+        :style="{ opacity: shown > i + 2 ? 1 : 0 }"
+      >
+        <div class="flex gap-2.5">
+          <span class="shrink-0 text-[10px] leading-[19px]" :class="DOT_CLASS[row.dot]">⏺</span>
+          <span class="text-body">
+            <span
+              v-for="(part, j) in row.head"
+              :key="j"
+              :class="part.dim ? 'text-muted' : part.bold ? 'text-heading font-medium' : ''"
+              >{{ part.text }}</span
+            >
+          </span>
+        </div>
+        <div v-if="row.result" class="flex gap-2 pl-[22px]">
+          <span class="text-faint shrink-0">⎿</span>
+          <span :class="row.dot === 'err' ? 'text-danger' : 'text-muted'">{{ row.result }}</span>
+        </div>
+
         <div
-          v-for="(line, i) in LOG_LINES"
-          :key="line.time"
-          class="flex gap-2.5 transition-opacity duration-300 ease-out"
-          :style="{ opacity: i < shown ? 1 : 0 }"
+          v-if="row.sticker"
+          aria-hidden="true"
+          class="absolute top-[-14px] left-full z-10 -ml-8 hidden w-16 flex-col items-center transition-[opacity,scale] duration-500 ease-[cubic-bezier(0.3,1.6,0.5,1)] motion-reduce:transition-none sm:flex"
+          :class="shown > i + 2 ? 'scale-100 opacity-100' : 'scale-50 opacity-0'"
         >
-          <span class="text-faint shrink-0 text-[12.5px]">{{ line.time }}</span>
-          <span class="min-w-[52px] shrink-0 text-[12.5px]" :class="line.tagClass">{{ line.tag }}</span>
-          <span class="text-body text-[12.5px] leading-[1.4]">{{ line.text }}</span>
+          <img
+            :src="`/stickers/${row.sticker.name.toLowerCase()}.svg`"
+            alt=""
+            width="64"
+            height="64"
+            :style="{ rotate: row.sticker.rotate }"
+          />
+          <span class="text-heading font-sans text-[13px] leading-tight font-semibold">{{ row.sticker.name }}</span>
+          <span class="text-accent text-[9.5px] tracking-[0.08em] uppercase">{{ row.sticker.role }}</span>
         </div>
       </div>
-    </div>
 
-    <div class="mt-3 flex gap-3.5">
-      <div class="flex items-center gap-1.5">
-        <span class="bg-accent h-1.5 w-1.5 rounded-full"></span>
-        <span class="text-muted font-mono text-[11px] tracking-[0.1em] uppercase">foreman</span>
-      </div>
-      <div class="flex items-center gap-1.5">
-        <span class="bg-warn h-1.5 w-1.5 rounded-full"></span>
-        <span class="text-muted font-mono text-[11px] tracking-[0.1em] uppercase">minion</span>
-      </div>
-      <div class="flex items-center gap-1.5">
-        <span class="bg-success h-1.5 w-1.5 rounded-full"></span>
-        <span class="text-muted font-mono text-[11px] tracking-[0.1em] uppercase">success</span>
+      <div class="transition-opacity duration-300" :style="{ opacity: shown > ROWS.length + 2 ? 1 : 0 }">
+        <div class="border-line flex items-center gap-2 rounded border px-2.5 py-1.5">
+          <span class="text-muted">&gt;</span>
+          <span class="bg-body inline-block h-[14px] w-[7px] animate-pulse"></span>
+        </div>
+        <div class="text-faint mt-1.5 text-[11px]">? for shortcuts</div>
       </div>
     </div>
   </div>

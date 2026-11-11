@@ -24,9 +24,6 @@ const TIMELINE = ['CGS Tower Networks (2024–now)', 'Vidcrunch (2016–2024)', 
   <section id="approach" class="border-line border-t px-8 py-22">
     <div class="mx-auto max-w-[1100px]">
       <div class="mb-11">
-        <span class="text-muted mb-2 block font-mono text-[11.5px] tracking-[0.18em] uppercase"
-          >03 / approach &amp; background</span
-        >
         <h2 class="text-heading text-[clamp(26px,3.5vw,40px)] leading-[1.1] font-semibold tracking-[-0.03em]">
           How I Think About Systems
         </h2>
@@ -44,9 +41,12 @@ const TIMELINE = ['CGS Tower Networks (2024–now)', 'Vidcrunch (2016–2024)', 
       </div>
 
       <p class="text-muted mt-5.5 text-[15px] leading-[1.75]">
-        Currently System Architect &amp; AI Evangelist at CGS Tower Networks — building centralized management and
-        complex embedded-WebUI configuration systems for hardware devices, leading engineering hands-on, and driving AI
-        adoption end to end. ~20 years hands-on leading R&amp;D teams before that.
+        I've been writing software for about 35 years, and for close to 20 of them I also ran the teams that wrote it.
+        Most of that went into systems that weren't allowed to fall over. At Screenz it was live TV voting that peaked
+        at 3 million requests a second; at Vidcrunch, video ads at around 23 billion events a day. Now I'm at CGS Tower
+        Networks, building management software for network hardware and getting AI agents to do real work there. They're
+        good at it, mostly. What they're bad at is remembering: every session starts from zero, and that annoyed me
+        enough to start bunderlog. I still write code most days and I don't plan to stop.
       </p>
 
       <div

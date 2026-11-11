@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import AgentLogTerminal from './AgentLogTerminal.vue'
-import TypewriterEyebrow from './TypewriterEyebrow.vue'
 
 const STATS = [
   { value: '~23B', label: 'events/day', source: 'Vidcrunch' },
@@ -14,10 +13,6 @@ const STATS = [
   <section class="flex min-h-screen items-center px-8 pt-[100px] pb-[60px]">
     <div class="mx-auto grid w-full max-w-[1100px] grid-cols-[repeat(auto-fit,minmax(420px,1fr))] items-center gap-16">
       <div>
-        <div class="mb-7">
-          <TypewriterEyebrow />
-        </div>
-
         <h1 class="text-heading mb-[22px] text-[clamp(42px,6vw,76px)] leading-[1.05] font-semibold tracking-[-0.04em]">
           Andrew Molyuk
         </h1>
@@ -33,9 +28,7 @@ const STATS = [
 
         <div class="mb-13 flex flex-wrap gap-2.5">
           <a
-            href="https://github.com/andrewmolyuk/instrumenta"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#projects"
             class="bg-accent text-ink inline-flex items-center gap-1.5 rounded px-[18px] py-2.5 text-[15px] font-semibold hover:opacity-85"
             >See what I'm building →</a
           >

@@ -36,7 +36,6 @@ const ariaLabel = (id: SkillId) => ariaLabelFor(id)
   <section id="skills" class="border-line border-t px-8 py-22">
     <div class="mx-auto max-w-[1100px]">
       <div class="mb-11">
-        <span class="text-muted mb-2 block font-mono text-[11.5px] tracking-[0.18em] uppercase">01 / skills</span>
         <h2 class="text-heading text-[clamp(26px,3.5vw,40px)] leading-[1.1] font-semibold tracking-[-0.03em]">
           Technical Focus
         </h2>
@@ -45,13 +44,6 @@ const ariaLabel = (id: SkillId) => ariaLabelFor(id)
       <div class="grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] items-center gap-14">
         <div>
           <svg viewBox="-250 -60 960 600" class="block w-full overflow-visible">
-            <defs>
-              <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#4dd8ff" stop-opacity=".25"></stop>
-                <stop offset="100%" stop-color="#4dd8ff" stop-opacity="0"></stop>
-              </radialGradient>
-            </defs>
-
             <g stroke="#3a3a46" stroke-width="1.4" stroke-opacity=".3" aria-hidden="true">
               <path
                 d="M130.9 150.5 Q191.6 198.6 231.3 206.4"
@@ -650,7 +642,6 @@ const ariaLabel = (id: SkillId) => ariaLabelFor(id)
               @keydown="onKeydown('ai', $event)"
             >
               <circle cx="300" cy="220" r="76" fill="transparent"></circle>
-              <circle cx="300" cy="220" r="104" fill="url(#glow)" opacity=".85" pointer-events="none"></circle>
               <circle
                 cx="300"
                 cy="220"
