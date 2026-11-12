@@ -8,6 +8,16 @@
   src: url('/fonts/inter-latin.woff2') format('woff2');
 }
 
+/* Arial scaled to Inter's metrics, so text keeps its size and line breaks while Inter loads. */
+@font-face {
+  font-family: 'Inter Fallback';
+  src: local('Arial');
+  ascent-override: 90.49%;
+  descent-override: 22.56%;
+  line-gap-override: 0%;
+  size-adjust: 107.06%;
+}
+
 @font-face {
   font-family: 'JetBrains Mono';
   font-style: normal;
@@ -17,7 +27,7 @@
 }
 
 @theme {
-  --font-sans: Inter, system-ui, sans-serif;
+  --font-sans: Inter, 'Inter Fallback', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
   --color-ink: #0a0a0c;
