@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import AgentLogTerminal from './AgentLogTerminal.vue'
+import { yearsCoding } from '../lib/career'
+
+const YEARS = yearsCoding()
 
 const STATS = [
   { value: '~23B', label: 'events/day', source: 'Vidcrunch' },
   { value: '100K', label: 'RPS idle', source: 'Vidcrunch' },
   { value: '3M', label: 'req/sec', source: 'Screenz' },
-  { value: '35+', label: 'years', source: 'in prod' },
+  { value: String(YEARS), label: 'years', source: 'in prod' },
 ]
 </script>
 
@@ -22,7 +25,7 @@ const STATS = [
         </div>
 
         <p class="text-muted mb-10 max-w-[460px] text-[15px] leading-[1.8]">
-          35+ years in tech. Systems at 100K RPS scale.<br />
+          {{ YEARS }} years in tech. Systems at 100K RPS scale.<br />
           Now building AI-native engineering tools.
         </p>
 
