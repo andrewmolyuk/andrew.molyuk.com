@@ -51,6 +51,13 @@ const OTHER_PROJECTS = [
     tags: ['Claude Code', 'Workflows', 'Subagents', 'Playwright', 'Jira', 'Bitbucket'],
   },
   {
+    title: 'chainofsale',
+    status: 'live',
+    href: 'https://chainofsale.com',
+    desc: 'Supply-chain check for ad systems — SSPs, exchanges and ad networks. Reads an ad system’s sellers.json and the ads.txt and app-ads.txt of every seller’s domain, as the buyers’ crawlers do, and shows each seller the publisher does not confirm, with the exact line that fixes it. Free summary, paid partner reports and weekly monitoring; a public directory ranks the chain health of 1,700+ ad systems.',
+    tags: ['Go', 'PostgreSQL', 'Vue 3', 'Tailwind CSS', 'Kamal', 'Cloudflare Workers'],
+  },
+  {
     title: 'servienta',
     status: 'live',
     href: 'https://github.com/servienta/servienta',
@@ -81,6 +88,22 @@ const OTHER_PROJECTS = [
     site: { label: 'staffcomplete.io', href: 'https://staffcomplete.io' },
     desc: 'SaaS platform automating the full employee lifecycle across company systems — onboarding, role changes, offboarding. Every lifecycle event is queued, dispatched to per-system integration handlers, and recorded for audit. Multi-tenant, isolated at the database level via Postgres RLS.',
     tags: ['Hono', 'tRPC', 'Drizzle', 'PostgreSQL RLS', 'pg-boss', 'Vue 3'],
+  },
+  {
+    title: 'pass.molyuk.com',
+    status: 'live',
+    href: 'https://github.com/andrewmolyuk/pass.molyuk.com',
+    site: { label: 'pass.molyuk.com', href: 'https://pass.molyuk.com' },
+    desc: 'Shares a secret through a one-time link, with a PIN sent separately by voice or another chat. The browser encrypts the secret before it leaves; the server stores only ciphertext and never sees the secret, the key or the PIN. Links expire after 5 minutes, an hour or a day, and burn once read.',
+    tags: ['TypeScript', 'Web Crypto', 'Cloudflare Workers', 'Cloudflare D1'],
+  },
+  {
+    title: 'tools.molyuk.com',
+    status: 'live',
+    href: 'https://github.com/andrewmolyuk/tools.molyuk.com',
+    site: { label: 'tools.molyuk.com', href: 'https://tools.molyuk.com' },
+    desc: '36 everyday developer tools in one place — ID generators, hashes and HMAC, base64, JWT and X.509 decoding, regex, cron, CIDR, TOTP, diff and more. Almost everything runs in the browser; only “My IP” and DNS lookup go through the worker.',
+    tags: ['Vue 3', 'TypeScript', 'Tailwind CSS', 'vue-i18n', 'Cloudflare Workers'],
   },
 ]
 </script>
