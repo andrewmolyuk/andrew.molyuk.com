@@ -1,16 +1,31 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import {
+  AI,
+  ALL_SKILLS,
+  CENTER,
+  CORE_MOON_ORBIT,
+  CORE_R,
+  MOON_ORBIT,
+  PLANET_R,
+  ORBIT,
   SKILL_LIST,
-  ariaLabel as ariaLabelFor,
-  edgeColor as edgeColorFor,
-  edgeOpacity as edgeOpacityFor,
-  nodeOpacity as nodeOpacityFor,
-  sel as selFor,
+  VIEW,
+  ariaLabel,
+  edgeColor,
+  edgeOpacity,
+  labelPlacement,
+  moonPositions,
+  nodeOpacity,
+  planetPosition,
+  sel,
+  spoke,
   type SkillId,
 } from '../lib/skillsGraph'
 
 const hovered = ref<SkillId | null>(null)
+/** The row the list explains: what is hovered, or the core when nothing is. */
+const active = computed<SkillId>(() => hovered.value ?? 'ai')
 
 function onEnter(id: SkillId) {
   hovered.value = id
@@ -18,18 +33,32 @@ function onEnter(id: SkillId) {
 function onLeave() {
   hovered.value = null
 }
+function onToggle(id: SkillId) {
+  hovered.value = hovered.value === id ? null : id
+}
 function onKeydown(id: SkillId, event: KeyboardEvent) {
   if (event.key === 'Enter' || event.key === ' ') {
     event.preventDefault()
-    hovered.value = hovered.value === id ? null : id
+    onToggle(id)
   }
 }
 
-const nodeOpacity = (id: SkillId) => nodeOpacityFor(hovered.value, id)
-const edgeOpacity = (id: SkillId) => edgeOpacityFor(hovered.value, id)
-const edgeColor = (id: SkillId) => edgeColorFor(hovered.value, id)
-const sel = (id: SkillId) => selFor(hovered.value, id)
-const ariaLabel = (id: SkillId) => ariaLabelFor(id)
+const planets = SKILL_LIST.map((skill, i) => {
+  const p = planetPosition(i)
+  return {
+    ...skill,
+    ...p,
+    label: { ...labelPlacement(i), text: skill.label },
+    spoke: spoke(i),
+    moons: moonPositions(p, skill.tools.length, MOON_ORBIT),
+    spin: `${26 + i * 4}s`,
+  }
+})
+const coreMoons = moonPositions(CENTER, AI.tools.length, CORE_MOON_ORBIT)
+
+const on = (id: SkillId) => sel(hovered.value, id) === 1
+const MUTED = '#8b8b99'
+const ACCENT = 'var(--color-accent)'
 </script>
 
 <template>
@@ -41,683 +70,231 @@ const ariaLabel = (id: SkillId) => ariaLabelFor(id)
         </h2>
       </div>
 
-      <div class="grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] items-center gap-14">
-        <div>
-          <svg viewBox="-250 -60 960 600" class="block w-full overflow-visible">
-            <g stroke="#3a3a46" stroke-width="1.4" stroke-opacity=".3" aria-hidden="true">
-              <path
-                d="M130.9 150.5 Q191.6 198.6 231.3 206.4"
-                fill="none"
-                :stroke="edgeColor('hlha')"
-                :stroke-opacity="edgeOpacity('hlha')"
-                style="transition: all 0.2s"
-              ></path>
-              <path
-                d="M469.3 305.9 Q384.9 292.2 353.3 265.4"
-                fill="none"
-                :stroke="edgeColor('cloud')"
-                :stroke-opacity="edgeOpacity('cloud')"
-                style="transition: all 0.2s"
-              ></path>
-              <path
-                d="M133.6 288.1 Q192.4 243.2 231.6 234.8"
-                fill="none"
-                :stroke="edgeColor('k8s')"
-                :stroke-opacity="edgeOpacity('k8s')"
-                style="transition: all 0.2s"
-              ></path>
-              <path
-                d="M288.1 69.2 Q270 126 278.7 153.3"
-                fill="none"
-                :stroke="edgeColor('go')"
-                :stroke-opacity="edgeOpacity('go')"
-                style="transition: all 0.2s"
-              ></path>
-              <path
-                d="M310.6 372.5 Q328 314 320 287.1"
-                fill="none"
-                :stroke="edgeColor('node')"
-                :stroke-opacity="edgeOpacity('node')"
-                style="transition: all 0.2s"
-              ></path>
-              <path
-                d="M471.2 133.4 Q384.1 145.9 352.5 173.7"
-                fill="none"
-                :stroke="edgeColor('cicd')"
-                :stroke-opacity="edgeOpacity('cicd')"
-                style="transition: all 0.2s"
-              ></path>
-            </g>
+      <div class="grid items-start gap-14 md:grid-cols-[1.1fr_1fr]">
+        <svg
+          :viewBox="`0 0 ${VIEW.width} ${VIEW.height}`"
+          class="mx-auto block w-full max-w-[600px] overflow-visible md:sticky md:top-24"
+          role="group"
+          aria-label="AI Engineering at the core, six disciplines in orbit, their tools as moons"
+          @mouseleave="onLeave"
+        >
+          <defs>
+            <radialGradient id="core-glow">
+              <stop offset="0%" stop-color="#4dd8ff" stop-opacity=".18" />
+              <stop offset="100%" stop-color="#4dd8ff" stop-opacity="0" />
+            </radialGradient>
+          </defs>
 
-            <g fill="#4dd8ff" opacity=".55" aria-hidden="true">
-              <circle r="3">
-                <animateMotion
-                  path="M105 130 Q191.6 198.6 300 220"
-                  dur="3.4s"
-                  begin="0.0s"
-                  repeatCount="indefinite"
-                ></animateMotion>
-              </circle>
-              <circle r="3">
-                <animateMotion
-                  path="M495 310 Q384.9 292.2 300 220"
-                  dur="3.8s"
-                  begin="0.7s"
-                  repeatCount="indefinite"
-                ></animateMotion>
-              </circle>
-              <circle r="3">
-                <animateMotion
-                  path="M105 310 Q192.4 243.2 300 220"
-                  dur="4.1s"
-                  begin="1.4s"
-                  repeatCount="indefinite"
-                ></animateMotion>
-              </circle>
-              <circle r="3">
-                <animateMotion
-                  path="M300 32 Q270 126 300 220"
-                  dur="4.4s"
-                  begin="2.1s"
-                  repeatCount="indefinite"
-                ></animateMotion>
-              </circle>
-              <circle r="3">
-                <animateMotion
-                  path="M300 408 Q328 314 300 220"
-                  dur="4.8s"
-                  begin="2.8s"
-                  repeatCount="indefinite"
-                ></animateMotion>
-              </circle>
-              <circle r="3">
-                <animateMotion
-                  path="M495 130 Q384.1 145.9 300 220"
-                  dur="5.2s"
-                  begin="3.5s"
-                  repeatCount="indefinite"
-                ></animateMotion>
-              </circle>
-            </g>
+          <circle
+            :cx="CENTER.x"
+            :cy="CENTER.y"
+            :r="ORBIT"
+            fill="none"
+            stroke="#2e2e3e"
+            stroke-width="1"
+            stroke-dasharray="2 6"
+            aria-hidden="true"
+          />
 
+          <g aria-hidden="true">
+            <line
+              v-for="p in planets"
+              :key="`edge-${p.id}`"
+              :x1="p.spoke.from.x"
+              :y1="p.spoke.from.y"
+              :x2="p.spoke.to.x"
+              :y2="p.spoke.to.y"
+              :stroke="edgeColor(hovered, p.id)"
+              :stroke-opacity="edgeOpacity(hovered, p.id)"
+              stroke-width="1.2"
+              style="transition: all 0.2s"
+            />
+            <circle v-for="(p, i) in planets" :key="`pulse-${p.id}`" r="2.6" fill="#4dd8ff" opacity=".55">
+              <animateMotion
+                :path="`M${p.spoke.from.x} ${p.spoke.from.y} L${p.spoke.to.x} ${p.spoke.to.y}`"
+                :dur="`${3.2 + i * 0.4}s`"
+                :begin="`${i * 0.7}s`"
+                repeatCount="indefinite"
+              />
+            </circle>
+          </g>
+
+          <g
+            v-for="p in planets"
+            :key="p.id"
+            :opacity="nodeOpacity(hovered, p.id)"
+            tabindex="0"
+            role="button"
+            :aria-label="ariaLabel(p.id)"
+            :aria-pressed="hovered === p.id"
+            class="cursor-default outline-none"
+            style="transition: opacity 0.2s"
+            @mouseenter="onEnter(p.id)"
+            @focus="onEnter(p.id)"
+            @blur="onLeave"
+            @click="onToggle(p.id)"
+            @keydown="onKeydown(p.id, $event)"
+          >
+            <circle :cx="p.x" :cy="p.y" :r="MOON_ORBIT + 10" fill="transparent" />
+            <circle
+              :cx="p.x"
+              :cy="p.y"
+              :r="MOON_ORBIT"
+              fill="none"
+              :stroke="on(p.id) ? '#4dd8ff' : '#2e2e3e'"
+              :stroke-opacity="on(p.id) ? 0.45 : 1"
+              stroke-width="1"
+              style="transition: all 0.2s"
+            />
             <g
-              :opacity="nodeOpacity('hlha')"
-              tabindex="0"
-              role="button"
-              :aria-label="ariaLabel('hlha')"
-              pointer-events="all"
-              style="transition: opacity 0.2s; cursor: default"
-              @mouseenter="onEnter('hlha')"
-              @mouseleave="onLeave"
-              @focus="onEnter('hlha')"
-              @blur="onLeave"
-              @keydown="onKeydown('hlha', $event)"
+              class="moons"
+              :style="{ transformOrigin: `${p.x}px ${p.y}px`, animationDuration: p.spin }"
+              aria-hidden="true"
             >
-              <circle cx="105" cy="130" r="49" fill="transparent"></circle>
-              <circle cx="105" cy="130" r="33" fill="#13131a" stroke="#2e2e3e" stroke-width="1.2"></circle>
               <circle
-                cx="105"
-                cy="130"
-                r="33"
-                fill="rgba(77,216,255,0.07)"
-                stroke="var(--color-accent)"
-                stroke-width="1.8"
-                :opacity="sel('hlha')"
-                pointer-events="none"
-                style="transition: opacity 0.2s"
-              ></circle>
-              <circle cx="105" cy="130" r="4.7" fill="#8b8b99"></circle>
-              <circle
-                cx="105"
-                cy="130"
-                r="4.7"
-                fill="var(--color-accent)"
-                :opacity="sel('hlha')"
-                pointer-events="none"
-                style="transition: opacity 0.2s"
-              ></circle>
-              <text
-                x="54"
-                y="123"
-                text-anchor="end"
-                font-family="JetBrains Mono, monospace"
-                font-size="28"
-                fill="#8b8b99"
-                letter-spacing=".02em"
-              >
-                HL/HA Distributed
-              </text>
-              <text
-                x="54"
-                y="155"
-                text-anchor="end"
-                font-family="JetBrains Mono, monospace"
-                font-size="28"
-                fill="#8b8b99"
-                letter-spacing=".02em"
-              >
-                Systems
-              </text>
-              <text
-                x="54"
-                y="123"
-                text-anchor="end"
-                font-family="JetBrains Mono, monospace"
-                font-size="28"
-                fill="var(--color-accent)"
-                letter-spacing=".02em"
-                :opacity="sel('hlha')"
-                pointer-events="none"
-                style="transition: opacity 0.2s"
-                aria-hidden="true"
-              >
-                HL/HA Distributed
-              </text>
-              <text
-                x="54"
-                y="155"
-                text-anchor="end"
-                font-family="JetBrains Mono, monospace"
-                font-size="28"
-                fill="var(--color-accent)"
-                letter-spacing=".02em"
-                :opacity="sel('hlha')"
-                pointer-events="none"
-                style="transition: opacity 0.2s"
-                aria-hidden="true"
-              >
-                Systems
-              </text>
-            </g>
-
-            <g
-              :opacity="nodeOpacity('cloud')"
-              tabindex="0"
-              role="button"
-              :aria-label="ariaLabel('cloud')"
-              pointer-events="all"
-              style="transition: opacity 0.2s; cursor: default"
-              @mouseenter="onEnter('cloud')"
-              @mouseleave="onLeave"
-              @focus="onEnter('cloud')"
-              @blur="onLeave"
-              @keydown="onKeydown('cloud', $event)"
-            >
-              <circle cx="495" cy="310" r="42" fill="transparent"></circle>
-              <circle cx="495" cy="310" r="26" fill="#13131a" stroke="#2e2e3e" stroke-width="1.2"></circle>
-              <circle
-                cx="495"
-                cy="310"
-                r="26"
-                fill="rgba(77,216,255,0.07)"
-                stroke="var(--color-accent)"
-                stroke-width="1.8"
-                :opacity="sel('cloud')"
-                pointer-events="none"
-                style="transition: opacity 0.2s"
-              ></circle>
-              <circle cx="495" cy="310" r="3.7" fill="#8b8b99"></circle>
-              <circle
-                cx="495"
-                cy="310"
-                r="3.7"
-                fill="var(--color-accent)"
-                :opacity="sel('cloud')"
-                pointer-events="none"
-                style="transition: opacity 0.2s"
-              ></circle>
-              <text
-                x="539"
-                y="303"
-                text-anchor="start"
-                font-family="JetBrains Mono, monospace"
-                font-size="28"
-                fill="#8b8b99"
-                letter-spacing=".02em"
-              >
-                Cloud
-              </text>
-              <text
-                x="539"
-                y="335"
-                text-anchor="start"
-                font-family="JetBrains Mono, monospace"
-                font-size="28"
-                fill="#8b8b99"
-                letter-spacing=".02em"
-              >
-                Computing
-              </text>
-              <text
-                x="539"
-                y="303"
-                text-anchor="start"
-                font-family="JetBrains Mono, monospace"
-                font-size="28"
-                fill="var(--color-accent)"
-                letter-spacing=".02em"
-                :opacity="sel('cloud')"
-                pointer-events="none"
-                style="transition: opacity 0.2s"
-                aria-hidden="true"
-              >
-                Cloud
-              </text>
-              <text
-                x="539"
-                y="335"
-                text-anchor="start"
-                font-family="JetBrains Mono, monospace"
-                font-size="28"
-                fill="var(--color-accent)"
-                letter-spacing=".02em"
-                :opacity="sel('cloud')"
-                pointer-events="none"
-                style="transition: opacity 0.2s"
-                aria-hidden="true"
-              >
-                Computing
-              </text>
-            </g>
-
-            <g
-              :opacity="nodeOpacity('k8s')"
-              tabindex="0"
-              role="button"
-              :aria-label="ariaLabel('k8s')"
-              pointer-events="all"
-              style="transition: opacity 0.2s; cursor: default"
-              @mouseenter="onEnter('k8s')"
-              @mouseleave="onLeave"
-              @focus="onEnter('k8s')"
-              @blur="onLeave"
-              @keydown="onKeydown('k8s', $event)"
-            >
-              <circle cx="105" cy="310" r="52" fill="transparent"></circle>
-              <circle cx="105" cy="310" r="36" fill="#13131a" stroke="#2e2e3e" stroke-width="1.2"></circle>
-              <circle
-                cx="105"
-                cy="310"
-                r="36"
-                fill="rgba(77,216,255,0.07)"
-                stroke="var(--color-accent)"
-                stroke-width="1.8"
-                :opacity="sel('k8s')"
-                pointer-events="none"
-                style="transition: opacity 0.2s"
-              ></circle>
-              <circle cx="105" cy="310" r="5.1" fill="#8b8b99"></circle>
-              <circle
-                cx="105"
-                cy="310"
-                r="5.1"
-                fill="var(--color-accent)"
-                :opacity="sel('k8s')"
-                pointer-events="none"
-                style="transition: opacity 0.2s"
-              ></circle>
-              <text
-                x="51"
-                y="303"
-                text-anchor="end"
-                font-family="JetBrains Mono, monospace"
-                font-size="28"
-                fill="#8b8b99"
-                letter-spacing=".02em"
-              >
-                Docker &amp;
-              </text>
-              <text
-                x="51"
-                y="335"
-                text-anchor="end"
-                font-family="JetBrains Mono, monospace"
-                font-size="28"
-                fill="#8b8b99"
-                letter-spacing=".02em"
-              >
-                Kubernetes
-              </text>
-              <text
-                x="51"
-                y="303"
-                text-anchor="end"
-                font-family="JetBrains Mono, monospace"
-                font-size="28"
-                fill="var(--color-accent)"
-                letter-spacing=".02em"
-                :opacity="sel('k8s')"
-                pointer-events="none"
-                style="transition: opacity 0.2s"
-                aria-hidden="true"
-              >
-                Docker &amp;
-              </text>
-              <text
-                x="51"
-                y="335"
-                text-anchor="end"
-                font-family="JetBrains Mono, monospace"
-                font-size="28"
-                fill="var(--color-accent)"
-                letter-spacing=".02em"
-                :opacity="sel('k8s')"
-                pointer-events="none"
-                style="transition: opacity 0.2s"
-                aria-hidden="true"
-              >
-                Kubernetes
-              </text>
-            </g>
-
-            <g
-              :opacity="nodeOpacity('go')"
-              tabindex="0"
-              role="button"
-              :aria-label="ariaLabel('go')"
-              pointer-events="all"
-              style="transition: opacity 0.2s; cursor: default"
-              @mouseenter="onEnter('go')"
-              @mouseleave="onLeave"
-              @focus="onEnter('go')"
-              @blur="onLeave"
-              @keydown="onKeydown('go', $event)"
-            >
-              <circle cx="300" cy="32" r="55" fill="transparent"></circle>
-              <circle cx="300" cy="32" r="39" fill="#13131a" stroke="#2e2e3e" stroke-width="1.2"></circle>
-              <circle
-                cx="300"
-                cy="32"
-                r="39"
-                fill="rgba(77,216,255,0.07)"
-                stroke="var(--color-accent)"
-                stroke-width="1.8"
-                :opacity="sel('go')"
-                pointer-events="none"
-                style="transition: opacity 0.2s"
-              ></circle>
-              <circle cx="300" cy="32" r="5.6" fill="#8b8b99"></circle>
-              <circle
-                cx="300"
-                cy="32"
-                r="5.6"
-                fill="var(--color-accent)"
-                :opacity="sel('go')"
-                pointer-events="none"
-                style="transition: opacity 0.2s"
-              ></circle>
-              <text
-                x="300"
-                y="-27"
-                text-anchor="middle"
-                font-family="JetBrains Mono, monospace"
-                font-size="28"
-                fill="#8b8b99"
-                letter-spacing=".02em"
-              >
-                Go Development
-              </text>
-              <text
-                x="300"
-                y="-27"
-                text-anchor="middle"
-                font-family="JetBrains Mono, monospace"
-                font-size="28"
-                fill="var(--color-accent)"
-                letter-spacing=".02em"
-                :opacity="sel('go')"
-                pointer-events="none"
-                style="transition: opacity 0.2s"
-                aria-hidden="true"
-              >
-                Go Development
-              </text>
-            </g>
-
-            <g
-              :opacity="nodeOpacity('node')"
-              tabindex="0"
-              role="button"
-              :aria-label="ariaLabel('node')"
-              pointer-events="all"
-              style="transition: opacity 0.2s; cursor: default"
-              @mouseenter="onEnter('node')"
-              @mouseleave="onLeave"
-              @focus="onEnter('node')"
-              @blur="onLeave"
-              @keydown="onKeydown('node', $event)"
-            >
-              <circle cx="300" cy="408" r="53" fill="transparent"></circle>
-              <circle cx="300" cy="408" r="37" fill="#13131a" stroke="#2e2e3e" stroke-width="1.2"></circle>
-              <circle
-                cx="300"
-                cy="408"
-                r="37"
-                fill="rgba(77,216,255,0.07)"
-                stroke="var(--color-accent)"
-                stroke-width="1.8"
-                :opacity="sel('node')"
-                pointer-events="none"
-                style="transition: opacity 0.2s"
-              ></circle>
-              <circle cx="300" cy="408" r="5.3" fill="#8b8b99"></circle>
-              <circle
-                cx="300"
-                cy="408"
-                r="5.3"
-                fill="var(--color-accent)"
-                :opacity="sel('node')"
-                pointer-events="none"
-                style="transition: opacity 0.2s"
-              ></circle>
-              <text
-                x="300"
-                y="483"
-                text-anchor="middle"
-                font-family="JetBrains Mono, monospace"
-                font-size="28"
-                fill="#8b8b99"
-                letter-spacing=".02em"
-              >
-                Node.js &amp;
-              </text>
-              <text
-                x="300"
-                y="515"
-                text-anchor="middle"
-                font-family="JetBrains Mono, monospace"
-                font-size="28"
-                fill="#8b8b99"
-                letter-spacing=".02em"
-              >
-                Bun
-              </text>
-              <text
-                x="300"
-                y="483"
-                text-anchor="middle"
-                font-family="JetBrains Mono, monospace"
-                font-size="28"
-                fill="var(--color-accent)"
-                letter-spacing=".02em"
-                :opacity="sel('node')"
-                pointer-events="none"
-                style="transition: opacity 0.2s"
-                aria-hidden="true"
-              >
-                Node.js &amp;
-              </text>
-              <text
-                x="300"
-                y="515"
-                text-anchor="middle"
-                font-family="JetBrains Mono, monospace"
-                font-size="28"
-                fill="var(--color-accent)"
-                letter-spacing=".02em"
-                :opacity="sel('node')"
-                pointer-events="none"
-                style="transition: opacity 0.2s"
-                aria-hidden="true"
-              >
-                Bun
-              </text>
-            </g>
-
-            <g
-              :opacity="nodeOpacity('cicd')"
-              tabindex="0"
-              role="button"
-              :aria-label="ariaLabel('cicd')"
-              pointer-events="all"
-              style="transition: opacity 0.2s; cursor: default"
-              @mouseenter="onEnter('cicd')"
-              @mouseleave="onLeave"
-              @focus="onEnter('cicd')"
-              @blur="onLeave"
-              @keydown="onKeydown('cicd', $event)"
-            >
-              <circle cx="495" cy="130" r="40" fill="transparent"></circle>
-              <circle cx="495" cy="130" r="24" fill="#13131a" stroke="#2e2e3e" stroke-width="1.2"></circle>
-              <circle
-                cx="495"
-                cy="130"
-                r="24"
-                fill="rgba(77,216,255,0.07)"
-                stroke="var(--color-accent)"
-                stroke-width="1.8"
-                :opacity="sel('cicd')"
-                pointer-events="none"
-                style="transition: opacity 0.2s"
-              ></circle>
-              <circle cx="495" cy="130" r="3.4" fill="#8b8b99"></circle>
-              <circle
-                cx="495"
-                cy="130"
+                v-for="(m, k) in p.moons"
+                :key="k"
+                :cx="m.x"
+                :cy="m.y"
                 r="3.4"
-                fill="var(--color-accent)"
-                :opacity="sel('cicd')"
-                pointer-events="none"
-                style="transition: opacity 0.2s"
-              ></circle>
-              <text
-                x="537"
-                y="139"
-                text-anchor="start"
-                font-family="JetBrains Mono, monospace"
-                font-size="28"
-                fill="#8b8b99"
-                letter-spacing=".02em"
-              >
-                CI/CD
-              </text>
-              <text
-                x="537"
-                y="139"
-                text-anchor="start"
-                font-family="JetBrains Mono, monospace"
-                font-size="28"
-                fill="var(--color-accent)"
-                letter-spacing=".02em"
-                :opacity="sel('cicd')"
-                pointer-events="none"
-                style="transition: opacity 0.2s"
-                aria-hidden="true"
-              >
-                CI/CD
-              </text>
+                :fill="on(p.id) ? ACCENT : '#5a5a68'"
+                style="transition: fill 0.2s"
+              />
             </g>
-
-            <g
-              :opacity="nodeOpacity('ai')"
-              tabindex="0"
-              role="button"
-              :aria-label="ariaLabel('ai')"
-              pointer-events="all"
-              style="transition: opacity 0.2s; cursor: default"
-              @mouseenter="onEnter('ai')"
-              @mouseleave="onLeave"
-              @focus="onEnter('ai')"
-              @blur="onLeave"
-              @keydown="onKeydown('ai', $event)"
+            <circle
+              :cx="p.x"
+              :cy="p.y"
+              :r="PLANET_R"
+              :fill="on(p.id) ? 'rgba(77,216,255,0.08)' : '#13131a'"
+              :stroke="on(p.id) ? ACCENT : '#2e2e3e'"
+              stroke-width="1.4"
+              style="transition: all 0.2s"
+            />
+            <circle :cx="p.x" :cy="p.y" r="4.2" :fill="on(p.id) ? ACCENT : MUTED" style="transition: fill 0.2s" />
+            <text
+              :x="p.label.x"
+              :y="p.label.y"
+              :text-anchor="p.label.anchor"
+              font-family="JetBrains Mono, monospace"
+              font-size="17"
+              letter-spacing=".02em"
+              class="planet-label"
+              :fill="on(p.id) ? ACCENT : MUTED"
+              style="transition: fill 0.2s"
             >
-              <circle cx="300" cy="220" r="76" fill="transparent"></circle>
-              <circle
-                cx="300"
-                cy="220"
-                r="78"
-                fill="none"
-                stroke="#4dd8ff"
-                stroke-width="1"
-                stroke-opacity=".22"
-                stroke-dasharray="3 5"
-                style="animation: spin 12s linear infinite; transform-origin: 300px 220px"
-              ></circle>
-              <circle
-                cx="300"
-                cy="220"
-                r="66"
-                fill="rgba(77,216,255,0.07)"
-                stroke="#4dd8ff"
-                stroke-width="1.5"
-                stroke-opacity=".7"
-              ></circle>
-              <circle
-                cx="300"
-                cy="220"
-                r="66"
-                fill="rgba(77,216,255,0.12)"
-                stroke="var(--color-accent)"
-                stroke-width="2"
-                :opacity="sel('ai')"
-                pointer-events="none"
-                style="transition: opacity 0.2s"
-              ></circle>
-              <circle cx="300" cy="220" r="6" fill="#4dd8ff"></circle>
-              <text
-                x="300"
-                y="348"
-                text-anchor="middle"
-                font-family="JetBrains Mono, monospace"
-                font-size="28"
-                fill="#4dd8ff"
-                letter-spacing=".02em"
-              >
-                AI Engineering
-              </text>
+              {{ p.label.text }}
+            </text>
+          </g>
+
+          <g
+            tabindex="0"
+            role="button"
+            :aria-label="ariaLabel('ai')"
+            :aria-pressed="hovered === 'ai'"
+            class="cursor-default outline-none"
+            @mouseenter="onEnter('ai')"
+            @focus="onEnter('ai')"
+            @blur="onLeave"
+            @click="onToggle('ai')"
+            @keydown="onKeydown('ai', $event)"
+          >
+            <circle :cx="CENTER.x" :cy="CENTER.y" :r="CORE_MOON_ORBIT + 40" fill="url(#core-glow)" />
+            <circle
+              :cx="CENTER.x"
+              :cy="CENTER.y"
+              :r="CORE_MOON_ORBIT"
+              fill="none"
+              stroke="#4dd8ff"
+              stroke-opacity=".16"
+              stroke-width="1"
+            />
+            <g
+              class="moons"
+              :style="{ transformOrigin: `${CENTER.x}px ${CENTER.y}px`, animationDuration: '48s' }"
+              aria-hidden="true"
+            >
+              <circle v-for="(m, k) in coreMoons" :key="k" :cx="m.x" :cy="m.y" r="4" fill="#4dd8ff" opacity=".8" />
             </g>
-          </svg>
-        </div>
+            <circle
+              :cx="CENTER.x"
+              :cy="CENTER.y"
+              :r="CORE_R + 9"
+              fill="none"
+              stroke="#4dd8ff"
+              stroke-opacity=".25"
+              stroke-dasharray="3 5"
+              class="moons"
+              :style="{ transformOrigin: `${CENTER.x}px ${CENTER.y}px`, animationDuration: '14s' }"
+            />
+            <circle
+              :cx="CENTER.x"
+              :cy="CENTER.y"
+              :r="CORE_R"
+              :fill="on('ai') ? 'rgba(77,216,255,0.14)' : 'rgba(77,216,255,0.07)'"
+              stroke="#4dd8ff"
+              stroke-opacity=".75"
+              stroke-width="1.6"
+              style="transition: fill 0.2s"
+            />
+            <text
+              :x="CENTER.x"
+              :y="CENTER.y + 4"
+              text-anchor="middle"
+              font-family="Inter, system-ui, sans-serif"
+              font-size="34"
+              font-weight="600"
+              letter-spacing="-.02em"
+              fill="#f4f4f5"
+            >
+              AI
+            </text>
+            <text
+              :x="CENTER.x"
+              :y="CENTER.y + 26"
+              text-anchor="middle"
+              font-family="JetBrains Mono, monospace"
+              font-size="10.5"
+              letter-spacing=".2em"
+              class="core-label"
+              fill="#4dd8ff"
+            >
+              ENGINEERING
+            </text>
+          </g>
+        </svg>
 
         <div>
-          <p class="text-muted mb-7 text-[15px] leading-[1.85]">
-            After 35 years in distributed systems, the focus has shifted to AI-native tooling — building the
-            infrastructure layer for agentic engineering workflows. Hover any node.
+          <p class="text-muted mb-7 text-[15px] leading-[1.8]">
+            AI-native engineering is the focus now. It stands on 35 years of building software that had to stay up. The
+            disciplines last; the tools orbiting them change. Point at a node to see both.
           </p>
-          <div class="flex flex-col gap-2.5">
+          <div class="flex flex-col" @mouseleave="onLeave">
             <div
-              class="border-line border-l-accent mb-1 flex items-baseline gap-3 border-b border-l-2 py-1.5 pb-2.5 pl-2.5"
-              @mouseenter="onEnter('ai')"
-              @mouseleave="onLeave"
-            >
-              <span class="text-accent w-[150px] shrink-0 font-mono text-xs leading-[1.5] font-semibold"
-                >AI Engineering</span
-              >
-              <span class="text-body text-[15px] leading-[1.6]"
-                >Multi-agent systems, LLM orchestration, autonomous agent pipelines, agentic workflows, Claude API
-                integration</span
-              >
-            </div>
-            <div
-              v-for="skill in SKILL_LIST"
+              v-for="skill in ALL_SKILLS"
               :key="skill.id"
-              class="flex items-baseline gap-3 py-1 pl-2.5 transition-[border-color] duration-200"
-              :style="{ borderLeft: `2px solid rgba(77,216,255,${sel(skill.id)})` }"
+              class="grid gap-x-4 gap-y-1 border-l-2 py-2.5 pl-3.5 transition-[border-color] duration-200 sm:grid-cols-[130px_1fr]"
+              :class="active === skill.id ? 'border-accent' : 'border-line'"
               @mouseenter="onEnter(skill.id)"
-              @mouseleave="onLeave"
             >
-              <span class="text-accent w-[150px] shrink-0 font-mono text-xs leading-[1.5]">{{ skill.label }}</span>
-              <span class="text-muted text-[15px] leading-[1.6]">{{ skill.desc }}</span>
+              <span class="text-accent pt-[3px] font-mono text-xs leading-[1.5]">{{ skill.label }}</span>
+              <div>
+                <p
+                  class="text-[14.5px] leading-[1.6] transition-colors duration-200"
+                  :class="active === skill.id ? 'text-body' : 'text-muted'"
+                >
+                  {{ skill.desc }}
+                </p>
+                <div
+                  class="grid transition-[grid-template-rows] duration-300"
+                  :class="active === skill.id ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'"
+                >
+                  <div class="overflow-hidden">
+                    <div class="text-faint pt-1.5 font-mono text-[11.5px]">
+                      <span class="text-accent/60">↻</span> {{ skill.tools.join(' · ') }}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -725,3 +302,20 @@ const ariaLabel = (id: SkillId) => ariaLabelFor(id)
     </div>
   </section>
 </template>
+
+<style scoped>
+.moons {
+  transform-box: view-box;
+  animation: spin linear infinite;
+}
+
+/* The graph shrinks to under half its size on a phone; keep its labels readable there. */
+@media (max-width: 640px) {
+  .planet-label {
+    font-size: 25px;
+  }
+  .core-label {
+    font-size: 14px;
+  }
+}
+</style>
