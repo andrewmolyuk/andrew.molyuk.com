@@ -17,7 +17,14 @@ const PRINCIPLES = [
   },
 ]
 
-const TIMELINE = ['CGS Tower Networks (2024–now)', 'Vidcrunch (2016–2024)', 'Screenz (2015–2016)', 'BestTV (2006–2011)']
+const TIMELINE = [
+  'CGS Tower Networks (2024–now)',
+  'Vidcrunch (2016–2024)',
+  'Screenz (2015–2016)',
+  'YKM (2014–2015)',
+  'Synerion Systems (2011–2014)',
+  'BestTV (2006–2011)',
+]
 </script>
 
 <template>
@@ -49,9 +56,7 @@ const TIMELINE = ['CGS Tower Networks (2024–now)', 'Vidcrunch (2016–2024)', 
         enough to start bunderlog. I still write code most days and I don't plan to stop.
       </p>
 
-      <div
-        class="border-line text-faint mt-4 flex flex-wrap gap-x-3.5 gap-y-1.5 border-t pt-4 font-mono text-[11.5px] tracking-[0.02em]"
-      >
+      <div class="border-line text-faint mt-4 flex flex-wrap gap-x-2 gap-y-1.5 border-t pt-4 font-mono text-[11.5px]">
         <template v-for="(item, i) in TIMELINE" :key="item">
           <span v-if="i > 0">·</span>
           <span>{{ item }}</span>
