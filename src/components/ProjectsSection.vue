@@ -45,6 +45,7 @@ const TOOLS = [
 const OTHER_PROJECTS = [
   {
     title: 'instrumenta',
+    icon: '/projects/instrumenta.svg',
     status: 'in internal production',
     href: 'https://github.com/andrewmolyuk/instrumenta',
     desc: 'Agent pipeline that takes a Jira ticket to an open pull request, now in internal production at the company I work for as a multi-agent dynamic workflow. An investigator, implementer, reviewer and app tester each hold only their own tools; a workflow script sequences them, re-reviews every fresh diff and caps rework at three rounds. Batches of tickets run unattended.',
@@ -52,6 +53,7 @@ const OTHER_PROJECTS = [
   },
   {
     title: 'chainofsale',
+    icon: '/projects/chainofsale.svg',
     status: 'live',
     href: 'https://chainofsale.com',
     desc: 'Supply-chain check for ad systems — SSPs, exchanges and ad networks. Reads an ad system’s sellers.json and the ads.txt and app-ads.txt of every seller’s domain, as the buyers’ crawlers do, and shows each seller the publisher does not confirm, with the exact line that fixes it. Free summary, paid partner reports and weekly monitoring; a public directory ranks the chain health of 1,700+ ad systems.',
@@ -59,6 +61,7 @@ const OTHER_PROJECTS = [
   },
   {
     title: 'servienta',
+    icon: '/projects/servienta.svg',
     status: 'live',
     href: 'https://github.com/servienta/servienta',
     site: { label: 'servienta.com', href: 'https://servienta.com' },
@@ -67,6 +70,7 @@ const OTHER_PROJECTS = [
   },
   {
     title: 'clockcover',
+    icon: '/projects/clockcover.svg',
     status: 'live',
     href: 'https://github.com/clockcover/clockcover',
     site: { label: 'clockcover.com', href: 'https://clockcover.com' },
@@ -75,6 +79,7 @@ const OTHER_PROJECTS = [
   },
   {
     title: 'checkmeup',
+    icon: '/projects/checkmeup.svg',
     status: 'live',
     href: 'https://github.com/checkmeup/checkmeup',
     site: { label: 'checkmeup.net', href: 'https://checkmeup.net' },
@@ -83,6 +88,7 @@ const OTHER_PROJECTS = [
   },
   {
     title: 'staffcomplete',
+    icon: '/projects/staffcomplete.svg',
     status: 'live',
     href: 'https://github.com/staff-complete/staffcomplete',
     site: { label: 'staffcomplete.io', href: 'https://staffcomplete.io' },
@@ -91,6 +97,7 @@ const OTHER_PROJECTS = [
   },
   {
     title: 'pass.molyuk.com',
+    icon: '/projects/pass-molyuk.svg',
     status: 'live',
     href: 'https://github.com/andrewmolyuk/pass.molyuk.com',
     site: { label: 'pass.molyuk.com', href: 'https://pass.molyuk.com' },
@@ -99,6 +106,7 @@ const OTHER_PROJECTS = [
   },
   {
     title: 'tools.molyuk.com',
+    icon: '/projects/tools-molyuk.svg',
     status: 'live',
     href: 'https://github.com/andrewmolyuk/tools.molyuk.com',
     site: { label: 'tools.molyuk.com', href: 'https://tools.molyuk.com' },
@@ -125,7 +133,8 @@ const OTHER_PROJECTS = [
       <div class="flex flex-col gap-4">
         <div class="border-line bg-panel hover:border-accent/27 rounded-md border px-7 pt-7 pb-6 transition-colors">
           <div class="mb-3 flex items-start justify-between gap-3">
-            <div class="flex flex-wrap items-baseline gap-x-3.5 gap-y-1.5">
+            <div class="flex flex-wrap items-center gap-x-3.5 gap-y-1.5">
+              <img src="/projects/bunderlog.svg" alt="" width="28" height="28" class="size-7 shrink-0 rounded-md" />
               <a
                 href="https://github.com/bunderlog"
                 target="_blank"
@@ -215,7 +224,8 @@ const OTHER_PROJECTS = [
           class="border-line bg-panel hover:border-accent/27 rounded-md border px-7 pt-7 pb-6 transition-colors"
         >
           <div class="mb-3 flex items-start justify-between gap-3">
-            <div class="flex flex-wrap items-baseline gap-x-3.5 gap-y-1.5">
+            <div class="flex flex-wrap items-center gap-x-3.5 gap-y-1.5">
+              <img :src="project.icon" alt="" width="28" height="28" class="size-7 shrink-0 rounded-md" />
               <a
                 :href="project.href"
                 target="_blank"
