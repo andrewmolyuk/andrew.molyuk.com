@@ -52,8 +52,7 @@ const lit = (n: string | undefined) => n !== undefined && focus.value === n
           @mouseenter="focus = p.n"
           @mouseleave="focus = null"
         >
-          <div class="mb-4 flex items-center gap-3">
-            <span class="text-accent font-mono text-[12px]">{{ p.n }}</span>
+          <div class="mb-4 flex items-center">
             <span
               class="h-px flex-1 transition-colors duration-200"
               :class="lit(p.n) ? 'bg-accent/70' : 'bg-accent/16'"
