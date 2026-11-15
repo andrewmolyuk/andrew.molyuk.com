@@ -22,7 +22,7 @@ export const SKILL_LIST: (Skill & { id: Exclude<SkillId, 'ai'> })[] = [
   {
     id: 'hlha',
     label: 'Distributed systems',
-    desc: 'High-load, high-availability systems that keep serving through failure: live TV voting at 3M requests a second, video ads at 23B events a day.',
+    desc: 'High-load, high-availability systems that keep serving through failure.',
     tools: ['3M req/s peak', '100K req/s steady', '23B events/day'],
   },
   {
@@ -40,7 +40,7 @@ export const SKILL_LIST: (Skill & { id: Exclude<SkillId, 'ai'> })[] = [
   {
     id: 'delivery',
     label: 'Delivery',
-    desc: 'Pipelines and hooks that make a release routine. At Vidcrunch they cut release time by 75%.',
+    desc: 'Pipelines and hooks that make a release routine, not an event.',
     tools: ['GitHub Actions', 'GitLab CI', 'Jenkins', 'Bitbucket', 'Jira', 'Confluence', 'Terraform', 'Git hooks'],
   },
   {

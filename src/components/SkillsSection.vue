@@ -22,11 +22,6 @@ import {
   spoke,
   type SkillId,
 } from '../lib/skillsGraph'
-import { yearsCoding } from '../lib/career'
-import { useToday } from '../lib/today'
-
-const today = useToday()
-const YEARS = computed(() => yearsCoding(today.value))
 
 const hovered = ref<SkillId | null>(null)
 /** The row the list explains: what is hovered, or the core when nothing is. */
@@ -270,8 +265,8 @@ const ACCENT = 'var(--color-accent)'
 
         <div>
           <p class="text-muted mb-7 text-[15px] leading-[1.8]">
-            AI-native engineering is the focus now. It stands on {{ YEARS }} years of building software that had to stay
-            up. The disciplines last; the tools orbiting them change. Point at a node to see both.
+            AI-native engineering is the focus now; it stands on everything on the timeline above, software that had to
+            stay up. The disciplines last; the tools orbiting them change. Point at one to see what it covers.
           </p>
           <div class="flex flex-col" @mouseleave="onLeave">
             <div
@@ -280,23 +275,20 @@ const ACCENT = 'var(--color-accent)'
               class="grid gap-x-4 gap-y-1 border-l-2 py-2.5 pl-3.5 transition-[border-color] duration-200 sm:grid-cols-[130px_1fr]"
               :class="active === skill.id ? 'border-accent' : 'border-line'"
               @mouseenter="onEnter(skill.id)"
+              @click="onEnter(skill.id)"
             >
               <span class="text-accent pt-[3px] font-mono text-xs leading-[1.5]">{{ skill.label }}</span>
               <div>
-                <p
-                  class="text-[14.5px] leading-[1.6] transition-colors duration-200"
-                  :class="active === skill.id ? 'text-body' : 'text-muted'"
-                >
-                  {{ skill.desc }}
-                </p>
+                <div class="text-muted pt-[3px] font-mono text-[12px] leading-[1.5]">
+                  <span class="text-accent/60">↻</span> {{ skill.tools.join(' · ') }}
+                </div>
+                <!-- Only the active discipline opens its description; the rest stay in the page, closed. -->
                 <div
                   class="grid transition-[grid-template-rows] duration-300"
                   :class="active === skill.id ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'"
                 >
                   <div class="overflow-hidden">
-                    <div class="text-faint pt-1.5 font-mono text-[12px]">
-                      <span class="text-accent/60">↻</span> {{ skill.tools.join(' · ') }}
-                    </div>
+                    <p class="text-body pt-1.5 text-[14.5px] leading-[1.6]">{{ skill.desc }}</p>
                   </div>
                 </div>
               </div>
