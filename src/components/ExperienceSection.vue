@@ -28,7 +28,7 @@ const rows = computed(() =>
   })),
 )
 
-/** The principle in focus, linking its column above to its row on the timeline. */
+/** The principle in focus, linking its column to its row on the timeline above it. */
 const focus = ref<string | null>(null)
 const lit = (n: string | undefined) => n !== undefined && focus.value === n
 </script>
@@ -38,35 +38,14 @@ const lit = (n: string | undefined) => n !== undefined && focus.value === n
     <div class="mx-auto max-w-[1100px]">
       <div class="mb-6">
         <h2 class="text-heading text-[clamp(26px,3.5vw,40px)] leading-[1.1] font-semibold tracking-[-0.03em]">
-          How I Think About Systems
+          Experience
         </h2>
       </div>
 
       <p class="text-muted mb-12 max-w-[640px] text-[15px] leading-[1.75]">
         I've been writing software since {{ CODING_SINCE }}, and for close to 20 of those years I also ran the teams
-        that wrote it. The principles I work by weren't picked up from a book; each came out of a place on the line
-        below.
+        that wrote it.
       </p>
-
-      <div class="mb-16 grid gap-x-10 gap-y-9 md:grid-cols-3">
-        <div
-          v-for="p in PRINCIPLES"
-          :key="p.n"
-          class="cursor-default"
-          @mouseenter="focus = p.n"
-          @mouseleave="focus = null"
-        >
-          <div class="mb-4 flex items-center">
-            <span
-              class="h-px flex-1 transition-colors duration-200"
-              :class="lit(p.n) ? 'bg-accent/70' : 'bg-accent/16'"
-            ></span>
-          </div>
-          <h3 class="text-heading mb-2 text-[17px] font-medium tracking-[-0.01em]">{{ p.title }}</h3>
-          <p class="text-muted text-[14.5px] leading-[1.7]">{{ p.desc.replace('{years}', String(YEARS)) }}</p>
-          <div class="text-faint mt-3 font-mono text-[12px]">{{ origin(p) }}</div>
-        </div>
-      </div>
 
       <div class="career text-[14px]">
         <div class="text-faint hidden pb-3 font-mono text-[12px] tracking-[0.1em] uppercase md:grid" aria-hidden="true">
@@ -148,6 +127,41 @@ const lit = (n: string | undefined) => n !== undefined && focus.value === n
           <p class="text-muted leading-[1.65]">
             Writing code since {{ CODING_SINCE }}, leading teams since 2006, helping AI write correct code since 2025.
           </p>
+        </div>
+      </div>
+
+      <a
+        href="https://linkedin.com/in/andrewmolyuk"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-muted hover:text-accent mt-6 inline-block font-mono text-[12.5px] transition-colors duration-200"
+        >Full history and recommendations on LinkedIn ↗</a
+      >
+
+      <h3 class="text-heading mt-20 mb-4 text-[clamp(20px,2.4vw,26px)] leading-[1.2] font-semibold tracking-[-0.02em]">
+        How I Think About Systems
+      </h3>
+      <p class="text-muted mb-10 max-w-[640px] text-[15px] leading-[1.75]">
+        The principles I work by weren't picked up from a book; each came out of a place on the line above.
+      </p>
+
+      <div class="grid gap-x-10 gap-y-9 md:grid-cols-3">
+        <div
+          v-for="p in PRINCIPLES"
+          :key="p.n"
+          class="cursor-default"
+          @mouseenter="focus = p.n"
+          @mouseleave="focus = null"
+        >
+          <div class="mb-4 flex items-center">
+            <span
+              class="h-px flex-1 transition-colors duration-200"
+              :class="lit(p.n) ? 'bg-accent/70' : 'bg-accent/16'"
+            ></span>
+          </div>
+          <h4 class="text-heading mb-2 text-[17px] font-medium tracking-[-0.01em]">{{ p.title }}</h4>
+          <p class="text-muted text-[14.5px] leading-[1.7]">{{ p.desc }}</p>
+          <div class="text-faint mt-3 font-mono text-[12px]">{{ origin(p) }}</div>
         </div>
       </div>
 
