@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { TELEGRAM, whatsAppNumber } from '../lib/contact'
+import { LINKEDIN, TELEGRAM, whatsAppNumber } from '../lib/contact'
 
 const OTHERS = [
   { label: 'email', href: 'mailto:andrew@molyuk.com' },
-  { label: 'linkedin', href: 'https://linkedin.com/in/andrewmolyuk' },
+  { label: 'linkedin', href: LINKEDIN },
   { label: 'github', href: 'https://github.com/andrewmolyuk' },
   { label: 'whatsapp', href: null },
 ]

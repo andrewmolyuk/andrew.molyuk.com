@@ -12,6 +12,7 @@ import {
   years,
   yearsCoding,
 } from '../lib/career'
+import { LINKEDIN } from '../lib/contact'
 import { useToday } from '../lib/today'
 
 const today = useToday()
@@ -131,7 +132,7 @@ const lit = (n: string | undefined) => n !== undefined && focus.value === n
       </div>
 
       <a
-        href="https://linkedin.com/in/andrewmolyuk"
+        :href="LINKEDIN"
         target="_blank"
         rel="noopener noreferrer"
         class="text-muted hover:text-accent mt-6 inline-block font-mono text-[12.5px] transition-colors duration-200"

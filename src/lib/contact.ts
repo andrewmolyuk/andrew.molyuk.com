@@ -1,6 +1,7 @@
-// The ways to reach Andrew, shared by Hero and Let's talk.
+// The ways to reach Andrew, wherever the page offers them.
 
 export const TELEGRAM = { href: 'https://t.me/andrewmolyuk', handle: 't.me/andrewmolyuk' }
+export const LINKEDIN = 'https://linkedin.com/in/andrewmolyuk'
 
 // The number is assembled only on click, so it never sits in the page for scrapers to collect:
 // each part is reversed, and the parts are in reverse order.

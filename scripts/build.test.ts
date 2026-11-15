@@ -45,8 +45,9 @@ describe('prerendered page', () => {
     }
   })
 
-  it('puts the sections in order: Hero, Experience, Skills, Projects, Contact', () => {
-    const at = SECTIONS.map((id) => html.indexOf(`id="${id}"`))
+  it('puts the sections in order: Hero, Experience, Skills, Projects, Recommendations, Contact', () => {
+    const ids = ['experience', 'skills', 'projects', 'recommendations', 'contact']
+    const at = [html.indexOf('<h1'), ...ids.map((id) => html.indexOf(`id="${id}"`))]
     expect(at.every((i) => i > 0)).toBe(true)
     expect([...at].sort((a, b) => a - b)).toEqual(at)
   })
@@ -58,7 +59,12 @@ describe('prerendered page', () => {
 
   it('offers Telegram in the header, on every screen', () => {
     const header = html.slice(html.indexOf('<header'), html.indexOf('</header>'))
-    expect(header).toMatch(/<a href="https:\/\/t\.me\/andrewmolyuk"[^>]*aria-label="Message me on Telegram"/)
+    const button = header.slice(header.indexOf('<a href="https://t.me/andrewmolyuk"'))
+    expect(button).toMatch(/^<a [^>]*aria-label="Message me on Telegram"/)
+    // Shown at every width: the icon always, "Message" from sm up.
+    expect(button.match(/^<a [^>]*class="([^"]*)"/)![1].split(' ')).not.toContain('hidden')
+    expect(button).toMatch(/^<a [^>]*>\s*<svg/)
+    expect(button).toMatch(/<span class="hidden sm:inline">Message<\/span>/)
   })
 
   it('shows four projects after bunderlog and folds the rest under More projects', () => {

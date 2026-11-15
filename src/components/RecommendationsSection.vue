@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { LINKEDIN } from '../lib/contact'
+
 // The two recommendations Andrew's LinkedIn profile shows publicly, each cut to its opening sentences,
 // word for word.
 const QUOTES = [
@@ -28,7 +30,7 @@ const QUOTES = [
       </div>
 
       <a
-        href="https://linkedin.com/in/andrewmolyuk"
+        :href="LINKEDIN"
         target="_blank"
         rel="noopener noreferrer"
         class="text-muted hover:text-accent mt-6 inline-block font-mono text-[12.5px] transition-colors duration-200"

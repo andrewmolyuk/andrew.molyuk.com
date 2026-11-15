@@ -10,34 +10,27 @@ const LINKS = [
 ]
 
 const scrolled = ref(false)
-/** The section in the middle of the screen, lit in the header. */
+/** The linked section across the line 40% down the screen, lit in the header; none over Hero or Recommendations. */
 const current = ref<string | null>(null)
 
 function onScroll() {
   scrolled.value = window.scrollY > 48
+  const line = window.innerHeight * 0.4
+  const atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2
+  const under = [...document.querySelectorAll('main > section')].find((section) => {
+    const { top, bottom } = section.getBoundingClientRect()
+    return top <= line && bottom > line
+  })
+  // The last section is too short to reach the line, so the bottom of the page lights it.
+  const id = atBottom ? LINKS.at(-1)!.id : under?.id
+  current.value = LINKS.some((l) => l.id === id) ? id! : null
 }
-
-let observer: IntersectionObserver | undefined
 
 onMounted(() => {
   window.addEventListener('scroll', onScroll, { passive: true })
   onScroll()
-  // A section counts as current while it crosses the band 40–45% down the screen.
-  observer = new IntersectionObserver(
-    (entries) => {
-      for (const e of entries) if (e.isIntersecting) current.value = e.target.id
-    },
-    { rootMargin: '-40% 0px -55% 0px' },
-  )
-  for (const { id } of LINKS) {
-    const section = document.getElementById(id)
-    if (section) observer.observe(section)
-  }
 })
-onUnmounted(() => {
-  window.removeEventListener('scroll', onScroll)
-  observer?.disconnect()
-})
+onUnmounted(() => window.removeEventListener('scroll', onScroll))
 
 // The Telegram button stays in the header on every screen, the one action the page asks for. On a phone
 // the prompt is hidden (`hidden sm:inline`) and the button is an icon: with the four links, nothing more fits.

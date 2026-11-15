@@ -76,7 +76,7 @@ visits, not contacts.
 - The sections come in the order Hero, Experience, Technical Focus, What I'm Building,
   Recommendations, Let's talk; the header's links Experience, Skills, Projects and Contact each
   lead to their section, and the one for the section in the middle of the screen is lit.
-  → test: scripts/build.test.ts "puts the sections in order: Hero, Experience, Skills, Projects, Contact"
+  → test: scripts/build.test.ts "puts the sections in order: Hero, Experience, Skills, Projects, Recommendations, Contact"
   → test: scripts/build.test.ts "links the header to every section"
 - The header offers a Telegram button on every screen: "Message" with an icon, or the icon alone on a
   phone.
