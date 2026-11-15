@@ -7,20 +7,24 @@ deployed as a static Cloudflare Worker.
 
 ## Development
 
-```bash
-pnpm install
-pnpm dev       # local dev server
-pnpm build     # typecheck, production build and prerender to dist/
-pnpm preview   # serve the production build locally
-```
+Every command runs through [mise](https://mise.jdx.dev), which also installs the pinned Node, pnpm
+and `hathi`:
 
-Turn the Git hooks in `.githooks/` on once in each clone: `git config core.hooksPath .githooks`.
+```bash
+mise trust && mise run setup   # once per clone: tools, dependencies, Git hooks
+mise run dev                   # local dev server with hot reload
+mise run check                 # lint, format check, type check, tests
+mise run build                 # type-check, build and prerender to dist/
+mise run preview               # serve the production build locally
+mise tasks                     # all the tasks
+```
 
 ## Deployment
 
 Deploys via [Cloudflare Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/) —
-pushes to `master` build and deploy automatically. To deploy manually:
+pushes to `master` build and deploy automatically, through `package.json`'s `build` script, since
+the build image has no mise. To deploy by hand:
 
 ```bash
-pnpm deploy    # build + wrangler deploy
+mise run deploy   # build + wrangler deploy
 ```

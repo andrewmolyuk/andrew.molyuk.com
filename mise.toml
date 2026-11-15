@@ -1,0 +1,66 @@
+# Every tool pinned to an exact version, and every command run from here: `mise run setup` once per
+# clone, `mise tasks` lists the rest. The one exception is package.json's `build` script, which
+# Cloudflare Workers Builds runs on every push to master: its build image has no mise.
+
+[tools]
+"github:bunderlog/hathi" = "1.2.0" # run by the Git hooks in .githooks/
+node = "24.21.0"
+pnpm = "11.11.0" # package.json's packageManager
+
+[tasks.setup]
+description = "Install the tools and the dependencies, and turn the Git hooks on in this clone"
+run = ["mise install", "pnpm install --frozen-lockfile", "git config core.hooksPath .githooks"]
+
+[tasks.install]
+description = "Install the dependencies from the lockfile"
+run = "pnpm install --frozen-lockfile"
+
+[tasks.dev]
+description = "Serve the site with Vite on :5173, reloading on every change"
+depends = ["install"]
+run = "pnpm exec vite"
+
+[tasks.build]
+description = "Type-check, build and prerender the site into dist/ (package.json's build, which Cloudflare runs)"
+depends = ["install"]
+run = "pnpm run build"
+
+[tasks.preview]
+description = "Build, then serve dist/ with Vite on :4173"
+depends = ["build"]
+run = "pnpm exec vite preview"
+
+[tasks."cf:dev"]
+description = "Build, then serve dist/ in the Workers runtime with wrangler, as Cloudflare will"
+depends = ["build"]
+run = "pnpm exec wrangler dev"
+
+[tasks.test]
+description = "Run the tests, the built site's included"
+depends = ["install"]
+run = "pnpm exec vitest run"
+
+[tasks.lint]
+description = "Lint with ESLint"
+depends = ["install"]
+run = "pnpm exec eslint ."
+
+[tasks.format]
+description = "Format every file with Prettier"
+depends = ["install"]
+run = "pnpm exec prettier --write ."
+
+[tasks.check]
+description = "Everything a change must pass: lint, format check, type check and the tests, which build the site"
+depends = ["install"]
+run = [
+  "pnpm exec eslint .",
+  "pnpm exec prettier --check .",
+  "pnpm exec vue-tsc -b",
+  "pnpm exec vitest run",
+]
+
+[tasks.deploy]
+description = "Build and deploy to Cloudflare by hand; a push to master does it on its own"
+depends = ["build"]
+run = "pnpm exec wrangler deploy"
