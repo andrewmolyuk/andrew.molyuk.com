@@ -1,22 +1,23 @@
 <script setup lang="ts">
 import { LINKEDIN } from '../lib/contact'
 
-// Three of the recommendations on Andrew's LinkedIn profile, chosen for who wrote them and how
-// concrete they are, and cut to about the same length so the cards balance. Quoted word for word;
+// Three of the recommendations on Andrew's LinkedIn profile, chosen for who wrote them, how
+// concrete and how recent they are, and cut to about the same length so the cards balance. Quoted word for word;
 // "…" marks where a passage is left out. Each is signed with the company where its author and Andrew
-// worked together, from the timeline, not the author's employer today.
+// worked together, from the timeline, not the author's employer today, and the year it was written,
+// which may be years after they worked together.
 const QUOTES = [
-  {
-    name: 'Yehuda Kedem',
-    relation: 'managed Andrew at YKM, as its CEO',
-    year: 2015,
-    text: 'Andrew is a strong technical leader who possesses a great breadth and depth of technical knowledge and skills. … he is also the knowledge expert within development for complex issues such as system security, network configurations, performance optimizations …',
-  },
   {
     name: 'Arseniy Pavlenko',
     relation: 'managed Andrew at Screenz',
     year: 2016,
     text: 'When Andrew came to our team, we were under terrible overload, but in just one month, he has helped us to establish a working process and we were able to breathe. … I would be very happy to work with him again!',
+  },
+  {
+    name: 'Ido Zrihan',
+    relation: 'worked with Andrew at Vidcrunch',
+    year: 2023,
+    text: 'I had the opportunity to work with Andrew for over five years, and I can say without hesitation that he is one of the best leaders I have ever worked with. … I highly recommend Andrew for any CTO role in the tech industry, as he is an asset to any organization.',
   },
   {
     name: 'Alexander Natashkin',
@@ -44,7 +45,7 @@ const QUOTES = [
           <figcaption class="mt-auto pt-5">
             <div class="text-heading text-[14px] font-medium">{{ q.name }}</div>
             <div class="text-muted mt-0.5 font-mono text-[12px] leading-[1.6]">
-              {{ q.relation }}<br />on LinkedIn, {{ q.year }}
+              {{ q.relation }}<br />written on LinkedIn, {{ q.year }}
             </div>
           </figcaption>
         </figure>
