@@ -63,7 +63,7 @@ function openWhatsApp() {
         <div class="relative mt-5 flex flex-wrap items-center gap-x-2.5 gap-y-1 font-mono text-[12.5px]">
           <span class="text-faint">or</span>
           <template v-for="(c, i) in OTHERS" :key="c.label">
-            <span v-if="i > 0" class="text-line-strong">·</span>
+            <span v-if="i > 0" class="text-faint" aria-hidden="true">·</span>
             <a
               v-if="c.href"
               :href="c.href"

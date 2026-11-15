@@ -76,7 +76,7 @@ const DOT_CLASS = { say: 'text-heading', ok: 'text-success', err: 'text-danger' 
 
       <div v-for="(row, i) in ROWS" :key="i" class="relative sm:pr-9">
         <div class="flex gap-2.5">
-          <span class="shrink-0 text-[10px] leading-[19px]" :class="DOT_CLASS[row.dot]">⏺</span>
+          <span class="shrink-0 text-[12px] leading-[19px]" :class="DOT_CLASS[row.dot]">⏺</span>
           <span class="text-body">
             <span
               v-for="(part, j) in row.head"

@@ -158,9 +158,9 @@ const OTHER_PROJECTS: {
           <div class="border-line mb-5 border-y py-3">
             <div class="text-muted flex flex-wrap gap-x-3.5 gap-y-1.5 font-mono text-[12px] tracking-[0.02em]">
               <span>3 plugins + 1 CLI</span>
-              <span class="text-line-strong">·</span>
+              <span class="text-faint" aria-hidden="true">·</span>
               <span>1 shared record</span>
-              <span class="text-line-strong">·</span>
+              <span class="text-faint" aria-hidden="true">·</span>
               <span>MIT licensed</span>
             </div>
             <div class="mt-3 flex flex-wrap items-baseline gap-x-4 gap-y-1">
