@@ -41,7 +41,7 @@ export const SKILL_LIST: (Skill & { id: Exclude<SkillId, 'ai'> })[] = [
     id: 'delivery',
     label: 'Delivery',
     desc: 'Pipelines and hooks that make a release routine, not an event.',
-    tools: ['GitHub Actions', 'GitLab CI', 'Jenkins', 'Bitbucket', 'Jira', 'Confluence', 'Terraform', 'Git hooks'],
+    tools: ['GitHub Actions', 'GitLab CI', 'Jenkins', 'Bitbucket', 'Jira', 'Terraform', 'Git hooks'],
   },
   {
     id: 'frontend',

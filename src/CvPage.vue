@@ -10,10 +10,12 @@ import { AI, SKILL_LIST } from './lib/skillsGraph'
 const ROLES_NEWEST_FIRST = [...ROLES].reverse()
 // Each project in one line of text, its figure after its description: written as a string, since the
 // template would drop the space between the two.
-const PROJECTS_SHOWN = PROJECTS.slice(0, FEATURED_COUNT).map((p) => ({
-  ...p,
-  line: p.fact ? `${p.desc} ${p.fact}.` : p.desc,
-}))
+// Its address is the live site, or the repository when it has none (instrumenta), shown without
+// "https://" and a link in the PDF.
+const PROJECTS_SHOWN = PROJECTS.slice(0, FEATURED_COUNT).map((p) => {
+  const url = p.site ?? p.github
+  return { ...p, line: p.fact ? `${p.desc} ${p.fact}.` : p.desc, url, address: url?.replace(/^https:\/\//, '') }
+})
 const SKILLS = [AI, ...SKILL_LIST]
 </script>
 
@@ -56,7 +58,7 @@ const SKILLS = [AI, ...SKILL_LIST]
       </h2>
       <div class="mb-2 break-inside-avoid">
         <span class="font-semibold">bunderlog</span>
-        <span class="text-cv-muted"> · bunderlog.com</span>
+        <span class="text-cv-muted"> · <a href="https://bunderlog.com">bunderlog.com</a></span>
         <p class="mt-0.5">
           Open-source tools that keep Claude Code sessions true to a project's written decisions: Claude checks the
           project's rules before writing code 6% of the time on its own, 68% with them.
@@ -65,6 +67,9 @@ const SKILLS = [AI, ...SKILL_LIST]
       <div v-for="project in PROJECTS_SHOWN" :key="project.title" class="mb-2 break-inside-avoid">
         <span class="font-semibold">{{ project.title }}</span>
         <span v-if="project.status" class="text-cv-muted"> · {{ project.status }}</span>
+        <span v-if="project.url" class="text-cv-muted">
+          · <a :href="project.url">{{ project.address }}</a></span
+        >
         <p class="mt-0.5">
           {{ project.line }}
         </p>

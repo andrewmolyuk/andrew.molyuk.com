@@ -28,9 +28,7 @@ onBeforeUnmount(() => clearInterval(timer))
 
 <template>
   <footer class="border-line border-t px-8 py-5">
-    <div
-      class="text-faint mx-auto grid max-w-[1100px] gap-x-6 gap-y-2 font-mono text-[12px] md:grid-cols-[1fr_auto_1fr]"
-    >
+    <div class="text-faint mx-auto grid max-w-[1100px] gap-x-6 gap-y-2 font-mono text-xs md:grid-cols-[1fr_auto_1fr]">
       <span>© {{ YEAR }} Andrew Molyuk</span>
       <span class="md:text-center">
         <template v-if="clock">

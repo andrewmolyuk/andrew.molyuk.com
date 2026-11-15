@@ -65,9 +65,7 @@ const ACCENT = 'var(--color-accent)'
   <section id="skills" class="border-line border-t px-8 py-22">
     <div class="mx-auto max-w-[1100px]">
       <div class="mb-11">
-        <h2 class="text-heading text-[clamp(26px,3.5vw,40px)] leading-[1.1] font-semibold tracking-[-0.03em]">
-          Technical Focus
-        </h2>
+        <h2 class="text-heading text-title leading-[1.1] font-semibold tracking-[-0.03em]">Technical Focus</h2>
       </div>
 
       <div class="grid items-start gap-14 md:grid-cols-[1.1fr_1fr]">
@@ -264,7 +262,7 @@ const ACCENT = 'var(--color-accent)'
         </svg>
 
         <div>
-          <p class="text-muted mb-7 text-[15px] leading-[1.8]">
+          <p class="text-muted mb-7 text-base leading-[1.8]">
             AI-native engineering is the focus now; it stands on everything on the timeline above, software that had to
             stay up. The disciplines last; the tools orbiting them change. Hover or tap one to see what it covers.
           </p>
@@ -279,8 +277,8 @@ const ACCENT = 'var(--color-accent)'
             >
               <span class="text-accent pt-[3px] font-mono text-xs leading-[1.5]">{{ skill.label }}</span>
               <div>
-                <div class="text-muted pt-[3px] font-mono text-[12px] leading-[1.5]">
-                  <span class="text-accent/60">↻</span> {{ skill.tools.join(' · ') }}
+                <div class="text-muted pt-[3px] font-mono text-xs leading-[1.5]">
+                  {{ skill.tools.join(' · ') }}
                 </div>
                 <!-- Only the active discipline opens its description; the rest stay in the page, closed. -->
                 <div
@@ -288,7 +286,7 @@ const ACCENT = 'var(--color-accent)'
                   :class="active === skill.id ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'"
                 >
                   <div class="overflow-hidden">
-                    <p class="text-body pt-1.5 text-[14.5px] leading-[1.6]">{{ skill.desc }}</p>
+                    <p class="text-body pt-1.5 text-base leading-[1.6]">{{ skill.desc }}</p>
                   </div>
                 </div>
               </div>

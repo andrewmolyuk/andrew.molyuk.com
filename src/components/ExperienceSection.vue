@@ -38,18 +38,16 @@ const lit = (n: string | undefined) => n !== undefined && focus.value === n
   <section id="experience" class="border-line border-t px-8 py-22">
     <div class="mx-auto max-w-[1100px]">
       <div class="mb-6">
-        <h2 class="text-heading text-[clamp(26px,3.5vw,40px)] leading-[1.1] font-semibold tracking-[-0.03em]">
-          Experience
-        </h2>
+        <h2 class="text-heading text-title leading-[1.1] font-semibold tracking-[-0.03em]">Experience</h2>
       </div>
 
-      <p class="text-muted mb-12 max-w-[640px] text-[15px] leading-[1.75]">
+      <p class="text-muted mb-12 max-w-[640px] text-base leading-[1.75]">
         I've been writing software since {{ CODING_SINCE }}, and for close to 20 of those years I also ran the teams
         that wrote it.
       </p>
 
-      <div class="career text-[14px]">
-        <div class="text-faint hidden pb-3 font-mono text-[12px] tracking-[0.1em] uppercase lg:grid" aria-hidden="true">
+      <div class="career text-base">
+        <div class="text-faint hidden pb-3 font-mono text-xs tracking-[0.1em] uppercase lg:grid" aria-hidden="true">
           <span>Years</span>
           <span>Role · team</span>
           <div class="relative">
@@ -68,13 +66,13 @@ const lit = (n: string | undefined) => n !== undefined && focus.value === n
           @mouseenter="focus = row.principle?.n ?? null"
           @mouseleave="focus = null"
         >
-          <span class="font-mono text-[12px] leading-[22px]" :class="row.end ? 'text-faint' : 'text-accent'">
+          <span class="font-mono text-xs leading-[22px]" :class="row.end ? 'text-faint' : 'text-accent'">
             {{ row.years }}
           </span>
 
           <div>
-            <div class="text-heading text-[15px] leading-[22px] font-medium">{{ row.company }}</div>
-            <div class="text-muted mt-0.5 font-mono text-[12px] leading-[1.5]">
+            <div class="text-heading text-base leading-[22px] font-medium">{{ row.company }}</div>
+            <div class="text-muted mt-0.5 font-mono text-xs leading-[1.5]">
               {{ row.title }}<template v-if="row.team"> · {{ row.team }} engineers</template>
             </div>
           </div>
@@ -87,8 +85,8 @@ const lit = (n: string | undefined) => n !== undefined && focus.value === n
               :style="{ left: `${t.at}%` }"
             ></span>
             <span
-              class="absolute top-1/2 h-1.5 -translate-y-1/2 rounded-full transition-colors duration-200 lg:top-[11px]"
-              :class="!row.end || lit(row.principle?.n) ? 'bg-accent' : 'group-hover:bg-accent/70 bg-[#3a3a46]'"
+              class="absolute top-1/2 h-2.5 -translate-y-1/2 rounded-full transition-colors duration-200 lg:top-[11px]"
+              :class="!row.end || lit(row.principle?.n) ? 'bg-accent' : 'group-hover:bg-accent/70 bg-muted/40'"
               :style="{ left: `${row.span.left}%`, width: `${row.span.width}%` }"
             ></span>
             <span
@@ -110,10 +108,10 @@ const lit = (n: string | undefined) => n !== undefined && focus.value === n
           @mouseenter="focus = DEPTH.n"
           @mouseleave="focus = null"
         >
-          <span class="text-faint font-mono text-[12px] leading-[22px]">{{ CODING_SINCE }}–now</span>
+          <span class="text-faint font-mono text-xs leading-[22px]">{{ CODING_SINCE }}–now</span>
           <div>
-            <div class="text-heading text-[15px] leading-[22px] font-medium">{{ YEARS }} years</div>
-            <div class="text-muted mt-0.5 font-mono text-[12px] leading-[1.5]">one problem space</div>
+            <div class="text-heading text-base leading-[22px] font-medium">{{ YEARS }} years</div>
+            <div class="text-muted mt-0.5 font-mono text-xs leading-[1.5]">one problem space</div>
           </div>
           <div class="relative hidden lg:block lg:h-[22px]" aria-hidden="true">
             <span
@@ -135,14 +133,14 @@ const lit = (n: string | undefined) => n !== undefined && focus.value === n
         :href="LINKEDIN"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-muted hover:text-accent mt-6 inline-block font-mono text-[12.5px] transition-colors duration-200"
-        >Full history and recommendations on LinkedIn ↗</a
+        class="text-muted hover:text-accent mt-6 inline-block font-mono text-sm transition-colors duration-200"
+        >Full history on LinkedIn ↗</a
       >
 
       <h3 class="text-heading mt-20 mb-4 text-[clamp(20px,2.4vw,26px)] leading-[1.2] font-semibold tracking-[-0.02em]">
         How I Think About Systems
       </h3>
-      <p class="text-muted mb-10 max-w-[640px] text-[15px] leading-[1.75]">
+      <p class="text-muted mb-10 max-w-[640px] text-base leading-[1.75]">
         The principles I work by weren't picked up from a book; each came out of a place on the line above.
       </p>
 
@@ -160,13 +158,13 @@ const lit = (n: string | undefined) => n !== undefined && focus.value === n
               :class="lit(p.n) ? 'bg-accent/70' : 'bg-accent/16'"
             ></span>
           </div>
-          <h4 class="text-heading mb-2 text-[17px] font-medium tracking-[-0.01em]">{{ p.title }}</h4>
-          <p class="text-muted text-[14.5px] leading-[1.7]">{{ p.desc }}</p>
-          <div class="text-faint mt-3 font-mono text-[12px]">{{ origin(p) }}</div>
+          <h4 class="text-heading mb-2 text-lg font-medium tracking-[-0.01em]">{{ p.title }}</h4>
+          <p class="text-muted text-base leading-[1.7]">{{ p.desc }}</p>
+          <div class="text-faint mt-3 font-mono text-xs">{{ origin(p) }}</div>
         </div>
       </div>
 
-      <p class="text-muted mt-12 max-w-[640px] text-[15px] leading-[1.75]">
+      <p class="text-muted mt-12 max-w-[640px] text-base leading-[1.75]">
         Agents are good at real work, mostly. What they're bad at is remembering: every session starts from zero, and
         that annoyed me enough to start bunderlog. I still write code most days and I don't plan to stop.
       </p>

@@ -13,13 +13,13 @@ defineProps<{ project: Project }>()
       <ProjectName :name="project.title" :icon="project.icon" :site="project.site" :github="project.github" />
       <span
         v-if="project.status"
-        class="border-success/27 bg-success/8 text-success rounded border px-2.5 py-0.5 font-mono text-[12px] tracking-[0.1em] uppercase"
+        class="border-success/27 bg-success/8 text-success rounded border px-2.5 py-0.5 font-mono text-xs tracking-[0.1em] uppercase"
         >{{ project.status }}</span
       >
     </div>
-    <p class="text-muted text-[14.5px] leading-[1.7]">{{ project.desc }}</p>
-    <div v-if="project.fact" class="text-accent/80 mt-2 font-mono text-[12px]">{{ project.fact }}</div>
-    <div class="text-faint mt-auto flex flex-wrap gap-1.5 pt-4 font-mono text-[12px]">
+    <p class="text-muted text-base leading-[1.7]">{{ project.desc }}</p>
+    <div v-if="project.fact" class="text-accent/80 mt-2 font-mono text-xs">{{ project.fact }}</div>
+    <div class="text-faint mt-auto flex flex-wrap gap-1.5 pt-4 font-mono text-xs">
       <span v-for="tag in project.tags" :key="tag" class="border-line rounded border px-2 py-0.5">{{ tag }}</span>
     </div>
   </div>

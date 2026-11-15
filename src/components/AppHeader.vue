@@ -36,21 +36,23 @@ onMounted(() => {
 onUnmounted(() => window.removeEventListener('scroll', onScroll))
 
 // The Telegram button stays in the header on every screen, the one action the page asks for. Narrower
-// screens make room for it: the prompt shows from lg, the links from md (a menu below), the button's
-// "Message" from sm.
+// screens make room for it: the links show from md (a menu below), the button's "Message" from sm.
+// The name shows on every screen, so the bar's left is never empty.
 </script>
 
 <template>
   <header
-    class="fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color] duration-250"
+    class="fixed inset-x-0 top-0 z-50 border-b px-8 transition-[background-color,border-color] duration-250"
     :class="scrolled ? 'border-line bg-ink/[0.94] backdrop-blur-lg' : 'border-transparent bg-transparent'"
   >
-    <div class="mx-auto flex h-14 max-w-[1100px] items-center justify-between gap-5 px-5 sm:px-8">
-      <a href="mailto:andrew@molyuk.com" class="text-accent hidden font-mono text-[13px] hover:opacity-85 lg:inline"
-        >andrew@molyuk.com<span class="text-faint">:~$</span></a
+    <!-- The padding sits outside the 1100px, as every section's does, so the bar lines up with the page. -->
+    <div class="mx-auto flex h-14 max-w-[1100px] items-center justify-between gap-5">
+      <a href="#" class="text-heading text-base font-semibold tracking-[-0.01em] whitespace-nowrap hover:opacity-85"
+        >Andrew Molyuk</a
       >
       <div class="ml-auto flex items-center gap-3 md:gap-6">
-        <nav class="hidden items-center gap-6 text-[15px] md:flex">
+        <!-- gap-4 below lg: at 768px the name, the five links and "Message" fit only that close. -->
+        <nav class="hidden items-center gap-4 text-base md:flex lg:gap-6">
           <a
             v-for="link in LINKS"
             :key="link.id"
@@ -63,7 +65,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
         </nav>
         <button
           type="button"
-          class="text-body border-line inline-flex items-center gap-2 rounded border px-3 py-1.5 text-[14px] md:hidden"
+          class="text-body border-line inline-flex items-center gap-2 rounded border px-3 py-1.5 text-sm md:hidden"
           :aria-expanded="menuOpen"
           aria-controls="site-menu"
           @click="menuOpen = !menuOpen"
@@ -75,7 +77,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Message me on Telegram"
-          class="bg-accent text-ink inline-flex items-center gap-1.5 rounded px-2 py-1.5 text-[13px] font-semibold hover:opacity-85 sm:px-3"
+          class="bg-accent text-ink inline-flex items-center gap-1.5 rounded px-2 py-1.5 text-sm font-semibold hover:opacity-85 sm:px-3"
         >
           <!-- The "send" icon, from Lucide (ISC). -->
           <svg
@@ -101,14 +103,14 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
     <nav
       v-if="menuOpen"
       id="site-menu"
-      class="border-line bg-ink/[0.97] flex flex-col border-b px-5 pb-3 backdrop-blur-lg md:hidden"
+      class="border-line bg-ink/[0.97] -mx-8 flex flex-col border-b px-8 pb-3 backdrop-blur-lg md:hidden"
     >
       <a
         v-for="link in LINKS"
         :key="link.id"
         :href="`#${link.id}`"
         :aria-current="current === link.id ? 'location' : undefined"
-        class="border-line border-t py-3 text-[16px]"
+        class="border-line border-t py-3 text-lg"
         :class="current === link.id ? 'text-heading' : 'text-muted'"
         @click="menuOpen = false"
         >{{ link.label }}</a

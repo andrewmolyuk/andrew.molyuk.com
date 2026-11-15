@@ -26,12 +26,12 @@ function openWhatsApp() {
   <section id="contact" class="border-line overflow-hidden border-t px-8 pt-22 pb-20">
     <div class="mx-auto grid max-w-[1100px] items-center gap-x-16 gap-y-12 lg:grid-cols-[1fr_minmax(0,520px)]">
       <div>
-        <h2 class="text-heading mb-6 text-[clamp(26px,3.5vw,40px)] font-semibold tracking-[-0.03em]">Let's talk</h2>
-        <p class="text-muted max-w-[440px] text-[15px] leading-[1.75]">
+        <h2 class="text-heading text-title mb-6 font-semibold tracking-[-0.03em]">Let's talk</h2>
+        <p class="text-muted max-w-[440px] text-base leading-[1.75]">
           Open to opportunities and consulting: architecture, systems that have to stay up under load, and AI, from the
           first agents to a team that ships with them. Anything else worth building, too.
         </p>
-        <p class="text-muted mt-4 max-w-[440px] text-[15px] leading-[1.75]">Telegram is the fastest way to reach me.</p>
+        <p class="text-muted mt-4 max-w-[440px] text-base leading-[1.75]">Telegram is the fastest way to reach me.</p>
       </div>
 
       <div class="relative">
@@ -54,9 +54,13 @@ function openWhatsApp() {
           rel="noopener noreferrer"
           class="group border-line bg-panel hover:border-accent/50 relative block rounded-md border p-5 font-mono transition-colors duration-200 sm:p-6"
         >
-          <div class="text-faint mb-4 flex items-center justify-between text-[12px] tracking-[0.12em] uppercase">
-            <span>telegram</span>
-            <span class="group-hover:text-accent transition-colors duration-200">open ↗</span>
+          <!-- The whole card is the link; the pill only makes it look like the Hero's button, the same one
+               action, which the terminal line alone didn't. -->
+          <div class="mb-4 flex items-center justify-between">
+            <span class="text-faint text-xs tracking-[0.12em] uppercase">telegram</span>
+            <span class="bg-accent text-ink rounded px-3 py-1.5 font-sans text-sm font-semibold group-hover:opacity-85"
+              >Message me ↗</span
+            >
           </div>
           <div class="flex flex-wrap items-center gap-x-2.5 text-[clamp(14px,1.9vw,17px)] leading-[1.6]">
             <span><span class="text-accent">andrew@molyuk.com</span><span class="text-faint">:~$</span></span>
@@ -72,19 +76,19 @@ function openWhatsApp() {
         <div
           class="border-line bg-panel relative mt-3 flex flex-wrap items-center justify-between gap-x-4 gap-y-1 rounded-md border px-5 py-3.5 font-mono sm:px-6"
         >
-          <a :href="`mailto:${EMAIL}`" class="text-body hover:text-accent text-[14px] transition-colors duration-200">
-            <span class="text-faint mr-2.5 text-[12px] tracking-[0.12em] uppercase">email</span>{{ EMAIL }}
+          <a :href="`mailto:${EMAIL}`" class="text-body hover:text-accent text-base transition-colors duration-200">
+            <span class="text-faint mr-2.5 text-xs tracking-[0.12em] uppercase">email</span>{{ EMAIL }}
           </a>
           <button
             type="button"
-            class="text-faint hover:text-accent cursor-pointer text-[12px] tracking-[0.12em] uppercase transition-colors duration-200"
+            class="text-faint hover:text-accent cursor-pointer text-xs tracking-[0.12em] uppercase transition-colors duration-200"
             @click="copyEmail"
           >
             {{ copied ? 'copied' : 'copy' }}
           </button>
         </div>
 
-        <div class="relative mt-5 flex flex-wrap items-center gap-x-2.5 gap-y-1 font-mono text-[12.5px]">
+        <div class="relative mt-5 flex flex-wrap items-center gap-x-2.5 gap-y-1 font-mono text-sm">
           <span class="text-faint">or</span>
           <template v-for="(c, i) in OTHERS" :key="c.label">
             <span v-if="i > 0" class="text-faint" aria-hidden="true">·</span>

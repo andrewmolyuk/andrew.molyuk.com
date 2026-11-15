@@ -31,9 +31,7 @@ const QUOTES = [
 <template>
   <section id="recommendations" class="border-line border-t px-8 py-22">
     <div class="mx-auto max-w-[1100px]">
-      <h2 class="text-heading mb-11 text-[clamp(26px,3.5vw,40px)] leading-[1.1] font-semibold tracking-[-0.03em]">
-        Recommendations
-      </h2>
+      <h2 class="text-heading text-title mb-11 leading-[1.1] font-semibold tracking-[-0.03em]">Recommendations</h2>
 
       <div class="grid gap-4 lg:grid-cols-3">
         <figure
@@ -41,10 +39,10 @@ const QUOTES = [
           :key="q.name"
           class="border-line bg-panel flex flex-col rounded-md border px-6 pt-6 pb-5"
         >
-          <blockquote class="text-body text-[15px] leading-[1.75]">“{{ q.text }}”</blockquote>
+          <blockquote class="text-body text-base leading-[1.75]">“{{ q.text }}”</blockquote>
           <figcaption class="mt-auto pt-5">
-            <div class="text-heading text-[14px] font-medium">{{ q.name }}</div>
-            <div class="text-muted mt-0.5 font-mono text-[12px] leading-[1.6]">
+            <div class="text-heading text-base font-medium">{{ q.name }}</div>
+            <div class="text-muted mt-0.5 font-mono text-xs leading-[1.6]">
               {{ q.relation }}<br />written on LinkedIn, {{ q.year }}
             </div>
           </figcaption>
@@ -55,7 +53,7 @@ const QUOTES = [
         :href="LINKEDIN"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-muted hover:text-accent mt-6 inline-block font-mono text-[12.5px] transition-colors duration-200"
+        class="text-muted hover:text-accent mt-6 inline-block font-mono text-sm transition-colors duration-200"
         >All recommendations on LinkedIn ↗</a
       >
     </div>

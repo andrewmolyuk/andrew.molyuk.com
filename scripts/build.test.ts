@@ -59,6 +59,13 @@ describe('prerendered page', () => {
     expect([...header.matchAll(/href="#(\w+)"/g)].map((m) => m[1])).toEqual(SECTIONS)
   })
 
+  it('names Andrew in the header, on every screen, linking to the top', () => {
+    const header = html.slice(html.indexOf('<header'), html.indexOf('</header>'))
+    const name = header.match(/<a href="#" class="([^"]*)">Andrew Molyuk<\/a>/)
+    expect(name).not.toBeNull()
+    expect(name![1].split(' ')).not.toContain('hidden')
+  })
+
   it('offers Telegram in the header, on every screen', () => {
     const header = html.slice(html.indexOf('<header'), html.indexOf('</header>'))
     const button = header.slice(header.indexOf('<a href="https://t.me/andrewmolyuk"'))
@@ -107,6 +114,19 @@ describe('CV', () => {
   it('lists every role on the timeline, prerendered like the page', () => {
     const cv = read('cv.html')
     for (const role of ROLES) expect(cv).toContain(`>${role.company}<`)
+  })
+
+  it('gives each project its address as a link: the live site, or the repository when it has none', () => {
+    const cv = read('cv.html')
+    for (const address of [
+      'bunderlog.com',
+      'github.com/andrewmolyuk/instrumenta', // no live site
+      'chainofsale.com',
+      'servienta.com',
+      'checkmeup.net',
+    ]) {
+      expect(cv).toContain(`<a href="https://${address}">${address}</a>`)
+    }
   })
 
   it('ships a PDF printed from this very CV; after a change, `mise run cv` prints it again', () => {

@@ -57,8 +57,9 @@ const ROWS: Row[] = [
 const DOT_CLASS = { say: 'text-heading', ok: 'text-success', err: 'text-danger' }
 
 /**
- * On a phone the session opens on its first steps, up to bagheera's block, so it doesn't push the
- * rest of the page two screens down; a button shows the rest. Wider screens always show it all.
+ * The session opens on its first steps, up to bagheera's block, on every screen: in full it is
+ * taller than a 800px screen and pushes the Hero's figures below the fold on a laptop, and two
+ * screens down on a phone. A button shows the rest.
  */
 const FIRST_STEPS = 3
 const expanded = ref(false)
@@ -66,13 +67,13 @@ const expanded = ref(false)
 
 <template>
   <div class="sm:mr-10">
-    <div class="text-muted mb-2.5 font-mono text-[12px] tracking-[0.15em] uppercase">
-      bunderlog at work — a sample claude code session
-    </div>
+    <p class="text-muted mb-4 max-w-[460px] text-base leading-[1.7]">
+      <span class="text-heading font-medium">bunderlog</span>, my free tools for Claude Code: every session starts
+      knowing what the project decided, and every change is checked against it.
+    </p>
+    <div class="text-muted mb-2.5 font-mono text-xs tracking-[0.15em] uppercase">A sample session</div>
 
-    <div
-      class="border-line bg-panel flex flex-col gap-3.5 rounded-md border p-4 font-mono text-[12.5px] leading-[1.55]"
-    >
+    <div class="border-line bg-panel flex flex-col gap-3.5 rounded-md border p-4 font-mono text-sm leading-[1.55]">
       <div class="border-accent/50 rounded border px-3 py-2">
         <div class="text-heading"><span class="text-accent">✻</span> Welcome to Claude Code</div>
         <div class="text-muted">cwd: ~/shop</div>
@@ -86,11 +87,11 @@ const expanded = ref(false)
       <div
         v-for="(row, i) in ROWS"
         :key="i"
-        class="relative sm:block sm:pr-9"
+        class="relative sm:pr-9"
         :class="i >= FIRST_STEPS && !expanded ? 'hidden' : ''"
       >
         <div class="flex gap-2.5">
-          <span class="shrink-0 text-[12px] leading-[19px]" :class="DOT_CLASS[row.dot]">⏺</span>
+          <span class="shrink-0 text-xs leading-[19px]" :class="DOT_CLASS[row.dot]">⏺</span>
           <span class="text-body">
             <span
               v-for="(part, j) in row.head"
@@ -118,7 +119,7 @@ const expanded = ref(false)
             height="64"
             :style="{ rotate: row.sticker.rotate }"
           />
-          <span class="text-heading font-sans text-[13px] leading-tight font-semibold">{{ row.sticker.name }}</span>
+          <span class="text-heading font-sans text-sm leading-tight font-semibold">{{ row.sticker.name }}</span>
           <span class="text-accent text-[9.5px] tracking-[0.08em] uppercase">{{ row.sticker.role }}</span>
         </div>
       </div>
@@ -126,7 +127,7 @@ const expanded = ref(false)
       <button
         v-if="!expanded"
         type="button"
-        class="text-accent hover:text-heading cursor-pointer text-left sm:hidden"
+        class="text-accent hover:text-heading cursor-pointer text-left"
         @click="expanded = true"
       >
         ⏺ Show the whole session: {{ ROWS.length - FIRST_STEPS }} more steps
@@ -137,7 +138,7 @@ const expanded = ref(false)
           <span class="text-muted">&gt;</span>
           <span class="bg-body inline-block h-[14px] w-[7px] animate-pulse"></span>
         </div>
-        <div class="text-faint mt-1.5 text-[12px]">? for shortcuts</div>
+        <div class="text-faint mt-1.5 text-xs">? for shortcuts</div>
       </div>
     </div>
   </div>

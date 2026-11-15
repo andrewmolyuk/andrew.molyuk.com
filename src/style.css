@@ -5,6 +5,18 @@
   --font-sans: Inter, 'Inter Fallback', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
+  /* The site's type scale. Tailwind's own steps are cleared, so a size off the scale has to be
+     written as an arbitrary value and stands out: the fluid sizes of the Hero's name and role line,
+     the Telegram line and the principles' heading, the stickers' captions, and the CV, a page for
+     print. No line heights: each text keeps the one it inherits or sets. */
+  --text-*: initial;
+  --text-xs: 12px; /* labels, captions, tags, meta */
+  --text-sm: 13px; /* code, mono links, the bar's buttons */
+  --text-base: 15px; /* body */
+  --text-lg: 17px; /* titles inside a section */
+  --text-xl: 22px; /* figures */
+  --text-title: clamp(26px, 3.5vw, 40px); /* section headings */
+
   --color-ink: #0a0a0c;
   --color-panel: #0e0e12;
   --color-panel-alt: #13131a;
@@ -30,7 +42,7 @@
     background: var(--color-ink);
     color: var(--color-body);
     font-family: var(--font-sans);
-    font-size: 15px;
+    font-size: var(--text-base);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
