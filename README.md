@@ -19,6 +19,8 @@ mise run preview               # serve the production build locally
 mise tasks                     # all the tasks
 ```
 
+Turn the Git hooks in `.githooks/` on once in each clone: `git config core.hooksPath .githooks`.
+
 ## Deployment
 
 Deploys via [Cloudflare Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/) —
