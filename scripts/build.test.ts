@@ -34,7 +34,13 @@ describe('prerendered page', () => {
   it('holds every section and its heading without running JavaScript', () => {
     const app = html.slice(html.indexOf('<div id="app"'))
     expect(app).toMatch(/<h1[^>]*>\s*Andrew Molyuk\s*<\/h1>/)
-    for (const heading of ['How I Think About Systems', 'Technical Focus', 'What I&#39;m Building', 'Let&#39;s talk']) {
+    for (const heading of [
+      'How I Think About Systems',
+      'Technical Focus',
+      'What I&#39;m Building',
+      'Recommendations',
+      'Let&#39;s talk',
+    ]) {
       expect(app).toContain(heading)
     }
   })
@@ -48,6 +54,20 @@ describe('prerendered page', () => {
   it('links the header to every section', () => {
     const header = html.slice(html.indexOf('<header'), html.indexOf('</header>'))
     expect([...header.matchAll(/href="#(\w+)"/g)].map((m) => m[1])).toEqual(SECTIONS)
+  })
+
+  it('offers Telegram in the header, on every screen', () => {
+    const header = html.slice(html.indexOf('<header'), html.indexOf('</header>'))
+    expect(header).toMatch(/<a href="https:\/\/t\.me\/andrewmolyuk"[^>]*aria-label="Message me on Telegram"/)
+  })
+
+  it('shows four projects after bunderlog and folds the rest under More projects', () => {
+    const projects = html.slice(html.indexOf('id="projects"'), html.indexOf('id="recommendations"'))
+    const [shown, folded] = projects.split('<details')
+    const cards = (part: string) => part.match(/<img src="\/projects\/[^"]+"/g)?.length ?? 0
+    expect(cards(shown)).toBe(1 + 4)
+    expect(folded).toContain('More projects (4)')
+    expect(cards(folded)).toBe(4)
   })
 
   it('opens every link that leaves the site in a new tab, with noopener noreferrer', () => {
