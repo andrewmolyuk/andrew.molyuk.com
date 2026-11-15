@@ -22,21 +22,23 @@ visits, not contacts.
 
 ## Scope
 
-- One page in English, in five sections in this order: Hero, How I Think About Systems, Technical
-  Focus, What I'm Building, Let's talk; a header linking to the last four as Experience, Skills,
-  Projects and Contact, and a footer.
+- One page in English, in six sections in this order: Hero, Experience, Technical Focus, What I'm
+  Building, Recommendations, Let's talk; a header linking to Experience, Skills, Projects and Contact
+  and offering Telegram, and a footer.
 - The page is in the built HTML itself, so a crawler that runs no JavaScript reads all of it.
-- Hero: that Andrew is open to roles and consulting, his name, a role line, the years in the
-  field, his current role from the timeline, Telegram as the main action, four figures each tied to
-  its source, and a sample Claude Code session showing bunderlog at work.
-- How I Think About Systems: three principles, each tied to the role it came from, above a career
-  timeline of roles, team sizes and results.
-- Technical Focus: AI Engineering at the core, the disciplines around it, each discipline's tools,
-  explained in a list beside the graph.
+- Hero: his photo, that he is open to roles and consulting, his name, a role line, his current
+  job from the timeline as a fact, Telegram as the main action, four figures each tied to its
+  source, and a sample Claude Code session showing bunderlog at work, on a phone opened on its
+  first steps.
+- Experience: a career timeline of roles, team sizes and results, then How I Think About Systems:
+  three principles, each tied to the role it came from.
+- Technical Focus: AI Engineering at the core, the disciplines around it with their tools, listed
+  beside the graph; only the discipline in focus opens its description.
 - What I'm Building: bunderlog first as the current focus, with the measured result it has; then
-  the other products in a grid, each in a sentence, with its stack and a figure where it has one.
-  Each project's name leads to the live product, and a GitHub mark after it to its public
-  repository.
+  four more products in a grid, each in a sentence, with its stack and a figure where it has one,
+  and the rest folded under "More projects". Each project's name leads to the live product, and a
+  GitHub mark after it to its public repository.
+- Recommendations: two from LinkedIn, quoted word for word, and a link to the rest.
 - Let's talk: Telegram as the one main way in; email, LinkedIn, GitHub and WhatsApp as the rest;
   the local time in Israel in the footer.
 - Sharing and discovery: title, description and image for link previews, a schema.org Person,
@@ -71,15 +73,18 @@ visits, not contacts.
   and text.
   → test: scripts/build.test.ts "holds every section and its heading without running JavaScript" (headings
   only)
-- The sections come in the order Hero, How I Think About Systems, Technical Focus, What I'm
-  Building, Let's talk; the header's links Experience, Skills, Projects and Contact each lead to
-  their section.
+- The sections come in the order Hero, Experience, Technical Focus, What I'm Building,
+  Recommendations, Let's talk; the header's links Experience, Skills, Projects and Contact each
+  lead to their section, and the one for the section in the middle of the screen is lit.
   → test: scripts/build.test.ts "puts the sections in order: Hero, Experience, Skills, Projects, Contact"
   → test: scripts/build.test.ts "links the header to every section"
-- On a 1280×800 viewport, without scrolling, the page shows "Open to roles and consulting", the
-  name, the role line "System Architect / Distributed Systems → AI Engineering", the current role
-  and company, and a "Message me on Telegram" button that opens Telegram in a new tab, ahead of a
-  link to the projects.
+- The header offers a Telegram button on every screen: "Message" with an icon, or the icon alone on a
+  phone.
+  → test: scripts/build.test.ts "offers Telegram in the header, on every screen"
+- On a 1280×800 viewport, without scrolling, the page shows Andrew's photo, "Open to roles and
+  consulting", the name, the role line "System Architect / Distributed Systems → AI Engineering",
+  the current job and company, and a "Message me on Telegram" button that opens Telegram in a new
+  tab, ahead of a link to the projects.
 - On a 375 px wide viewport, every section fits the width: the page doesn't scroll sideways.
 - Every text color is at least 4.5:1 against every background it sits on (WCAG AA).
   → test: scripts/build.test.ts "meet WCAG AA, 4.5:1, on every background" (the color tokens, not their
@@ -95,8 +100,11 @@ visits, not contacts.
 - Each of the four figures shows its source under it: ~23B events/day and 100K req/s steady from
   Vidcrunch, 3M req/s peak from Screenz, both companies on the career timeline; the years from
   "in prod".
-- The current role under the name is the timeline's role with no end date, so it changes when the
+- The current job under the role line is the timeline's role with no end date, put as a fact
+  ("Today: WebUI Architect and AI adoption lead at CGS Tower Networks."), so it changes when the
   timeline does.
+- On a phone, the sample session shows its first three steps and a button that opens the rest;
+  wider screens show it all.
 
 ### Years and current role
 
@@ -117,9 +125,9 @@ visits, not contacts.
   (one pair only)
   → test: src/lib/career.test.ts "keeps roles in order without overlapping"
 
-### How I Think About Systems
+### Experience
 
-- There are three principles above the timeline; each names where it came from: a role on the
+- Under the timeline, How I Think About Systems sets out three principles; each names where it came from: a role on the
   timeline with its years, or "from all of it, 1991–now", and exactly one comes from the whole
   career.
   → test: src/lib/career.test.ts "each come from a real role, or from the whole career"
@@ -131,8 +139,9 @@ visits, not contacts.
 ### Technical Focus
 
 - Every discipline links only to the core. Pointing at a discipline, or tabbing to it, lights it
-  and its line to the core, dims the other disciplines, and opens its tools in the list; pointing at
-  the core lights every discipline and opens the core's tools.
+  and its line to the core, dims the other disciplines, and opens its description in the list,
+  where every discipline's tools always show; pointing at the core lights every discipline and opens
+  the core's description. The closed descriptions stay in the page's HTML.
   → test: src/lib/skillsGraph.test.ts "is on for the hovered node itself"
   → test: src/lib/skillsGraph.test.ts "hovering the central "ai" node highlights every other node too"
   → test: src/lib/skillsGraph.test.ts "dims nodes with no edge to the hovered node"
@@ -147,9 +156,11 @@ visits, not contacts.
 
 - bunderlog is the first project card, and its measured result (how often Claude checks the
   project's rules, without and with louie) is set as a figure, as large as the Hero's.
-- The other projects sit in two columns on a wide screen and one on a phone. Each card shows a one-
-  or two-sentence description, its stack, and a figure only where the project has one; a status
-  badge shows only when the status isn't "live".
+- Four more projects follow in two columns on a wide screen and one on a phone; the rest sit under
+  "More projects (n)", closed until clicked but in the page's HTML. Each card shows a one- or
+  two-sentence description, its stack, and a figure only where the project has one; a status badge
+  shows only when the status isn't "live".
+  → test: scripts/build.test.ts "shows four projects after bunderlog and folds the rest under More projects"
 - A project's name links to its live product, or links nowhere when it has none (instrumenta); a
   GitHub mark after it links to its repository when the repository is public, and is left out
   when it isn't (chainofsale).
@@ -157,6 +168,11 @@ visits, not contacts.
 - Every link that leaves the site opens in a new tab with `rel="noopener noreferrer"`.
   → test: scripts/build.test.ts "opens every link that leaves the site in a new tab, with noopener noreferrer"
 - Every link on the page answers with a page, not an error (checked by hand: it needs the network).
+
+### Recommendations
+
+- Two recommendations from Andrew's LinkedIn profile, each quoted word for word from its opening
+  sentences and named, with a link to the rest on LinkedIn.
 
 ### Let's talk
 
