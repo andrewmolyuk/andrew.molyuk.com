@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+
 type Sticker = { name: string; role: string; rotate: string; delay: string }
 
 type Row = {
@@ -53,6 +55,13 @@ const ROWS: Row[] = [
 ]
 
 const DOT_CLASS = { say: 'text-heading', ok: 'text-success', err: 'text-danger' }
+
+/**
+ * On a phone the session opens on its first steps, up to bagheera's block, so it doesn't push the
+ * rest of the page two screens down; a button shows the rest. Wider screens always show it all.
+ */
+const FIRST_STEPS = 3
+const expanded = ref(false)
 </script>
 
 <template>
@@ -74,7 +83,12 @@ const DOT_CLASS = { say: 'text-heading', ok: 'text-success', err: 'text-danger' 
         <span class="text-muted">&gt;</span> The cart total is off by a cent. Fix it
       </div>
 
-      <div v-for="(row, i) in ROWS" :key="i" class="relative sm:pr-9">
+      <div
+        v-for="(row, i) in ROWS"
+        :key="i"
+        class="relative sm:block sm:pr-9"
+        :class="i >= FIRST_STEPS && !expanded ? 'hidden' : ''"
+      >
         <div class="flex gap-2.5">
           <span class="shrink-0 text-[12px] leading-[19px]" :class="DOT_CLASS[row.dot]">⏺</span>
           <span class="text-body">
@@ -108,6 +122,15 @@ const DOT_CLASS = { say: 'text-heading', ok: 'text-success', err: 'text-danger' 
           <span class="text-accent text-[9.5px] tracking-[0.08em] uppercase">{{ row.sticker.role }}</span>
         </div>
       </div>
+
+      <button
+        v-if="!expanded"
+        type="button"
+        class="text-accent hover:text-heading cursor-pointer text-left sm:hidden"
+        @click="expanded = true"
+      >
+        ⏺ Show the whole session: {{ ROWS.length - FIRST_STEPS }} more steps
+      </button>
 
       <div>
         <div class="border-line flex items-center gap-2 rounded border px-2.5 py-1.5">

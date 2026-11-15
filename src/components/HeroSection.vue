@@ -9,6 +9,8 @@ const today = useToday()
 const YEARS = computed(() => yearsCoding(today.value))
 /** The role that is still running, so the line under the name never needs editing when it changes. */
 const CURRENT = ROLES.find((r) => r.end === null)!
+/** Its title as a fact in a sentence ("WebUI Architect and AI adoption lead"), not a second headline. */
+const CURRENT_ROLE = CURRENT.title.replace(' · ', ' and ')
 
 // The grid's columns are min(420px, 100%) wide, not 420px: on a phone, 420px is wider than the
 // screen, and the page would scroll sideways.
@@ -27,11 +29,20 @@ const STATS = computed(() => [
       class="mx-auto grid w-full max-w-[1100px] grid-cols-[repeat(auto-fit,minmax(min(420px,100%),1fr))] items-center gap-16"
     >
       <div>
-        <div
-          class="border-success/27 bg-success/8 text-success mb-6 inline-flex items-center gap-2 rounded-full border px-3 py-1 font-mono text-[12px]"
-        >
-          <span class="bg-success size-1.5 rounded-full"></span>
-          Open to roles and consulting
+        <div class="mb-6 flex items-center gap-4">
+          <img
+            src="/andrew.jpg"
+            alt="Andrew Molyuk"
+            width="56"
+            height="56"
+            class="border-line size-14 shrink-0 rounded-full border object-cover"
+          />
+          <div
+            class="border-success/27 bg-success/8 text-success inline-flex items-center gap-2 rounded-full border px-3 py-1 font-mono text-[12px]"
+          >
+            <span class="bg-success size-1.5 rounded-full"></span>
+            Open to roles and consulting
+          </div>
         </div>
 
         <h1 class="text-heading mb-[22px] text-[clamp(42px,6vw,76px)] leading-[1.05] font-semibold tracking-[-0.04em]">
@@ -42,9 +53,9 @@ const STATS = computed(() => [
           System Architect / Distributed Systems → AI Engineering
         </div>
 
-        <p class="text-muted mb-10 max-w-[460px] text-[15px] leading-[1.8]">
-          {{ YEARS }} years in tech. Systems at 100K RPS scale.<br />
-          Now {{ CURRENT.title }} at {{ CURRENT.company }}, building AI-native engineering tools.
+        <p class="text-muted mb-10 max-w-[540px] text-[15px] leading-[1.8]">
+          Today: {{ CURRENT_ROLE }} at {{ CURRENT.company }}.<br />
+          Building AI-native engineering tools of my own.
         </p>
 
         <div class="mb-13 flex flex-wrap gap-2.5">
