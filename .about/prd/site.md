@@ -23,15 +23,16 @@ visits, not contacts.
 ## Scope
 
 - One page in English, in six sections in this order: Hero, Experience, Technical Focus, What I'm
-  Building, Recommendations, Let's talk; a header linking to each but Hero and offering Telegram,
-  and a footer.
+  Building, Recommendations, Let's talk; a header with his name, linking to each but Hero and
+  offering Telegram, and a footer.
 - A CV, made from the same data as the page, as a page of its own (`cv.html`) and a PDF the page
   links to.
 - The page is in the built HTML itself, so a crawler that runs no JavaScript reads all of it.
 - Hero: his photo, that he is open to roles and consulting, his name, a role line, his current
   job from the timeline as a fact, the roles he is looking for and where, Telegram as the main
   action and the CV beside it, four figures each tied to its source (one of them from his AI work),
-  and a sample Claude Code session showing bunderlog at work, on a phone opened on its first steps.
+  and a sample Claude Code session showing bunderlog at work, under a sentence that says in plain
+  words what bunderlog does, opened on its first steps.
 - Experience: a career timeline of roles, team sizes and results, then How I Think About Systems:
   three principles, each tied to the role it came from.
 - Technical Focus: AI Engineering at the core, the disciplines around it with their tools, listed
@@ -85,10 +86,15 @@ visits, not contacts.
 - The header offers a Telegram button on every screen: "Message" with an icon, or the icon alone on a
   phone.
   → test: scripts/build.test.ts "offers Telegram in the header, on every screen"
+- The header shows "Andrew Molyuk" at its left on every screen, linking to the top of the page; at
+  375, 820 and 1280 px its left and right edges line up with the sections' content.
+  → test: scripts/build.test.ts "names Andrew in the header, on every screen, linking to the top" (the
+  name only, not the alignment)
 - On a 1280×800 viewport, without scrolling, the page shows Andrew's photo, "Open to roles and
   consulting", the name, the role line "System Architect / Distributed Systems → AI Engineering",
   the current job and company, what he is looking for, and a "Message me on Telegram" button that
-  opens Telegram in a new tab, ahead of a "CV (PDF)" button.
+  opens Telegram in a new tab, ahead of a "CV (PDF)" button, and under them the four figures, each
+  with its source, whole.
 - On a 375 px wide viewport, every section fits the width: the page doesn't scroll sideways, and no
   card's content runs past its edge.
 - On an 820 px wide viewport, the timeline and Let's talk stack into one column rather than squeeze
@@ -111,8 +117,9 @@ visits, not contacts.
   its summary ("Today at CGS Tower Networks: leading AI across the company, and the architect of
   its WebUI."), so it changes when the timeline does.
 - "Looking for:" names the roles, the consulting and the location, the same words as the CV's.
-- On a phone, the sample session shows its first three steps and a button that opens the rest;
-  wider screens show it all.
+- On every screen, the sample session shows its first three steps and a button that opens the rest,
+  and opening it leaves the column beside it where it was. Above the session, one sentence says in
+  plain words what bunderlog does.
 
 ### Years and current role
 
@@ -189,14 +196,17 @@ visits, not contacts.
   the roles before 2006 in a line; the projects shown at once on the page; the skills; education;
   languages; and the same "Looking for" as the Hero. It is prerendered like the page.
   → test: scripts/build.test.ts "lists every role on the timeline, prerendered like the page"
+- Each project on the CV shows its address as a link, without "https://": its live site, or its
+  repository when it has none (instrumenta).
+  → test: scripts/build.test.ts "gives each project its address as a link: the live site, or the repository when it has none"
 - The PDF the page links to is printed from the CV as it is now: a CV that changed since fails the
   build test until `mise run cv` prints it again.
   → test: scripts/build.test.ts "ships a PDF printed from this very CV; after a change, `mise run cv` prints it again"
 
 ### Let's talk
 
-- Telegram is the one contact set as a card; email, LinkedIn, GitHub and WhatsApp follow it as
-  plain links in one group, which may wrap.
+- Telegram is the one contact set as a card, and the card carries a button that looks like the
+  Hero's; email, LinkedIn, GitHub and WhatsApp follow it as plain links in one group, which may wrap.
 - No file in the built site contains the WhatsApp number's digits in order, whether together or
   separated only by spaces, dashes, dots or brackets, with or without the country code. The number
   is deliberately not written here; the test takes it from the source.
