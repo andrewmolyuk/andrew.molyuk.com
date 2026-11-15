@@ -49,7 +49,7 @@ const lit = (n: string | undefined) => n !== undefined && focus.value === n
       </p>
 
       <div class="career text-[14px]">
-        <div class="text-faint hidden pb-3 font-mono text-[12px] tracking-[0.1em] uppercase md:grid" aria-hidden="true">
+        <div class="text-faint hidden pb-3 font-mono text-[12px] tracking-[0.1em] uppercase lg:grid" aria-hidden="true">
           <span>Years</span>
           <span>Role · team</span>
           <div class="relative">
@@ -79,21 +79,21 @@ const lit = (n: string | undefined) => n !== undefined && focus.value === n
             </div>
           </div>
 
-          <div class="relative my-3 h-3 md:my-0 md:h-auto md:self-stretch" aria-hidden="true">
+          <div class="relative hidden lg:block lg:self-stretch" aria-hidden="true">
             <span
               v-for="t in TICKS"
               :key="t.year"
-              class="bg-line absolute -top-6 -bottom-6 hidden w-px md:block"
+              class="bg-line absolute -top-6 -bottom-6 w-px"
               :style="{ left: `${t.at}%` }"
             ></span>
             <span
-              class="absolute top-1/2 h-1.5 -translate-y-1/2 rounded-full transition-colors duration-200 md:top-[11px]"
+              class="absolute top-1/2 h-1.5 -translate-y-1/2 rounded-full transition-colors duration-200 lg:top-[11px]"
               :class="!row.end || lit(row.principle?.n) ? 'bg-accent' : 'group-hover:bg-accent/70 bg-[#3a3a46]'"
               :style="{ left: `${row.span.left}%`, width: `${row.span.width}%` }"
             ></span>
             <span
               v-if="!row.end"
-              class="absolute top-1/2 right-0 size-2.5 translate-x-1/2 -translate-y-1/2 md:top-[11px]"
+              class="absolute top-1/2 right-0 size-2.5 translate-x-1/2 -translate-y-1/2 lg:top-[11px]"
               :title="`${row.company}, now`"
             >
               <span class="bg-accent absolute inset-0 animate-ping rounded-full opacity-60"></span>
@@ -115,7 +115,7 @@ const lit = (n: string | undefined) => n !== undefined && focus.value === n
             <div class="text-heading text-[15px] leading-[22px] font-medium">{{ YEARS }} years</div>
             <div class="text-muted mt-0.5 font-mono text-[12px] leading-[1.5]">one problem space</div>
           </div>
-          <div class="relative my-3 h-3 md:my-0 md:h-[22px]" aria-hidden="true">
+          <div class="relative hidden lg:block lg:h-[22px]" aria-hidden="true">
             <span
               class="absolute top-1/2 right-0 left-0 h-px -translate-y-1/2 bg-linear-to-r from-transparent to-current transition-colors duration-200"
               :class="lit(DEPTH.n) ? 'text-accent' : 'text-[#5a5a68]'"
@@ -175,7 +175,8 @@ const lit = (n: string | undefined) => n !== undefined && focus.value === n
 </template>
 
 <style scoped>
-@media (min-width: 768px) {
+/* The four columns need about 1000px: below lg the rows stack, and the track, which needs its width, is hidden. */
+@media (min-width: 1024px) {
   .career > * {
     grid-template-columns: 84px 220px minmax(0, 1fr) 360px;
     column-gap: 28px;

@@ -266,7 +266,7 @@ const ACCENT = 'var(--color-accent)'
         <div>
           <p class="text-muted mb-7 text-[15px] leading-[1.8]">
             AI-native engineering is the focus now; it stands on everything on the timeline above, software that had to
-            stay up. The disciplines last; the tools orbiting them change. Point at one to see what it covers.
+            stay up. The disciplines last; the tools orbiting them change. Hover or tap one to see what it covers.
           </p>
           <div class="flex flex-col" @mouseleave="onLeave">
             <div

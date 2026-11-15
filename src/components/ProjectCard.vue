@@ -9,11 +9,11 @@ defineProps<{ project: Project }>()
   <div
     class="border-line bg-panel hover:border-accent/27 flex flex-col rounded-md border px-6 pt-6 pb-5 transition-colors"
   >
-    <div class="mb-3 flex items-start justify-between gap-3">
+    <div class="mb-3 flex flex-wrap items-start justify-between gap-x-3 gap-y-2">
       <ProjectName :name="project.title" :icon="project.icon" :site="project.site" :github="project.github" />
       <span
         v-if="project.status"
-        class="border-success/27 bg-success/8 text-success shrink-0 rounded border px-2.5 py-0.5 font-mono text-[12px] tracking-[0.1em] uppercase"
+        class="border-success/27 bg-success/8 text-success rounded border px-2.5 py-0.5 font-mono text-[12px] tracking-[0.1em] uppercase"
         >{{ project.status }}</span
       >
     </div>
