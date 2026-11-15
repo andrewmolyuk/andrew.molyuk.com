@@ -38,7 +38,7 @@ visits, not contacts.
   four more products in a grid, each in a sentence, with its stack and a figure where it has one,
   and the rest folded under "More projects". Each project's name leads to the live product, and a
   GitHub mark after it to its public repository.
-- Recommendations: two from LinkedIn, quoted word for word, and a link to the rest.
+- Recommendations: three from LinkedIn, quoted word for word, and a link to the rest.
 - Let's talk: Telegram as the one main way in; email, LinkedIn, GitHub and WhatsApp as the rest;
   the local time in Israel in the footer.
 - Sharing and discovery: title, description and image for link previews, a schema.org Person,
@@ -171,8 +171,9 @@ visits, not contacts.
 
 ### Recommendations
 
-- Two recommendations from Andrew's LinkedIn profile, each quoted word for word from its opening
-  sentences and named, with a link to the rest on LinkedIn.
+- Three recommendations from Andrew's LinkedIn profile, quoted word for word with every cut marked
+  "…", each signed with its author's name, title, how they worked with Andrew and the year, and a
+  link to the rest on LinkedIn.
 
 ### Let's talk
 

@@ -1,16 +1,27 @@
 <script setup lang="ts">
 import { LINKEDIN } from '../lib/contact'
 
-// The two recommendations Andrew's LinkedIn profile shows publicly, each cut to its opening sentences,
-// word for word.
+// Three of the recommendations on Andrew's LinkedIn profile, chosen for who wrote them and how
+// concrete they are, and cut to about the same length so the cards balance. Quoted word for word;
+// "…" marks where a passage is left out.
 const QUOTES = [
   {
-    name: 'Alexander Natashkin',
-    text: 'Andrew is a calm and wise leader, and I can say only good things about working with him. He stays composed in stressful situations, makes thoughtful and well‑reasoned decisions, and always focuses on what is best for the team and the product.',
+    name: 'Yehuda Kedem',
+    role: 'CEO, YKM',
+    relation: 'managed Andrew, 2015',
+    text: 'Andrew is a strong technical leader who possesses a great breadth and depth of technical knowledge and skills. … he is also the knowledge expert within development for complex issues such as system security, network configurations, performance optimizations …',
   },
   {
-    name: 'Ruslan Labyntsev',
-    text: 'I wholeheartedly recommend Andrew as a CTO with an extensive wealth of experience. His broad knowledge of various programming languages and technologies is truly impressive. As a person, he is not only highly skilled but also exceptionally friendly and approachable.',
+    name: 'Arseniy Pavlenko',
+    role: 'Base44 / Wix',
+    relation: 'managed Andrew, 2016',
+    text: 'When Andrew came to our team, we were under terrible overload, but in just one month, he has helped us to establish a working process and we were able to breathe. … I would be very happy to work with him again!',
+  },
+  {
+    name: 'Alexander Natashkin',
+    role: 'AI Systems Engineer',
+    relation: 'reported to Andrew, 2026',
+    text: 'Andrew is a calm and wise leader, and I can say only good things about working with him. … Working with Andrew, you feel both freedom and support: he does not micromanage, but is always available for advice, guidance, and a broader strategic view.',
   },
 ]
 </script>
@@ -22,10 +33,17 @@ const QUOTES = [
         Recommendations
       </h2>
 
-      <div class="grid gap-4 md:grid-cols-2">
-        <figure v-for="q in QUOTES" :key="q.name" class="border-line bg-panel rounded-md border px-7 pt-6 pb-5">
+      <div class="grid gap-4 lg:grid-cols-3">
+        <figure
+          v-for="q in QUOTES"
+          :key="q.name"
+          class="border-line bg-panel flex flex-col rounded-md border px-6 pt-6 pb-5"
+        >
           <blockquote class="text-body text-[15px] leading-[1.75]">“{{ q.text }}”</blockquote>
-          <figcaption class="text-muted mt-4 font-mono text-[12.5px]">— {{ q.name }}, on LinkedIn</figcaption>
+          <figcaption class="mt-auto pt-5">
+            <div class="text-heading text-[14px] font-medium">{{ q.name }}</div>
+            <div class="text-muted mt-0.5 font-mono text-[12px] leading-[1.6]">{{ q.role }}<br />{{ q.relation }}</div>
+          </figcaption>
         </figure>
       </div>
 
@@ -34,7 +52,7 @@ const QUOTES = [
         target="_blank"
         rel="noopener noreferrer"
         class="text-muted hover:text-accent mt-6 inline-block font-mono text-[12.5px] transition-colors duration-200"
-        >More recommendations on LinkedIn ↗</a
+        >All recommendations on LinkedIn ↗</a
       >
     </div>
   </section>
