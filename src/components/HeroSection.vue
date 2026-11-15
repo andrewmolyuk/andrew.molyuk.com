@@ -10,10 +10,13 @@ const YEARS = computed(() => yearsCoding(today.value))
 /** The role that is still running, so the line under the name never needs editing when it changes. */
 const CURRENT = ROLES.find((r) => r.end === null)!
 
+// The grid's columns are min(420px, 100%) wide, not 420px: on a phone, 420px is wider than the
+// screen, and the page would scroll sideways.
+
 const STATS = computed(() => [
   { value: '~23B', label: 'events/day', source: 'Vidcrunch' },
-  { value: '100K', label: 'RPS steady', source: 'Vidcrunch' },
-  { value: '3M', label: 'req/sec', source: 'Screenz' },
+  { value: '100K', label: 'req/s steady', source: 'Vidcrunch' },
+  { value: '3M', label: 'req/s peak', source: 'Screenz' },
   { value: String(YEARS.value), label: 'years', source: 'in prod' },
 ])
 </script>
