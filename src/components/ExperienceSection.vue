@@ -34,7 +34,7 @@ const lit = (n: string | undefined) => n !== undefined && focus.value === n
 </script>
 
 <template>
-  <section id="approach" class="border-line border-t px-8 py-22">
+  <section id="experience" class="border-line border-t px-8 py-22">
     <div class="mx-auto max-w-[1100px]">
       <div class="mb-6">
         <h2 class="text-heading text-[clamp(26px,3.5vw,40px)] leading-[1.1] font-semibold tracking-[-0.03em]">

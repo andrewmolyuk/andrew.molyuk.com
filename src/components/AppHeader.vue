@@ -26,7 +26,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
         >andrew@molyuk.com<span class="text-faint">:~$</span></span
       >
       <nav class="ml-auto flex items-center gap-4 text-[15px] sm:gap-7">
-        <a href="#approach" class="text-muted hover:text-body">Experience</a>
+        <a href="#experience" class="text-muted hover:text-body">Experience</a>
         <a href="#skills" class="text-muted hover:text-body">Skills</a>
         <a href="#projects" class="text-muted hover:text-body">Projects</a>
         <a href="#contact" class="text-muted hover:text-body">Contact</a>

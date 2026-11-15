@@ -4,7 +4,7 @@
 
 ## Sections
 
-- [Experience](https://andrew.molyuk.com/#approach): Career timeline of roles and results, and the principles that came out of it.
+- [Experience](https://andrew.molyuk.com/#experience): Career timeline of roles and results, and the principles that came out of it.
 - [Skills](https://andrew.molyuk.com/#skills): Technical skills and areas of expertise.
 - [Projects](https://andrew.molyuk.com/#projects): Projects currently being built.
 - [Contact](https://andrew.molyuk.com/#contact): Ways to get in touch.

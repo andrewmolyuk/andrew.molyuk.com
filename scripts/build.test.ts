@@ -7,6 +7,9 @@ import { extname, join } from 'node:path'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 import { whatsAppNumber } from '../src/lib/contact.ts'
 
+/** The sections the header links to, in page order, after Hero. */
+const SECTIONS = ['experience', 'skills', 'projects', 'contact']
+
 const OUT = mkdtempSync(join(tmpdir(), 'andrew-molyuk-build-'))
 const read = (file: string) => readFileSync(join(OUT, file), 'utf8')
 let html = ''
@@ -37,19 +40,14 @@ describe('prerendered page', () => {
   })
 
   it('puts the sections in order: Hero, Experience, Skills, Projects, Contact', () => {
-    const at = ['approach', 'skills', 'projects', 'contact'].map((id) => html.indexOf(`id="${id}"`))
+    const at = SECTIONS.map((id) => html.indexOf(`id="${id}"`))
     expect(at.every((i) => i > 0)).toBe(true)
     expect([...at].sort((a, b) => a - b)).toEqual(at)
   })
 
   it('links the header to every section', () => {
     const header = html.slice(html.indexOf('<header'), html.indexOf('</header>'))
-    expect([...header.matchAll(/href="#(\w+)"/g)].map((m) => m[1])).toEqual([
-      'approach',
-      'skills',
-      'projects',
-      'contact',
-    ])
+    expect([...header.matchAll(/href="#(\w+)"/g)].map((m) => m[1])).toEqual(SECTIONS)
   })
 
   it('opens every link that leaves the site in a new tab, with noopener noreferrer', () => {
@@ -118,7 +116,7 @@ describe('sharing and discovery', () => {
 
   it('lists every section and profile in llms.txt', () => {
     const llms = read('llms.txt')
-    for (const id of ['approach', 'skills', 'projects', 'contact']) expect(llms).toContain(`/#${id})`)
+    for (const id of SECTIONS) expect(llms).toContain(`/#${id})`)
     for (const profile of PROFILES) expect(llms).toContain(`(${profile})`)
   })
 
