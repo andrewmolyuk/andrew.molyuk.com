@@ -69,7 +69,8 @@ visits, not contacts.
 
 - With JavaScript off, the built `index.html` shows the whole page: every section with its heading
   and text.
-  → test: scripts/build.test.ts "holds every section and its heading without running JavaScript"
+  → test: scripts/build.test.ts "holds every section and its heading without running JavaScript" (headings
+  only)
 - The sections come in the order Hero, How I Think About Systems, Technical Focus, What I'm
   Building, Let's talk; the header's links Experience, Skills, Projects and Contact each lead to
   their section.
@@ -81,7 +82,8 @@ visits, not contacts.
   link to the projects.
 - On a 375 px wide viewport, every section fits the width: the page doesn't scroll sideways.
 - Every text color is at least 4.5:1 against every background it sits on (WCAG AA).
-  → test: scripts/build.test.ts "meet WCAG AA, 4.5:1, on every background"
+  → test: scripts/build.test.ts "meet WCAG AA, 4.5:1, on every background" (the color tokens, not their
+  tints)
 - No text is smaller than 12 px, except the captions under the decorative stickers in the Hero
   session and the labels inside the Technical Focus graph, which scale with it: screen readers skip
   the captions, and the list beside the graph repeats every label in readable text.
@@ -90,8 +92,8 @@ visits, not contacts.
 
 ### Hero
 
-- Each of the four figures shows its source under it: ~23B events/day and 100K RPS steady from
-  Vidcrunch, 3M req/sec from Screenz, both companies on the career timeline; the years from
+- Each of the four figures shows its source under it: ~23B events/day and 100K req/s steady from
+  Vidcrunch, 3M req/s peak from Screenz, both companies on the career timeline; the years from
   "in prod".
 - The current role under the name is the timeline's role with no end date, so it changes when the
   timeline does.

@@ -1,6 +1,6 @@
 # This repo is set up as any project is: its Git hooks in `.githooks/` run `hathi`
 
-Date: 2026-11-11
+Date: 2026-11-15
 
 ## Decision
 
@@ -13,4 +13,5 @@ Date: 2026-11-11
 
 ## Consequences
 
-Each clone turns the hooks on once with `git config core.hooksPath .githooks`.
+Each clone turns the hooks on once with `mise run setup`, which runs
+`git config core.hooksPath .githooks` and installs the `hathi` that `mise.toml` pins.

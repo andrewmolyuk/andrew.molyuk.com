@@ -21,7 +21,7 @@ depends = ["install"]
 run = "pnpm exec vite"
 
 [tasks.build]
-description = "Type-check, build and prerender the site into dist/ (package.json's build, which Cloudflare runs)"
+description = "Type-check, build and prerender the site into dist/"
 depends = ["install"]
 run = "pnpm run build"
 
