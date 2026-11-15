@@ -23,13 +23,15 @@ visits, not contacts.
 ## Scope
 
 - One page in English, in six sections in this order: Hero, Experience, Technical Focus, What I'm
-  Building, Recommendations, Let's talk; a header linking to Experience, Skills, Projects and Contact
-  and offering Telegram, and a footer.
+  Building, Recommendations, Let's talk; a header linking to each but Hero and offering Telegram,
+  and a footer.
+- A CV, made from the same data as the page, as a page of its own (`cv.html`) and a PDF the page
+  links to.
 - The page is in the built HTML itself, so a crawler that runs no JavaScript reads all of it.
 - Hero: his photo, that he is open to roles and consulting, his name, a role line, his current
-  job from the timeline as a fact, Telegram as the main action, four figures each tied to its
-  source, and a sample Claude Code session showing bunderlog at work, on a phone opened on its
-  first steps.
+  job from the timeline as a fact, the roles he is looking for and where, Telegram as the main
+  action and the CV beside it, four figures each tied to its source (one of them from his AI work),
+  and a sample Claude Code session showing bunderlog at work, on a phone opened on its first steps.
 - Experience: a career timeline of roles, team sizes and results, then How I Think About Systems:
   three principles, each tied to the role it came from.
 - Technical Focus: AI Engineering at the core, the disciplines around it with their tools, listed
@@ -39,8 +41,8 @@ visits, not contacts.
   and the rest folded under "More projects". Each project's name leads to the live product, and a
   GitHub mark after it to its public repository.
 - Recommendations: three from LinkedIn, quoted word for word, and a link to the rest.
-- Let's talk: Telegram as the one main way in; email, LinkedIn, GitHub and WhatsApp as the rest;
-  the local time in Israel in the footer.
+- Let's talk: Telegram as the one main way in; the email address in full, to copy; LinkedIn,
+  GitHub, WhatsApp and the CV as the rest; the local time in Israel in the footer.
 - Sharing and discovery: title, description and image for link previews, a schema.org Person,
   `robots.txt`, `sitemap.xml` and `llms.txt`.
 - The content itself (texts, figures, projects, roles, principles, handles) lives in the code; this
@@ -53,7 +55,8 @@ visits, not contacts.
 - A contact form, a CMS or any back end: content changes in the code.
 - Counting clicks on the contact links.
 - Documentation for bunderlog or the other projects.
-- A CV to download, until Andrew supplies one.
+- A CV in any other format, or one that goes further back than the timeline: the roles before 2006
+  are one line.
 
 ## Anti-goals
 
@@ -74,8 +77,9 @@ visits, not contacts.
   → test: scripts/build.test.ts "holds every section and its heading without running JavaScript" (headings
   only)
 - The sections come in the order Hero, Experience, Technical Focus, What I'm Building,
-  Recommendations, Let's talk; the header's links Experience, Skills, Projects and Contact each
-  lead to their section, and the one for the section in the middle of the screen is lit.
+  Recommendations, Let's talk; the header's links Experience, Skills, Projects, Recommendations and
+  Contact each lead to their section, and the one for the section in the middle of the screen is
+  lit. On a phone the links sit behind a Menu button.
   → test: scripts/build.test.ts "puts the sections in order: Hero, Experience, Skills, Projects, Recommendations, Contact"
   → test: scripts/build.test.ts "links the header to every section"
 - The header offers a Telegram button on every screen: "Message" with an icon, or the icon alone on a
@@ -83,9 +87,12 @@ visits, not contacts.
   → test: scripts/build.test.ts "offers Telegram in the header, on every screen"
 - On a 1280×800 viewport, without scrolling, the page shows Andrew's photo, "Open to roles and
   consulting", the name, the role line "System Architect / Distributed Systems → AI Engineering",
-  the current job and company, and a "Message me on Telegram" button that opens Telegram in a new
-  tab, ahead of a link to the projects.
-- On a 375 px wide viewport, every section fits the width: the page doesn't scroll sideways.
+  the current job and company, what he is looking for, and a "Message me on Telegram" button that
+  opens Telegram in a new tab, ahead of a "CV (PDF)" button.
+- On a 375 px wide viewport, every section fits the width: the page doesn't scroll sideways, and no
+  card's content runs past its edge.
+- On an 820 px wide viewport, the timeline and Let's talk stack into one column rather than squeeze
+  four or two of them into it; the timeline's bars show from 1024 px.
 - Every text color is at least 4.5:1 against every background it sits on (WCAG AA).
   → test: scripts/build.test.ts "meet WCAG AA, 4.5:1, on every background" (the color tokens, not their
   tints)
@@ -98,11 +105,12 @@ visits, not contacts.
 ### Hero
 
 - Each of the four figures shows its source under it: ~23B events/day and 100K req/s steady from
-  Vidcrunch, 3M req/s peak from Screenz, both companies on the career timeline; the years from
-  "in prod".
-- The current job under the role line is the timeline's role with no end date, put as a fact
-  ("Today: WebUI Architect and AI adoption lead at CGS Tower Networks."), so it changes when the
-  timeline does.
+  Vidcrunch, 3M req/s peak from Screenz, both companies on the career timeline; 69 merged PRs from
+  instrumenta, over 90 days. On a phone they sit two by two.
+- The current job under the role line is the timeline's role with no end date, put as a fact from
+  its summary ("Today at CGS Tower Networks: leading AI across the company, and the architect of
+  its WebUI."), so it changes when the timeline does.
+- "Looking for:" names the roles, the consulting and the location, the same words as the CV's.
 - On a phone, the sample session shows its first three steps and a button that opens the rest;
   wider screens show it all.
 
@@ -172,8 +180,18 @@ visits, not contacts.
 ### Recommendations
 
 - Three recommendations from Andrew's LinkedIn profile, quoted word for word with every cut marked
-  "…", each signed with its author's name, title, how they worked with Andrew and the year, and a
-  link to the rest on LinkedIn.
+  "…", each signed with its author's name, how they worked with Andrew and at which company of the
+  timeline, and the year it was written, with a link to the rest on LinkedIn.
+
+### CV
+
+- The CV lists every role of the timeline, newest first, with its title, team, years and result;
+  the roles before 2006 in a line; the projects shown at once on the page; the skills; education;
+  languages; and the same "Looking for" as the Hero. It is prerendered like the page.
+  → test: scripts/build.test.ts "lists every role on the timeline, prerendered like the page"
+- The PDF the page links to is printed from the CV as it is now: a CV that changed since fails the
+  build test until `mise run cv` prints it again.
+  → test: scripts/build.test.ts "ships a PDF printed from this very CV; after a change, `mise run cv` prints it again"
 
 ### Let's talk
 
