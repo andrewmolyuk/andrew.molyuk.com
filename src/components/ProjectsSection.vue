@@ -1,5 +1,10 @@
 <script setup lang="ts">
+import ProjectCard from './ProjectCard.vue'
 import ProjectName from './ProjectName.vue'
+import { FEATURED_COUNT, PROJECTS } from '../lib/projects'
+
+const FEATURED = PROJECTS.slice(0, FEATURED_COUNT)
+const MORE = PROJECTS.slice(FEATURED_COUNT)
 
 const TOOLS = [
   {
@@ -41,86 +46,6 @@ const TOOLS = [
     sub: 'same checks as CI',
     desc: 'Checks every commit’s message, secrets and history — the same verdict locally and in CI.',
     highlight: false,
-  },
-]
-
-/** status is shown only when it isn't live, which all the rest are. fact is a figure the project has, if any. */
-const OTHER_PROJECTS: {
-  title: string
-  icon: string
-  status?: string
-  site?: string
-  github?: string
-  desc: string
-  fact?: string
-  tags: string[]
-}[] = [
-  {
-    title: 'instrumenta',
-    icon: '/projects/instrumenta.svg',
-    status: 'in internal production',
-    github: 'https://github.com/andrewmolyuk/instrumenta',
-    desc: 'Agent pipeline that takes a Jira ticket to an open pull request, unattended, at the company I work for.',
-    fact: '4 agents, each with only its own tools · rework capped at 3 rounds',
-    tags: ['Claude Code', 'Workflows', 'Subagents', 'Playwright', 'Jira', 'Bitbucket'],
-  },
-  {
-    title: 'chainofsale',
-    icon: '/projects/chainofsale.svg',
-    site: 'https://chainofsale.com', // its repository is private
-    desc: 'Supply-chain check for ad systems: each seller the publisher doesn’t confirm, with the exact ads.txt line that fixes it.',
-    fact: '1,700+ ad systems ranked by chain health',
-    tags: ['Go', 'PostgreSQL', 'Vue 3', 'Tailwind CSS', 'Kamal', 'Cloudflare Workers'],
-  },
-  {
-    title: 'servienta',
-    icon: '/projects/servienta.svg',
-    site: 'https://servienta.com',
-    github: 'https://github.com/servienta/servienta',
-    desc: 'Every endpoint an application talks to, in one container: readable from automated tests and reset between runs.',
-    fact: '8 protocols · a 5-transport file server',
-    tags: ['Go', 'Docker', 'Vue 3', 'Hono', 'Cloudflare Workers', 'Cloudflare D1'],
-  },
-  {
-    title: 'clockcover',
-    icon: '/projects/clockcover.svg',
-    site: 'https://clockcover.com',
-    github: 'https://github.com/clockcover/clockcover',
-    desc: 'Finds missed time-clock entries and routes them to the right manager before they pile up at month-end.',
-    tags: ['Hono', 'Cloudflare Workers', 'Drizzle', 'D1', 'Vue 3', 'Tailwind CSS'],
-  },
-  {
-    title: 'checkmeup',
-    icon: '/projects/checkmeup.svg',
-    site: 'https://checkmeup.net',
-    github: 'https://github.com/checkmeup/checkmeup',
-    desc: 'Cron, uptime, SSL, domain and port monitors with Telegram, Slack and SMS alerts, and white-label status pages.',
-    tags: ['Go', 'Chi', 'sqlc', 'PostgreSQL', 'Vue 3', 'Kamal'],
-  },
-  {
-    title: 'staffcomplete',
-    icon: '/projects/staffcomplete.svg',
-    site: 'https://staffcomplete.io',
-    github: 'https://github.com/staff-complete/staffcomplete',
-    desc: 'Onboarding, role changes and offboarding across a company’s systems, each event queued, dispatched and audited.',
-    tags: ['Hono', 'tRPC', 'Drizzle', 'PostgreSQL RLS', 'pg-boss', 'Vue 3'],
-  },
-  {
-    title: 'pass.molyuk.com',
-    icon: '/projects/pass-molyuk.svg',
-    site: 'https://pass.molyuk.com',
-    github: 'https://github.com/andrewmolyuk/pass.molyuk.com',
-    desc: 'One-time links to a secret encrypted in the browser: the server never sees the secret, the key or the PIN.',
-    tags: ['TypeScript', 'Web Crypto', 'Cloudflare Workers', 'Cloudflare D1'],
-  },
-  {
-    title: 'tools.molyuk.com',
-    icon: '/projects/tools-molyuk.svg',
-    site: 'https://tools.molyuk.com',
-    github: 'https://github.com/andrewmolyuk/tools.molyuk.com',
-    desc: 'Everyday developer tools in one place: IDs, hashes, JWT and X.509, regex, cron, CIDR, TOTP, diff and more.',
-    fact: '36 tools, nearly all running in the browser',
-    tags: ['Vue 3', 'TypeScript', 'Tailwind CSS', 'vue-i18n', 'Cloudflare Workers'],
   },
 ]
 </script>
@@ -220,28 +145,20 @@ const OTHER_PROJECTS: {
         </div>
 
         <div class="grid gap-4 md:grid-cols-2">
-          <div
-            v-for="project in OTHER_PROJECTS"
-            :key="project.title"
-            class="border-line bg-panel hover:border-accent/27 flex flex-col rounded-md border px-6 pt-6 pb-5 transition-colors"
-          >
-            <div class="mb-3 flex items-start justify-between gap-3">
-              <ProjectName :name="project.title" :icon="project.icon" :site="project.site" :github="project.github" />
-              <span
-                v-if="project.status"
-                class="border-success/27 bg-success/8 text-success shrink-0 rounded border px-2.5 py-0.5 font-mono text-[12px] tracking-[0.1em] uppercase"
-                >{{ project.status }}</span
-              >
-            </div>
-            <p class="text-muted text-[14.5px] leading-[1.7]">{{ project.desc }}</p>
-            <div v-if="project.fact" class="text-accent/80 mt-2 font-mono text-[12px]">{{ project.fact }}</div>
-            <div class="text-faint mt-auto flex flex-wrap gap-1.5 pt-4 font-mono text-[12px]">
-              <span v-for="tag in project.tags" :key="tag" class="border-line rounded border px-2 py-0.5">{{
-                tag
-              }}</span>
-            </div>
-          </div>
+          <ProjectCard v-for="project in FEATURED" :key="project.title" :project="project" />
         </div>
+
+        <details class="group">
+          <summary
+            class="border-line text-body hover:border-accent/50 hover:text-accent inline-flex cursor-pointer list-none items-center gap-2 rounded-md border px-4 py-2 font-mono text-[13px] transition-colors duration-200 [&::-webkit-details-marker]:hidden"
+          >
+            <span class="inline-block transition-transform duration-200 group-open:rotate-90">›</span>
+            More projects ({{ MORE.length }})
+          </summary>
+          <div class="mt-4 grid gap-4 md:grid-cols-2">
+            <ProjectCard v-for="project in MORE" :key="project.title" :project="project" />
+          </div>
+        </details>
       </div>
     </div>
   </section>
