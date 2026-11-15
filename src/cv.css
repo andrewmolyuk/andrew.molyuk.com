@@ -1,0 +1,25 @@
+@import 'tailwindcss';
+@import './fonts.css';
+
+/* The CV is a light, printed document, apart from the page's dark theme. */
+@theme {
+  --font-sans: Inter, 'Inter Fallback', system-ui, sans-serif;
+  --color-cv-text: #111827;
+  --color-cv-muted: #4b5563;
+  --color-cv-accent: #0e7490;
+  --color-cv-line: #d1d5db;
+}
+
+@page {
+  size: A4;
+  margin: 14mm 16mm;
+}
+
+@layer base {
+  body {
+    margin: 0;
+    background: #fff;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+}

@@ -16,6 +16,7 @@ mise run dev                   # local dev server with hot reload
 mise run check                 # lint, format check, type check, tests
 mise run build                 # type-check, build and prerender to dist/
 mise run preview               # serve the production build locally
+mise run cv                    # print the CV page to the PDF the site links to
 mise tasks                     # all the tasks
 ```
 

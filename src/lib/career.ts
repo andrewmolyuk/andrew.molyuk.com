@@ -10,6 +10,8 @@ export interface Role {
   end: string | null
   /** Engineers led, where known. */
   team?: number
+  /** The role as a fact in a sentence, for the Hero while it lasts, where the title says too little. */
+  summary?: string
   result: string
 }
 
@@ -60,10 +62,11 @@ export const ROLES: Role[] = [
   },
   {
     company: 'CGS Tower Networks',
-    title: 'WebUI Architect · AI adoption lead',
+    title: 'AI Lead & WebUI Architect',
     start: '2024-09',
     end: null,
     team: 5,
+    summary: 'leading AI across the company, and the architect of its WebUI',
     result:
       'The WebUI for every device the company makes, high-load central management for all of them, and agents that take tickets to pull requests in production.',
   },

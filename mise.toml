@@ -60,6 +60,11 @@ run = [
   "pnpm exec vitest run",
 ]
 
+[tasks.cv]
+description = "Build, then print the CV page to public/andrew-molyuk-cv.pdf; run it whenever the CV's data changes"
+depends = ["build"]
+run = ["pnpm exec playwright install chromium", "node scripts/cv-pdf.js"]
+
 [tasks.deploy]
 description = "Build and deploy to Cloudflare by hand; a push to master does it on its own"
 depends = ["build"]

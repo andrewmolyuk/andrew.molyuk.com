@@ -1,12 +1,21 @@
 <script setup lang="ts">
-import { LINKEDIN, TELEGRAM, whatsAppNumber } from '../lib/contact'
+import { ref } from 'vue'
+import { CV, EMAIL, LINKEDIN, TELEGRAM, whatsAppNumber } from '../lib/contact'
 
 const OTHERS = [
-  { label: 'email', href: 'mailto:andrew@molyuk.com' },
   { label: 'linkedin', href: LINKEDIN },
   { label: 'github', href: 'https://github.com/andrewmolyuk' },
   { label: 'whatsapp', href: null },
+  { label: 'cv (pdf)', href: CV },
 ]
+
+/** Many recruiters can't use Telegram from work and log contacts by email, so the address shows in full. */
+const copied = ref(false)
+async function copyEmail() {
+  await navigator.clipboard.writeText(EMAIL)
+  copied.value = true
+  setTimeout(() => (copied.value = false), 1500)
+}
 
 function openWhatsApp() {
   window.open(`https://wa.me/${whatsAppNumber()}`, '_blank', 'noopener,noreferrer')
@@ -15,7 +24,7 @@ function openWhatsApp() {
 
 <template>
   <section id="contact" class="border-line overflow-hidden border-t px-8 pt-22 pb-20">
-    <div class="mx-auto grid max-w-[1100px] items-center gap-x-16 gap-y-12 md:grid-cols-[1fr_minmax(0,520px)]">
+    <div class="mx-auto grid max-w-[1100px] items-center gap-x-16 gap-y-12 lg:grid-cols-[1fr_minmax(0,520px)]">
       <div>
         <h2 class="text-heading mb-6 text-[clamp(26px,3.5vw,40px)] font-semibold tracking-[-0.03em]">Let's talk</h2>
         <p class="text-muted max-w-[440px] text-[15px] leading-[1.75]">
@@ -59,6 +68,21 @@ function openWhatsApp() {
             ></span>
           </div>
         </a>
+
+        <div
+          class="border-line bg-panel relative mt-3 flex flex-wrap items-center justify-between gap-x-4 gap-y-1 rounded-md border px-5 py-3.5 font-mono sm:px-6"
+        >
+          <a :href="`mailto:${EMAIL}`" class="text-body hover:text-accent text-[14px] transition-colors duration-200">
+            <span class="text-faint mr-2.5 text-[12px] tracking-[0.12em] uppercase">email</span>{{ EMAIL }}
+          </a>
+          <button
+            type="button"
+            class="text-faint hover:text-accent cursor-pointer text-[12px] tracking-[0.12em] uppercase transition-colors duration-200"
+            @click="copyEmail"
+          >
+            {{ copied ? 'copied' : 'copy' }}
+          </button>
+        </div>
 
         <div class="relative mt-5 flex flex-wrap items-center gap-x-2.5 gap-y-1 font-mono text-[12.5px]">
           <span class="text-faint">or</span>

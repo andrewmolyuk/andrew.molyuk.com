@@ -1,30 +1,5 @@
 @import 'tailwindcss';
-
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 300 600;
-  font-display: swap;
-  src: url('/fonts/inter-latin.woff2') format('woff2');
-}
-
-/* Arial scaled to Inter's metrics, so text keeps its size and line breaks while Inter loads. */
-@font-face {
-  font-family: 'Inter Fallback';
-  src: local('Arial');
-  ascent-override: 90.49%;
-  descent-override: 22.56%;
-  line-gap-override: 0%;
-  size-adjust: 107.06%;
-}
-
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 400 500;
-  font-display: swap;
-  src: url('/fonts/jetbrains-mono-latin.woff2') format('woff2');
-}
+@import './fonts.css';
 
 @theme {
   --font-sans: Inter, 'Inter Fallback', system-ui, sans-serif;

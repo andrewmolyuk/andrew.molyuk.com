@@ -5,10 +5,12 @@ import { mkdtempSync, readFileSync, readdirSync, rmSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { extname, join } from 'node:path'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
+import { ROLES } from '../src/lib/career.ts'
 import { whatsAppNumber } from '../src/lib/contact.ts'
+import { cvHash } from './cv-hash.js'
 
 /** The sections the header links to, in page order, after Hero. */
-const SECTIONS = ['experience', 'skills', 'projects', 'contact']
+const SECTIONS = ['experience', 'skills', 'projects', 'recommendations', 'contact']
 
 const OUT = mkdtempSync(join(tmpdir(), 'andrew-molyuk-build-'))
 const read = (file: string) => readFileSync(join(OUT, file), 'utf8')
@@ -98,6 +100,20 @@ describe('prerendered page', () => {
     // instrumenta has no live site, so its name links nowhere.
     expect(projects).toMatch(/<span[^>]*>instrumenta<\/span>/)
     expect(projects).toContain('aria-label="instrumenta on GitHub"')
+  })
+})
+
+describe('CV', () => {
+  it('lists every role on the timeline, prerendered like the page', () => {
+    const cv = read('cv.html')
+    for (const role of ROLES) expect(cv).toContain(`>${role.company}<`)
+  })
+
+  it('ships a PDF printed from this very CV; after a change, `mise run cv` prints it again', () => {
+    expect(readFileSync(join(OUT, 'andrew-molyuk-cv.pdf')).subarray(0, 5).toString()).toBe('%PDF-')
+    expect(cvHash(read('cv.html')), 'the CV changed since its PDF was printed: run `mise run cv`').toBe(
+      readFileSync('scripts/cv.sha256', 'utf8').trim(),
+    )
   })
 })
 

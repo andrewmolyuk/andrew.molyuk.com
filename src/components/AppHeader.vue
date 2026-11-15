@@ -6,11 +6,14 @@ const LINKS = [
   { id: 'experience', label: 'Experience' },
   { id: 'skills', label: 'Skills' },
   { id: 'projects', label: 'Projects' },
+  { id: 'recommendations', label: 'Recommendations' },
   { id: 'contact', label: 'Contact' },
 ]
 
 const scrolled = ref(false)
-/** The linked section across the line 40% down the screen, lit in the header; none over Hero or Recommendations. */
+/** The links' menu on a phone, where the five links don't fit in the bar. */
+const menuOpen = ref(false)
+/** The linked section across the line 40% down the screen, lit in the header; none over Hero. */
 const current = ref<string | null>(null)
 
 function onScroll() {
@@ -32,8 +35,9 @@ onMounted(() => {
 })
 onUnmounted(() => window.removeEventListener('scroll', onScroll))
 
-// The Telegram button stays in the header on every screen, the one action the page asks for. On a phone
-// the prompt is hidden (`hidden sm:inline`) and the button is an icon: with the four links, nothing more fits.
+// The Telegram button stays in the header on every screen, the one action the page asks for. Narrower
+// screens make room for it: the prompt shows from lg, the links from md (a menu below), the button's
+// "Message" from sm.
 </script>
 
 <template>
@@ -42,21 +46,30 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
     :class="scrolled ? 'border-line bg-ink/[0.94] backdrop-blur-lg' : 'border-transparent bg-transparent'"
   >
     <div class="mx-auto flex h-14 max-w-[1100px] items-center justify-between gap-5 px-5 sm:px-8">
-      <span class="text-accent hidden font-mono text-[13px] sm:inline"
-        >andrew@molyuk.com<span class="text-faint">:~$</span></span
+      <a href="mailto:andrew@molyuk.com" class="text-accent hidden font-mono text-[13px] hover:opacity-85 lg:inline"
+        >andrew@molyuk.com<span class="text-faint">:~$</span></a
       >
-      <div class="ml-auto flex items-center gap-4 sm:gap-7">
-        <nav class="flex items-center gap-3.5 text-[15px] sm:gap-7">
+      <div class="ml-auto flex items-center gap-3 md:gap-6">
+        <nav class="hidden items-center gap-6 text-[15px] md:flex">
           <a
             v-for="link in LINKS"
             :key="link.id"
             :href="`#${link.id}`"
             :aria-current="current === link.id ? 'location' : undefined"
-            class="transition-colors duration-200"
+            class="py-2 transition-colors duration-200"
             :class="current === link.id ? 'text-heading' : 'text-muted hover:text-body'"
             >{{ link.label }}</a
           >
         </nav>
+        <button
+          type="button"
+          class="text-body border-line inline-flex items-center gap-2 rounded border px-3 py-1.5 text-[14px] md:hidden"
+          :aria-expanded="menuOpen"
+          aria-controls="site-menu"
+          @click="menuOpen = !menuOpen"
+        >
+          Menu <span aria-hidden="true">{{ menuOpen ? '×' : '≡' }}</span>
+        </button>
         <a
           :href="TELEGRAM.href"
           target="_blank"
@@ -85,5 +98,21 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
         </a>
       </div>
     </div>
+    <nav
+      v-if="menuOpen"
+      id="site-menu"
+      class="border-line bg-ink/[0.97] flex flex-col border-b px-5 pb-3 backdrop-blur-lg md:hidden"
+    >
+      <a
+        v-for="link in LINKS"
+        :key="link.id"
+        :href="`#${link.id}`"
+        :aria-current="current === link.id ? 'location' : undefined"
+        class="border-line border-t py-3 text-[16px]"
+        :class="current === link.id ? 'text-heading' : 'text-muted'"
+        @click="menuOpen = false"
+        >{{ link.label }}</a
+      >
+    </nav>
   </header>
 </template>

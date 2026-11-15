@@ -1,26 +1,25 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import AgentLogTerminal from './AgentLogTerminal.vue'
-import { ROLES, yearsCoding } from '../lib/career'
-import { TELEGRAM } from '../lib/contact'
-import { useToday } from '../lib/today'
+import { ROLES } from '../lib/career'
+import { CV, TELEGRAM } from '../lib/contact'
+import { LOCATION, LOOKING_FOR, NAME, POSITIONING } from '../lib/profile'
 
-const today = useToday()
-const YEARS = computed(() => yearsCoding(today.value))
 /** The role that is still running, so the line under the name never needs editing when it changes. */
 const CURRENT = ROLES.find((r) => r.end === null)!
-/** Its title as a fact in a sentence ("WebUI Architect and AI adoption lead"), not a second headline. */
-const CURRENT_ROLE = CURRENT.title.replace(' · ', ' and ')
+/** It as a fact in a sentence, not a second headline: its summary, or else its title. */
+const CURRENT_ROLE = CURRENT.summary ?? CURRENT.title
 
 // The grid's columns are min(420px, 100%) wide, not 420px: on a phone, 420px is wider than the
 // screen, and the page would scroll sideways.
 
-const STATS = computed(() => [
+// Three figures from the systems behind the career, and one from the AI work now (instrumenta's
+// 90 days to November 2026), so the move to AI Engineering has proof of its own.
+const STATS = [
   { value: '~23B', label: 'events/day', source: 'Vidcrunch' },
   { value: '100K', label: 'req/s steady', source: 'Vidcrunch' },
   { value: '3M', label: 'req/s peak', source: 'Screenz' },
-  { value: String(YEARS.value), label: 'years', source: 'in prod' },
-])
+  { value: '69', label: 'merged PRs', source: 'instrumenta · 90d' },
+]
 </script>
 
 <template>
@@ -46,16 +45,20 @@ const STATS = computed(() => [
         </div>
 
         <h1 class="text-heading mb-[22px] text-[clamp(42px,6vw,76px)] leading-[1.05] font-semibold tracking-[-0.04em]">
-          Andrew Molyuk
+          {{ NAME }}
         </h1>
 
         <div class="text-accent mb-7 min-h-[1.4em] font-mono text-[clamp(13px,1.8vw,18px)]">
-          System Architect / Distributed Systems → AI Engineering
+          {{ POSITIONING }}
         </div>
 
-        <p class="text-muted mb-10 max-w-[540px] text-[15px] leading-[1.8]">
-          Today: {{ CURRENT_ROLE }} at {{ CURRENT.company }}.<br />
+        <p class="text-muted mb-5 max-w-[540px] text-[15px] leading-[1.8]">
+          Today at {{ CURRENT.company }}: {{ CURRENT_ROLE }}.<br />
           Building AI-native engineering tools of my own.
+        </p>
+
+        <p class="text-muted mb-10 max-w-[540px] font-mono text-[12.5px] leading-[1.8]">
+          <span class="text-accent">Looking for:</span> {{ LOOKING_FOR }} · {{ LOCATION }}
         </p>
 
         <div class="mb-13 flex flex-wrap gap-2.5">
@@ -66,13 +69,17 @@ const STATS = computed(() => [
             class="bg-accent text-ink inline-flex items-center gap-1.5 rounded px-[18px] py-2.5 text-[15px] font-semibold hover:opacity-85"
             >Message me on Telegram ↗</a
           >
-          <a href="#projects" class="text-muted hover:text-body inline-flex items-center px-1 py-2.5 text-[15px]"
-            >See what I'm building →</a
+          <a
+            :href="CV"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="border-line text-body hover:border-accent/50 hover:text-accent inline-flex items-center gap-1.5 rounded border px-[18px] py-2.5 text-[15px] transition-colors duration-200"
+            >CV (PDF) ↓</a
           >
         </div>
 
-        <div class="border-line flex flex-wrap gap-y-5 border-t pt-7">
-          <div v-for="stat in STATS" :key="stat.label" class="flex-[0_1_88px] pr-[18px] pb-1">
+        <div class="border-line grid grid-cols-2 gap-y-5 border-t pt-7 sm:flex sm:flex-wrap">
+          <div v-for="stat in STATS" :key="stat.label" class="pr-[18px] pb-1 sm:flex-[0_1_88px]">
             <div class="text-heading font-mono text-[22px] leading-none font-medium tracking-[-0.03em]">
               {{ stat.value }}
             </div>
