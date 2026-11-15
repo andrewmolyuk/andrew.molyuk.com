@@ -22,6 +22,11 @@ import {
   spoke,
   type SkillId,
 } from '../lib/skillsGraph'
+import { yearsCoding } from '../lib/career'
+import { useToday } from '../lib/today'
+
+const today = useToday()
+const YEARS = computed(() => yearsCoding(today.value))
 
 const hovered = ref<SkillId | null>(null)
 /** The row the list explains: what is hovered, or the core when nothing is. */
@@ -109,7 +114,7 @@ const ACCENT = 'var(--color-accent)'
               stroke-width="1.2"
               style="transition: all 0.2s"
             />
-            <circle v-for="(p, i) in planets" :key="`pulse-${p.id}`" r="2.6" fill="#4dd8ff" opacity=".55">
+            <circle v-for="(p, i) in planets" :key="`pulse-${p.id}`" r="2.6" fill="#4dd8ff" opacity=".55" class="pulse">
               <animateMotion
                 :path="`M${p.spoke.from.x} ${p.spoke.from.y} L${p.spoke.to.x} ${p.spoke.to.y}`"
                 :dur="`${3.2 + i * 0.4}s`"
@@ -265,8 +270,8 @@ const ACCENT = 'var(--color-accent)'
 
         <div>
           <p class="text-muted mb-7 text-[15px] leading-[1.8]">
-            AI-native engineering is the focus now. It stands on 35 years of building software that had to stay up. The
-            disciplines last; the tools orbiting them change. Point at a node to see both.
+            AI-native engineering is the focus now. It stands on {{ YEARS }} years of building software that had to stay
+            up. The disciplines last; the tools orbiting them change. Point at a node to see both.
           </p>
           <div class="flex flex-col" @mouseleave="onLeave">
             <div
@@ -289,7 +294,7 @@ const ACCENT = 'var(--color-accent)'
                   :class="active === skill.id ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'"
                 >
                   <div class="overflow-hidden">
-                    <div class="text-faint pt-1.5 font-mono text-[11.5px]">
+                    <div class="text-faint pt-1.5 font-mono text-[12px]">
                       <span class="text-accent/60">↻</span> {{ skill.tools.join(' · ') }}
                     </div>
                   </div>
@@ -304,6 +309,14 @@ const ACCENT = 'var(--color-accent)'
 </template>
 
 <style scoped>
+/* The pulses run on SMIL <animateMotion>, which the global reduce-motion rule in style.css can't
+   slow down, so they are hidden instead. */
+@media (prefers-reduced-motion: reduce) {
+  .pulse {
+    display: none;
+  }
+}
+
 .moons {
   transform-box: view-box;
   animation: spin linear infinite;

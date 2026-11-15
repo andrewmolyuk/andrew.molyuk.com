@@ -96,7 +96,8 @@ export const PRINCIPLES: Principle[] = [
   {
     n: '03',
     title: 'Depth over breadth',
-    desc: "Thirty-five years in one problem space: systems that aren't allowed to fall over. Tools change; the problems don't.",
+    // {years} is filled in by the page with yearsCoding(), counted from the page's today.
+    desc: "{years} years in one problem space: systems that aren't allowed to fall over. Tools change; the problems don't.",
     from: null,
   },
 ]

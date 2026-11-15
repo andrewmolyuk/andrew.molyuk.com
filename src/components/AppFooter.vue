@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+import { useToday } from '../lib/today'
 
-const YEAR = new Date().getFullYear()
+const today = useToday()
+const YEAR = computed(() => today.value.getFullYear())
 const ZONE = 'Asia/Jerusalem'
 
 const clock = ref('')
@@ -27,7 +29,7 @@ onBeforeUnmount(() => clearInterval(timer))
 <template>
   <footer class="border-line border-t px-8 py-5">
     <div
-      class="text-faint mx-auto grid max-w-[1100px] gap-x-6 gap-y-2 font-mono text-[11.5px] md:grid-cols-[1fr_auto_1fr]"
+      class="text-faint mx-auto grid max-w-[1100px] gap-x-6 gap-y-2 font-mono text-[12px] md:grid-cols-[1fr_auto_1fr]"
     >
       <span>© {{ YEAR }} Andrew Molyuk</span>
       <span class="md:text-center">

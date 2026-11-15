@@ -57,8 +57,8 @@ const DOT_CLASS = { say: 'text-heading', ok: 'text-success', err: 'text-danger' 
 
 <template>
   <div class="sm:mr-10">
-    <div class="text-muted mb-2.5 font-mono text-[11.5px] tracking-[0.15em] uppercase">
-      sample session — claude code + bunderlog
+    <div class="text-muted mb-2.5 font-mono text-[12px] tracking-[0.15em] uppercase">
+      bunderlog at work — a sample claude code session
     </div>
 
     <div
@@ -114,7 +114,7 @@ const DOT_CLASS = { say: 'text-heading', ok: 'text-success', err: 'text-danger' 
           <span class="text-muted">&gt;</span>
           <span class="bg-body inline-block h-[14px] w-[7px] animate-pulse"></span>
         </div>
-        <div class="text-faint mt-1.5 text-[11px]">? for shortcuts</div>
+        <div class="text-faint mt-1.5 text-[12px]">? for shortcuts</div>
       </div>
     </div>
   </div>

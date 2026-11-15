@@ -6,10 +6,10 @@
   "packageManager": "pnpm@11.11.0",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc -b && vite build",
+    "build": "vue-tsc -b && vite build && node scripts/prerender.js",
     "preview": "vite preview",
     "cf:dev": "wrangler dev",
-    "deploy": "vite build && wrangler deploy",
+    "deploy": "vite build && node scripts/prerender.js && wrangler deploy",
     "test": "vitest run",
     "lint": "eslint .",
     "format": "prettier --write .",

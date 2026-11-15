@@ -10,7 +10,7 @@ deployed as a static Cloudflare Worker.
 ```bash
 pnpm install
 pnpm dev       # local dev server
-pnpm build     # typecheck + production build to dist/
+pnpm build     # typecheck, production build and prerender to dist/
 pnpm preview   # serve the production build locally
 ```
 

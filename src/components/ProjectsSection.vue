@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import ProjectName from './ProjectName.vue'
+
 const TOOLS = [
   {
     n: '.about/',
@@ -42,75 +44,82 @@ const TOOLS = [
   },
 ]
 
-const OTHER_PROJECTS = [
+/** status is shown only when it isn't live, which all the rest are. fact is a figure the project has, if any. */
+const OTHER_PROJECTS: {
+  title: string
+  icon: string
+  status?: string
+  site?: string
+  github?: string
+  desc: string
+  fact?: string
+  tags: string[]
+}[] = [
   {
     title: 'instrumenta',
     icon: '/projects/instrumenta.svg',
     status: 'in internal production',
-    href: 'https://github.com/andrewmolyuk/instrumenta',
-    desc: 'Agent pipeline that takes a Jira ticket to an open pull request, now in internal production at the company I work for as a multi-agent dynamic workflow. An investigator, implementer, reviewer and app tester each hold only their own tools; a workflow script sequences them, re-reviews every fresh diff and caps rework at three rounds. Batches of tickets run unattended.',
+    github: 'https://github.com/andrewmolyuk/instrumenta',
+    desc: 'Agent pipeline that takes a Jira ticket to an open pull request, unattended, at the company I work for.',
+    fact: '4 agents, each with only its own tools · rework capped at 3 rounds',
     tags: ['Claude Code', 'Workflows', 'Subagents', 'Playwright', 'Jira', 'Bitbucket'],
   },
   {
     title: 'chainofsale',
     icon: '/projects/chainofsale.svg',
-    status: 'live',
-    href: 'https://chainofsale.com',
-    desc: 'Supply-chain check for ad systems — SSPs, exchanges and ad networks. Reads an ad system’s sellers.json and the ads.txt and app-ads.txt of every seller’s domain, as the buyers’ crawlers do, and shows each seller the publisher does not confirm, with the exact line that fixes it. Free summary, paid partner reports and weekly monitoring; a public directory ranks the chain health of 1,700+ ad systems.',
+    site: 'https://chainofsale.com', // its repository is private
+    desc: 'Supply-chain check for ad systems: each seller the publisher doesn’t confirm, with the exact ads.txt line that fixes it.',
+    fact: '1,700+ ad systems ranked by chain health',
     tags: ['Go', 'PostgreSQL', 'Vue 3', 'Tailwind CSS', 'Kamal', 'Cloudflare Workers'],
   },
   {
     title: 'servienta',
     icon: '/projects/servienta.svg',
-    status: 'live',
-    href: 'https://github.com/servienta/servienta',
-    site: { label: 'servienta.com', href: 'https://servienta.com' },
-    desc: 'Testing services for network integrations — a controlled instance of every endpoint an application talks to (syslog, SNMP, RADIUS, TACACS+, DNS, NTP, Kafka, IPFIX) plus a five-transport file server. One container, started in one command, readable from automated tests and resettable between runs.',
+    site: 'https://servienta.com',
+    github: 'https://github.com/servienta/servienta',
+    desc: 'Every endpoint an application talks to, in one container: readable from automated tests and reset between runs.',
+    fact: '8 protocols · a 5-transport file server',
     tags: ['Go', 'Docker', 'Vue 3', 'Hono', 'Cloudflare Workers', 'Cloudflare D1'],
   },
   {
     title: 'clockcover',
     icon: '/projects/clockcover.svg',
-    status: 'live',
-    href: 'https://github.com/clockcover/clockcover',
-    site: { label: 'clockcover.com', href: 'https://clockcover.com' },
-    desc: 'Detects missed time-clock entries and routes them to the right manager before they pile up at month-end. Compares scheduled shifts against actual clock-ins/outs, sends daily digests, and escalates unresolved gaps to payroll after the SLA expires.',
+    site: 'https://clockcover.com',
+    github: 'https://github.com/clockcover/clockcover',
+    desc: 'Finds missed time-clock entries and routes them to the right manager before they pile up at month-end.',
     tags: ['Hono', 'Cloudflare Workers', 'Drizzle', 'D1', 'Vue 3', 'Tailwind CSS'],
   },
   {
     title: 'checkmeup',
     icon: '/projects/checkmeup.svg',
-    status: 'live',
-    href: 'https://github.com/checkmeup/checkmeup',
-    site: { label: 'checkmeup.net', href: 'https://checkmeup.net' },
-    desc: 'Cron, uptime, SSL, domain expiry and port (TCP) monitors with Telegram, Slack and SMS alerts, plus white-label status pages. Self-hosted product — Hetzner, Kamal, Traefik, no managed platform in the path.',
+    site: 'https://checkmeup.net',
+    github: 'https://github.com/checkmeup/checkmeup',
+    desc: 'Cron, uptime, SSL, domain and port monitors with Telegram, Slack and SMS alerts, and white-label status pages.',
     tags: ['Go', 'Chi', 'sqlc', 'PostgreSQL', 'Vue 3', 'Kamal'],
   },
   {
     title: 'staffcomplete',
     icon: '/projects/staffcomplete.svg',
-    status: 'live',
-    href: 'https://github.com/staff-complete/staffcomplete',
-    site: { label: 'staffcomplete.io', href: 'https://staffcomplete.io' },
-    desc: 'SaaS platform automating the full employee lifecycle across company systems — onboarding, role changes, offboarding. Every lifecycle event is queued, dispatched to per-system integration handlers, and recorded for audit. Multi-tenant, isolated at the database level via Postgres RLS.',
+    site: 'https://staffcomplete.io',
+    github: 'https://github.com/staff-complete/staffcomplete',
+    desc: 'Onboarding, role changes and offboarding across a company’s systems, each event queued, dispatched and audited.',
     tags: ['Hono', 'tRPC', 'Drizzle', 'PostgreSQL RLS', 'pg-boss', 'Vue 3'],
   },
   {
     title: 'pass.molyuk.com',
     icon: '/projects/pass-molyuk.svg',
-    status: 'live',
-    href: 'https://github.com/andrewmolyuk/pass.molyuk.com',
-    site: { label: 'pass.molyuk.com', href: 'https://pass.molyuk.com' },
-    desc: 'Shares a secret through a one-time link, with a PIN sent separately by voice or another chat. The browser encrypts the secret before it leaves; the server stores only ciphertext and never sees the secret, the key or the PIN. Links expire after 5 minutes, an hour or a day, and burn once read.',
+    site: 'https://pass.molyuk.com',
+    github: 'https://github.com/andrewmolyuk/pass.molyuk.com',
+    desc: 'One-time links to a secret encrypted in the browser: the server never sees the secret, the key or the PIN.',
     tags: ['TypeScript', 'Web Crypto', 'Cloudflare Workers', 'Cloudflare D1'],
   },
   {
     title: 'tools.molyuk.com',
     icon: '/projects/tools-molyuk.svg',
-    status: 'live',
-    href: 'https://github.com/andrewmolyuk/tools.molyuk.com',
-    site: { label: 'tools.molyuk.com', href: 'https://tools.molyuk.com' },
-    desc: '36 everyday developer tools in one place — ID generators, hashes and HMAC, base64, JWT and X.509 decoding, regex, cron, CIDR, TOTP, diff and more. Almost everything runs in the browser; only “My IP” and DNS lookup go through the worker.',
+    site: 'https://tools.molyuk.com',
+    github: 'https://github.com/andrewmolyuk/tools.molyuk.com',
+    desc: 'Everyday developer tools in one place: IDs, hashes, JWT and X.509, regex, cron, CIDR, TOTP, diff and more.',
+    fact: '36 tools, nearly all running in the browser',
     tags: ['Vue 3', 'TypeScript', 'Tailwind CSS', 'vue-i18n', 'Cloudflare Workers'],
   },
 ]
@@ -126,34 +135,19 @@ const OTHER_PROJECTS = [
       </div>
 
       <p class="text-muted mb-6 text-[15px] leading-[1.7]">
-        bunderlog is the current focus. The rest are products I built and run; instrumenta went into internal production
-        at the company I work for.
+        bunderlog is the current focus. The rest are live products I built and run; instrumenta went into internal
+        production at the company I work for.
       </p>
 
       <div class="flex flex-col gap-4">
         <div class="border-line bg-panel hover:border-accent/27 rounded-md border px-7 pt-7 pb-6 transition-colors">
           <div class="mb-3 flex items-start justify-between gap-3">
-            <div class="flex flex-wrap items-center gap-x-3.5 gap-y-1.5">
-              <img src="/projects/bunderlog.svg" alt="" width="28" height="28" class="size-7 shrink-0 rounded-md" />
-              <a
-                href="https://github.com/bunderlog"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-heading hover:text-accent font-mono text-[15px] font-medium"
-                >bunderlog ↗</a
-              >
-              <a
-                href="https://bunderlog.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-muted hover:text-accent font-mono text-[12.5px]"
-                >bunderlog.com</a
-              >
-            </div>
-            <span
-              class="border-success/27 bg-success/8 text-success shrink-0 rounded border px-2.5 py-0.5 font-mono text-[11px] tracking-[0.1em] uppercase"
-              >live</span
-            >
+            <ProjectName
+              name="bunderlog"
+              icon="/projects/bunderlog.svg"
+              site="https://bunderlog.com"
+              github="https://github.com/bunderlog"
+            />
           </div>
           <p class="text-muted mb-5 text-[15px] leading-[1.78]">
             Four free tools for Claude Code that work as one. Every AI coding session starts from nothing; bunderlog
@@ -162,16 +156,23 @@ const OTHER_PROJECTS = [
           </p>
 
           <div class="border-line mb-5 border-y py-3">
-            <div class="text-muted flex flex-wrap gap-x-3.5 gap-y-1.5 font-mono text-[11.5px] tracking-[0.02em]">
+            <div class="text-muted flex flex-wrap gap-x-3.5 gap-y-1.5 font-mono text-[12px] tracking-[0.02em]">
               <span>3 plugins + 1 CLI</span>
               <span class="text-line-strong">·</span>
               <span>1 shared record</span>
               <span class="text-line-strong">·</span>
               <span>MIT licensed</span>
             </div>
-            <div class="text-faint mt-1.5 font-mono text-[11px]">
-              Claude checks the project’s rules before writing code 6% of the time on its own, 68% with louie (5 of 79
-              vs. 15 of 22, three weeks of real sessions)
+            <div class="mt-3 flex flex-wrap items-baseline gap-x-4 gap-y-1">
+              <span class="text-heading font-mono text-[22px] leading-none font-medium tracking-[-0.03em]"
+                >6% <span class="text-accent">→ 68%</span></span
+              >
+              <span class="text-muted text-[13.5px] leading-[1.5]"
+                >how often Claude checks the project’s rules before writing code, on its own and with louie</span
+              >
+            </div>
+            <div class="text-faint mt-1 font-mono text-[12px]">
+              5 of 79 vs. 15 of 22 sessions, three weeks of real use
             </div>
           </div>
 
@@ -193,22 +194,22 @@ const OTHER_PROJECTS = [
               />
               <div
                 v-if="tool.files"
-                class="text-accent/70 mb-1.5 flex h-16 flex-col justify-center font-mono text-[11px] leading-[1.45]"
+                class="text-accent/70 mb-1.5 flex h-16 flex-col justify-center font-mono text-[12px] leading-[1.45]"
               >
                 <span v-for="file in tool.files" :key="file">{{ file }}</span>
               </div>
-              <div class="mb-1.5 font-mono text-[11.5px]" :class="tool.highlight ? 'text-accent/60' : 'text-faint'">
+              <div class="mb-1.5 font-mono text-[12px]" :class="tool.highlight ? 'text-accent/70' : 'text-faint'">
                 {{ tool.n }}
               </div>
-              <div class="font-mono text-[11.5px] leading-[1.4]" :class="tool.highlight ? 'text-accent' : 'text-body'">
+              <div class="font-mono text-[12px] leading-[1.4]" :class="tool.highlight ? 'text-accent' : 'text-body'">
                 {{ tool.title }}
               </div>
-              <div class="text-muted mt-[3px] font-mono text-[11px]">{{ tool.sub }}</div>
+              <div class="text-muted mt-[3px] font-mono text-[12px]">{{ tool.sub }}</div>
               <p class="border-line text-muted mt-2.5 border-t pt-2.5 text-[12.5px] leading-[1.55]">{{ tool.desc }}</p>
             </div>
           </div>
 
-          <div class="text-faint mt-4 flex flex-wrap gap-1.5 font-mono text-[11.5px]">
+          <div class="text-faint mt-4 flex flex-wrap gap-1.5 font-mono text-[12px]">
             <span
               v-for="tag in ['Claude Code', 'Python', 'Go', 'Git hooks', 'Astro']"
               :key="tag"
@@ -218,38 +219,27 @@ const OTHER_PROJECTS = [
           </div>
         </div>
 
-        <div
-          v-for="project in OTHER_PROJECTS"
-          :key="project.title"
-          class="border-line bg-panel hover:border-accent/27 rounded-md border px-7 pt-7 pb-6 transition-colors"
-        >
-          <div class="mb-3 flex items-start justify-between gap-3">
-            <div class="flex flex-wrap items-center gap-x-3.5 gap-y-1.5">
-              <img :src="project.icon" alt="" width="28" height="28" class="size-7 shrink-0 rounded-md" />
-              <a
-                :href="project.href"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-heading hover:text-accent font-mono text-[15px] font-medium"
-                >{{ project.title }} ↗</a
-              >
-              <a
-                v-if="project.site"
-                :href="project.site.href"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-muted hover:text-accent font-mono text-[12.5px]"
-                >{{ project.site.label }}</a
+        <div class="grid gap-4 md:grid-cols-2">
+          <div
+            v-for="project in OTHER_PROJECTS"
+            :key="project.title"
+            class="border-line bg-panel hover:border-accent/27 flex flex-col rounded-md border px-6 pt-6 pb-5 transition-colors"
+          >
+            <div class="mb-3 flex items-start justify-between gap-3">
+              <ProjectName :name="project.title" :icon="project.icon" :site="project.site" :github="project.github" />
+              <span
+                v-if="project.status"
+                class="border-success/27 bg-success/8 text-success shrink-0 rounded border px-2.5 py-0.5 font-mono text-[12px] tracking-[0.1em] uppercase"
+                >{{ project.status }}</span
               >
             </div>
-            <span
-              class="border-success/27 bg-success/8 text-success shrink-0 rounded border px-2.5 py-0.5 font-mono text-[11px] tracking-[0.1em] uppercase"
-              >{{ project.status }}</span
-            >
-          </div>
-          <p class="text-muted mb-4 text-[15px] leading-[1.78]">{{ project.desc }}</p>
-          <div class="text-faint flex flex-wrap gap-1.5 font-mono text-[11.5px]">
-            <span v-for="tag in project.tags" :key="tag" class="border-line rounded border px-2 py-0.5">{{ tag }}</span>
+            <p class="text-muted text-[14.5px] leading-[1.7]">{{ project.desc }}</p>
+            <div v-if="project.fact" class="text-accent/80 mt-2 font-mono text-[12px]">{{ project.fact }}</div>
+            <div class="text-faint mt-auto flex flex-wrap gap-1.5 pt-4 font-mono text-[12px]">
+              <span v-for="tag in project.tags" :key="tag" class="border-line rounded border px-2 py-0.5">{{
+                tag
+              }}</span>
+            </div>
           </div>
         </div>
       </div>

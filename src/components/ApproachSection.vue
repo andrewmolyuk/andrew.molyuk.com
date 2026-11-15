@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import {
   CODING_SINCE,
   PRINCIPLES,
@@ -12,17 +12,21 @@ import {
   years,
   yearsCoding,
 } from '../lib/career'
+import { useToday } from '../lib/today'
 
-const NOW = toYm(new Date())
-const TICKS = ticks(NOW)
-const YEARS = yearsCoding()
+const today = useToday()
+const NOW = computed(() => toYm(today.value))
+const TICKS = computed(() => ticks(NOW.value))
+const YEARS = computed(() => yearsCoding(today.value))
 const DEPTH = PRINCIPLES.find((p) => p.from === null)!
-const rows = ROLES.map((role) => ({
-  ...role,
-  span: span(role, NOW),
-  years: years(role),
-  principle: principleOf(role.company),
-}))
+const rows = computed(() =>
+  ROLES.map((role) => ({
+    ...role,
+    span: span(role, NOW.value),
+    years: years(role),
+    principle: principleOf(role.company),
+  })),
+)
 
 /** The principle in focus, linking its column above to its row on the timeline. */
 const focus = ref<string | null>(null)
@@ -59,16 +63,13 @@ const lit = (n: string | undefined) => n !== undefined && focus.value === n
             ></span>
           </div>
           <h3 class="text-heading mb-2 text-[17px] font-medium tracking-[-0.01em]">{{ p.title }}</h3>
-          <p class="text-muted text-[14.5px] leading-[1.7]">{{ p.desc }}</p>
-          <div class="text-faint mt-3 font-mono text-[11.5px]">{{ origin(p) }}</div>
+          <p class="text-muted text-[14.5px] leading-[1.7]">{{ p.desc.replace('{years}', String(YEARS)) }}</p>
+          <div class="text-faint mt-3 font-mono text-[12px]">{{ origin(p) }}</div>
         </div>
       </div>
 
       <div class="career text-[14px]">
-        <div
-          class="text-faint hidden pb-3 font-mono text-[10.5px] tracking-[0.1em] uppercase md:grid"
-          aria-hidden="true"
-        >
+        <div class="text-faint hidden pb-3 font-mono text-[12px] tracking-[0.1em] uppercase md:grid" aria-hidden="true">
           <span>Years</span>
           <span>Role · team</span>
           <div class="relative">
@@ -93,7 +94,7 @@ const lit = (n: string | undefined) => n !== undefined && focus.value === n
 
           <div>
             <div class="text-heading text-[15px] leading-[22px] font-medium">{{ row.company }}</div>
-            <div class="text-muted mt-0.5 font-mono text-[11.5px] leading-[1.5]">
+            <div class="text-muted mt-0.5 font-mono text-[12px] leading-[1.5]">
               {{ row.title }}<template v-if="row.team"> · {{ row.team }} engineers</template>
             </div>
           </div>
@@ -132,7 +133,7 @@ const lit = (n: string | undefined) => n !== undefined && focus.value === n
           <span class="text-faint font-mono text-[12px] leading-[22px]">{{ CODING_SINCE }}–now</span>
           <div>
             <div class="text-heading text-[15px] leading-[22px] font-medium">{{ YEARS }} years</div>
-            <div class="text-muted mt-0.5 font-mono text-[11.5px] leading-[1.5]">one problem space</div>
+            <div class="text-muted mt-0.5 font-mono text-[12px] leading-[1.5]">one problem space</div>
           </div>
           <div class="relative my-3 h-3 md:my-0 md:h-[22px]" aria-hidden="true">
             <span

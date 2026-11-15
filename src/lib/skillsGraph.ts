@@ -23,7 +23,7 @@ export const SKILL_LIST: (Skill & { id: Exclude<SkillId, 'ai'> })[] = [
     id: 'hlha',
     label: 'Distributed systems',
     desc: 'High-load, high-availability systems that keep serving through failure: live TV voting at 3M requests a second, video ads at 23B events a day.',
-    tools: ['3M req/s peak', '100K req/s idle', '23B events/day'],
+    tools: ['3M req/s peak', '100K req/s steady', '23B events/day'],
   },
   {
     id: 'cloud',

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const TELEGRAM = { href: 'https://t.me/andrewmolyuk', handle: 't.me/andrewmolyuk' }
+import { TELEGRAM, whatsAppNumber } from '../lib/contact'
 
 const OTHERS = [
   { label: 'email', href: 'mailto:andrew@molyuk.com' },
@@ -8,13 +8,8 @@ const OTHERS = [
   { label: 'whatsapp', href: null },
 ]
 
-// The number is assembled only on click, so it never sits in the page for scrapers to collect.
-const WA = ['2847', '674', '45', '279']
 function openWhatsApp() {
-  const number = WA.map((part) => [...part].reverse().join(''))
-    .reverse()
-    .join('')
-  window.open(`https://wa.me/${number}`, '_blank', 'noopener,noreferrer')
+  window.open(`https://wa.me/${whatsAppNumber()}`, '_blank', 'noopener,noreferrer')
 }
 </script>
 
@@ -50,7 +45,7 @@ function openWhatsApp() {
           rel="noopener noreferrer"
           class="group border-line bg-panel hover:border-accent/50 relative block rounded-md border p-5 font-mono transition-colors duration-200 sm:p-6"
         >
-          <div class="text-faint mb-4 flex items-center justify-between text-[11px] tracking-[0.12em] uppercase">
+          <div class="text-faint mb-4 flex items-center justify-between text-[12px] tracking-[0.12em] uppercase">
             <span>telegram</span>
             <span class="group-hover:text-accent transition-colors duration-200">open ↗</span>
           </div>
