@@ -1,2 +1,4 @@
 #!/bin/sh
+# Lint, format, types and tests first; stdin is left for hathi, which reads the pushed refs from it.
+mise run check </dev/null || exit 1
 exec hathi check pre-push "$@"
