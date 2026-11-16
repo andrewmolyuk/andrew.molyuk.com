@@ -10,20 +10,18 @@ import SkillsSection from './components/SkillsSection.vue'
 </script>
 
 <template>
-  <div class="bg-ink relative min-h-screen">
-    <div class="relative z-1">
-      <AppHeader />
+  <div class="bg-ink min-h-screen">
+    <AppHeader />
 
-      <main>
-        <HeroSection />
-        <ExperienceSection />
-        <SkillsSection />
-        <ProjectsSection />
-        <RecommendationsSection />
-        <ContactSection />
-      </main>
+    <main>
+      <HeroSection />
+      <ExperienceSection />
+      <SkillsSection />
+      <ProjectsSection />
+      <RecommendationsSection />
+      <ContactSection />
+    </main>
 
-      <AppFooter />
-    </div>
+    <AppFooter />
   </div>
 </template>

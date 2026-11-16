@@ -10,7 +10,7 @@ const SITE = 'andrew.molyuk.com'
 
 <template>
   <div class="bg-ink relative h-[630px] w-[1200px] overflow-hidden px-[72px] py-[60px] font-sans">
-    <!-- The grid of faint lines and the glow behind the name, as on the old card. -->
+    <!-- The grid of faint lines and the glow behind the name. -->
     <div
       aria-hidden="true"
       class="absolute inset-0 bg-[linear-gradient(var(--color-line)_1px,transparent_1px),linear-gradient(90deg,var(--color-line)_1px,transparent_1px)] mask-[radial-gradient(ellipse_at_70%_20%,black,transparent_75%)] bg-size-[48px_48px] opacity-60"
