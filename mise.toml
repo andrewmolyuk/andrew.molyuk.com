@@ -65,6 +65,11 @@ description = "Build, then print the CV page to public/andrew-molyuk-cv.pdf; run
 depends = ["build"]
 run = ["pnpm exec playwright install chromium", "node scripts/cv-pdf.js"]
 
+[tasks.og]
+description = "Build, then take the link-preview card's picture into public/og-image.png; run it whenever the Hero's data changes"
+depends = ["build"]
+run = ["pnpm exec playwright install chromium", "node scripts/og-image.js"]
+
 [tasks.deploy]
 description = "Build and deploy to Cloudflare by hand; a push to master does it on its own"
 depends = ["build"]

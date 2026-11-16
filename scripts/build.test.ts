@@ -7,7 +7,7 @@ import { extname, join } from 'node:path'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 import { ROLES } from '../src/lib/career.ts'
 import { whatsAppNumber } from '../src/lib/contact.ts'
-import { cvHash } from './cv-hash.js'
+import { pageHash } from './page-hash.js'
 
 /** The sections the header links to, in page order, after Hero. */
 const SECTIONS = ['experience', 'skills', 'projects', 'recommendations', 'contact']
@@ -131,7 +131,7 @@ describe('CV', () => {
 
   it('ships a PDF printed from this very CV; after a change, `mise run cv` prints it again', () => {
     expect(readFileSync(join(OUT, 'andrew-molyuk-cv.pdf')).subarray(0, 5).toString()).toBe('%PDF-')
-    expect(cvHash(read('cv.html')), 'the CV changed since its PDF was printed: run `mise run cv`').toBe(
+    expect(pageHash(read('cv.html')), 'the CV changed since its PDF was printed: run `mise run cv`').toBe(
       readFileSync('scripts/cv.sha256', 'utf8').trim(),
     )
   })
@@ -167,6 +167,13 @@ describe('sharing and discovery', () => {
 
     const png = readFileSync(join(OUT, 'og-image.png'))
     expect([png.readUInt32BE(16), png.readUInt32BE(20)]).toEqual([1200, 630])
+  })
+
+  it('ships a link-preview image taken of this very card; after a change, `mise run og` takes it again', () => {
+    expect(
+      pageHash(read('og.html')),
+      'the link-preview card changed since its picture was taken: run `mise run og`',
+    ).toBe(readFileSync('scripts/og.sha256', 'utf8').trim())
   })
 
   it('describes Andrew as a schema.org Person linked to his profiles', () => {

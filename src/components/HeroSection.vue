@@ -2,7 +2,7 @@
 import AgentLogTerminal from './AgentLogTerminal.vue'
 import { ROLES } from '../lib/career'
 import { CV, TELEGRAM } from '../lib/contact'
-import { LOCATION, LOOKING_FOR, NAME, POSITIONING } from '../lib/profile'
+import { LOCATION, LOOKING_FOR, NAME, POSITIONING, STATS } from '../lib/profile'
 import { BUNDERLOG } from '../lib/projects'
 
 /** The role that is still running, so the line under the name never needs editing when it changes. */
@@ -17,15 +17,6 @@ const [FROM, TO] = POSITIONING.split(' → ')
 // opening the whole session grows only its own column, and the left one stays put. The section is
 // as tall as its content, not the screen: on a tall screen, Experience shows under the figures
 // instead of an empty band.
-
-// Three figures from the systems behind the career, and one from the AI work now (instrumenta's
-// 90 days to November 2026), so the move to AI Engineering has proof of its own.
-const STATS = [
-  { value: '~23B', label: 'events/day', source: 'Vidcrunch' },
-  { value: '100K', label: 'req/s steady', source: 'Vidcrunch' },
-  { value: '3M', label: 'req/s peak', source: 'Screenz' },
-  { value: '69', label: 'merged PRs', source: 'instrumenta · 90d' },
-]
 </script>
 
 <template>
@@ -67,7 +58,7 @@ const STATS = [
             rel="noopener noreferrer"
             class="text-heading decoration-accent/50 hover:text-accent font-medium underline underline-offset-4"
             >bunderlog ↗</a
-          >: Claude Code sessions that know what the project decided and check every change against it.
+          >: {{ BUNDERLOG.what }}.
         </p>
 
         <!-- In the body's font and brighter than the line above: it is what a recruiter reads the Hero for. -->

@@ -1,6 +1,6 @@
 # Andrew Molyuk
 
-> System Architect / Distributed Systems to AI Engineering. Building AI-native engineering tools after 35+ years shipping systems at 100K RPS scale.
+> System Architect / Distributed Systems to AI Engineering, 35+ years in software. Open to Head of AI Engineering, CTO or VP R&D roles and consulting. Building bunderlog for Claude Code.
 
 ## Sections
 

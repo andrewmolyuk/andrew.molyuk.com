@@ -4,7 +4,7 @@
 import { readFile, writeFile } from 'node:fs/promises'
 import { chromium } from 'playwright'
 import { preview } from 'vite'
-import { cvHash } from './cv-hash.js'
+import { pageHash } from './page-hash.js'
 
 const server = await preview({ logLevel: 'warn', preview: { port: 4318, strictPort: true } })
 try {
@@ -16,5 +16,5 @@ try {
 } finally {
   await new Promise((done) => server.httpServer.close(done))
 }
-await writeFile('scripts/cv.sha256', `${cvHash(await readFile('dist/cv.html', 'utf8'))}\n`)
+await writeFile('scripts/cv.sha256', `${pageHash(await readFile('dist/cv.html', 'utf8'))}\n`)
 console.log('public/andrew-molyuk-cv.pdf and scripts/cv.sha256 written')

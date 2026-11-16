@@ -1,7 +1,12 @@
 // The products shown under What I'm Building, after bunderlog.
 
-/** bunderlog's own site and GitHub organization: the Hero's sentence and the first project card link here. */
-export const BUNDERLOG = { site: 'https://bunderlog.com', github: 'https://github.com/bunderlog' }
+/** bunderlog's own site and GitHub organization, which the Hero and the first project card link to,
+ *  and what it does in plain words, for the Hero and the link-preview card. */
+export const BUNDERLOG = {
+  site: 'https://bunderlog.com',
+  github: 'https://github.com/bunderlog',
+  what: 'Claude Code sessions that know what the project decided and check every change against it',
+}
 
 export interface Project {
   title: string

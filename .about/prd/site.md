@@ -225,6 +225,11 @@ visits, not contacts.
   schema.org Person whose `sameAs` lists GitHub, LinkedIn and Telegram.
   → test: scripts/build.test.ts "has a title, description, canonical URL and link-preview tags with a 1200×630 image"
   → test: scripts/build.test.ts "describes Andrew as a schema.org Person linked to his profiles"
+- The link-preview image is the Hero as a 1200×630 card, made from the same data: the photo, that
+  he is open to roles and consulting, the name, the role line, what bunderlog does and the four
+  figures with their sources. A card that changed since its picture was taken fails the build test
+  until `mise run og` takes it again.
+  → test: scripts/build.test.ts "ships a link-preview image taken of this very card; after a change, `mise run og` takes it again"
 - `robots.txt` allows every crawler and names `sitemap.xml`, which lists `https://andrew.molyuk.com/`.
   → test: scripts/build.test.ts "lets every crawler in and points it to the sitemap of the one page"
 - `llms.txt` links to every section the header links to, and to the same profiles as the Person.

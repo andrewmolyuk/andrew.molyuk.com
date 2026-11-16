@@ -5,6 +5,16 @@ export const POSITIONING = 'System Architect / Distributed Systems → AI Engine
 export const LOOKING_FOR = 'Head of AI Engineering, CTO or VP R&D · consulting on agents in production'
 export const LOCATION = 'Israel (UTC+2), remote'
 
+/** The Hero's four figures, also on the link-preview card: three from the systems behind the career,
+ *  and one from the AI work now (instrumenta's 90 days to November 2026), so the move to AI
+ *  Engineering has proof of its own. */
+export const STATS = [
+  { value: '~23B', label: 'events/day', source: 'Vidcrunch' },
+  { value: '100K', label: 'req/s steady', source: 'Vidcrunch' },
+  { value: '3M', label: 'req/s peak', source: 'Screenz' },
+  { value: '69', label: 'merged PRs', source: 'instrumenta · 90d' },
+]
+
 /** Before the timeline's first role; the public record shows only these two of those years' employers. */
 export const EARLIER = '1991–2006: software engineering roles, among them Azben and DSIT'
 
