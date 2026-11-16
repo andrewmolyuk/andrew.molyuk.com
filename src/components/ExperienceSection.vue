@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue'
 import {
   CODING_SINCE,
+  LEADING_SINCE,
   PRINCIPLES,
   ROLES,
   origin,
@@ -11,6 +12,7 @@ import {
   toYm,
   years,
   yearsCoding,
+  yearsLeading,
 } from '../lib/career'
 import { LINKEDIN } from '../lib/contact'
 import { useToday } from '../lib/today'
@@ -19,6 +21,7 @@ const today = useToday()
 const NOW = computed(() => toYm(today.value))
 const TICKS = computed(() => ticks(NOW.value))
 const YEARS = computed(() => yearsCoding(today.value))
+const LEADING = computed(() => yearsLeading(today.value))
 const DEPTH = PRINCIPLES.find((p) => p.from === null)!
 const rows = computed(() =>
   ROLES.map((role) => ({
@@ -42,7 +45,7 @@ const lit = (n: string | undefined) => n !== undefined && focus.value === n
       </div>
 
       <p class="text-muted mb-12 max-w-[640px] text-base leading-[1.75]">
-        I've been writing software since {{ CODING_SINCE }}, and for close to 20 of those years I also ran the teams
+        I've been writing software since {{ CODING_SINCE }}, and for {{ LEADING }} of those years I also ran the teams
         that wrote it.
       </p>
 
@@ -124,7 +127,8 @@ const lit = (n: string | undefined) => n !== undefined && focus.value === n
             ></span>
           </div>
           <p class="text-muted leading-[1.65]">
-            Writing code since {{ CODING_SINCE }}, leading teams since 2006, helping AI write correct code since 2025.
+            Writing code since {{ CODING_SINCE }}, leading teams since {{ LEADING_SINCE }}, helping AI write correct
+            code since 2025.
           </p>
         </div>
       </div>

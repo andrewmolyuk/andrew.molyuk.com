@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { PRINCIPLES, ROLES, origin, principleOf, span, ticks, toYm, years, yearsCoding } from './career'
+import { PRINCIPLES, ROLES, origin, principleOf, span, ticks, toYm, years, yearsCoding, yearsLeading } from './career'
 
 const NOW = '2026-11'
 
@@ -77,5 +77,11 @@ describe('principles', () => {
 describe('yearsCoding', () => {
   it('counts from 1991', () => {
     expect(yearsCoding(new Date(2026, 10, 12))).toBe(35)
+  })
+})
+
+describe('yearsLeading', () => {
+  it('counts from the first role on the timeline, 2006', () => {
+    expect(yearsLeading(new Date(2026, 10, 12))).toBe(20)
   })
 })

@@ -119,6 +119,13 @@ export function yearsCoding(today: Date = new Date()): number {
   return today.getFullYear() - CODING_SINCE
 }
 
+/** The year the first role on the timeline began, the first one leading a team. */
+export const LEADING_SINCE = Number(ROLES[0].start.slice(0, 4))
+
+export function yearsLeading(today: Date = new Date()): number {
+  return today.getFullYear() - LEADING_SINCE
+}
+
 /** Where the axis starts: the first role. */
 export const AXIS_START = ROLES[0].start
 
