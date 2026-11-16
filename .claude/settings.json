@@ -5,10 +5,7 @@
       "Bash(mise run test *)",
       "Bash(mise run lint *)",
       "Bash(mise run build *)",
-      "Bash(mise run shots *)",
-      "mcp__claude-in-chrome__tabs_context_mcp",
-      "mcp__mcp-registry__search_mcp_registry",
-      "mcp__mcp-registry__list_connectors"
+      "Bash(mise run shots *)"
     ],
     "deny": [
       "Read(**/.env)",
