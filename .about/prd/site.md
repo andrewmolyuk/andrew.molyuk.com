@@ -131,6 +131,10 @@ visits, not contacts.
   description, the link-preview tags and `llms.txt`, which change only with a build, it is a floor
   ("35+") that is still true.
   → test: src/lib/career.test.ts "counts from 1991" (covers the computed count only)
+- On the page, every count of years leading teams equals the current year minus the start year of
+  the timeline's first role (2006), so it changes when the timeline does.
+  → test: src/lib/career.test.ts "counts from the first role on the timeline, 2006" (covers the
+  computed count only)
 - The role with no end date shows its years as "<start>–now", and its bar on the timeline reaches
   the right edge, which is the current month.
   → test: src/lib/career.test.ts "shows a finished role as a range and the current one as running"
