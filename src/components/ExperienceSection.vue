@@ -116,11 +116,11 @@ const lit = (n: string | undefined) => n !== undefined && focus.value === n
           <div class="relative hidden lg:block lg:h-[22px]" aria-hidden="true">
             <span
               class="absolute top-1/2 right-0 left-0 h-px -translate-y-1/2 bg-linear-to-r from-transparent to-current transition-colors duration-200"
-              :class="lit(DEPTH.n) ? 'text-accent' : 'text-[#5a5a68]'"
+              :class="lit(DEPTH.n) ? 'text-accent' : 'text-dim'"
             ></span>
             <span
               class="absolute top-1/2 right-0 h-3 w-px -translate-y-1/2 transition-colors duration-200"
-              :class="lit(DEPTH.n) ? 'bg-accent' : 'bg-[#5a5a68]'"
+              :class="lit(DEPTH.n) ? 'bg-accent' : 'bg-dim'"
             ></span>
           </div>
           <p class="text-muted leading-[1.65]">

@@ -57,8 +57,11 @@ const planets = SKILL_LIST.map((skill, i) => {
 const coreMoons = moonPositions(CENTER, AI.tools.length, CORE_MOON_ORBIT)
 
 const on = (id: SkillId) => sel(hovered.value, id) === 1
-const MUTED = '#8b8b99'
 const ACCENT = 'var(--color-accent)'
+const MUTED = 'var(--color-muted)'
+const DIM = 'var(--color-dim)'
+const LINE = 'var(--color-line-strong)'
+const PANEL = 'var(--color-panel-alt)'
 </script>
 
 <template>
@@ -78,8 +81,8 @@ const ACCENT = 'var(--color-accent)'
         >
           <defs>
             <radialGradient id="core-glow">
-              <stop offset="0%" stop-color="#4dd8ff" stop-opacity=".18" />
-              <stop offset="100%" stop-color="#4dd8ff" stop-opacity="0" />
+              <stop offset="0%" stop-color="var(--color-accent)" stop-opacity=".18" />
+              <stop offset="100%" stop-color="var(--color-accent)" stop-opacity="0" />
             </radialGradient>
           </defs>
 
@@ -88,7 +91,7 @@ const ACCENT = 'var(--color-accent)'
             :cy="CENTER.y"
             :r="ORBIT"
             fill="none"
-            stroke="#2e2e3e"
+            stroke="var(--color-line-strong)"
             stroke-width="1"
             stroke-dasharray="2 6"
             aria-hidden="true"
@@ -107,7 +110,14 @@ const ACCENT = 'var(--color-accent)'
               stroke-width="1.2"
               style="transition: all 0.2s"
             />
-            <circle v-for="(p, i) in planets" :key="`pulse-${p.id}`" r="2.6" fill="#4dd8ff" opacity=".55" class="pulse">
+            <circle
+              v-for="(p, i) in planets"
+              :key="`pulse-${p.id}`"
+              r="2.6"
+              fill="var(--color-accent)"
+              opacity=".55"
+              class="pulse"
+            >
               <animateMotion
                 :path="`M${p.spoke.from.x} ${p.spoke.from.y} L${p.spoke.to.x} ${p.spoke.to.y}`"
                 :dur="`${3.2 + i * 0.4}s`"
@@ -139,7 +149,7 @@ const ACCENT = 'var(--color-accent)'
               :cy="p.y"
               :r="MOON_ORBIT"
               fill="none"
-              :stroke="on(p.id) ? '#4dd8ff' : '#2e2e3e'"
+              :stroke="on(p.id) ? ACCENT : LINE"
               :stroke-opacity="on(p.id) ? 0.45 : 1"
               stroke-width="1"
               style="transition: all 0.2s"
@@ -155,7 +165,7 @@ const ACCENT = 'var(--color-accent)'
                 :cx="m.x"
                 :cy="m.y"
                 r="3.4"
-                :fill="on(p.id) ? ACCENT : '#5a5a68'"
+                :fill="on(p.id) ? ACCENT : DIM"
                 style="transition: fill 0.2s"
               />
             </g>
@@ -163,8 +173,9 @@ const ACCENT = 'var(--color-accent)'
               :cx="p.x"
               :cy="p.y"
               :r="PLANET_R"
-              :fill="on(p.id) ? 'rgba(77,216,255,0.08)' : '#13131a'"
-              :stroke="on(p.id) ? ACCENT : '#2e2e3e'"
+              :fill="on(p.id) ? ACCENT : PANEL"
+              :fill-opacity="on(p.id) ? 0.08 : 1"
+              :stroke="on(p.id) ? ACCENT : LINE"
               stroke-width="1.4"
               style="transition: all 0.2s"
             />
@@ -202,7 +213,7 @@ const ACCENT = 'var(--color-accent)'
               :cy="CENTER.y"
               :r="CORE_MOON_ORBIT"
               fill="none"
-              stroke="#4dd8ff"
+              stroke="var(--color-accent)"
               stroke-opacity=".16"
               stroke-width="1"
             />
@@ -211,14 +222,22 @@ const ACCENT = 'var(--color-accent)'
               :style="{ transformOrigin: `${CENTER.x}px ${CENTER.y}px`, animationDuration: '48s' }"
               aria-hidden="true"
             >
-              <circle v-for="(m, k) in coreMoons" :key="k" :cx="m.x" :cy="m.y" r="4" fill="#4dd8ff" opacity=".8" />
+              <circle
+                v-for="(m, k) in coreMoons"
+                :key="k"
+                :cx="m.x"
+                :cy="m.y"
+                r="4"
+                fill="var(--color-accent)"
+                opacity=".8"
+              />
             </g>
             <circle
               :cx="CENTER.x"
               :cy="CENTER.y"
               :r="CORE_R + 9"
               fill="none"
-              stroke="#4dd8ff"
+              stroke="var(--color-accent)"
               stroke-opacity=".25"
               stroke-dasharray="3 5"
               class="moons"
@@ -228,11 +247,12 @@ const ACCENT = 'var(--color-accent)'
               :cx="CENTER.x"
               :cy="CENTER.y"
               :r="CORE_R"
-              :fill="on('ai') ? 'rgba(77,216,255,0.14)' : 'rgba(77,216,255,0.07)'"
-              stroke="#4dd8ff"
+              fill="var(--color-accent)"
+              :fill-opacity="on('ai') ? 0.14 : 0.07"
+              stroke="var(--color-accent)"
               stroke-opacity=".75"
               stroke-width="1.6"
-              style="transition: fill 0.2s"
+              style="transition: fill-opacity 0.2s"
             />
             <text
               :x="CENTER.x"
@@ -242,7 +262,7 @@ const ACCENT = 'var(--color-accent)'
               font-size="34"
               font-weight="600"
               letter-spacing="-.02em"
-              fill="#f4f4f5"
+              fill="var(--color-heading)"
             >
               AI
             </text>
@@ -254,7 +274,7 @@ const ACCENT = 'var(--color-accent)'
               font-size="10.5"
               letter-spacing=".2em"
               class="core-label"
-              fill="#4dd8ff"
+              fill="var(--color-accent)"
             >
               ENGINEERING
             </text>

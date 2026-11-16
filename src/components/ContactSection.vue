@@ -40,8 +40,8 @@ function openWhatsApp() {
           aria-hidden="true"
           style="
             background-image:
-              linear-gradient(rgba(77, 216, 255, 0.12) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(77, 216, 255, 0.12) 1px, transparent 1px);
+              linear-gradient(color-mix(in srgb, var(--color-accent) 12%, transparent) 1px, transparent 1px),
+              linear-gradient(90deg, color-mix(in srgb, var(--color-accent) 12%, transparent) 1px, transparent 1px);
             background-size: 48px 48px;
             -webkit-mask-image: radial-gradient(ellipse at center, #000 0%, transparent 70%);
             mask-image: radial-gradient(ellipse at center, #000 0%, transparent 70%);
@@ -64,9 +64,9 @@ function openWhatsApp() {
           </div>
           <div class="flex flex-wrap items-center gap-x-2.5 text-[clamp(14px,1.9vw,17px)] leading-[1.6]">
             <span><span class="text-accent">andrew@molyuk.com</span><span class="text-faint">:~$</span></span>
-            <span class="text-body group-hover:text-white">open {{ TELEGRAM.handle }}</span>
+            <span class="text-body group-hover:text-heading">open {{ TELEGRAM.handle }}</span>
             <span
-              class="bg-accent -ml-1 inline-block h-[1.15em] w-[3px] shadow-[0_0_18px_rgba(77,216,255,0.75)]"
+              class="bg-accent shadow-accent/75 -ml-1 inline-block h-[1.15em] w-[3px] shadow-[0_0_18px_var(--color-accent)]"
               style="animation: blink 1.1s step-end infinite"
               aria-hidden="true"
             ></span>

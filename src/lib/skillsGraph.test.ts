@@ -70,7 +70,7 @@ describe('edgeHot / edgeOpacity / edgeColor', () => {
     for (const [id] of EDGES) {
       expect(edgeHot(null, id)).toBe(false)
       expect(edgeOpacity(null, id)).toBe(0.3)
-      expect(edgeColor(null, id)).toBe('#3a3a46')
+      expect(edgeColor(null, id)).toBe('var(--color-edge)')
     }
   })
 

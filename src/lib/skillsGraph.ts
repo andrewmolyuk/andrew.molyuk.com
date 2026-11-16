@@ -155,7 +155,7 @@ export function edgeOpacity(hovered: SkillId | null, id: SkillId) {
 }
 
 export function edgeColor(hovered: SkillId | null, id: SkillId) {
-  return edgeHot(hovered, id) ? 'var(--color-accent)' : '#3a3a46'
+  return edgeHot(hovered, id) ? 'var(--color-accent)' : 'var(--color-edge)'
 }
 
 export function sel(hovered: SkillId | null, id: SkillId) {
