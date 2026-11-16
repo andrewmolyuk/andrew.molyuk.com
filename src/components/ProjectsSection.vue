@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import ProjectCard from './ProjectCard.vue'
 import ProjectName from './ProjectName.vue'
-import { BUNDERLOG, FEATURED_COUNT, PROJECTS } from '../lib/projects'
+import { BUNDERLOG, FEATURED_COUNT, PROJECTS, percent } from '../lib/projects'
 
 const FEATURED = PROJECTS.slice(0, FEATURED_COUNT)
 const MORE = PROJECTS.slice(FEATURED_COUNT)
+const { alone: ALONE, withLouie: WITH_LOUIE } = BUNDERLOG.rulesChecked
 
 const TOOLS = [
   {
@@ -88,14 +89,16 @@ const TOOLS = [
             </div>
             <div class="mt-3 flex flex-wrap items-baseline gap-x-4 gap-y-1">
               <span class="text-heading font-mono text-xl leading-none font-medium tracking-[-0.03em]"
-                >{{ BUNDERLOG.rulesChecked.alone }}
-                <span class="text-accent">→ {{ BUNDERLOG.rulesChecked.withLouie }}</span></span
+                >{{ percent(ALONE) }} <span class="text-accent">→ {{ percent(WITH_LOUIE) }}</span></span
               >
               <span class="text-muted text-base leading-[1.5]"
                 >how often Claude checks the project’s rules before writing code, on its own and with louie</span
               >
             </div>
-            <div class="text-faint mt-1 font-mono text-xs">5 of 79 vs. 15 of 22 sessions, three weeks of real use</div>
+            <div class="text-faint mt-1 font-mono text-xs">
+              {{ ALONE.checked }} of {{ ALONE.of }} vs. {{ WITH_LOUIE.checked }} of {{ WITH_LOUIE.of }} sessions, three
+              weeks of real use
+            </div>
           </div>
 
           <!-- On a phone each tool is a row, its picture beside its name and one line, and the longer

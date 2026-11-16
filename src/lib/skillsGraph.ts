@@ -1,6 +1,8 @@
 // The Technical Focus graph: AI Engineering at the core, the disciplines it stands on in orbit
 // around it, and the tools of each discipline as moons. Disciplines last; the tools around them change.
 
+import { SYSTEM_STATS } from './profile'
+
 export type SkillId = 'ai' | 'hlha' | 'cloud' | 'containers' | 'delivery' | 'frontend' | 'backend' | 'integrations'
 
 export interface Skill {
@@ -23,7 +25,7 @@ export const SKILL_LIST: (Skill & { id: Exclude<SkillId, 'ai'> })[] = [
     id: 'hlha',
     label: 'Distributed systems',
     desc: 'High-load, high-availability systems that keep serving through failure.',
-    tools: ['3M req/s peak', '100K req/s steady', '23B events/day'],
+    tools: SYSTEM_STATS.map((s) => `${s.value} ${s.label}`),
   },
   {
     id: 'cloud',

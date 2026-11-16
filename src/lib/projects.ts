@@ -6,9 +6,14 @@ export const BUNDERLOG = {
   site: 'https://bunderlog.com',
   github: 'https://github.com/bunderlog',
   what: 'Claude Code sessions that know what the project decided and check every change against it',
-  /** Its measured result, for the first project card and the CV: how often Claude checks the
-   *  project's rules before writing code, on its own and with louie. */
-  rulesChecked: { alone: '6%', withLouie: '68%' },
+  /** Its measured result, for the first project card and the CV: in how many sessions of three weeks'
+   *  real use Claude checked the project's rules before writing code, on its own and with louie. */
+  rulesChecked: { alone: { checked: 5, of: 79 }, withLouie: { checked: 15, of: 22 } },
+}
+
+/** A share of sessions as a whole percentage: 5 of 79 is "6%". */
+export function percent({ checked, of }: { checked: number; of: number }): string {
+  return `${Math.round((checked / of) * 100)}%`
 }
 
 export interface Project {

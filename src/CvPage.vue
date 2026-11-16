@@ -2,8 +2,8 @@
 import { ROLES, years } from './lib/career'
 import { EMAIL, LINKEDIN, TELEGRAM } from './lib/contact'
 import { EARLIER, EDUCATION, LANGUAGES, LOCATION, LOOKING_FOR, NAME, POSITIONING } from './lib/profile'
-import { BUNDERLOG, FEATURED_COUNT, PROJECTS } from './lib/projects'
-import { AI, SKILL_LIST } from './lib/skillsGraph'
+import { BUNDERLOG, FEATURED_COUNT, PROJECTS, percent } from './lib/projects'
+import { ALL_SKILLS } from './lib/skillsGraph'
 
 // The CV, made from the same data as the page, so the two never disagree. It is printed to the PDF
 // the page links to by `mise run cv`.
@@ -16,7 +16,6 @@ const PROJECTS_SHOWN = PROJECTS.slice(0, FEATURED_COUNT).map((p) => {
   const url = p.site ?? p.github
   return { ...p, line: p.fact ? `${p.desc} ${p.fact}.` : p.desc, url, address: url?.replace(/^https:\/\//, '') }
 })
-const SKILLS = [AI, ...SKILL_LIST]
 </script>
 
 <template>
@@ -61,8 +60,8 @@ const SKILLS = [AI, ...SKILL_LIST]
         <span class="text-cv-muted"> · <a :href="BUNDERLOG.site">bunderlog.com</a></span>
         <p class="mt-0.5">
           Open-source tools that keep Claude Code sessions true to a project's written decisions: Claude checks the
-          project's rules before writing code {{ BUNDERLOG.rulesChecked.alone }} of the time on its own,
-          {{ BUNDERLOG.rulesChecked.withLouie }} with louie.
+          project's rules before writing code {{ percent(BUNDERLOG.rulesChecked.alone) }} of the time on its own,
+          {{ percent(BUNDERLOG.rulesChecked.withLouie) }} with louie.
         </p>
       </div>
       <div v-for="project in PROJECTS_SHOWN" :key="project.title" class="mb-2 break-inside-avoid">
@@ -79,7 +78,7 @@ const SKILLS = [AI, ...SKILL_LIST]
 
     <section class="mt-5 break-inside-avoid">
       <h2 class="text-cv-accent mb-2 text-[11px] font-semibold tracking-[0.12em] uppercase">Skills</h2>
-      <div v-for="skill in SKILLS" :key="skill.id" class="grid grid-cols-[140px_1fr] gap-x-3">
+      <div v-for="skill in ALL_SKILLS" :key="skill.id" class="grid grid-cols-[140px_1fr] gap-x-3">
         <span class="font-medium">{{ skill.label }}</span>
         <span class="text-cv-muted">{{ skill.tools.join(', ') }}</span>
       </div>
