@@ -2,6 +2,7 @@
 
 export const TELEGRAM = { href: 'https://t.me/andrewmolyuk', handle: 't.me/andrewmolyuk' }
 export const LINKEDIN = 'https://linkedin.com/in/andrewmolyuk'
+export const GITHUB = 'https://github.com/andrewmolyuk'
 export const EMAIL = 'andrew@molyuk.com'
 /** Made from the CV page by `mise run cv`. */
 export const CV = '/andrew-molyuk-cv.pdf'

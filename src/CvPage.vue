@@ -2,7 +2,7 @@
 import { ROLES, years } from './lib/career'
 import { EMAIL, LINKEDIN, TELEGRAM } from './lib/contact'
 import { EARLIER, EDUCATION, LANGUAGES, LOCATION, LOOKING_FOR, NAME, POSITIONING } from './lib/profile'
-import { FEATURED_COUNT, PROJECTS } from './lib/projects'
+import { BUNDERLOG, FEATURED_COUNT, PROJECTS } from './lib/projects'
 import { AI, SKILL_LIST } from './lib/skillsGraph'
 
 // The CV, made from the same data as the page, so the two never disagree. It is printed to the PDF
@@ -58,10 +58,11 @@ const SKILLS = [AI, ...SKILL_LIST]
       </h2>
       <div class="mb-2 break-inside-avoid">
         <span class="font-semibold">bunderlog</span>
-        <span class="text-cv-muted"> · <a href="https://bunderlog.com">bunderlog.com</a></span>
+        <span class="text-cv-muted"> · <a :href="BUNDERLOG.site">bunderlog.com</a></span>
         <p class="mt-0.5">
           Open-source tools that keep Claude Code sessions true to a project's written decisions: Claude checks the
-          project's rules before writing code 6% of the time on its own, 68% with them.
+          project's rules before writing code {{ BUNDERLOG.rulesChecked.alone }} of the time on its own,
+          {{ BUNDERLOG.rulesChecked.withLouie }} with louie.
         </p>
       </div>
       <div v-for="project in PROJECTS_SHOWN" :key="project.title" class="mb-2 break-inside-avoid">

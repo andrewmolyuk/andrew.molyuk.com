@@ -88,7 +88,8 @@ const TOOLS = [
             </div>
             <div class="mt-3 flex flex-wrap items-baseline gap-x-4 gap-y-1">
               <span class="text-heading font-mono text-xl leading-none font-medium tracking-[-0.03em]"
-                >6% <span class="text-accent">→ 68%</span></span
+                >{{ BUNDERLOG.rulesChecked.alone }}
+                <span class="text-accent">→ {{ BUNDERLOG.rulesChecked.withLouie }}</span></span
               >
               <span class="text-muted text-base leading-[1.5]"
                 >how often Claude checks the project’s rules before writing code, on its own and with louie</span

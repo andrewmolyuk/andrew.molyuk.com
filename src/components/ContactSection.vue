@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { CV, EMAIL, LINKEDIN, TELEGRAM, whatsAppNumber } from '../lib/contact'
+import { CV, EMAIL, GITHUB, LINKEDIN, TELEGRAM, whatsAppNumber } from '../lib/contact'
 
 const OTHERS = [
   { label: 'linkedin', href: LINKEDIN },
-  { label: 'github', href: 'https://github.com/andrewmolyuk' },
+  { label: 'github', href: GITHUB },
   { label: 'whatsapp', href: null },
   { label: 'cv (pdf)', href: CV },
 ]

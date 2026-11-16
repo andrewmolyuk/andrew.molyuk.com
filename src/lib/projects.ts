@@ -6,6 +6,9 @@ export const BUNDERLOG = {
   site: 'https://bunderlog.com',
   github: 'https://github.com/bunderlog',
   what: 'Claude Code sessions that know what the project decided and check every change against it',
+  /** Its measured result, for the first project card and the CV: how often Claude checks the
+   *  project's rules before writing code, on its own and with louie. */
+  rulesChecked: { alone: '6%', withLouie: '68%' },
 }
 
 export interface Project {
