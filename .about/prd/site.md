@@ -145,9 +145,9 @@ visits, not contacts.
 
 ### Experience
 
-- Under the timeline, How I Think About Systems sets out three principles; each names where it came from: a role on the
-  timeline with its years, or "from all of it, 1991–now", and exactly one comes from the whole
-  career.
+- Under the timeline, How I Think About Systems sets out three principles; each names where it
+  came from: a role on the timeline with its years, or "from all of it, 1991–now", and exactly one
+  comes from the whole career.
   → test: src/lib/career.test.ts "each come from a real role, or from the whole career"
   → test: src/lib/career.test.ts "are found from their role and captioned with it" (one role's
   caption only)

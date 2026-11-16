@@ -2,10 +2,10 @@
 import { LINKEDIN } from '../lib/contact'
 
 // Three of the recommendations on Andrew's LinkedIn profile, chosen for who wrote them, how
-// concrete and how recent they are, and cut to about the same length so the cards balance. Quoted word for word;
-// "…" marks where a passage is left out. Each is signed with the company where its author and Andrew
-// worked together, from the timeline, not the author's employer today, and the year it was written,
-// which may be years after they worked together.
+// concrete and how recent they are, and cut to about the same length so the cards balance. Quoted
+// word for word; "…" marks where a passage is left out. Each is signed with the company where its
+// author and Andrew worked together, from the timeline, not the author's employer today, and the
+// year it was written, which may be years after they worked together.
 const QUOTES = [
   {
     name: 'Arseniy Pavlenko',

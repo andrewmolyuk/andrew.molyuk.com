@@ -1,4 +1,4 @@
-// The career behind "How I Think About Systems": each role on a shared time axis with the result it is
+// The career, for Experience and the CV: each role on a shared time axis with the result it is
 // remembered for, and the principles that came out of it. Dates are from LinkedIn.
 
 export interface Role {

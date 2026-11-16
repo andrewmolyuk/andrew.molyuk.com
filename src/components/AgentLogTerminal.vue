@@ -57,9 +57,9 @@ const ROWS: Row[] = [
 const DOT_CLASS = { say: 'text-heading', ok: 'text-success', err: 'text-danger' }
 
 /**
- * The session opens on its first steps, through the fix after bagheera's block, on every screen: in full it is
- * taller than a 800px screen and pushes the Hero's figures below the fold on a laptop, and two
- * screens down on a phone. A button shows the rest.
+ * The session opens on its first steps, through the fix after bagheera's block, on every screen:
+ * in full it is taller than an 800px screen and pushes the Hero's figures below the fold on a
+ * laptop, and two screens down on a phone. A button shows the rest.
  */
 const FIRST_STEPS = 4
 const expanded = ref(false)

@@ -23,7 +23,7 @@ Date: 2026-11-16
 - Every command runs from `mise.toml`, with the tools pinned there. `package.json` keeps only the
   `build` script, because Cloudflare Workers Builds runs `pnpm run build` on every push to
   `master` and its build image has no mise. `.claude/settings.json` allows `mise run check`,
-  `test`, `lint` and `build`, but not `deploy` and not `mise run *`.
+  `test`, `lint`, `build` and `shots`, but not `deploy` and not `mise run *`.
 
 ## Considered options
 

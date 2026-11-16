@@ -17,6 +17,7 @@ mise run check                 # lint, format check, type check, tests
 mise run build                 # type-check, build and prerender to dist/
 mise run preview               # serve the production build locally
 mise run cv                    # print the CV page to the PDF the site links to
+mise run og                    # take the link-preview card's picture
 mise tasks                     # all the tasks
 ```
 
