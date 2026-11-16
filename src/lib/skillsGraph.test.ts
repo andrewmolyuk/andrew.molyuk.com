@@ -4,6 +4,7 @@ import {
   CORE_R,
   PLANET_R,
   EDGES,
+  MOON_ORBIT,
   ORBIT,
   SKILL_LIST,
   ariaLabel,
@@ -126,9 +127,9 @@ describe('geometry', () => {
   it('gives each discipline one moon per tool, on its own small orbit', () => {
     for (const [i, skill] of SKILL_LIST.entries()) {
       const p = planetPosition(i)
-      const moons = moonPositions(p, skill.tools.length, 37)
+      const moons = moonPositions(p, skill.tools.length, MOON_ORBIT)
       expect(moons).toHaveLength(skill.tools.length)
-      for (const m of moons) expect(Math.hypot(m.x - p.x, m.y - p.y)).toBeCloseTo(37, 0)
+      for (const m of moons) expect(Math.hypot(m.x - p.x, m.y - p.y)).toBeCloseTo(MOON_ORBIT, 0)
     }
   })
 })

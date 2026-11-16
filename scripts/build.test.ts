@@ -48,8 +48,7 @@ describe('prerendered page', () => {
   })
 
   it('puts the sections in order: Hero, Experience, Skills, Projects, Recommendations, Contact', () => {
-    const ids = ['experience', 'skills', 'projects', 'recommendations', 'contact']
-    const at = [html.indexOf('<h1'), ...ids.map((id) => html.indexOf(`id="${id}"`))]
+    const at = [html.indexOf('<h1'), ...SECTIONS.map((id) => html.indexOf(`id="${id}"`))]
     expect(at.every((i) => i > 0)).toBe(true)
     expect([...at].sort((a, b) => a - b)).toEqual(at)
   })
