@@ -26,8 +26,7 @@ export const PROJECTS: Project[] = [
   {
     title: 'instrumenta',
     icon: '/projects/instrumenta.svg',
-    status: 'in internal production',
-    github: 'https://github.com/andrewmolyuk/instrumenta',
+    status: 'in internal production', // no live site, and its repository is private
     desc: 'Agent pipeline that takes a Jira ticket to an open pull request, unattended, at the company I work for.',
     fact: '89 tickets → 69 merged PRs in 90 days · 97% of closed PRs merged',
     tags: ['Claude Code', 'Workflows', 'Subagents', 'Playwright', 'Jira', 'Bitbucket'],

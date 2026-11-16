@@ -104,9 +104,10 @@ describe('prerendered page', () => {
     // chainofsale's repository is private, so it has no GitHub mark.
     expect(projects).toMatch(/<a href="https:\/\/chainofsale\.com"[^>]*>chainofsale<\/a>/)
     expect(projects).not.toContain('chainofsale on GitHub')
-    // instrumenta has no live site, so its name links nowhere.
+    // instrumenta has no live site and a private repository, so it links nowhere at all.
     expect(projects).toMatch(/<span[^>]*>instrumenta<\/span>/)
-    expect(projects).toContain('aria-label="instrumenta on GitHub"')
+    expect(projects).not.toContain('instrumenta on GitHub')
+    expect(html).not.toContain('github.com/andrewmolyuk/instrumenta')
   })
 })
 
@@ -118,15 +119,11 @@ describe('CV', () => {
 
   it('gives each project its address as a link: the live site, or the repository when it has none', () => {
     const cv = read('cv.html')
-    for (const address of [
-      'bunderlog.com',
-      'github.com/andrewmolyuk/instrumenta', // no live site
-      'chainofsale.com',
-      'servienta.com',
-      'checkmeup.net',
-    ]) {
+    for (const address of ['bunderlog.com', 'chainofsale.com', 'servienta.com', 'checkmeup.net']) {
       expect(cv).toContain(`<a href="https://${address}">${address}</a>`)
     }
+    // instrumenta has neither a live site nor a public repository, so it has no address.
+    expect(cv).not.toContain('github.com/andrewmolyuk/instrumenta')
   })
 
   it('ships a PDF printed from this very CV; after a change, `mise run cv` prints it again', () => {

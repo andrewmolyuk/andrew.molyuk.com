@@ -181,7 +181,7 @@ visits, not contacts.
   → test: scripts/build.test.ts "shows four projects after bunderlog and folds the rest under More projects"
 - A project's name links to its live product, or links nowhere when it has none (instrumenta); a
   GitHub mark after it links to its repository when the repository is public, and is left out
-  when it isn't (chainofsale).
+  when it isn't (chainofsale, instrumenta).
   → test: scripts/build.test.ts "links each project name to its live site, and the GitHub mark after it to its public repository"
 - Every link that leaves the site opens in a new tab with `rel="noopener noreferrer"`.
   → test: scripts/build.test.ts "opens every link that leaves the site in a new tab, with noopener noreferrer"
@@ -200,7 +200,7 @@ visits, not contacts.
   languages; and the same "Looking for" as the Hero. It is prerendered like the page.
   → test: scripts/build.test.ts "lists every role on the timeline, prerendered like the page"
 - Each project on the CV shows its address as a link, without "https://": its live site, or its
-  repository when it has none (instrumenta).
+  public repository when it has none; a project with neither shows no address (instrumenta).
   → test: scripts/build.test.ts "gives each project its address as a link: the live site, or the repository when it has none"
 - The PDF the page links to is printed from the CV as it is now: a CV that changed since fails the
   build test until `mise run cv` prints it again.

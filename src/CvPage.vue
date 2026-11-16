@@ -10,8 +10,8 @@ import { AI, SKILL_LIST } from './lib/skillsGraph'
 const ROLES_NEWEST_FIRST = [...ROLES].reverse()
 // Each project in one line of text, its figure after its description: written as a string, since the
 // template would drop the space between the two.
-// Its address is the live site, or the repository when it has none (instrumenta), shown without
-// "https://" and a link in the PDF.
+// Its address is the live site, or its public repository when it has none, shown without "https://"
+// and a link in the PDF; a project with neither (instrumenta) has none.
 const PROJECTS_SHOWN = PROJECTS.slice(0, FEATURED_COUNT).map((p) => {
   const url = p.site ?? p.github
   return { ...p, line: p.fact ? `${p.desc} ${p.fact}.` : p.desc, url, address: url?.replace(/^https:\/\//, '') }
