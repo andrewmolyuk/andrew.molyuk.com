@@ -70,6 +70,15 @@ description = "Build, then take the link-preview card's picture into public/og-i
 depends = ["build"]
 run = ["pnpm exec playwright install chromium", "node scripts/og-image.js"]
 
+[tasks.shots]
+description = "Build, then screenshot a page at desktop, tablet and phone widths into a folder, with its overflow and console errors"
+depends = ["build"]
+usage = '''
+arg "<dir>" help="the folder the screenshots go into"
+arg "[page]" help="a path under dist/, such as cv.html; the home page by default" default=""
+'''
+run = ["pnpm exec playwright install chromium", "node scripts/shots.js {{usage.dir}} {{usage.page}}"]
+
 [tasks.deploy]
 description = "Build and deploy to Cloudflare by hand; a push to master does it on its own"
 depends = ["build"]
