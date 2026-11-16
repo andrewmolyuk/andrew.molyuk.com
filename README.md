@@ -21,8 +21,6 @@ mise run og                    # take the link-preview card's picture
 mise tasks                     # all the tasks
 ```
 
-Turn the Git hooks in `.githooks/` on once in each clone: `git config core.hooksPath .githooks`.
-
 ## Deployment
 
 Deploys via [Cloudflare Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/) —

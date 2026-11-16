@@ -1,6 +1,6 @@
 # instrumenta's card doesn't name the employer
 
-Date: 2026-11-11
+Date: 2026-11-16
 
 ## Decision
 
@@ -14,5 +14,5 @@ company I work for". They don't name the company: the badge reads "IN INTERNAL P
 
 ## Consequences
 
-The Approach section still names CGS Tower Networks as the current employer, so a careful reader
-can link the two. That was accepted.
+The Hero and the Experience timeline still name CGS Tower Networks as the current employer, so a
+careful reader can link the two. That was accepted.
