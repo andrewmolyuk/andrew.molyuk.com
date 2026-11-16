@@ -41,9 +41,8 @@ onBeforeUnmount(() => clearInterval(timer))
           target="_blank"
           rel="noopener noreferrer"
           class="text-muted hover:text-accent transition-colors duration-200"
-          >source ↗</a
+          >source</a
         >
-        · Vue on Cloudflare Workers
       </span>
     </div>
   </footer>
