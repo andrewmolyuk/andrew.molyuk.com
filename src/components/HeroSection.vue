@@ -3,16 +3,20 @@ import AgentLogTerminal from './AgentLogTerminal.vue'
 import { ROLES } from '../lib/career'
 import { CV, TELEGRAM } from '../lib/contact'
 import { LOCATION, LOOKING_FOR, NAME, POSITIONING } from '../lib/profile'
+import { BUNDERLOG } from '../lib/projects'
 
 /** The role that is still running, so the line under the name never needs editing when it changes. */
 const CURRENT = ROLES.find((r) => r.end === null)!
 /** It as a fact in a sentence, not a second headline: its summary, or else its title. */
 const CURRENT_ROLE = CURRENT.summary ?? CURRENT.title
+/** The role line as where he comes from and where he is going; the second part never breaks, so
+ *  "AI Engineering" can't split across two lines. */
+const [FROM, TO] = POSITIONING.split(' → ')
 
-// The grid's columns are min(420px, 100%) wide, not 420px: on a phone, 420px is wider than the
-// screen, and the page would scroll sideways. The grid sits at the top of the section, and the
-// columns at the top of the grid, not at the center: opening the whole session grows only its own
-// column, and the left one stays put on a screen of any height.
+// Two columns from 1024px, one below. The columns sit at the top of the grid, not at the center:
+// opening the whole session grows only its own column, and the left one stays put. The section is
+// as tall as its content, not the screen: on a tall screen, Experience shows under the figures
+// instead of an empty band.
 
 // Three figures from the systems behind the career, and one from the AI work now (instrumenta's
 // 90 days to November 2026), so the move to AI Engineering has proof of its own.
@@ -25,10 +29,8 @@ const STATS = [
 </script>
 
 <template>
-  <section class="flex min-h-screen items-start px-8 pt-[100px] pb-[60px]">
-    <div
-      class="mx-auto grid w-full max-w-[1100px] grid-cols-[repeat(auto-fit,minmax(min(420px,100%),1fr))] items-start gap-16"
-    >
+  <section class="px-8 pt-[100px] pb-[60px]">
+    <div class="mx-auto grid w-full max-w-[1100px] items-start gap-16 lg:grid-cols-2">
       <div>
         <div class="mb-6 flex items-center gap-4">
           <img
@@ -53,12 +55,19 @@ const STATS = [
         </h1>
 
         <div class="text-accent mb-7 min-h-[1.4em] font-mono text-[clamp(13px,1.8vw,18px)]">
-          {{ POSITIONING }}
+          {{ FROM }} <span class="whitespace-nowrap">→ {{ TO }}</span>
         </div>
 
         <p class="text-muted mb-5 max-w-[540px] text-base leading-[1.8]">
           Today at {{ CURRENT.company }}: {{ CURRENT_ROLE }}.<br />
-          Building AI-native engineering tools of my own.
+          Building
+          <a
+            :href="BUNDERLOG.site"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-heading decoration-accent/50 hover:text-accent font-medium underline underline-offset-4"
+            >bunderlog ↗</a
+          >: Claude Code sessions that know what the project decided and check every change against it.
         </p>
 
         <!-- In the body's font and brighter than the line above: it is what a recruiter reads the Hero for. -->
@@ -66,7 +75,7 @@ const STATS = [
           <span class="text-accent font-medium">Looking for:</span> {{ LOOKING_FOR }} · {{ LOCATION }}
         </p>
 
-        <div class="mb-13 flex flex-wrap gap-2.5">
+        <div class="mb-11 flex flex-wrap gap-2.5">
           <a
             :href="TELEGRAM.href"
             target="_blank"

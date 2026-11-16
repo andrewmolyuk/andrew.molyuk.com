@@ -57,23 +57,24 @@ const ROWS: Row[] = [
 const DOT_CLASS = { say: 'text-heading', ok: 'text-success', err: 'text-danger' }
 
 /**
- * The session opens on its first steps, up to bagheera's block, on every screen: in full it is
+ * The session opens on its first steps, through the fix after bagheera's block, on every screen: in full it is
  * taller than a 800px screen and pushes the Hero's figures below the fold on a laptop, and two
  * screens down on a phone. A button shows the rest.
  */
-const FIRST_STEPS = 3
+const FIRST_STEPS = 4
 const expanded = ref(false)
 </script>
 
 <template>
-  <div class="sm:mr-10">
-    <p class="text-muted mb-4 max-w-[460px] text-base leading-[1.7]">
-      <span class="text-heading font-medium">bunderlog</span>, my free tools for Claude Code: every session starts
-      knowing what the project decided, and every change is checked against it.
-    </p>
-    <div class="text-muted mb-2.5 font-mono text-xs tracking-[0.15em] uppercase">A sample session</div>
+  <!-- Beside the Hero's text, the session runs from the name down to the figures: it starts 96px down,
+       the height of the photo and the gap under it, and stretches to the bottom of the column beside
+       it, its prompt kept at the bottom. -->
+  <div class="flex flex-col sm:mr-10 lg:mt-24 lg:self-stretch">
+    <div
+      class="border-line bg-panel flex flex-1 flex-col gap-3.5 rounded-md border p-4 font-mono text-sm leading-[1.55]"
+    >
+      <div class="text-muted text-xs tracking-[0.15em] uppercase">A sample session</div>
 
-    <div class="border-line bg-panel flex flex-col gap-3.5 rounded-md border p-4 font-mono text-sm leading-[1.55]">
       <div class="border-accent/50 rounded border px-3 py-2">
         <div class="text-heading"><span class="text-accent">✻</span> Welcome to Claude Code</div>
         <div class="text-muted">cwd: ~/shop</div>
@@ -133,7 +134,7 @@ const expanded = ref(false)
         ⏺ Show the whole session: {{ ROWS.length - FIRST_STEPS }} more steps
       </button>
 
-      <div>
+      <div class="mt-auto">
         <div class="border-line flex items-center gap-2 rounded border px-2.5 py-1.5">
           <span class="text-muted">&gt;</span>
           <span class="bg-body inline-block h-[14px] w-[7px] animate-pulse"></span>

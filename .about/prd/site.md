@@ -31,8 +31,8 @@ visits, not contacts.
 - Hero: his photo, that he is open to roles and consulting, his name, a role line, his current
   job from the timeline as a fact, the roles he is looking for and where, Telegram as the main
   action and the CV beside it, four figures each tied to its source (one of them from his AI work),
-  and a sample Claude Code session showing bunderlog at work, under a sentence that says in plain
-  words what bunderlog does, opened on its first steps.
+  a sentence that says in plain words what bunderlog does, and beside the text a sample Claude Code
+  session showing bunderlog at work, opened on its first steps.
 - Experience: a career timeline of roles, team sizes and results, then How I Think About Systems:
   three principles, each tied to the role it came from.
 - Technical Focus: AI Engineering at the core, the disciplines around it with their tools, listed
@@ -117,9 +117,12 @@ visits, not contacts.
   its summary ("Today at CGS Tower Networks: leading AI across the company, and the architect of
   its WebUI."), so it changes when the timeline does.
 - "Looking for:" names the roles, the consulting and the location, the same words as the CV's.
-- On every screen, the sample session shows its first three steps and a button that opens the rest,
-  and opening it leaves the column beside it where it was. Above the session, one sentence says in
-  plain words what bunderlog does.
+- On every screen, the sample session shows its first four steps and a button that opens the rest,
+  and opening it leaves the column beside it where it was. In the text, after the current job, one
+  sentence says in plain words what bunderlog does, its name linking to bunderlog.com.
+- With two columns, the closed session runs from the top of the name to the bottom of the figures.
+- The Hero is as tall as its content, not the screen: on a tall screen, Experience shows under it.
+- The role line breaks, when it must, before "→ AI Engineering", never inside it.
 
 ### Years and current role
 

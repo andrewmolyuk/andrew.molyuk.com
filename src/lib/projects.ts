@@ -1,5 +1,8 @@
 // The products shown under What I'm Building, after bunderlog.
 
+/** bunderlog's own site and GitHub organization: the Hero's sentence and the first project card link here. */
+export const BUNDERLOG = { site: 'https://bunderlog.com', github: 'https://github.com/bunderlog' }
+
 export interface Project {
   title: string
   icon: string

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ProjectCard from './ProjectCard.vue'
 import ProjectName from './ProjectName.vue'
-import { FEATURED_COUNT, PROJECTS } from '../lib/projects'
+import { BUNDERLOG, FEATURED_COUNT, PROJECTS } from '../lib/projects'
 
 const FEATURED = PROJECTS.slice(0, FEATURED_COUNT)
 const MORE = PROJECTS.slice(FEATURED_COUNT)
@@ -68,8 +68,8 @@ const TOOLS = [
             <ProjectName
               name="bunderlog"
               icon="/projects/bunderlog.svg"
-              site="https://bunderlog.com"
-              github="https://github.com/bunderlog"
+              :site="BUNDERLOG.site"
+              :github="BUNDERLOG.github"
             />
           </div>
           <p class="text-muted mb-5 text-base leading-[1.78]">
