@@ -76,16 +76,9 @@ const PANEL = 'var(--color-panel-alt)'
           :viewBox="`0 0 ${VIEW.width} ${VIEW.height}`"
           class="mx-auto block w-full max-w-[600px] overflow-visible md:sticky md:top-24"
           role="group"
-          aria-label="AI Engineering at the core, six disciplines in orbit, their tools as moons"
+          :aria-label="`AI Engineering at the core, ${SKILL_LIST.length} disciplines in orbit, their tools as moons`"
           @mouseleave="onLeave"
         >
-          <defs>
-            <radialGradient id="core-glow">
-              <stop offset="0%" stop-color="var(--color-accent)" stop-opacity=".18" />
-              <stop offset="100%" stop-color="var(--color-accent)" stop-opacity="0" />
-            </radialGradient>
-          </defs>
-
           <circle
             :cx="CENTER.x"
             :cy="CENTER.y"
@@ -207,7 +200,6 @@ const PANEL = 'var(--color-panel-alt)'
             @click="onToggle('ai')"
             @keydown="onKeydown('ai', $event)"
           >
-            <circle :cx="CENTER.x" :cy="CENTER.y" :r="CORE_MOON_ORBIT + 40" fill="url(#core-glow)" />
             <circle
               :cx="CENTER.x"
               :cy="CENTER.y"
