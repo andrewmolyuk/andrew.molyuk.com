@@ -23,8 +23,8 @@ visits, not contacts.
 ## Scope
 
 - One page in English, in six sections in this order: Hero, Experience, Technical Focus, What I'm
-  Building, Recommendations, Let's talk; a header with his name, linking to each but Hero and
-  offering Telegram, and a footer.
+  Building, Recommendations, Let's talk; a header with the `andrew@molyuk.com:~$` prompt, linking
+  to each but Hero and offering Telegram, and a footer.
 - A CV, made from the same data as the page, as a page of its own (`cv.html`) and a PDF the page
   links to.
 - The page is in the built HTML itself, so a crawler that runs no JavaScript reads all of it.
@@ -86,10 +86,11 @@ visits, not contacts.
 - The header offers a Telegram button on every screen: "Message" with an icon, or the icon alone on a
   phone.
   → test: scripts/build.test.ts "offers Telegram in the header, on every screen"
-- The header shows "Andrew Molyuk" at its left on every screen, linking to the top of the page; at
-  375, 820 and 1280 px its left and right edges line up with the sections' content.
-  → test: scripts/build.test.ts "names Andrew in the header, on every screen, linking to the top" (the
-  name only, not the alignment)
+- The header shows the `andrew@molyuk.com:~$` prompt at its left on every screen, linking to the
+  email address; at 375, 820 and 1280 px its left and right edges line up with the sections'
+  content.
+  → test: scripts/build.test.ts "shows the prompt in the header, on every screen, linking to the email"
+  (the prompt only, not the alignment)
 - On a 1280×800 viewport, without scrolling, the page shows Andrew's photo, "Open to roles and
   consulting", the name, the role line "System Architect / Distributed Systems → AI Engineering",
   the current job and company, what he is looking for, and a "Message me on Telegram" button that

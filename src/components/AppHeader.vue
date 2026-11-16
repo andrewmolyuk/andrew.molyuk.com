@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue'
-import { TELEGRAM } from '../lib/contact'
+import { EMAIL, TELEGRAM } from '../lib/contact'
 
 const LINKS = [
   { id: 'experience', label: 'Experience' },
@@ -37,7 +37,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 
 // The Telegram button stays in the header on every screen, the one action the page asks for. Narrower
 // screens make room for it: the links show from md (a menu below), the button's "Message" from sm.
-// The name shows on every screen, so the bar's left is never empty.
+// The prompt shows on every screen, so the bar's left is never empty.
 </script>
 
 <template>
@@ -47,12 +47,13 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   >
     <!-- The padding sits outside the 1100px, as every section's does, so the bar lines up with the page. -->
     <div class="mx-auto flex h-14 max-w-[1100px] items-center justify-between gap-5">
-      <a href="#" class="text-heading text-base font-semibold tracking-[-0.01em] whitespace-nowrap hover:opacity-85"
-        >Andrew Molyuk</a
+      <a :href="`mailto:${EMAIL}`" class="text-accent font-mono text-sm whitespace-nowrap hover:opacity-85"
+        >{{ EMAIL }}<span class="text-faint">:~$</span></a
       >
       <div class="ml-auto flex items-center gap-3 md:gap-6">
-        <!-- gap-4 below lg: at 768px the name, the five links and "Message" fit only that close. -->
-        <nav class="hidden items-center gap-4 text-base md:flex lg:gap-6">
+        <!-- Closer and a size smaller below lg: at 768px the prompt, the five links and "Message" fit
+             only so. -->
+        <nav class="hidden items-center gap-4 text-sm md:flex lg:gap-6 lg:text-base">
           <a
             v-for="link in LINKS"
             :key="link.id"

@@ -58,11 +58,13 @@ describe('prerendered page', () => {
     expect([...header.matchAll(/href="#(\w+)"/g)].map((m) => m[1])).toEqual(SECTIONS)
   })
 
-  it('names Andrew in the header, on every screen, linking to the top', () => {
+  it('shows the prompt in the header, on every screen, linking to the email', () => {
     const header = html.slice(html.indexOf('<header'), html.indexOf('</header>'))
-    const name = header.match(/<a href="#" class="([^"]*)">Andrew Molyuk<\/a>/)
-    expect(name).not.toBeNull()
-    expect(name![1].split(' ')).not.toContain('hidden')
+    const prompt = header.match(
+      /<a href="mailto:andrew@molyuk\.com" class="([^"]*)">andrew@molyuk\.com<span[^>]*>:~\$<\/span><\/a>/,
+    )
+    expect(prompt).not.toBeNull()
+    expect(prompt![1].split(' ')).not.toContain('hidden')
   })
 
   it('offers Telegram in the header, on every screen', () => {
