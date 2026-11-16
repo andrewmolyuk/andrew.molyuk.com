@@ -96,6 +96,12 @@ describe('prerendered page', () => {
     }
   })
 
+  it('links the footer to the source, without naming the stack', () => {
+    const footer = html.slice(html.indexOf('<footer'), html.indexOf('</footer>'))
+    expect(footer).toMatch(/<a href="https:\/\/github\.com\/andrewmolyuk\/andrew\.molyuk\.com"[^>]*>source<\/a>/)
+    expect(footer).not.toMatch(/Vue|Cloudflare|Workers/)
+  })
+
   it('links each project name to its live site, and the GitHub mark after it to its public repository', () => {
     const projects = html.slice(html.indexOf('id="projects"'), html.indexOf('id="contact"'))
     expect(projects).toMatch(/<a href="https:\/\/servienta\.com"[^>]*>servienta<\/a>/)

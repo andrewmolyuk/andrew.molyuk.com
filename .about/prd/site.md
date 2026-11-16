@@ -210,8 +210,8 @@ visits, not contacts.
 ### Let's talk
 
 - Telegram is the one contact set as a card, and the card carries an outlined "Message me" button,
-  lighter than the header's filled one; email, LinkedIn, GitHub and WhatsApp follow it as plain
-  links in one group, which may wrap.
+  lighter than the header's filled one; under it, the email address in full with a button that
+  copies it; then LinkedIn, GitHub, WhatsApp and the CV as plain links in one group, which may wrap.
 - No file in the built site contains the WhatsApp number's digits in order, whether together or
   separated only by spaces, dashes, dots or brackets, with or without the country code. The number
   is deliberately not written here; the test takes it from the source.
@@ -219,6 +219,10 @@ visits, not contacts.
 - Clicking "whatsapp" opens `wa.me/<the number>` in a new tab.
 - The footer shows the current time in Israel with its UTC offset ("UTC+2"), and it is never more
   than a minute behind.
+- The footer links to the site's repository with the plain word "source", no arrow, styled like
+  the links in Let's talk; it doesn't name the site's stack.
+  → test: scripts/build.test.ts "links the footer to the source, without naming the stack" (not the
+  styling)
 
 ### Sharing and speed
 
