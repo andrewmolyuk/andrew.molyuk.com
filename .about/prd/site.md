@@ -209,8 +209,9 @@ visits, not contacts.
 
 ### Let's talk
 
-- Telegram is the one contact set as a card, and the card carries a button that looks like the
-  Hero's; email, LinkedIn, GitHub and WhatsApp follow it as plain links in one group, which may wrap.
+- Telegram is the one contact set as a card, and the card carries an outlined "Message me" button,
+  lighter than the header's filled one; email, LinkedIn, GitHub and WhatsApp follow it as plain
+  links in one group, which may wrap.
 - No file in the built site contains the WhatsApp number's digits in order, whether together or
   separated only by spaces, dashes, dots or brackets, with or without the country code. The number
   is deliberately not written here; the test takes it from the source.

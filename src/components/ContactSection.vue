@@ -54,11 +54,12 @@ function openWhatsApp() {
           rel="noopener noreferrer"
           class="group border-line bg-panel hover:border-accent/50 relative block rounded-md border p-5 font-mono transition-colors duration-200 sm:p-6"
         >
-          <!-- The whole card is the link; the pill only makes it look like the Hero's button, the same one
-               action, which the terminal line alone didn't. -->
+          <!-- The whole card is the link; the outlined pill marks it as the action, which the terminal
+               line alone didn't. Outlined, not filled: the header's filled button already offers it. -->
           <div class="mb-4 flex items-center justify-between">
             <span class="text-faint text-xs tracking-[0.12em] uppercase">telegram</span>
-            <span class="bg-accent text-ink rounded px-3 py-1.5 font-sans text-sm font-semibold group-hover:opacity-85"
+            <span
+              class="border-accent/50 text-accent group-hover:bg-accent/10 rounded border px-2.5 py-1 text-xs tracking-[0.12em] uppercase transition-colors duration-200"
               >Message me ↗</span
             >
           </div>
