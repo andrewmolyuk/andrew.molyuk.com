@@ -112,7 +112,7 @@ visits, not contacts.
 ### Hero
 
 - Each of the four figures shows its source under it: ~23B events/day and 100K req/s steady from
-  Vidcrunch, 3M req/s peak from Screenz, both companies on the career timeline; 69 merged PRs from
+  Vidcrunch, 3M req/s peak from Screenz, both companies on the career timeline; 122 merged PRs from
   instrumenta, over 90 days. On a phone they sit two by two.
 - The current job under the role line is the timeline's role with no end date, put as a fact from
   its summary ("Today at CGS Tower Networks: leading AI across the company, and the architect of
