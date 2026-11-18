@@ -5,7 +5,7 @@
 [tools]
 "github:bunderlog/hathi" = "1.2.0" # run by the Git hooks in .githooks/
 node = "26.13.1"
-pnpm = "11.28.12" # package.json's packageManager
+pnpm = "12.21.0" # package.json's packageManager
 
 [tasks.setup]
 description = "Install the tools and the dependencies, and turn the Git hooks on in this clone"
