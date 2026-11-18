@@ -4,7 +4,7 @@
 
 [tools]
 "github:bunderlog/hathi" = "1.2.0" # run by the Git hooks in .githooks/
-node = "24.22.3"
+node = "26.13.1"
 pnpm = "11.28.12" # package.json's packageManager
 
 [tasks.setup]
